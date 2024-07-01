@@ -59,9 +59,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(card_id = SKIP,
-                   from_date = SKIP,
-                   to_date = SKIP,
+    def initialize(card_id = SKIP, from_date = SKIP, to_date = SKIP,
                    reference_id = SKIP)
       @card_id = card_id unless card_id == SKIP
       @from_date = from_date unless from_date == SKIP

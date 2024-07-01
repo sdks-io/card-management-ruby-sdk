@@ -13,15 +13,15 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :request_id
 
-    # API Response Status
-    # @return [String]
-    attr_accessor :status
+    # API Request Id
+    # @return [ErrorStatus]
+    attr_accessor :error
 
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
       @_hash['request_id'] = 'RequestId'
-      @_hash['status'] = 'Status'
+      @_hash['error'] = 'Error'
       @_hash
     end
 
@@ -29,7 +29,7 @@ module ShellCardManagementApIs
     def self.optionals
       %w[
         request_id
-        status
+        error
       ]
     end
 
@@ -38,10 +38,9 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(request_id = SKIP,
-                   status = SKIP)
+    def initialize(request_id = SKIP, error = SKIP)
       @request_id = request_id unless request_id == SKIP
-      @status = status unless status == SKIP
+      @error = error unless error == SKIP
     end
 
     # Creates an instance of the object from a hash.
@@ -50,11 +49,11 @@ module ShellCardManagementApIs
 
       # Extract variables from the hash.
       request_id = hash.key?('RequestId') ? hash['RequestId'] : SKIP
-      status = hash.key?('Status') ? hash['Status'] : SKIP
+      error = ErrorStatus.from_hash(hash['Error']) if hash['Error']
 
       # Create object from extracted values.
       DeleteBundleResponse.new(request_id,
-                               status)
+                               error)
     end
   end
 end

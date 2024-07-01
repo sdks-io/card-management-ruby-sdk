@@ -145,21 +145,12 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(company_name = nil,
-                   address_id = nil,
-                   address_line1 = nil,
-                   zip_code = nil,
-                   country_id = nil,
-                   country_iso_code = nil,
-                   country = nil,
-                   contact_fore_name = SKIP,
-                   contact_middle_name = SKIP,
-                   contact_last_name = SKIP,
-                   contact_title = SKIP,
-                   address_line2 = SKIP,
-                   address_line3 = SKIP,
-                   city = SKIP,
-                   region_id = SKIP,
+    def initialize(company_name = nil, address_id = nil, address_line1 = nil,
+                   zip_code = nil, country_id = nil, country_iso_code = nil,
+                   country = nil, contact_fore_name = SKIP,
+                   contact_middle_name = SKIP, contact_last_name = SKIP,
+                   contact_title = SKIP, address_line2 = SKIP,
+                   address_line3 = SKIP, city = SKIP, region_id = SKIP,
                    region = SKIP)
       @contact_fore_name = contact_fore_name unless contact_fore_name == SKIP
       @contact_middle_name = contact_middle_name unless contact_middle_name == SKIP

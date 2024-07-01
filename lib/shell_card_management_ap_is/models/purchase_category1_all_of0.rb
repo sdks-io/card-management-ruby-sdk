@@ -89,13 +89,8 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(id = nil,
-                   code = nil,
-                   name = nil,
-                   is_visible = nil,
-                   product_groups = nil,
-                   title = SKIP,
-                   description = SKIP)
+    def initialize(id = nil, code = nil, name = nil, is_visible = nil,
+                   product_groups = nil, title = SKIP, description = SKIP)
       @id = id
       @code = code
       @name = name

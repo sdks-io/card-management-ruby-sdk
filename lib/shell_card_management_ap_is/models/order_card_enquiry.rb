@@ -183,14 +183,15 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :order_request_id
 
-    # Expiry date of the card.<br />
-    # Format: MMyy<br />
-    # (Clients to convert this to appropriate DateTime type.)<br />
-    # Note: This is the Expiry Date saved.<br />
-    # If the Order Card request is still not processed, i.e.PAN is not yet
-    # issued, this field will be null or empty. <br />
+    # Expiry date of the card.
+    # Format: yyyymmdd hh:mm:ss 
+    # (Clients to convert this to appropriate DateTime type.)
+    # Note: This is the Expiry Date saved DB.
+    # If the Order Card request is still not processed, i.e. PAN is not yet
+    # issued, this field will be null or empty. 
     # For a Card Order with a custom Expiry Date passed in the request, this
-    # value will be returned after it is updated successfully.
+    # value will be returned after it is updated successfully in GFN by the
+    # background process.
     # @return [String]
     attr_accessor :expiry_date
 
@@ -331,40 +332,21 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(account_id = SKIP,
-                   account_number = SKIP,
-                   bco_reference = SKIP,
-                   bco_row_number = SKIP,
-                   card_group_id = SKIP,
-                   card_group_name = SKIP,
-                   card_id = SKIP,
-                   card_pan = SKIP,
-                   card_type_code = SKIP,
-                   card_type_id = SKIP,
-                   card_type_name = SKIP,
-                   driver_name = SKIP,
-                   error_code = SKIP,
-                   error_description = SKIP,
-                   gateway_sync_error_code = SKIP,
+    def initialize(account_id = SKIP, account_number = SKIP,
+                   bco_reference = SKIP, bco_row_number = SKIP,
+                   card_group_id = SKIP, card_group_name = SKIP, card_id = SKIP,
+                   card_pan = SKIP, card_type_code = SKIP, card_type_id = SKIP,
+                   card_type_name = SKIP, driver_name = SKIP, error_code = SKIP,
+                   error_description = SKIP, gateway_sync_error_code = SKIP,
                    gateway_sync_error_description = SKIP,
-                   gateway_sync_status = SKIP,
-                   main_reference = SKIP,
-                   order_card_reference = SKIP,
-                   order_status = SKIP,
-                   payer_id = SKIP,
-                   payer_number = SKIP,
-                   processed_date = SKIP,
-                   purchase_category_code = SKIP,
-                   purchase_category_id = SKIP,
-                   purchase_category_name = SKIP,
-                   submitted_date = SKIP,
-                   sync_processed_date = SKIP,
-                   sync_requested_date = SKIP,
-                   vrn = SKIP,
-                   order_request_id = SKIP,
-                   expiry_date = SKIP,
-                   client_reference_id = SKIP,
-                   status_description = SKIP,
+                   gateway_sync_status = SKIP, main_reference = SKIP,
+                   order_card_reference = SKIP, order_status = SKIP,
+                   payer_id = SKIP, payer_number = SKIP, processed_date = SKIP,
+                   purchase_category_code = SKIP, purchase_category_id = SKIP,
+                   purchase_category_name = SKIP, submitted_date = SKIP,
+                   sync_processed_date = SKIP, sync_requested_date = SKIP,
+                   vrn = SKIP, order_request_id = SKIP, expiry_date = SKIP,
+                   client_reference_id = SKIP, status_description = SKIP,
                    col_co_id = SKIP)
       @account_id = account_id unless account_id == SKIP
       @account_number = account_number unless account_number == SKIP

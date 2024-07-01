@@ -64,12 +64,9 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(role_name = SKIP,
-                   is_customer_admin = true,
-                   is_customer_user = false,
-                   is_shell_admin = false,
-                   is_service_account = false,
-                   is_user_admin = true)
+    def initialize(role_name = SKIP, is_customer_admin = true,
+                   is_customer_user = false, is_shell_admin = false,
+                   is_service_account = false, is_user_admin = true)
       @role_name = role_name unless role_name == SKIP
       @is_customer_admin = is_customer_admin unless is_customer_admin == SKIP
       @is_customer_user = is_customer_user unless is_customer_user == SKIP

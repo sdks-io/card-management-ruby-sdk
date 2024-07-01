@@ -161,20 +161,13 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(delivery_contact_title = SKIP,
-                   delivery_contact_name = SKIP,
-                   delivery_company_name = SKIP,
-                   delivery_address_line1 = SKIP,
-                   delivery_address_line2 = SKIP,
-                   delivery_address_line3 = SKIP,
-                   delivery_zip_code = SKIP,
-                   delivery_city = SKIP,
-                   delivery_region_id = SKIP,
-                   delivery_region = SKIP,
-                   delivery_country = SKIP,
-                   phone_number = SKIP,
-                   email_address = SKIP,
-                   save_for_pin_reminder = SKIP)
+    def initialize(delivery_contact_title = SKIP, delivery_contact_name = SKIP,
+                   delivery_company_name = SKIP, delivery_address_line1 = SKIP,
+                   delivery_address_line2 = SKIP, delivery_address_line3 = SKIP,
+                   delivery_zip_code = SKIP, delivery_city = SKIP,
+                   delivery_region_id = SKIP, delivery_region = SKIP,
+                   delivery_country = SKIP, phone_number = SKIP,
+                   email_address = SKIP, save_for_pin_reminder = SKIP)
       @delivery_contact_title = delivery_contact_title unless delivery_contact_title == SKIP
       @delivery_contact_name = delivery_contact_name unless delivery_contact_name == SKIP
       @delivery_company_name = delivery_company_name unless delivery_company_name == SKIP

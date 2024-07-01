@@ -62,12 +62,8 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(card_groups = SKIP,
-                   current_page = SKIP,
-                   row_count = SKIP,
-                   total_pages = SKIP,
-                   error = SKIP,
-                   request_id = SKIP)
+    def initialize(card_groups = SKIP, current_page = SKIP, row_count = SKIP,
+                   total_pages = SKIP, error = SKIP, request_id = SKIP)
       @card_groups = card_groups unless card_groups == SKIP
       @current_page = current_page unless current_page == SKIP
       @row_count = row_count unless row_count == SKIP

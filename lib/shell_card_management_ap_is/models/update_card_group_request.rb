@@ -171,20 +171,12 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   payer_number = SKIP,
-                   payer_id = SKIP,
-                   account_id = SKIP,
-                   account_number = SKIP,
-                   card_group_id = SKIP,
-                   card_group_name = SKIP,
-                   print_on_card = SKIP,
-                   card_type_id = SKIP,
-                   terminate_card_group = SKIP,
-                   move_cards = SKIP,
-                   target_account_id = SKIP,
-                   target_account_number = SKIP,
+    def initialize(col_co_code = SKIP, col_co_id = SKIP, payer_number = SKIP,
+                   payer_id = SKIP, account_id = SKIP, account_number = SKIP,
+                   card_group_id = SKIP, card_group_name = SKIP,
+                   print_on_card = SKIP, card_type_id = SKIP,
+                   terminate_card_group = SKIP, move_cards = SKIP,
+                   target_account_id = SKIP, target_account_number = SKIP,
                    target_new_card_group_name = SKIP,
                    target_card_group_id = SKIP)
       @col_co_code = col_co_code unless col_co_code == SKIP

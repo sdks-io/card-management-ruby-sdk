@@ -51,8 +51,7 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(pin_advice_type_id = SKIP,
-                   is_card_order_option = SKIP,
+    def initialize(pin_advice_type_id = SKIP, is_card_order_option = SKIP,
                    is_pin_reminder_option = SKIP)
       @pin_advice_type_id = pin_advice_type_id unless pin_advice_type_id == SKIP
       @is_card_order_option = is_card_order_option unless is_card_order_option == SKIP

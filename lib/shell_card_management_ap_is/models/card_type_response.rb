@@ -44,9 +44,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(customer_card_types = SKIP,
-                   error = SKIP,
-                   request_id = SKIP)
+    def initialize(customer_card_types = SKIP, error = SKIP, request_id = SKIP)
       @customer_card_types = customer_card_types unless customer_card_types == SKIP
       @error = error unless error == SKIP
       @request_id = request_id unless request_id == SKIP

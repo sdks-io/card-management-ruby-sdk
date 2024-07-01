@@ -42,8 +42,7 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(driver_and_vrn = SKIP,
-                   order_card_reference = SKIP)
+    def initialize(driver_and_vrn = SKIP, order_card_reference = SKIP)
       @driver_and_vrn = driver_and_vrn unless driver_and_vrn == SKIP
       @order_card_reference = order_card_reference unless order_card_reference == SKIP
     end

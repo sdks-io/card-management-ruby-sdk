@@ -35,8 +35,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(product_restriction_id = nil,
-                   description = nil)
+    def initialize(product_restriction_id = nil, description = nil)
       @product_restriction_id = product_restriction_id
       @description = description
     end

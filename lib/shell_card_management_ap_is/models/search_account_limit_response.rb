@@ -9,24 +9,49 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # TODO: Write general description for this method
+    # Request Id of the API call
     # @return [String]
     attr_accessor :request_id
 
-    # TODO: Write general description for this method
-    # @return [String]
-    attr_accessor :status
+    # Account ID of the customer.
+    # @return [Integer]
+    attr_accessor :account_id
 
-    # TODO: Write general description for this method
-    # @return [SearchAccountLimitResponseData]
-    attr_accessor :data
+    # Account Number
+    # Example: GB99215176
+    # @return [String]
+    attr_accessor :account_number
+
+    # 3 digit Shell global fuel product code, if already set up.
+    # Example: 021
+    # @return [String]
+    attr_accessor :reference_product
+
+    # The restriction condition code.
+    # Example: DECLINE_ALERT
+    # @return [String]
+    attr_accessor :restriction_condition
+
+    # The restriction condition code.
+    # Example: DECLINE_ALERT
+    # @return [Array[AccountVelocityLimit]]
+    attr_accessor :velocity_limits
+
+    # The restriction condition code.
+    # Example: DECLINE_ALERT
+    # @return [ErrorStatus]
+    attr_accessor :error
 
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
       @_hash['request_id'] = 'RequestId'
-      @_hash['status'] = 'Status'
-      @_hash['data'] = 'Data'
+      @_hash['account_id'] = 'AccountId'
+      @_hash['account_number'] = 'AccountNumber'
+      @_hash['reference_product'] = 'ReferenceProduct'
+      @_hash['restriction_condition'] = 'RestrictionCondition'
+      @_hash['velocity_limits'] = 'VelocityLimits'
+      @_hash['error'] = 'Error'
       @_hash
     end
 
@@ -34,22 +59,32 @@ module ShellCardManagementApIs
     def self.optionals
       %w[
         request_id
-        status
-        data
+        account_id
+        account_number
+        reference_product
+        restriction_condition
+        velocity_limits
+        error
       ]
     end
 
     # An array for nullable fields
     def self.nullables
-      []
+      %w[
+        request_id
+      ]
     end
 
-    def initialize(request_id = SKIP,
-                   status = SKIP,
-                   data = SKIP)
+    def initialize(request_id = SKIP, account_id = SKIP, account_number = SKIP,
+                   reference_product = SKIP, restriction_condition = SKIP,
+                   velocity_limits = SKIP, error = SKIP)
       @request_id = request_id unless request_id == SKIP
-      @status = status unless status == SKIP
-      @data = data unless data == SKIP
+      @account_id = account_id unless account_id == SKIP
+      @account_number = account_number unless account_number == SKIP
+      @reference_product = reference_product unless reference_product == SKIP
+      @restriction_condition = restriction_condition unless restriction_condition == SKIP
+      @velocity_limits = velocity_limits unless velocity_limits == SKIP
+      @error = error unless error == SKIP
     end
 
     # Creates an instance of the object from a hash.
@@ -58,13 +93,32 @@ module ShellCardManagementApIs
 
       # Extract variables from the hash.
       request_id = hash.key?('RequestId') ? hash['RequestId'] : SKIP
-      status = hash.key?('Status') ? hash['Status'] : SKIP
-      data = SearchAccountLimitResponseData.from_hash(hash['Data']) if hash['Data']
+      account_id = hash.key?('AccountId') ? hash['AccountId'] : SKIP
+      account_number = hash.key?('AccountNumber') ? hash['AccountNumber'] : SKIP
+      reference_product =
+        hash.key?('ReferenceProduct') ? hash['ReferenceProduct'] : SKIP
+      restriction_condition =
+        hash.key?('RestrictionCondition') ? hash['RestrictionCondition'] : SKIP
+      # Parameter is an array, so we need to iterate through it
+      velocity_limits = nil
+      unless hash['VelocityLimits'].nil?
+        velocity_limits = []
+        hash['VelocityLimits'].each do |structure|
+          velocity_limits << (AccountVelocityLimit.from_hash(structure) if structure)
+        end
+      end
+
+      velocity_limits = SKIP unless hash.key?('VelocityLimits')
+      error = ErrorStatus.from_hash(hash['Error']) if hash['Error']
 
       # Create object from extracted values.
       SearchAccountLimitResponse.new(request_id,
-                                     status,
-                                     data)
+                                     account_id,
+                                     account_number,
+                                     reference_product,
+                                     restriction_condition,
+                                     velocity_limits,
+                                     error)
     end
   end
 end

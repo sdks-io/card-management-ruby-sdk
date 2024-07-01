@@ -9,29 +9,66 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # Request Id
+    # Request Id of the API call
     # @return [String]
     attr_accessor :request_id
 
-    # Response status
+    # Request Id of the API call
+    # @return [ErrorStatus]
+    attr_accessor :bundle_creation_status
+
+    # Identifier of the newly created bundle
     # @return [String]
-    attr_accessor :status
+    attr_accessor :bundle_id
 
-    # Response status
-    # @return [Array[CreateBundleResponseDataItems]]
-    attr_accessor :data
+    # Identifier of the newly created bundle
+    # @return [ErrorStatus]
+    attr_accessor :day_time_restriction_status
 
-    # Response status
-    # @return [Array[ErrorDetails]]
-    attr_accessor :errors
+    # Identifier of the day/time restriction profile created
+    # @return [String]
+    attr_accessor :day_time_restriction_profile_id
+
+    # Identifier of the day/time restriction profile created
+    # @return [ErrorStatus]
+    attr_accessor :location_restriction_status
+
+    # Identifier of the location restriction profile created
+    # @return [String]
+    attr_accessor :location_restriction_profile_id
+
+    # Identifier of the location restriction profile created
+    # @return [ErrorStatus]
+    attr_accessor :usage_restriction_status
+
+    # Identifier of the location restriction profile created
+    # @return [ErrorStatus]
+    attr_accessor :product_restriction_status
+
+    # Identifier of the location restriction profile created
+    # @return [BundleCardRestrictionStatus]
+    attr_accessor :cards
+
+    # Identifier of the location restriction profile created
+    # @return [ErrorStatus]
+    attr_accessor :error
 
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
       @_hash['request_id'] = 'RequestId'
-      @_hash['status'] = 'Status'
-      @_hash['data'] = 'Data'
-      @_hash['errors'] = 'Errors'
+      @_hash['bundle_creation_status'] = 'BundleCreationStatus'
+      @_hash['bundle_id'] = 'BundleId'
+      @_hash['day_time_restriction_status'] = 'DayTimeRestrictionStatus'
+      @_hash['day_time_restriction_profile_id'] =
+        'DayTimeRestrictionProfileId'
+      @_hash['location_restriction_status'] = 'LocationRestrictionStatus'
+      @_hash['location_restriction_profile_id'] =
+        'LocationRestrictionProfileId'
+      @_hash['usage_restriction_status'] = 'UsageRestrictionStatus'
+      @_hash['product_restriction_status'] = 'ProductRestrictionStatus'
+      @_hash['cards'] = 'Cards'
+      @_hash['error'] = 'Error'
       @_hash
     end
 
@@ -39,25 +76,60 @@ module ShellCardManagementApIs
     def self.optionals
       %w[
         request_id
-        status
-        data
-        errors
+        bundle_creation_status
+        bundle_id
+        day_time_restriction_status
+        day_time_restriction_profile_id
+        location_restriction_status
+        location_restriction_profile_id
+        usage_restriction_status
+        product_restriction_status
+        cards
+        error
       ]
     end
 
     # An array for nullable fields
     def self.nullables
-      []
+      %w[
+        request_id
+      ]
     end
 
-    def initialize(request_id = SKIP,
-                   status = SKIP,
-                   data = SKIP,
-                   errors = SKIP)
+    def initialize(request_id = SKIP, bundle_creation_status = SKIP,
+                   bundle_id = SKIP, day_time_restriction_status = SKIP,
+                   day_time_restriction_profile_id = SKIP,
+                   location_restriction_status = SKIP,
+                   location_restriction_profile_id = SKIP,
+                   usage_restriction_status = SKIP,
+                   product_restriction_status = SKIP, cards = SKIP,
+                   error = SKIP)
       @request_id = request_id unless request_id == SKIP
-      @status = status unless status == SKIP
-      @data = data unless data == SKIP
-      @errors = errors unless errors == SKIP
+      @bundle_creation_status = bundle_creation_status unless bundle_creation_status == SKIP
+      @bundle_id = bundle_id unless bundle_id == SKIP
+      unless day_time_restriction_status == SKIP
+        @day_time_restriction_status =
+          day_time_restriction_status
+      end
+      unless day_time_restriction_profile_id == SKIP
+        @day_time_restriction_profile_id =
+          day_time_restriction_profile_id
+      end
+      unless location_restriction_status == SKIP
+        @location_restriction_status =
+          location_restriction_status
+      end
+      unless location_restriction_profile_id == SKIP
+        @location_restriction_profile_id =
+          location_restriction_profile_id
+      end
+      @usage_restriction_status = usage_restriction_status unless usage_restriction_status == SKIP
+      unless product_restriction_status == SKIP
+        @product_restriction_status =
+          product_restriction_status
+      end
+      @cards = cards unless cards == SKIP
+      @error = error unless error == SKIP
     end
 
     # Creates an instance of the object from a hash.
@@ -66,33 +138,36 @@ module ShellCardManagementApIs
 
       # Extract variables from the hash.
       request_id = hash.key?('RequestId') ? hash['RequestId'] : SKIP
-      status = hash.key?('Status') ? hash['Status'] : SKIP
-      # Parameter is an array, so we need to iterate through it
-      data = nil
-      unless hash['Data'].nil?
-        data = []
-        hash['Data'].each do |structure|
-          data << (CreateBundleResponseDataItems.from_hash(structure) if structure)
-        end
-      end
-
-      data = SKIP unless hash.key?('Data')
-      # Parameter is an array, so we need to iterate through it
-      errors = nil
-      unless hash['Errors'].nil?
-        errors = []
-        hash['Errors'].each do |structure|
-          errors << (ErrorDetails.from_hash(structure) if structure)
-        end
-      end
-
-      errors = SKIP unless hash.key?('Errors')
+      bundle_creation_status = ErrorStatus.from_hash(hash['BundleCreationStatus']) if
+        hash['BundleCreationStatus']
+      bundle_id = hash.key?('BundleId') ? hash['BundleId'] : SKIP
+      day_time_restriction_status = ErrorStatus.from_hash(hash['DayTimeRestrictionStatus']) if
+        hash['DayTimeRestrictionStatus']
+      day_time_restriction_profile_id =
+        hash.key?('DayTimeRestrictionProfileId') ? hash['DayTimeRestrictionProfileId'] : SKIP
+      location_restriction_status = ErrorStatus.from_hash(hash['LocationRestrictionStatus']) if
+        hash['LocationRestrictionStatus']
+      location_restriction_profile_id =
+        hash.key?('LocationRestrictionProfileId') ? hash['LocationRestrictionProfileId'] : SKIP
+      usage_restriction_status = ErrorStatus.from_hash(hash['UsageRestrictionStatus']) if
+        hash['UsageRestrictionStatus']
+      product_restriction_status = ErrorStatus.from_hash(hash['ProductRestrictionStatus']) if
+        hash['ProductRestrictionStatus']
+      cards = BundleCardRestrictionStatus.from_hash(hash['Cards']) if hash['Cards']
+      error = ErrorStatus.from_hash(hash['Error']) if hash['Error']
 
       # Create object from extracted values.
       CreateBundleResponse.new(request_id,
-                               status,
-                               data,
-                               errors)
+                               bundle_creation_status,
+                               bundle_id,
+                               day_time_restriction_status,
+                               day_time_restriction_profile_id,
+                               location_restriction_status,
+                               location_restriction_profile_id,
+                               usage_restriction_status,
+                               product_restriction_status,
+                               cards,
+                               error)
     end
   end
 end

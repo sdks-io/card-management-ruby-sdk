@@ -80,10 +80,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(id = SKIP,
-                   code = SKIP,
-                   name = SKIP,
-                   is_visible = SKIP,
+    def initialize(id = SKIP, code = SKIP, name = SKIP, is_visible = SKIP,
                    product_groups = SKIP)
       @id = id unless id == SKIP
       @code = code unless code == SKIP

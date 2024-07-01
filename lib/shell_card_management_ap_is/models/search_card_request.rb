@@ -9,8 +9,8 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # Encapsulate the Search details request.
-    # @return [SearchRequest]
+    # TODO: Write general description for this method
+    # @return [Filters]
     attr_accessor :filters
 
     # Page Size – Number of records to show on a page
@@ -46,9 +46,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(filters = SKIP,
-                   page_size = SKIP,
-                   page = SKIP)
+    def initialize(filters = SKIP, page_size = SKIP, page = SKIP)
       @filters = filters unless filters == SKIP
       @page_size = page_size unless page_size == SKIP
       @page = page unless page == SKIP
@@ -59,7 +57,7 @@ module ShellCardManagementApIs
       return nil unless hash
 
       # Extract variables from the hash.
-      filters = SearchRequest.from_hash(hash['Filters']) if hash['Filters']
+      filters = Filters.from_hash(hash['Filters']) if hash['Filters']
       page_size = hash.key?('PageSize') ? hash['PageSize'] : SKIP
       page = hash.key?('Page') ? hash['Page'] : SKIP
 

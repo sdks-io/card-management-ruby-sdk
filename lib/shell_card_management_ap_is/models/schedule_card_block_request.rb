@@ -42,8 +42,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(is_time_supported = SKIP,
-                   schedule_card_block_cards = SKIP)
+    def initialize(is_time_supported = SKIP, schedule_card_block_cards = SKIP)
       @is_time_supported = is_time_supported unless is_time_supported == SKIP
       unless schedule_card_block_cards == SKIP
         @schedule_card_block_cards =

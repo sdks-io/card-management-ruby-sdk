@@ -38,8 +38,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(uid = SKIP,
-                   value = SKIP)
+    def initialize(uid = SKIP, value = SKIP)
       @uid = uid unless uid == SKIP
       @value = value unless value == SKIP
     end

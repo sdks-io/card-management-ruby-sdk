@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `products` | [`Array<ProductAllOf0>`](../../doc/models/product-all-of-0.md) | Optional | - |
+| `products` | [`Array<RestrictionProduct>`](../../doc/models/restriction-product.md) | Optional | - |
 | `product_groups` | [`Array<ProductGroup>`](../../doc/models/product-group.md) | Optional | - |
 
 ## Example (as JSON)

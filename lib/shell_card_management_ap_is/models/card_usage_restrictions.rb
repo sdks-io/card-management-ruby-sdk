@@ -168,16 +168,11 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(level = SKIP,
-                   daily_spend_limit = SKIP,
-                   weekly_spend_limit = SKIP,
-                   monthly_spend_limit = SKIP,
-                   annual_spend_limit = SKIP,
-                   life_time_spend_limit = SKIP,
-                   daily_volume_limit = SKIP,
-                   weekly_volume_limit = SKIP,
-                   monthly_volume_limit = SKIP,
-                   annual_volume_limit = 0,
+    def initialize(level = SKIP, daily_spend_limit = SKIP,
+                   weekly_spend_limit = SKIP, monthly_spend_limit = SKIP,
+                   annual_spend_limit = SKIP, life_time_spend_limit = SKIP,
+                   daily_volume_limit = SKIP, weekly_volume_limit = SKIP,
+                   monthly_volume_limit = SKIP, annual_volume_limit = 0,
                    life_time_volume_limit = SKIP,
                    transaction_spend_limit = SKIP,
                    transaction_volume_limit = SKIP,

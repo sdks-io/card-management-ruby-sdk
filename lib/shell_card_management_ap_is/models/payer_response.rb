@@ -68,12 +68,8 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(request_id = SKIP,
-                   payers = SKIP,
-                   current_page = SKIP,
-                   row_count = SKIP,
-                   total_pages = SKIP,
-                   error = SKIP)
+    def initialize(request_id = SKIP, payers = SKIP, current_page = SKIP,
+                   row_count = SKIP, total_pages = SKIP, error = SKIP)
       @request_id = request_id unless request_id == SKIP
       @payers = payers unless payers == SKIP
       @current_page = current_page unless current_page == SKIP

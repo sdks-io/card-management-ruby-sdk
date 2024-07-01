@@ -31,7 +31,7 @@ def request_token_bearer_token(authorization,
 
 ## Server
 
-`Server::ACCESS_TOKEN_SERVER`
+`Server::OAUTH_SERVER`
 
 ## Response Type
 

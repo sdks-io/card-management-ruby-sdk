@@ -96,14 +96,9 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(is_default = false,
-                   colco_id = SKIP,
-                   colco_code = SKIP,
-                   col_co_country_code = SKIP,
-                   payer_group_id = SKIP,
-                   payer_group = SKIP,
-                   payer_id = SKIP,
-                   payer_number = SKIP,
+    def initialize(is_default = false, colco_id = SKIP, colco_code = SKIP,
+                   col_co_country_code = SKIP, payer_group_id = SKIP,
+                   payer_group = SKIP, payer_id = SKIP, payer_number = SKIP,
                    payer_name = SKIP)
       @is_default = is_default unless is_default == SKIP
       @colco_id = colco_id unless colco_id == SKIP

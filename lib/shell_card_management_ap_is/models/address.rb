@@ -111,17 +111,10 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(address_id = SKIP,
-                   address_line1 = SKIP,
-                   address_line2 = SKIP,
-                   address_line3 = SKIP,
-                   zip_code = SKIP,
-                   city = SKIP,
-                   region_id = SKIP,
-                   country_iso_code = SKIP,
-                   country = SKIP,
-                   telephone = SKIP,
-                   email_address = SKIP,
+    def initialize(address_id = SKIP, address_line1 = SKIP,
+                   address_line2 = SKIP, address_line3 = SKIP, zip_code = SKIP,
+                   city = SKIP, region_id = SKIP, country_iso_code = SKIP,
+                   country = SKIP, telephone = SKIP, email_address = SKIP,
                    fax = SKIP)
       @address_id = address_id unless address_id == SKIP
       @address_line1 = address_line1 unless address_line1 == SKIP

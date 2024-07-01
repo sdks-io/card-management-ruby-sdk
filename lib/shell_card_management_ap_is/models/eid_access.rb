@@ -48,8 +48,7 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(col_co_id = SKIP,
-                   col_co_code = SKIP,
+    def initialize(col_co_id = SKIP, col_co_code = SKIP,
                    account_group_id = SKIP)
       @col_co_id = col_co_id unless col_co_id == SKIP
       @col_co_code = col_co_code unless col_co_code == SKIP

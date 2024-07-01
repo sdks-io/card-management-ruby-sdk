@@ -54,9 +54,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(account_id = SKIP,
-                   account_number = SKIP,
-                   card_id = SKIP,
+    def initialize(account_id = SKIP, account_number = SKIP, card_id = SKIP,
                    pan = SKIP)
       @account_id = account_id unless account_id == SKIP
       @account_number = account_number unless account_number == SKIP

@@ -52,32 +52,8 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :pan
 
-    # Possible Id’s and description:
-    # * 1  Active
-    # * 7  Blocked Card
-    # * 8  Expired
-    # * 9  Cancelled
-    # * 10  New
-    # * 23  Pending Renewal
-    # * 31  Replaced
-    # * 41  Temporary Block (Customer)
-    # * 42  Temporary Block (Shell)
-    # * 43  Fraud
-    # * 101 Active (Block in progress) *
-    # * 102 Blocked Card (Unblock in progress) *
-    # * 103 Active (Cancel in progress) *
-    # * 104 Active (Marked as damaged) *
-    # * 105 New (Cancel as damaged) *
-    # * 106 Active(Scheduled for block) ”#
-    # * 107 Blocked Card(Scheduled for unblock)*#
-    # * 108 Blocked Card (Cancel in progress) *
-    # > Note:
-    # •  Items marked with * are intermediate statuses  to indicate that there
-    # are pending requests in progress. , The response can contain these
-    # intermediate statuses only if the IncludeIntermediateStatus flag is true.
-    # •  The placeholder “<Shell Card Platform Status>” in the items marked with
-    # # will be replaced with the Shell Card Platform status description. E.g.,
-    # “Active (Scheduled for block)”
+    # Card PAN. In the response body the PAN will be masked if the option is
+    # enabled in the Shell Card Platform.
     # @return [CardDetailsResponseStatusIdEnum]
     attr_accessor :status_id
 
@@ -118,9 +94,7 @@ module ShellCardManagementApIs
     # @return [TrueClass | FalseClass]
     attr_accessor :fleet_id_prompt
 
-    # PIN type:
-    #   * `Card` - Card PIN
-    #   * `Fleet` - Fleet PIN
+    # True if fleet id input is enabled, else false
     # @return [CardDetailsResponsePINTypeEnum]
     attr_accessor :pin_type
 
@@ -148,152 +122,24 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :issue_number
 
-    # Reissue setting of the card. If the card is superseded (i.e. a
-    # replacement/new card is issued) then reissue setting of the latest card
-    # issued. Reissue setting:
-    #   * `True` - Card will be Reissued when nearing its expiry date
-    #   * `False` - Card will not be Reissued
-    # @return [CardDetailsResponseReissueSettingEnum]
+    # Issue number of the card
+    # @return [Object]
     attr_accessor :reissue_setting
 
-    # POS language identifier. Language Id:
-    #   * `1` - German
-    #   * `2` - French
-    #   * `3` - Bulgarian
-    #   * `4` - Croatian
-    #   * `5` - Czech
-    #   * `6` - Danish
-    #   * `7` - Finnish
-    #   * `8` - English
-    #   * `9` - Greek
-    #   * `10` - Chinese
-    #   * `11` - Hungarian
-    #   * `12` - Italian
-    #   * `13` - Luxembourgish
-    #   * `14` - Malay
-    #   * `15` - Dutch
-    #   * `16` - Norwegian, Bokmal
-    #   * `17` - Urdu
-    #   * `18` - Polish
-    #   * `19` - Portuguese
-    #   * `20` - Romanian
-    #   * `21` - Russian
-    #   * `22` - Slovak
-    #   * `23` - Slovenian
-    #   * `24` - Spanish
-    #   * `25` - Swedish
-    #   * `26` - Turkish
-    #   * `27` - Thai
-    #   * `28` - Filipino
-    #   * `29` - Estonian
-    #   * `30` - Latvian
-    #   * `31` - Lithuanian
+    # Issue number of the card
     # @return [CardDetailsResponseInternationalPOSLanguageIDEnum]
     attr_accessor :international_pos_language_id
 
-    # POS language code. Language code:
-    #   * `deu` - German
-    #   * `fra` - French
-    #   * `bul` - Bulgarian
-    #   * `hrv` - Croatian
-    #   * `ces` - Czech
-    #   * `dan` - Danish
-    #   * `fin` - Finnish
-    #   * `eng` - English
-    #   * `ell` - Greek
-    #   * `zho` - Chinese
-    #   * `hun` - Hungarian
-    #   * `ita` - Italian
-    #   * `ltz` - Luxembourgish
-    #   * `msa` - Malay
-    #   * `nld` - Dutch
-    #   * `nob` - Norwegian, Bokmal
-    #   * `urd` - Urdu
-    #   * `pol` - Polish
-    #   * `por` - Portuguese
-    #   * `ron` - Romanian
-    #   * `rus` - Russian
-    #   * `slk` - Slovak
-    #   * `slv` - Slovenian
-    #   * `spa` - Spanish
-    #   * `swe` - Swedish
-    #   * `tur` - Turkish
-    #   * `tha` - Thai
-    #   * `fil` - Filipino
-    #   * `est` - Estonian
-    #   * `lav` - Latvian
-    #   * `lit` - Lithuanian
+    # Issue number of the card
     # @return [CardDetailsResponseInternationalPOSLanguageCodeEnum]
     attr_accessor :international_pos_language_code
 
-    # POS language identifier. Language Id:
-    #   * `1` - German
-    #   * `2` - French
-    #   * `3` - Bulgarian
-    #   * `4` - Croatian
-    #   * `5` - Czech
-    #   * `6` - Danish
-    #   * `7` - Finnish
-    #   * `8` - English
-    #   * `9` - Greek
-    #   * `10` - Chinese
-    #   * `11` - Hungarian
-    #   * `12` - Italian
-    #   * `13` - Luxembourgish
-    #   * `14` - Malay
-    #   * `15` - Dutch
-    #   * `16` - Norwegian, Bokmal
-    #   * `17` - Urdu
-    #   * `18` - Polish
-    #   * `19` - Portuguese
-    #   * `20` - Romanian
-    #   * `21` - Russian
-    #   * `22` - Slovak
-    #   * `23` - Slovenian
-    #   * `24` - Spanish
-    #   * `25` - Swedish
-    #   * `26` - Turkish
-    #   * `27` - Thai
-    #   * `28` - Filipino
-    #   * `29` - Estonian
-    #   * `30` - Latvian
-    #   * `31` - Lithuanian
-    # @return [CardDetailsResponseLocalPOSLanguageIDEnum]
+    # Issue number of the card
+    # @return [CardDetailsResponseInternationalPOSLanguageIDEnum]
     attr_accessor :local_pos_language_id
 
-    # POS language code. Language code:
-    #   * `deu` - German
-    #   * `fra` - French
-    #   * `bul` - Bulgarian
-    #   * `hrv` - Croatian
-    #   * `ces` - Czech
-    #   * `dan` - Danish
-    #   * `fin` - Finnish
-    #   * `eng` - English
-    #   * `ell` - Greek
-    #   * `zho` - Chinese
-    #   * `hun` - Hungarian
-    #   * `ita` - Italian
-    #   * `ltz` - Luxembourgish
-    #   * `msa` - Malay
-    #   * `nld` - Dutch
-    #   * `nob` - Norwegian, Bokmal
-    #   * `urd` - Urdu
-    #   * `pol` - Polish
-    #   * `por` - Portuguese
-    #   * `ron` - Romanian
-    #   * `rus` - Russian
-    #   * `slk` - Slovak
-    #   * `slv` - Slovenian
-    #   * `spa` - Spanish
-    #   * `swe` - Swedish
-    #   * `tur` - Turkish
-    #   * `tha` - Thai
-    #   * `fil` - Filipino
-    #   * `est` - Estonian
-    #   * `lav` - Latvian
-    #   * `lit` - Lithuanian
-    # @return [CardDetailsResponseLocalPOSLanguageCodeEnum]
+    # Issue number of the card
+    # @return [CardDetailsResponseInternationalPOSLanguageCodeEnum]
     attr_accessor :local_pos_language_code
 
     # ISO code of the card i.e. first 7 digits of the PAN.
@@ -445,9 +291,7 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :renewed_card_issue_number
 
-    # Reissue setting of the renewed new card. Reissue Setting:
-    #   * `True` - Card will be sent to production
-    #   * `False` - Parent Card is Dormant or the Card is not to be produced
+    # Renewed card issue number.
     # @return [CardDetailsResponseRenewedCardReissueSettingEnum]
     attr_accessor :renewed_card_reissue_setting
 
@@ -469,19 +313,27 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :bundle_id
 
-    # Delivery address.
-    # @return [CardDetailsResponseCardDeliveryAddress]
+    # Bundle Id associated with card in the Gateway. This field will have a null
+    # value if the card is not associated with any bundle in Gateway or the
+    # value of IncludeBundleDetails in request is false.
+    # @return [CardDeliveryAddress]
     attr_accessor :card_delivery_address
 
-    # Delivery address.
-    # @return [CardDetailsResponsePINDeliveryAddress]
+    # Bundle Id associated with card in the Gateway. This field will have a null
+    # value if the card is not associated with any bundle in Gateway or the
+    # value of IncludeBundleDetails in request is false.
+    # @return [PINDeliveryAddress]
     attr_accessor :pin_delivery_address
 
-    # Delivery address.
+    # Bundle Id associated with card in the Gateway. This field will have a null
+    # value if the card is not associated with any bundle in Gateway or the
+    # value of IncludeBundleDetails in request is false.
     # @return [Array[CardDetailsResponseCardBlockSchedulesItemsAllOf0]]
     attr_accessor :card_block_schedules
 
-    # Delivery address.
+    # Bundle Id associated with card in the Gateway. This field will have a null
+    # value if the card is not associated with any bundle in Gateway or the
+    # value of IncludeBundleDetails in request is false.
     # @return [ErrorStatus]
     attr_accessor :error
 
@@ -656,7 +508,6 @@ module ShellCardManagementApIs
         local_currency_code
         local_currency_symbol
         pan
-        reissue_setting
         card_type_code
         card_type_id
         card_type_name
@@ -682,77 +533,39 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(payer_id = SKIP,
-                   payer_number = SKIP,
-                   account_id = SKIP,
-                   account_number = SKIP,
-                   account_short_name = SKIP,
-                   col_co_country_code = SKIP,
-                   local_currency_code = SKIP,
-                   local_currency_symbol = SKIP,
-                   card_id = SKIP,
-                   pan = SKIP,
-                   status_id = SKIP,
-                   status = SKIP,
-                   odometer_prompt = SKIP,
-                   fleet_id_prompt = SKIP,
-                   pin_type = SKIP,
-                   has_pin = SKIP,
-                   is_self_selected_pin = SKIP,
-                   temporary_block_allowed = SKIP,
-                   unblock_allowed = SKIP,
-                   permanent_block_allowed = SKIP,
-                   issue_number = SKIP,
-                   reissue_setting = SKIP,
+    def initialize(payer_id = SKIP, payer_number = SKIP, account_id = SKIP,
+                   account_number = SKIP, account_short_name = SKIP,
+                   col_co_country_code = SKIP, local_currency_code = SKIP,
+                   local_currency_symbol = SKIP, card_id = SKIP, pan = SKIP,
+                   status_id = SKIP, status = SKIP, odometer_prompt = SKIP,
+                   fleet_id_prompt = SKIP, pin_type = SKIP, has_pin = SKIP,
+                   is_self_selected_pin = SKIP, temporary_block_allowed = SKIP,
+                   unblock_allowed = SKIP, permanent_block_allowed = SKIP,
+                   issue_number = SKIP, reissue_setting = SKIP,
                    international_pos_language_id = SKIP,
                    international_pos_language_code = SKIP,
-                   local_pos_language_id = SKIP,
-                   local_pos_language_code = SKIP,
-                   card_type_code = SKIP,
-                   card_type_id = SKIP,
-                   card_type_name = SKIP,
-                   token_type_id = SKIP,
-                   token_type_name = SKIP,
-                   is_chip_card = SKIP,
-                   is_mag_strip_card = SKIP,
-                   is_virtual_card = SKIP,
-                   purchase_category_code = SKIP,
-                   purchase_category_id = SKIP,
-                   purchase_category_name = SKIP,
-                   is_crt = SKIP,
-                   is_fleet = SKIP,
-                   is_international = SKIP,
-                   is_national = SKIP,
-                   is_partner_sites_included = SKIP,
-                   is_shell_sites_only = SKIP,
-                   fuel_sets = SKIP,
-                   non_fuel_sets = SKIP,
-                   issued_date = SKIP,
-                   expiry_date = SKIP,
-                   last_used_date = SKIP,
-                   misuse_date = SKIP,
-                   temperature = SKIP,
-                   driver_name = SKIP,
-                   vrn = SKIP,
-                   emboss_text = SKIP,
-                   card_group_id = SKIP,
-                   card_group_name = SKIP,
-                   renewal_date = SKIP,
-                   renewed_card_id = SKIP,
-                   renewed_card_status_id = SKIP,
-                   renewed_card_status = SKIP,
-                   renewed_card_expiry_date = SKIP,
+                   local_pos_language_id = SKIP, local_pos_language_code = SKIP,
+                   card_type_code = SKIP, card_type_id = SKIP,
+                   card_type_name = SKIP, token_type_id = SKIP,
+                   token_type_name = SKIP, is_chip_card = SKIP,
+                   is_mag_strip_card = SKIP, is_virtual_card = SKIP,
+                   purchase_category_code = SKIP, purchase_category_id = SKIP,
+                   purchase_category_name = SKIP, is_crt = SKIP,
+                   is_fleet = SKIP, is_international = SKIP, is_national = SKIP,
+                   is_partner_sites_included = SKIP, is_shell_sites_only = SKIP,
+                   fuel_sets = SKIP, non_fuel_sets = SKIP, issued_date = SKIP,
+                   expiry_date = SKIP, last_used_date = SKIP,
+                   misuse_date = SKIP, temperature = SKIP, driver_name = SKIP,
+                   vrn = SKIP, emboss_text = SKIP, card_group_id = SKIP,
+                   card_group_name = SKIP, renewal_date = SKIP,
+                   renewed_card_id = SKIP, renewed_card_status_id = SKIP,
+                   renewed_card_status = SKIP, renewed_card_expiry_date = SKIP,
                    renewed_card_issue_number = SKIP,
-                   renewed_card_reissue_setting = SKIP,
-                   creation_date = SKIP,
-                   effective_date = SKIP,
-                   last_modified_date = SKIP,
-                   bundle_id = SKIP,
-                   card_delivery_address = SKIP,
-                   pin_delivery_address = SKIP,
-                   card_block_schedules = SKIP,
-                   error = SKIP,
-                   request_id = SKIP)
+                   renewed_card_reissue_setting = SKIP, creation_date = SKIP,
+                   effective_date = SKIP, last_modified_date = SKIP,
+                   bundle_id = SKIP, card_delivery_address = SKIP,
+                   pin_delivery_address = SKIP, card_block_schedules = SKIP,
+                   error = SKIP, request_id = SKIP)
       @payer_id = payer_id unless payer_id == SKIP
       @payer_number = payer_number unless payer_number == SKIP
       @account_id = account_id unless account_id == SKIP
@@ -962,12 +775,10 @@ module ShellCardManagementApIs
       last_modified_date =
         hash.key?('LastModifiedDate') ? hash['LastModifiedDate'] : SKIP
       bundle_id = hash.key?('BundleId') ? hash['BundleId'] : SKIP
-      if hash['CardDeliveryAddress']
-        card_delivery_address = CardDetailsResponseCardDeliveryAddress.from_hash(hash['CardDeliveryAddress'])
-      end
-      if hash['PINDeliveryAddress']
-        pin_delivery_address = CardDetailsResponsePINDeliveryAddress.from_hash(hash['PINDeliveryAddress'])
-      end
+      card_delivery_address = CardDeliveryAddress.from_hash(hash['CardDeliveryAddress']) if
+        hash['CardDeliveryAddress']
+      pin_delivery_address = PINDeliveryAddress.from_hash(hash['PINDeliveryAddress']) if
+        hash['PINDeliveryAddress']
       # Parameter is an array, so we need to iterate through it
       card_block_schedules = nil
       unless hash['CardBlockSchedules'].nil?

@@ -41,8 +41,7 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(partner_id = SKIP,
-                   partner_name = SKIP)
+    def initialize(partner_id = SKIP, partner_name = SKIP)
       @partner_id = partner_id unless partner_id == SKIP
       @partner_name = partner_name unless partner_name == SKIP
     end

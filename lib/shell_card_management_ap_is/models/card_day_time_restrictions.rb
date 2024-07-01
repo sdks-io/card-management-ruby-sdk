@@ -105,15 +105,9 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(level = SKIP,
-                   monday = SKIP,
-                   tuesday = SKIP,
-                   wednesday = SKIP,
-                   thursday = SKIP,
-                   friday = SKIP,
-                   saturday = SKIP,
-                   sunday = SKIP,
-                   time_from = SKIP,
+    def initialize(level = SKIP, monday = SKIP, tuesday = SKIP,
+                   wednesday = SKIP, thursday = SKIP, friday = SKIP,
+                   saturday = SKIP, sunday = SKIP, time_from = SKIP,
                    time_to = SKIP)
       @level = level unless level == SKIP
       @monday = monday unless monday == SKIP

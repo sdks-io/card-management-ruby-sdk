@@ -39,11 +39,14 @@ module ShellCardManagementApIs
     # @return [TrueClass | FalseClass]
     attr_accessor :use_customer_default_address
 
-    # Delivery address of card. This address will be used for card reissue and
-    # PIN reminders in future.
-    # Note: Mandatory when ‘UseCustomerDefaultAddress’ is set to ‘false’. The
-    # field is ignored otherwise.
-    # @return [UpdateCardRenewalAddress]
+    # Whether to use the default delivery address configured at customer (or
+    # card group) level as the delivery address for this card.
+    # Mandatory
+    # Note: If value is false then ‘UpdateCardRenewalAddress’ is mandatory. If
+    # value set to ‘True’ then
+    # ‘UpdateCardRenewalAddress’ may be null/empty. It will be ignored if
+    # provided.
+    # @return [UpdateCardRenewalAddress2]
     attr_accessor :update_card_renewal_address
 
     # A mapping from model property names to API property names.
@@ -72,10 +75,8 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(use_customer_default_address = false,
-                   card_id = SKIP,
-                   pan = SKIP,
-                   card_expiry_date = SKIP,
+    def initialize(use_customer_default_address = nil, card_id = SKIP,
+                   pan = SKIP, card_expiry_date = SKIP,
                    update_card_renewal_address = SKIP)
       @card_id = card_id unless card_id == SKIP
       @pan = pan unless pan == SKIP
@@ -92,13 +93,14 @@ module ShellCardManagementApIs
       return nil unless hash
 
       # Extract variables from the hash.
-      use_customer_default_address = hash['UseCustomerDefaultAddress'] ||= false
+      use_customer_default_address =
+        hash.key?('UseCustomerDefaultAddress') ? hash['UseCustomerDefaultAddress'] : nil
       card_id = hash.key?('CardId') ? hash['CardId'] : SKIP
       pan = hash.key?('PAN') ? hash['PAN'] : SKIP
       card_expiry_date =
         hash.key?('CardExpiryDate') ? hash['CardExpiryDate'] : SKIP
       if hash['UpdateCardRenewalAddress']
-        update_card_renewal_address = UpdateCardRenewalAddress.from_hash(hash['UpdateCardRenewalAddress'])
+        update_card_renewal_address = UpdateCardRenewalAddress2.from_hash(hash['UpdateCardRenewalAddress'])
       end
 
       # Create object from extracted values.

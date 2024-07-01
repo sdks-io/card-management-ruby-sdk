@@ -43,8 +43,7 @@ module ShellCardManagementApIs
       max_retries: 0, retry_interval: 1, backoff_factor: 2,
       retry_statuses: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
       retry_methods: %i[get put], http_callback: nil,
-      environment: Environment::PRODUCTION,
-      url: UrlEnum::ENUM_APITESTSHELLCOMTEST, basic_auth_credentials: nil,
+      environment: Environment::SIT, basic_auth_credentials: nil,
       bearer_token_credentials: nil, config: nil
     )
       @config = if config.nil?
@@ -54,7 +53,7 @@ module ShellCardManagementApIs
                     backoff_factor: backoff_factor,
                     retry_statuses: retry_statuses,
                     retry_methods: retry_methods, http_callback: http_callback,
-                    environment: environment, url: url,
+                    environment: environment,
                     basic_auth_credentials: basic_auth_credentials,
                     bearer_token_credentials: bearer_token_credentials
                   )

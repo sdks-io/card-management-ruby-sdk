@@ -63,11 +63,8 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(reissue_setting = nil,
-                   account_number = SKIP,
-                   account_id = SKIP,
-                   pan = SKIP,
-                   card_id = SKIP)
+    def initialize(reissue_setting = nil, account_number = SKIP,
+                   account_id = SKIP, pan = SKIP, card_id = SKIP)
       @account_number = account_number unless account_number == SKIP
       @account_id = account_id unless account_id == SKIP
       @pan = pan unless pan == SKIP

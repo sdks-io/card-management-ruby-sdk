@@ -21,7 +21,8 @@ module ShellCardManagementApIs
 
     # The limit associated with this velocity with the correct number of digits
     # after the decimal point according to the minor denomination of the
-    # currency of the card issuer (except for COUNT type velocity).
+    # currency of the card issuer.
+    # Example: 1500.55
     # @return [Float]
     attr_accessor :limit
 
@@ -29,6 +30,7 @@ module ShellCardManagementApIs
     # number of digits after the decimal point according to the minor
     # denomination of the currency of the card issuer (except for COUNT type
     # velocity). Not present for PERTRX period.
+    # Example: 1100.55
     # @return [Float]
     attr_accessor :accumulation
 
@@ -36,10 +38,12 @@ module ShellCardManagementApIs
     # number of digits after the decimal point according to the minor
     # denomination of the currency of the card issuer (except for COUNT type
     # velocity). Not present for PERTRX period.
+    # Example: 400.55
     # @return [Float]
     attr_accessor :balance
 
     # Indicate if the limit is overridden or default. (false for default).
+    # Example: false
     # @return [TrueClass | FalseClass]
     attr_accessor :override
 
@@ -54,6 +58,8 @@ module ShellCardManagementApIs
     # it or below. 0 indicates no alerts will be sent. Not present if not set
     # (issuer value threshold limit applies if available). Not present for COUNT
     # type velocity.
+    # Example: 50.55
+    # This is an optional output field.
     # @return [Float]
     attr_accessor :threshold
 
@@ -87,26 +93,12 @@ module ShellCardManagementApIs
 
     # An array for nullable fields
     def self.nullables
-      %w[
-        type
-        period
-        limit
-        accumulation
-        balance
-        override
-        product_group
-        threshold
-      ]
+      []
     end
 
-    def initialize(type = SKIP,
-                   period = SKIP,
-                   limit = SKIP,
-                   accumulation = SKIP,
-                   balance = SKIP,
-                   override = SKIP,
-                   product_group = SKIP,
-                   threshold = SKIP)
+    def initialize(type = SKIP, period = SKIP, limit = SKIP,
+                   accumulation = SKIP, balance = SKIP, override = SKIP,
+                   product_group = SKIP, threshold = SKIP)
       @type = type unless type == SKIP
       @period = period unless period == SKIP
       @limit = limit unless limit == SKIP

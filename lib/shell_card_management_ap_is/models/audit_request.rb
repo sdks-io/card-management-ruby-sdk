@@ -71,14 +71,26 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :page_size
 
-    # To search for requests submitted until this date.
-    # Optional 
-    # Format: yyyyMMdd 
-    # Example: 20200130
-    # If ToDate is not provided and FromDate is provided, then ToDate will be
-    # considered as current date or 30 days from FromDate, whichever is earlier.
-    # However, when both FromDate and ToDate is not provided then last 30 days
-    # will be considered for filtering.
+    # Type of requests to be fetched.
+    # Optional
+    # Allowed values:
+    # •	OrderCard
+    # •	CreateCardGroup
+    # •	PINReminder
+    # •	MoveCard
+    # •	UpdateCardStatus
+    # •	UpdateCardGroup
+    # •	AutoRenew
+    # •	BulkCardOrder
+    # •	BulkCardBlock
+    # •	BulkCardOrderMultiAccount
+    # •	MobilePaymentRegistration
+    # •	UpdateCompanyInfo
+    # •	BCOSummary
+    # •	BCOMultiAccountSummary
+    # •	BCBSummary
+    # •	FundTransfer
+    # •	DeliveryAddressUpdate
     # @return [Array[String]]
     attr_accessor :requested_operation
 
@@ -185,19 +197,11 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(status = SKIP,
-                   payer_number = SKIP,
-                   payer_id = SKIP,
-                   account_number = SKIP,
-                   col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   accounts = SKIP,
-                   page_size = SKIP,
-                   requested_operation = SKIP,
-                   sort_order = SKIP,
-                   search_text = SKIP,
-                   current_page = SKIP,
-                   from_date = SKIP,
+    def initialize(status = SKIP, payer_number = SKIP, payer_id = SKIP,
+                   account_number = SKIP, col_co_code = SKIP, col_co_id = SKIP,
+                   accounts = SKIP, page_size = SKIP,
+                   requested_operation = SKIP, sort_order = SKIP,
+                   search_text = SKIP, current_page = SKIP, from_date = SKIP,
                    to_date = SKIP)
       @status = status unless status == SKIP
       @payer_number = payer_number unless payer_number == SKIP

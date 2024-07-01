@@ -10,7 +10,7 @@ module ShellCardManagementApIs
     private_constant :SKIP
 
     # TODO: Write general description for this method
-    # @return [Array[ProductAllOf0]]
+    # @return [Array[RestrictionProduct]]
     attr_accessor :products
 
     # TODO: Write general description for this method
@@ -38,8 +38,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(products = SKIP,
-                   product_groups = SKIP)
+    def initialize(products = SKIP, product_groups = SKIP)
       @products = products unless products == SKIP
       @product_groups = product_groups unless product_groups == SKIP
     end
@@ -54,7 +53,7 @@ module ShellCardManagementApIs
       unless hash['Products'].nil?
         products = []
         hash['Products'].each do |structure|
-          products << (ProductAllOf0.from_hash(structure) if structure)
+          products << (RestrictionProduct.from_hash(structure) if structure)
         end
       end
 

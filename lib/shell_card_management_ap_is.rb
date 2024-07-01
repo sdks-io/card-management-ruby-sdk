@@ -37,7 +37,11 @@ require_relative 'shell_card_management_ap_is/models/account_access'
 require_relative 'shell_card_management_ap_is/models/col_co_access'
 require_relative 'shell_card_management_ap_is/models/eid_access'
 require_relative 'shell_card_management_ap_is/models/error_status'
+require_relative 'shell_card_management_ap_is/models/default_error'
+require_relative 'shell_card_management_ap_is/models/default_error_fault'
+require_relative 'shell_card_management_ap_is/models/default_error_fault_detail'
 require_relative 'shell_card_management_ap_is/models/error_user_access'
+require_relative 'shell_card_management_ap_is/models/error_user_access_error'
 require_relative 'shell_card_management_ap_is/models/payer_request'
 require_relative 'shell_card_management_ap_is/models/payers'
 require_relative 'shell_card_management_ap_is/models/payer_response'
@@ -55,15 +59,36 @@ require_relative 'shell_card_management_ap_is/models/pin_advice_types'
 require_relative 'shell_card_management_ap_is/models/account_request'
 require_relative 'shell_card_management_ap_is/models/accounts'
 require_relative 'shell_card_management_ap_is/models/account_response'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'account_response_accounts_items'
 require_relative 'shell_card_management_ap_is/models/card_type_request'
 require_relative 'shell_card_management_ap_is/models/card_type_response'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'card_type_response_customer_card_types_items'
 require_relative 'shell_card_management_ap_is/models/card_day_time_restrictions'
 require_relative 'shell_card_management_ap_is/models/purchase_categories'
 require_relative 'shell_card_management_ap_is/models/card_usage_restrictions'
+require_relative 'shell_card_management_ap_is/models/card_type_response_error'
 require_relative 'shell_card_management_ap_is/models/card_group_request'
 require_relative 'shell_card_management_ap_is/models/card_group_response'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'card_group_response_card_groups_items'
 require_relative 'shell_card_management_ap_is/models/audit_request'
 require_relative 'shell_card_management_ap_is/models/audit_response'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'audit_response_audits_items'
+require_relative 'shell_card_management_ap_is/models/create_card_group_request'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'create_card_group_request_cards_items'
+require_relative 'shell_card_management_ap_is/models/create_card_group_response'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'create_card_group_response_successful_requests_items'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'create_card_group_response_error_cards_items'
+require_relative 'shell_card_management_ap_is/models/update_card_group_request'
+require_relative 'shell_card_management_ap_is/models/update_card_group_response'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'update_card_group_response_move_card_references_items'
 require_relative 'shell_card_management_ap_is/models/search_card_request'
 require_relative 'shell_card_management_ap_is/models/search_request'
 require_relative 'shell_card_management_ap_is/models/search_card'
@@ -101,79 +126,6 @@ require_relative 'shell_card_management_ap_is/models/product_group'
 require_relative 'shell_card_management_ap_is/models/product_all_of0'
 require_relative 'shell_card_management_ap_is/models/card_details_request'
 require_relative 'shell_card_management_ap_is/models/card_details_response'
-require_relative 'shell_card_management_ap_is/models/card_move_request'
-require_relative 'shell_card_management_ap_is/models/card_move_response'
-require_relative 'shell_card_management_ap_is/models/create_card_group_request'
-require_relative 'shell_card_management_ap_is/models/create_card_group_response'
-require_relative 'shell_card_management_ap_is/models/update_card_group_request'
-require_relative 'shell_card_management_ap_is/models/update_card_group_response'
-require_relative 'shell_card_management_ap_is/models/pin_reminder_request'
-require_relative 'shell_card_management_ap_is/models/pin_reminder_card_details'
-require_relative 'shell_card_management_ap_is/models/pin_delivery_details'
-require_relative 'shell_card_management_ap_is/models/pin_reminder_response'
-require_relative 'shell_card_management_ap_is/models/pin_reminder_reference'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'schedule_card_block_request'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'schedule_card_block_response'
-require_relative 'shell_card_management_ap_is/models/auto_renew_card_request'
-require_relative 'shell_card_management_ap_is/models/auto_renew_card_response'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'update_m_pay_reg_status_request'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'update_m_pay_reg_status_response'
-require_relative 'shell_card_management_ap_is/models/create_bundle_request'
-require_relative 'shell_card_management_ap_is/models/day_time_restrictions'
-require_relative 'shell_card_management_ap_is/models/location_restrictions'
-require_relative 'shell_card_management_ap_is/models/product_restrictions'
-require_relative 'shell_card_management_ap_is/models/usage_restrictions'
-require_relative 'shell_card_management_ap_is/models/create_bundle_response'
-require_relative 'shell_card_management_ap_is/models/update_bundle_request'
-require_relative 'shell_card_management_ap_is/models/bundle_restriction'
-require_relative 'shell_card_management_ap_is/models/update_bundle_response'
-require_relative 'shell_card_management_ap_is/models/delete_bundle_request'
-require_relative 'shell_card_management_ap_is/models/delete_bundle_response'
-require_relative 'shell_card_management_ap_is/models/summary_of_bundle_request'
-require_relative 'shell_card_management_ap_is/models/summaryof_bundle'
-require_relative 'shell_card_management_ap_is/models/summary_of_bundle_response'
-require_relative 'shell_card_management_ap_is/models/restriction_card_request'
-require_relative 'shell_card_management_ap_is/models/restriction_card_response'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'account_restriction_request'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'account_restriction_response'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'search_account_limit_request'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'search_account_limit_response'
-require_relative 'shell_card_management_ap_is/models/account_velocity_limit'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'restriction_search_card_request'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'restriction_search_card_response'
-require_relative 'shell_card_management_ap_is/models/search_product_restriction'
-require_relative 'shell_card_management_ap_is/models/generate_pin_key_response'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'delivery_address_update_request'
-require_relative 'shell_card_management_ap_is/models/delivery_address_update'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'update_card_renewal_address'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'delivery_address_update_response'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'delivery_address_update_references'
-require_relative 'shell_card_management_ap_is/models/default_error_fault'
-require_relative 'shell_card_management_ap_is/models/default_error_fault_detail'
-require_relative 'shell_card_management_ap_is/models/error_user_access_error'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'account_response_accounts_items'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'card_type_response_customer_card_types_items'
-require_relative 'shell_card_management_ap_is/models/card_type_response_error'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'card_group_response_card_groups_items'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'audit_response_audits_items'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_details_response_fuel_sets_items'
 require_relative 'shell_card_management_ap_is/models/' \
@@ -184,64 +136,124 @@ require_relative 'shell_card_management_ap_is/models/' \
                  'card_details_response_pin_delivery_address'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_details_response_card_block_schedules_items_all_of0'
+require_relative 'shell_card_management_ap_is/models/card_move_request'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_move_request_cards_items'
+require_relative 'shell_card_management_ap_is/models/card_move_response'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_move_response_successful_requests_items'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_move_response_error_cards_items'
+require_relative 'shell_card_management_ap_is/models/pin_reminder_request'
+require_relative 'shell_card_management_ap_is/models/pin_reminder_card_details'
+require_relative 'shell_card_management_ap_is/models/pin_delivery_details'
+require_relative 'shell_card_management_ap_is/models/pin_reminder_response'
+require_relative 'shell_card_management_ap_is/models/pin_reminder_reference'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'create_card_group_request_cards_items'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'create_card_group_response_successful_requests_items'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'create_card_group_response_error_cards_items'
-require_relative 'shell_card_management_ap_is/models/' \
-                 'update_card_group_response_move_card_references_items'
+                 'schedule_card_block_request'
 require_relative 'shell_card_management_ap_is/models/' \
                  'schedule_card_block_cards_items'
 require_relative 'shell_card_management_ap_is/models/' \
+                 'schedule_card_block_response'
+require_relative 'shell_card_management_ap_is/models/' \
                  'schedule_card_block_response_data_items'
+require_relative 'shell_card_management_ap_is/models/auto_renew_card_request'
 require_relative 'shell_card_management_ap_is/models/' \
                  'auto_renew_card_request_auto_renew_cards_items'
+require_relative 'shell_card_management_ap_is/models/auto_renew_card_response'
 require_relative 'shell_card_management_ap_is/models/' \
                  'auto_renew_card_response_data_items'
 require_relative 'shell_card_management_ap_is/models/' \
+                 'update_m_pay_reg_status_request'
+require_relative 'shell_card_management_ap_is/models/' \
                  'update_m_pay_reg_status_request_m_pay_requests_items'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'create_bundle_request_restrictions'
+                 'update_m_pay_reg_status_response'
+require_relative 'shell_card_management_ap_is/models/generate_pin_key_response'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'location_restrictions_country_restrictions'
+                 'delivery_address_update_request'
+require_relative 'shell_card_management_ap_is/models/delivery_address_update'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'location_restrictions_network_restrictions_items'
+                 'update_card_renewal_address'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'location_restrictions_shell_site_restrictions_items'
+                 'delivery_address_update_response'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'location_restrictions_partner_site_restrictions_items'
+                 'delivery_address_update_references'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'create_bundle_response_data_items'
+                 'search_card_restriction_req'
+require_relative 'shell_card_management_ap_is/models/search_card_restriction'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'create_bundle_response_data_items_cards_items'
+                 'search_card_restriction_res'
+require_relative 'shell_card_management_ap_is/models/restriction_card_list'
+require_relative 'shell_card_management_ap_is/models/restriction'
+require_relative 'shell_card_management_ap_is/models/usage_restriction'
+require_relative 'shell_card_management_ap_is/models/day_time_restriction'
+require_relative 'shell_card_management_ap_is/models/search_product_restriction'
+require_relative 'shell_card_management_ap_is/models/restriction_product'
+require_relative 'shell_card_management_ap_is/models/location_restriction'
+require_relative 'shell_card_management_ap_is/models/country_restriction'
+require_relative 'shell_card_management_ap_is/models/network_restriction'
+require_relative 'shell_card_management_ap_is/models/shell_site_restriction'
+require_relative 'shell_card_management_ap_is/models/partner_site_restriction'
+require_relative 'shell_card_management_ap_is/models/card_restriction_req'
+require_relative 'shell_card_management_ap_is/models/restriction_cards_list'
+require_relative 'shell_card_management_ap_is/models/usage_restrictions_card'
+require_relative 'shell_card_management_ap_is/models/product_restriction_card'
+require_relative 'shell_card_management_ap_is/models/card_restriction_response'
+require_relative 'shell_card_management_ap_is/models/restrictioncards_res'
+require_relative 'shell_card_management_ap_is/models/create_bundle_request'
+require_relative 'shell_card_management_ap_is/models/bundle_restriction'
+require_relative 'shell_card_management_ap_is/models/create_bundle_response'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'summary_of_bundle_response_data_items'
+                 'bundle_card_restriction_status'
+require_relative 'shell_card_management_ap_is/models/update_bundle_request'
+require_relative 'shell_card_management_ap_is/models/bundle_restriction_update'
+require_relative 'shell_card_management_ap_is/models/update_bundle_response'
+require_relative 'shell_card_management_ap_is/models/delete_bundle_request'
+require_relative 'shell_card_management_ap_is/models/delete_bundle_response'
+require_relative 'shell_card_management_ap_is/models/summaryofbundler_request'
+require_relative 'shell_card_management_ap_is/models/summaryofbundle_response'
+require_relative 'shell_card_management_ap_is/models/card_bundle'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'summary_of_bundle_response_data_items_card_bundles_items'
+                 'account_restriction_request'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'restriction_card_request_cards_items'
+                 'account_restriction_response'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'restriction_card_response_data_items'
+                 'search_account_limit_request'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'search_account_limit_request_filters'
+                 'search_account_limit_response'
+require_relative 'shell_card_management_ap_is/models/account_velocity_limit'
+require_relative 'shell_card_management_ap_is/models/budle_details_request'
+require_relative 'shell_card_management_ap_is/models/bundle_details_response'
+require_relative 'shell_card_management_ap_is/models/bundled_restrictions_list'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'search_account_limit_response_data'
+                 'bundled_details_product_list'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'restriction_search_card_request_filters'
+                 'card_management_v1_cancel_request'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'restriction_search_card_request_filters_cards_items'
+                 'card_management_v1_ordercard_request'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'restriction_search_card_response_data_items'
+                 'card_management_v1_pinreminder_request'
 require_relative 'shell_card_management_ap_is/models/' \
-                 'search_card_response_restrictions'
+                 'card_management_v1_updatestatus_request'
+require_relative 'shell_card_management_ap_is/models/card_contact'
+require_relative 'shell_card_management_ap_is/models/card_delivery_address'
+require_relative 'shell_card_management_ap_is/models/card_settings'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'delivery_address_update_references2'
+require_relative 'shell_card_management_ap_is/models/detail'
+require_relative 'shell_card_management_ap_is/models/fault'
+require_relative 'shell_card_management_ap_is/models/filters'
+require_relative 'shell_card_management_ap_is/models/filters1'
+require_relative 'shell_card_management_ap_is/models/filters2'
+require_relative 'shell_card_management_ap_is/models/finance_currency2'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v1_user_loggedinuser_request'
+require_relative 'shell_card_management_ap_is/models/pin_contact'
+require_relative 'shell_card_management_ap_is/models/pin_deliver_to'
+require_relative 'shell_card_management_ap_is/models/pin_delivery_address'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'update_card_renewal_address2'
 require_relative 'shell_card_management_ap_is/models/o_auth_token'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_detail_auto_renew_enum'
@@ -263,16 +275,31 @@ require_relative 'shell_card_management_ap_is/models/' \
                  'card_details_response_local_pos_language_code_enum'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_details_response_renewed_card_reissue_setting_enum'
-require_relative 'shell_card_management_ap_is/models/url_enum'
 require_relative 'shell_card_management_ap_is/models/o_auth_provider_error_enum'
 
 # Exceptions
 require_relative 'shell_card_management_ap_is/exceptions/api_exception'
-require_relative 'shell_card_management_ap_is/exceptions/' \
-                 'default_error_exception'
 require_relative 'shell_card_management_ap_is/exceptions/error_object_exception'
 require_relative 'shell_card_management_ap_is/exceptions/' \
-                 'error_user_access_error1_exception'
+                 'fleetmanagement_v1_customer_customer403_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v1_customer_payers400_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v1_customer_payers404_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v1_user_loggedinuser400_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v1_user_loggedinuser401_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v1_user_loggedinuser403_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v1_user_loggedinuser404_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v1_user_loggedinuser500_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v2_restriction_searchcard401_error_exception'
+require_relative 'shell_card_management_ap_is/exceptions/' \
+                 'fleetmanagement_v2_restriction_searchcard500_error_exception'
 require_relative 'shell_card_management_ap_is/exceptions/' \
                  'o_auth_provider_exception'
 

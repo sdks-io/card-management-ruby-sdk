@@ -9,9 +9,8 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # This class holds Order Card Enquiry list based on which the Order Card
-    # Enquiry need to be filtered.
-    # @return [OrderCardEnquiryReq]
+    # TODO: Write general description for this method
+    # @return [Filters2]
     attr_accessor :filters
 
     # A mapping from model property names to API property names.
@@ -42,7 +41,7 @@ module ShellCardManagementApIs
       return nil unless hash
 
       # Extract variables from the hash.
-      filters = OrderCardEnquiryReq.from_hash(hash['Filters']) if hash['Filters']
+      filters = Filters2.from_hash(hash['Filters']) if hash['Filters']
 
       # Create object from extracted values.
       OrderCardEnquiryRequest.new(filters)

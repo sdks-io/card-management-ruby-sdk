@@ -54,15 +54,9 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :reference_number
 
-    # Type of the reference number provided.<br />
-    # Mandatory if ReferenceNumber is provided. Else optional.<br />
-    # Allowed Values:<br />
-    # 1=Main Reference(Main Order Reference Number returned in the output of
-    # Card/OrderCard service. <br />
-    # 2=Order Card Reference (Reference number for each individual card in the
-    # order submitted via Card/OrderCard service. <br />
-    # 3=Bulk Order Card Reference (Reference number returned in the response of
-    # bulkcardinterface /UploadOrderCardTemplate. )
+    # Reference number of the Card Order/ Bulk Card Order/ Order Card
+    # Request.<br />
+    # Mandatory when ColCo and Payer fields are not provided. Else, optional.
     # @return [OrderCardEnquiryReqReferenceTypeEnum]
     attr_accessor :reference_type
 
@@ -143,18 +137,11 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(account_id = SKIP,
-                   account_number = SKIP,
-                   col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   col_co_country_code = SKIP,
-                   payer_id = SKIP,
-                   payer_number = SKIP,
-                   reference_number = SKIP,
-                   reference_type = SKIP,
-                   from_date = SKIP,
-                   to_date = SKIP,
-                   order_request_id = SKIP)
+    def initialize(account_id = SKIP, account_number = SKIP, col_co_code = SKIP,
+                   col_co_id = SKIP, col_co_country_code = SKIP,
+                   payer_id = SKIP, payer_number = SKIP,
+                   reference_number = SKIP, reference_type = SKIP,
+                   from_date = SKIP, to_date = SKIP, order_request_id = SKIP)
       @account_id = account_id unless account_id == SKIP
       @account_number = account_number unless account_number == SKIP
       @col_co_code = col_co_code unless col_co_code == SKIP

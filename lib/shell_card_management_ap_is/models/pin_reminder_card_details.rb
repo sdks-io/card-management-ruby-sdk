@@ -56,9 +56,15 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :pin_contact_type
 
-    # PINDeliverDetails entity. The fields of this entity are described below.
-    # This is mandatory if PINContactType is 4 else optional and ignored.
-    # @return [PINDeliveryDetails]
+    # PIN Contact Type.
+    # Mandatory
+    # Allowed Values:
+    # 1.	Use PIN Delivery contact details stored previously for this card
+    # 2.	Use Card Delivery contact details stored previously for this card
+    # 3.	Use default PIN Delivery contact details stored for this customer
+    # 4.	Use new specific contact for PIN Reminder only
+    # Note: - PINContactType “3” is only allowed for Paper delivery
+    # @return [PINDeliverTo]
     attr_accessor :pin_deliver_to
 
     # A mapping from model property names to API property names.
@@ -93,12 +99,8 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(pin_advice_type = nil,
-                   card_id = SKIP,
-                   panid = SKIP,
-                   pan = SKIP,
-                   card_expiry_date = SKIP,
-                   pin_contact_type = SKIP,
+    def initialize(pin_advice_type = nil, card_id = SKIP, panid = SKIP,
+                   pan = SKIP, card_expiry_date = SKIP, pin_contact_type = SKIP,
                    pin_deliver_to = SKIP)
       @card_id = card_id unless card_id == SKIP
       @panid = panid unless panid == SKIP
@@ -122,7 +124,7 @@ module ShellCardManagementApIs
         hash.key?('CardExpiryDate') ? hash['CardExpiryDate'] : SKIP
       pin_contact_type =
         hash.key?('PINContactType') ? hash['PINContactType'] : SKIP
-      pin_deliver_to = PINDeliveryDetails.from_hash(hash['PINDeliverTo']) if hash['PINDeliverTo']
+      pin_deliver_to = PINDeliverTo.from_hash(hash['PINDeliverTo']) if hash['PINDeliverTo']
 
       # Create object from extracted values.
       PINReminderCardDetails.new(pin_advice_type,

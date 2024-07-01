@@ -85,9 +85,7 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(cards = nil,
-                   target_status = nil,
-                   reason_id = SKIP,
+    def initialize(cards = nil, target_status = nil, reason_id = SKIP,
                    reason_text = SKIP)
       @cards = cards
       @reason_id = reason_id unless reason_id == SKIP

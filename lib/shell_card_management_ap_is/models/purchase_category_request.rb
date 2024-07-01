@@ -75,11 +75,8 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(request_id = SKIP,
-                   col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   card_type_id = SKIP,
-                   purchase_category_id = SKIP,
+    def initialize(request_id = SKIP, col_co_code = SKIP, col_co_id = SKIP,
+                   card_type_id = SKIP, purchase_category_id = SKIP,
                    language_code = SKIP)
       @request_id = request_id unless request_id == SKIP
       @col_co_code = col_co_code unless col_co_code == SKIP

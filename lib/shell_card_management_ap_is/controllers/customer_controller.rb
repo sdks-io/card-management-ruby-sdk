@@ -17,16 +17,16 @@ module ShellCardManagementApIs
     # @param [String] request_id Required parameter: Mandatory UUID (according
     # to RFC 4122 standards) for requests and responses. This will be played
     # back in the response from the request.
-    # @param [LoggedInUserRequest] body Optional parameter: Logged in user
-    # request body
+    # @param [FleetmanagementV1UserLoggedinuserRequest] body Optional parameter:
+    # Logged in user request body
     # @return [LoggedInUserResponse] response from the API call
-    def loggedin_user(apikey,
-                      request_id,
-                      body: nil)
+    def loggedinuser(apikey,
+                     request_id,
+                     body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/user/loggedinuser',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -42,24 +42,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                FleetmanagementV1UserLoggedinuser400ErrorException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                FleetmanagementV1UserLoggedinuser401ErrorException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                FleetmanagementV1UserLoggedinuser403ErrorException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                FleetmanagementV1UserLoggedinuser404ErrorException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                FleetmanagementV1UserLoggedinuser500ErrorException))
         .execute
     end
 
@@ -86,7 +85,7 @@ module ShellCardManagementApIs
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/payers',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -102,24 +101,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                FleetmanagementV1CustomerPayers400ErrorException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                APIException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                APIException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                FleetmanagementV1CustomerPayers404ErrorException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                APIException))
         .execute
     end
 
@@ -140,7 +138,7 @@ module ShellCardManagementApIs
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/customer',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -156,24 +154,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                APIException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                APIException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                FleetmanagementV1CustomerCustomer403ErrorException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                APIException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                APIException))
         .execute
     end
 
@@ -193,7 +190,7 @@ module ShellCardManagementApIs
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/accounts',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -209,24 +206,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                APIException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                APIException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                APIException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                APIException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                APIException))
         .execute
     end
 
@@ -246,7 +242,7 @@ module ShellCardManagementApIs
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v2/customer/cardtype',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -262,24 +258,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                APIException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                APIException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                APIException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                APIException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                APIException))
         .execute
     end
 
@@ -300,13 +295,13 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [CardGroupRequest] body Optional parameter: Request Body
     # @return [CardGroupResponse] response from the API call
-    def card_groups(apikey,
-                    request_id,
-                    body: nil)
+    def cardgroups(apikey,
+                   request_id,
+                   body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/cardgroups',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -322,24 +317,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                APIException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                APIException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                APIException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                APIException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                APIException))
         .execute
     end
 
@@ -359,8 +353,7 @@ module ShellCardManagementApIs
     # * BCOSummary
     # * BCOMultiAccountSummary
     # * BCBSummary
-    # * Mobile Payment
-    # * Registration
+    # * Mobile Payment Registration
     # * Fund Transfer (Scheduled & Realtime)
     # * Delivery Address Update.
     # @param [String] apikey Required parameter: This is the API key of the
@@ -370,13 +363,13 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [AuditRequest] body Optional parameter: request body
     # @return [AuditResponse] response from the API call
-    def audit_report(apikey,
-                     request_id,
-                     body: nil)
+    def auditreport(apikey,
+                    request_id,
+                    body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/auditreport',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -392,24 +385,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                APIException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                APIException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                APIException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                APIException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                APIException))
         .execute
     end
 
@@ -433,13 +425,13 @@ module ShellCardManagementApIs
     # @param [CreateCardGroupRequest] body Optional parameter: CreateCardGroup
     # request body
     # @return [CreateCardGroupResponse] response from the API call
-    def create_card_group(apikey,
-                          request_id,
-                          body: nil)
+    def createcardgroup(apikey,
+                        request_id,
+                        body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/createcardgroup',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -455,24 +447,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                APIException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                APIException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                APIException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                APIException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                APIException))
         .execute
     end
 
@@ -492,13 +483,13 @@ module ShellCardManagementApIs
     # @param [UpdateCardGroupRequest] body Optional parameter: request body of
     # customer card group
     # @return [UpdateCardGroupResponse] response from the API call
-    def update_card_group(apikey,
-                          request_id,
-                          body: nil)
+    def updatecardgroup(apikey,
+                        request_id,
+                        body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/updatecardgroup',
-                                     Server::DEFAULT)
+                                     Server::SHELL)
                    .header_param(new_parameter(apikey, key: 'apikey'))
                    .header_param(new_parameter(request_id, key: 'RequestId'))
                    .header_param(new_parameter('application/json', key: 'Content-Type'))
@@ -514,24 +505,23 @@ module ShellCardManagementApIs
                                  ' something that is perceived to be a client\r\n error (e.g.,'\
                                  ' malformed request syntax, invalid \r\n request message framing,'\
                                  ' or deceptive request routing).",
-                                DefaultErrorException)
+                                APIException)
                    .local_error('401',
-                                "The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.\r\n",
-                                DefaultErrorException)
+                                'The request has not been applied because it lacks valid '\
+                                 ' authentication credentials for the target resource.',
+                                APIException)
                    .local_error('403',
-                                "The server understood the request but refuses to authorize it.'\
-                                 '\r\n",
-                                ErrorUserAccessError1Exception)
+                                'The server understood the request but refuses to authorize it.',
+                                APIException)
                    .local_error('404',
-                                "The origin server did not find a current representation  for'\
+                                'The origin server did not find a current representation  for'\
                                  ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.\r\n",
-                                DefaultErrorException)
+                                 ' exists.',
+                                APIException)
                    .local_error('500',
-                                "The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.\r\n",
-                                DefaultErrorException))
+                                'The server encountered an unexpected condition the prevented it'\
+                                 ' from fulfilling the request.',
+                                APIException))
         .execute
     end
   end

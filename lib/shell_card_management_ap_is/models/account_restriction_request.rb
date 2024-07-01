@@ -38,21 +38,30 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :payer_number
 
+    # Account ID of the customer on which the restrictions will be applied.
+    # Optional if AccountNumber is passed, else Mandatory. 
+    # Example: 123456
+    # @return [Integer]
+    attr_accessor :account_id
+
     # Account Number of the customer on which the restrictions will be applied.
     # Optional if AccountId is passed, else Mandatory.
+    # Example: GB000000123
     # @return [String]
     attr_accessor :account_number
 
+    # True/False.
     # If true, the usage restrictions applied on the account will be removed.
     # Optional
     # Default: False
     # @return [TrueClass | FalseClass]
     attr_accessor :reset_usage_restrictions
 
+    # True/False.
     # If true, the usage restrictions applied on the account will be removed.
     # Optional
     # Default: False
-    # @return [UsageRestrictions]
+    # @return [UsageRestrictionsCard]
     attr_accessor :usage_restrictions
 
     # A mapping from model property names to API property names.
@@ -62,6 +71,7 @@ module ShellCardManagementApIs
       @_hash['col_co_code'] = 'ColCoCode'
       @_hash['payer_id'] = 'PayerId'
       @_hash['payer_number'] = 'PayerNumber'
+      @_hash['account_id'] = 'AccountId'
       @_hash['account_number'] = 'AccountNumber'
       @_hash['reset_usage_restrictions'] = 'ResetUsageRestrictions'
       @_hash['usage_restrictions'] = 'UsageRestrictions'
@@ -75,6 +85,7 @@ module ShellCardManagementApIs
         col_co_code
         payer_id
         payer_number
+        account_id
         account_number
         reset_usage_restrictions
         usage_restrictions
@@ -84,21 +95,26 @@ module ShellCardManagementApIs
     # An array for nullable fields
     def self.nullables
       %w[
+        col_co_id
+        col_co_code
         payer_id
+        payer_number
+        account_id
+        account_number
+        reset_usage_restrictions
+        usage_restrictions
       ]
     end
 
-    def initialize(col_co_id = SKIP,
-                   col_co_code = SKIP,
-                   payer_id = SKIP,
-                   payer_number = SKIP,
-                   account_number = SKIP,
-                   reset_usage_restrictions = false,
+    def initialize(col_co_id = SKIP, col_co_code = SKIP, payer_id = SKIP,
+                   payer_number = SKIP, account_id = SKIP,
+                   account_number = SKIP, reset_usage_restrictions = SKIP,
                    usage_restrictions = SKIP)
       @col_co_id = col_co_id unless col_co_id == SKIP
       @col_co_code = col_co_code unless col_co_code == SKIP
       @payer_id = payer_id unless payer_id == SKIP
       @payer_number = payer_number unless payer_number == SKIP
+      @account_id = account_id unless account_id == SKIP
       @account_number = account_number unless account_number == SKIP
       @reset_usage_restrictions = reset_usage_restrictions unless reset_usage_restrictions == SKIP
       @usage_restrictions = usage_restrictions unless usage_restrictions == SKIP
@@ -113,9 +129,11 @@ module ShellCardManagementApIs
       col_co_code = hash.key?('ColCoCode') ? hash['ColCoCode'] : SKIP
       payer_id = hash.key?('PayerId') ? hash['PayerId'] : SKIP
       payer_number = hash.key?('PayerNumber') ? hash['PayerNumber'] : SKIP
+      account_id = hash.key?('AccountId') ? hash['AccountId'] : SKIP
       account_number = hash.key?('AccountNumber') ? hash['AccountNumber'] : SKIP
-      reset_usage_restrictions = hash['ResetUsageRestrictions'] ||= false
-      usage_restrictions = UsageRestrictions.from_hash(hash['UsageRestrictions']) if
+      reset_usage_restrictions =
+        hash.key?('ResetUsageRestrictions') ? hash['ResetUsageRestrictions'] : SKIP
+      usage_restrictions = UsageRestrictionsCard.from_hash(hash['UsageRestrictions']) if
         hash['UsageRestrictions']
 
       # Create object from extracted values.
@@ -123,6 +141,7 @@ module ShellCardManagementApIs
                                     col_co_code,
                                     payer_id,
                                     payer_number,
+                                    account_id,
                                     account_number,
                                     reset_usage_restrictions,
                                     usage_restrictions)

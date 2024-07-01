@@ -76,12 +76,9 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(payers = SKIP,
-                   return_basic_details_only = false,
-                   include_addresses = false,
-                   include_bonus_parameters = false,
-                   current_page = SKIP,
-                   page_size = SKIP)
+    def initialize(payers = SKIP, return_basic_details_only = false,
+                   include_addresses = false, include_bonus_parameters = false,
+                   current_page = SKIP, page_size = SKIP)
       @payers = payers unless payers == SKIP
       unless return_basic_details_only == SKIP
         @return_basic_details_only =

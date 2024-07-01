@@ -68,10 +68,8 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(is_primary = true,
-                   frequency_type = SKIP,
-                   distribution_method = SKIP,
-                   output_type = SKIP)
+    def initialize(is_primary = true, frequency_type = SKIP,
+                   distribution_method = SKIP, output_type = SKIP)
       @is_primary = is_primary unless is_primary == SKIP
       @frequency_type = frequency_type unless frequency_type == SKIP
       @distribution_method = distribution_method unless distribution_method == SKIP

@@ -50,9 +50,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(card_id = SKIP,
-                   pan = SKIP,
-                   error_code = SKIP,
+    def initialize(card_id = SKIP, pan = SKIP, error_code = SKIP,
                    error_description = SKIP)
       @card_id = card_id unless card_id == SKIP
       @pan = pan unless pan == SKIP

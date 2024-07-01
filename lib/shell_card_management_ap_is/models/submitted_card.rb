@@ -120,16 +120,10 @@ module ShellCardManagementApIs
     end
 
     def initialize(replacement_card_reference = SKIP,
-                   update_card_reference = SKIP,
-                   account_id = SKIP,
-                   account_number = SKIP,
-                   card_expiry_date = SKIP,
-                   card_id = SKIP,
-                   col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   pan = SKIP,
-                   payer_id = SKIP,
-                   payer_number = SKIP)
+                   update_card_reference = SKIP, account_id = SKIP,
+                   account_number = SKIP, card_expiry_date = SKIP,
+                   card_id = SKIP, col_co_code = SKIP, col_co_id = SKIP,
+                   pan = SKIP, payer_id = SKIP, payer_number = SKIP)
       unless replacement_card_reference == SKIP
         @replacement_card_reference =
           replacement_card_reference

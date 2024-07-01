@@ -68,12 +68,8 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(reference_id = SKIP,
-                   product_group_id = SKIP,
-                   name = SKIP,
-                   is_default = SKIP,
-                   is_fuel_type = SKIP,
-                   products = SKIP)
+    def initialize(reference_id = SKIP, product_group_id = SKIP, name = SKIP,
+                   is_default = SKIP, is_fuel_type = SKIP, products = SKIP)
       @reference_id = reference_id unless reference_id == SKIP
       @product_group_id = product_group_id unless product_group_id == SKIP
       @name = name unless name == SKIP

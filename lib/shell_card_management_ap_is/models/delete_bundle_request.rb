@@ -9,13 +9,6 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # Collecting Company Id of the selected payer. 
-    # Optional if ColCoCode is passed else Mandatory.
-    # Example:
-    # 1 for Philippines
-    # @return [Integer]
-    attr_accessor :col_co_id
-
     # Collecting Company Code (Shell Code) of the selected payer. 
     # Mandatory for serviced OUs such as Romania, Latvia, Lithuania, Estonia,
     # Ukraine etc. It is optional for other countries if ColCoID is provided.
@@ -24,6 +17,15 @@ module ShellCardManagementApIs
     # 5 for UK
     # @return [Integer]
     attr_accessor :col_co_code
+
+    # Collecting Company Code (Shell Code) of the selected payer. 
+    # Mandatory for serviced OUs such as Romania, Latvia, Lithuania, Estonia,
+    # Ukraine etc. It is optional for other countries if ColCoID is provided.
+    # Example:
+    # 86 for Philippines
+    # 5 for UK
+    # @return [Integer]
+    attr_accessor :col_co_id
 
     # Payer Number of the selected payer.
     # Either PayerId or PayerNumber or both must be passed.
@@ -57,8 +59,8 @@ module ShellCardManagementApIs
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
-      @_hash['col_co_id'] = 'ColCoId'
       @_hash['col_co_code'] = 'ColCoCode'
+      @_hash['col_co_id'] = 'ColCoId'
       @_hash['payer_number'] = 'PayerNumber'
       @_hash['payer_id'] = 'PayerId'
       @_hash['account_id'] = 'AccountId'
@@ -70,8 +72,8 @@ module ShellCardManagementApIs
     # An array for optional fields
     def self.optionals
       %w[
-        col_co_id
         col_co_code
+        col_co_id
         payer_number
         payer_id
         account_id
@@ -84,15 +86,11 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(bundle_id = nil,
-                   col_co_id = SKIP,
-                   col_co_code = SKIP,
-                   payer_number = SKIP,
-                   payer_id = SKIP,
-                   account_id = SKIP,
+    def initialize(bundle_id = nil, col_co_code = SKIP, col_co_id = SKIP,
+                   payer_number = SKIP, payer_id = SKIP, account_id = SKIP,
                    account_number = SKIP)
-      @col_co_id = col_co_id unless col_co_id == SKIP
       @col_co_code = col_co_code unless col_co_code == SKIP
+      @col_co_id = col_co_id unless col_co_id == SKIP
       @payer_number = payer_number unless payer_number == SKIP
       @payer_id = payer_id unless payer_id == SKIP
       @account_id = account_id unless account_id == SKIP
@@ -106,8 +104,8 @@ module ShellCardManagementApIs
 
       # Extract variables from the hash.
       bundle_id = hash.key?('BundleId') ? hash['BundleId'] : nil
-      col_co_id = hash.key?('ColCoId') ? hash['ColCoId'] : SKIP
       col_co_code = hash.key?('ColCoCode') ? hash['ColCoCode'] : SKIP
+      col_co_id = hash.key?('ColCoId') ? hash['ColCoId'] : SKIP
       payer_number = hash.key?('PayerNumber') ? hash['PayerNumber'] : SKIP
       payer_id = hash.key?('PayerId') ? hash['PayerId'] : SKIP
       account_id = hash.key?('AccountId') ? hash['AccountId'] : SKIP
@@ -115,8 +113,8 @@ module ShellCardManagementApIs
 
       # Create object from extracted values.
       DeleteBundleRequest.new(bundle_id,
-                              col_co_id,
                               col_co_code,
+                              col_co_id,
                               payer_number,
                               payer_id,
                               account_id,

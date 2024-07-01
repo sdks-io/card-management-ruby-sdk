@@ -166,20 +166,12 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   col_co_country_code = SKIP,
-                   client_reference_id = SKIP,
-                   payer_number = SKIP,
-                   payer_id = SKIP,
-                   account_number = SKIP,
-                   account_id = SKIP,
-                   pan = SKIP,
-                   card_id = SKIP,
-                   token_type_id = SKIP,
-                   token_type_name = SKIP,
-                   creation_date = SKIP,
-                   effective_date = SKIP,
+    def initialize(col_co_code = SKIP, col_co_id = SKIP,
+                   col_co_country_code = SKIP, client_reference_id = SKIP,
+                   payer_number = SKIP, payer_id = SKIP, account_number = SKIP,
+                   account_id = SKIP, pan = SKIP, card_id = SKIP,
+                   token_type_id = SKIP, token_type_name = SKIP,
+                   creation_date = SKIP, effective_date = SKIP,
                    include_bundle_details = SKIP,
                    include_intermediate_status = SKIP,
                    include_scheduled_card_blocks = SKIP)

@@ -7,15 +7,16 @@ module ShellCardManagementApIs
   # An enum for SDK environments.
   class Environment
     ENVIRONMENT = [
-      PRODUCTION = 'production'.freeze
+      SIT = 'SIT'.freeze,
+      PRODUCTION = 'Production'.freeze
     ].freeze
   end
 
   # An enum for API servers.
   class Server
     SERVER = [
-      DEFAULT = 'default'.freeze,
-      ACCESS_TOKEN_SERVER = 'access token server'.freeze
+      OAUTH_SERVER = 'OAuth Server'.freeze,
+      SHELL = 'Shell'.freeze
     ].freeze
   end
 
@@ -23,8 +24,7 @@ module ShellCardManagementApIs
   # are configured in this class.
   class Configuration < CoreLibrary::HttpClientConfiguration
     # The attribute readers for properties.
-    attr_reader :environment, :url, :basic_auth_credentials,
-                :bearer_token_credentials
+    attr_reader :environment, :basic_auth_credentials, :bearer_token_credentials
 
     class << self
       attr_reader :environments
@@ -35,8 +35,7 @@ module ShellCardManagementApIs
       max_retries: 0, retry_interval: 1, backoff_factor: 2,
       retry_statuses: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
       retry_methods: %i[get put], http_callback: nil,
-      environment: Environment::PRODUCTION,
-      url: UrlEnum::ENUM_APITESTSHELLCOMTEST, basic_auth_credentials: nil,
+      environment: Environment::SIT, basic_auth_credentials: nil,
       bearer_token_credentials: nil
     )
 
@@ -47,9 +46,6 @@ module ShellCardManagementApIs
 
       # Current API environment
       @environment = String(environment)
-
-      # This variable specifies the type of environment. Environments:   * `api.shell.com` - Production   * `api-test.shell.com` - SIT
-      @url = url
 
       # The object holding Basic Authentication credentials
       @basic_auth_credentials = basic_auth_credentials
@@ -64,7 +60,7 @@ module ShellCardManagementApIs
     def clone_with(connection: nil, adapter: nil, timeout: nil,
                    max_retries: nil, retry_interval: nil, backoff_factor: nil,
                    retry_statuses: nil, retry_methods: nil, http_callback: nil,
-                   environment: nil, url: nil, basic_auth_credentials: nil,
+                   environment: nil, basic_auth_credentials: nil,
                    bearer_token_credentials: nil)
       connection ||= self.connection
       adapter ||= self.adapter
@@ -76,7 +72,6 @@ module ShellCardManagementApIs
       retry_methods ||= self.retry_methods
       http_callback ||= self.http_callback
       environment ||= self.environment
-      url ||= self.url
       basic_auth_credentials ||= self.basic_auth_credentials
       bearer_token_credentials ||= self.bearer_token_credentials
 
@@ -87,7 +82,6 @@ module ShellCardManagementApIs
                         retry_statuses: retry_statuses,
                         retry_methods: retry_methods,
                         http_callback: http_callback, environment: environment,
-                        url: url,
                         basic_auth_credentials: basic_auth_credentials,
                         bearer_token_credentials: bearer_token_credentials)
     end
@@ -95,9 +89,13 @@ module ShellCardManagementApIs
 
     # All the environments the SDK can run in.
     ENVIRONMENTS = {
+      Environment::SIT => {
+        Server::OAUTH_SERVER => 'https://api-test.shell.com',
+        Server::SHELL => 'https://api-test.shell.com/test'
+      },
       Environment::PRODUCTION => {
-        Server::DEFAULT => 'https://{url}',
-        Server::ACCESS_TOKEN_SERVER => 'https://api-test.shell.com/v1/oauth'
+        Server::OAUTH_SERVER => 'https://api.shell.com',
+        Server::SHELL => 'https://api.shell.com'
       }
     }.freeze
 
@@ -105,13 +103,8 @@ module ShellCardManagementApIs
     # @param [Configuration::Server] server The server enum for which the base URI is
     # required.
     # @return [String] The base URI.
-    def get_base_uri(server = Server::DEFAULT)
-      parameters = {
-        'url' => { 'value' => url, 'encode' => false }
-      }
-      APIHelper.append_url_with_template_parameters(
-        ENVIRONMENTS[environment][server], parameters
-      )
+    def get_base_uri(server = Server::SHELL)
+      ENVIRONMENTS[environment][server].clone
     end
   end
 end

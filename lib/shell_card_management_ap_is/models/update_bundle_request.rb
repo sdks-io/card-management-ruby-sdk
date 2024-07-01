@@ -9,7 +9,7 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # Collecting Company Id of the selected payer. 
+    # Collecting Company Id  of the selected payer. 
     # Optional if ColCoCode is passed else Mandatory.
     # Example:
     # 1 for Philippines
@@ -17,17 +17,38 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :col_co_id
 
+    # Collecting Company Code  of the selected payer. 
+    # Mandatory for serviced OUs such as Romania, Latvia, Lithuania, Estonia,
+    # Ukraine etc. It is optional for other countries if ColCoID is provided.
+    # Example:
+    # 86 for Philippines
+    # 5 for UK
+    # @return [Integer]
+    attr_accessor :col_co_code
+
     # Payer Id of the selected payer.
     # Either PayerId or PayerNumber or both must be passed.
     # Example: 123456
-    # @return [Integer]
+    # @return [String]
     attr_accessor :payer_id
+
+    # Payer Number of the selected payer.
+    # Either PayerId or PayerNumber or both must be passed.
+    # Example: GB000000123
+    # @return [String]
+    attr_accessor :payer_number
 
     # Account ID of the customer.
     # Either AccountId or AccountNumber or both must be passed.
     # Example: 123456
     # @return [Integer]
     attr_accessor :account_id
+
+    # Account Number of the customer. 
+    # Either AccountId or AccountNumber or both must be passed.
+    # Example: GB000000123
+    # @return [String]
+    attr_accessor :account_number
 
     # Identifier of the bundle in Gateway.
     # Mandatory
@@ -47,7 +68,7 @@ module ShellCardManagementApIs
     # Mandatory for Add / Remove request action. Ignored for Update action.
     # Example: 7002051006629890645
     # When PAN matches with multiple cards, the restriction will be applied on
-    # the latest issued card
+    # the latest issued card.
     # @return [Array[String]]
     attr_accessor :cards
 
@@ -66,44 +87,23 @@ module ShellCardManagementApIs
     # Allowed values:
     # •	Update
     # •	None
-    # @return [BundleRestriction]
+    # @return [BundleRestrictionUpdate]
     attr_accessor :restrictions
-
-    # Collecting Company Code (Shell Code) of the selected payer. 
-    # Mandatory for serviced OUs such as Romania, Latvia, Lithuania, Estonia,
-    # Ukraine etc. It is optional for other countries if ColCoID is provided.
-    # Example:
-    # 86 for Philippines
-    # 5 for UK
-    # @return [Integer]
-    attr_accessor :col_co_code
-
-    # Payer Number of the selected payer.
-    # Either PayerId or PayerNumber or both must be passed.
-    # Example: GB000000123
-    # @return [String]
-    attr_accessor :payer_number
-
-    # Account Number of the customer. 
-    # Either AccountId or AccountNumber or both must be passed.
-    # Example: GB000000123
-    # @return [String]
-    attr_accessor :account_number
 
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
       @_hash['col_co_id'] = 'ColCoId'
+      @_hash['col_co_code'] = 'ColCoCode'
       @_hash['payer_id'] = 'PayerId'
+      @_hash['payer_number'] = 'PayerNumber'
       @_hash['account_id'] = 'AccountId'
+      @_hash['account_number'] = 'AccountNumber'
       @_hash['bundle_id'] = 'BundleId'
       @_hash['request_action'] = 'RequestAction'
       @_hash['cards'] = 'Cards'
       @_hash['usage_restriction_action'] = 'UsageRestrictionAction'
       @_hash['restrictions'] = 'Restrictions'
-      @_hash['col_co_code'] = 'ColCoCode'
-      @_hash['payer_number'] = 'PayerNumber'
-      @_hash['account_number'] = 'AccountNumber'
       @_hash
     end
 
@@ -111,14 +111,12 @@ module ShellCardManagementApIs
     def self.optionals
       %w[
         col_co_id
-        payer_id
-        account_id
-        cards
-        usage_restriction_action
-        restrictions
         col_co_code
+        payer_id
         payer_number
+        account_id
         account_number
+        restrictions
       ]
     end
 
@@ -126,37 +124,33 @@ module ShellCardManagementApIs
     def self.nullables
       %w[
         col_co_id
-        payer_id
-        account_id
-        request_action
         col_co_code
+        payer_id
         payer_number
+        account_id
         account_number
+        bundle_id
+        request_action
+        usage_restriction_action
       ]
     end
 
-    def initialize(bundle_id = nil,
-                   request_action = nil,
-                   col_co_id = SKIP,
-                   payer_id = SKIP,
-                   account_id = SKIP,
-                   cards = SKIP,
-                   usage_restriction_action = SKIP,
-                   restrictions = SKIP,
-                   col_co_code = SKIP,
-                   payer_number = SKIP,
-                   account_number = SKIP)
+    def initialize(bundle_id = nil, request_action = nil, cards = nil,
+                   usage_restriction_action = nil, col_co_id = SKIP,
+                   col_co_code = SKIP, payer_id = SKIP, payer_number = SKIP,
+                   account_id = SKIP, account_number = SKIP,
+                   restrictions = SKIP)
       @col_co_id = col_co_id unless col_co_id == SKIP
+      @col_co_code = col_co_code unless col_co_code == SKIP
       @payer_id = payer_id unless payer_id == SKIP
+      @payer_number = payer_number unless payer_number == SKIP
       @account_id = account_id unless account_id == SKIP
+      @account_number = account_number unless account_number == SKIP
       @bundle_id = bundle_id
       @request_action = request_action
-      @cards = cards unless cards == SKIP
-      @usage_restriction_action = usage_restriction_action unless usage_restriction_action == SKIP
+      @cards = cards
+      @usage_restriction_action = usage_restriction_action
       @restrictions = restrictions unless restrictions == SKIP
-      @col_co_code = col_co_code unless col_co_code == SKIP
-      @payer_number = payer_number unless payer_number == SKIP
-      @account_number = account_number unless account_number == SKIP
     end
 
     # Creates an instance of the object from a hash.
@@ -166,29 +160,30 @@ module ShellCardManagementApIs
       # Extract variables from the hash.
       bundle_id = hash.key?('BundleId') ? hash['BundleId'] : nil
       request_action = hash.key?('RequestAction') ? hash['RequestAction'] : nil
-      col_co_id = hash.key?('ColCoId') ? hash['ColCoId'] : SKIP
-      payer_id = hash.key?('PayerId') ? hash['PayerId'] : SKIP
-      account_id = hash.key?('AccountId') ? hash['AccountId'] : SKIP
-      cards = hash.key?('Cards') ? hash['Cards'] : SKIP
+      cards = hash.key?('Cards') ? hash['Cards'] : nil
       usage_restriction_action =
-        hash.key?('UsageRestrictionAction') ? hash['UsageRestrictionAction'] : SKIP
-      restrictions = BundleRestriction.from_hash(hash['Restrictions']) if hash['Restrictions']
+        hash.key?('UsageRestrictionAction') ? hash['UsageRestrictionAction'] : nil
+      col_co_id = hash.key?('ColCoId') ? hash['ColCoId'] : SKIP
       col_co_code = hash.key?('ColCoCode') ? hash['ColCoCode'] : SKIP
+      payer_id = hash.key?('PayerId') ? hash['PayerId'] : SKIP
       payer_number = hash.key?('PayerNumber') ? hash['PayerNumber'] : SKIP
+      account_id = hash.key?('AccountId') ? hash['AccountId'] : SKIP
       account_number = hash.key?('AccountNumber') ? hash['AccountNumber'] : SKIP
+      restrictions = BundleRestrictionUpdate.from_hash(hash['Restrictions']) if
+        hash['Restrictions']
 
       # Create object from extracted values.
       UpdateBundleRequest.new(bundle_id,
                               request_action,
-                              col_co_id,
-                              payer_id,
-                              account_id,
                               cards,
                               usage_restriction_action,
-                              restrictions,
+                              col_co_id,
                               col_co_code,
+                              payer_id,
                               payer_number,
-                              account_number)
+                              account_id,
+                              account_number,
+                              restrictions)
     end
   end
 end

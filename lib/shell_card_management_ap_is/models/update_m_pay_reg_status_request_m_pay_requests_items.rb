@@ -65,10 +65,8 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(global_request_id = SKIP,
-                   status = SKIP,
-                   approver_user_id = SKIP,
-                   approver_user_display_name = SKIP,
+    def initialize(global_request_id = SKIP, status = SKIP,
+                   approver_user_id = SKIP, approver_user_display_name = SKIP,
                    reason = SKIP)
       @global_request_id = global_request_id unless global_request_id == SKIP
       @status = status unless status == SKIP

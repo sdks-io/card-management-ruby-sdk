@@ -68,11 +68,8 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(col_co_id = SKIP,
-                   col_co_code = SKIP,
-                   payer_number = SKIP,
-                   payer_id = SKIP,
-                   auto_renew_cards = SKIP)
+    def initialize(col_co_id = SKIP, col_co_code = SKIP, payer_number = SKIP,
+                   payer_id = SKIP, auto_renew_cards = SKIP)
       @col_co_id = col_co_id unless col_co_id == SKIP
       @col_co_code = col_co_code unless col_co_code == SKIP
       @payer_number = payer_number unless payer_number == SKIP

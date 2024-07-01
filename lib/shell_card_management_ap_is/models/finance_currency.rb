@@ -62,8 +62,7 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(currency_code = SKIP,
-                   currency_symbol = SKIP,
+    def initialize(currency_code = SKIP, currency_symbol = SKIP,
                    invoice_exchange_rate = SKIP,
                    credit_limit_exchange_rate = SKIP)
       @currency_code = currency_code unless currency_code == SKIP

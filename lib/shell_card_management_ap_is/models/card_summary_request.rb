@@ -9,10 +9,8 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # Encapsulates the details of a Summary Request.
-    # Summary Request fields are same as the Search Request base class and no
-    # new fields are required.
-    # @return [SummaryRequest]
+    # TODO: Write general description for this method
+    # @return [Filters1]
     attr_accessor :filters
 
     # A mapping from model property names to API property names.
@@ -43,7 +41,7 @@ module ShellCardManagementApIs
       return nil unless hash
 
       # Extract variables from the hash.
-      filters = SummaryRequest.from_hash(hash['Filters']) if hash['Filters']
+      filters = Filters1.from_hash(hash['Filters']) if hash['Filters']
 
       # Create object from extracted values.
       CardSummaryRequest.new(filters)

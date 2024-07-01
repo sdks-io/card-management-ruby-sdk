@@ -38,8 +38,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(purchase_categories = SKIP,
-                   error = SKIP)
+    def initialize(purchase_categories = SKIP, error = SKIP)
       @purchase_categories = purchase_categories unless purchase_categories == SKIP
       @error = error unless error == SKIP
     end

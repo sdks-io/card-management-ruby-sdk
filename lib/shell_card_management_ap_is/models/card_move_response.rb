@@ -57,10 +57,8 @@ module ShellCardManagementApIs
     end
 
     def initialize(move_card_request_reference = SKIP,
-                   successful_requests = SKIP,
-                   error_cards = SKIP,
-                   request_id = SKIP,
-                   error = SKIP)
+                   successful_requests = SKIP, error_cards = SKIP,
+                   request_id = SKIP, error = SKIP)
       unless move_card_request_reference == SKIP
         @move_card_request_reference =
           move_card_request_reference

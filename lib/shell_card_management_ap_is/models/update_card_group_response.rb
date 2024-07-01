@@ -78,12 +78,9 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(main_reference = SKIP,
-                   update_card_group_reference = SKIP,
-                   new_card_group_reference = SKIP,
-                   move_card_references = SKIP,
-                   error = SKIP,
-                   request_id = SKIP)
+    def initialize(main_reference = SKIP, update_card_group_reference = SKIP,
+                   new_card_group_reference = SKIP, move_card_references = SKIP,
+                   error = SKIP, request_id = SKIP)
       @main_reference = main_reference unless main_reference == SKIP
       unless update_card_group_reference == SKIP
         @update_card_group_reference =

@@ -9,45 +9,23 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `String` | Optional | - |
-| `status` | `String` | Optional | - |
-| `data` | [`SearchAccountLimitResponseData`](../../doc/models/search-account-limit-response-data.md) | Optional | - |
+| `request_id` | `String` | Optional | Request Id of the API call |
+| `account_id` | `Integer` | Optional | Account ID of the customer. |
+| `account_number` | `String` | Optional | Account Number<br>Example: GB99215176 |
+| `reference_product` | `String` | Optional | 3 digit Shell global fuel product code, if already set up.<br>Example: 021 |
+| `restriction_condition` | `String` | Optional | The restriction condition code.<br>Example: DECLINE_ALERT |
+| `velocity_limits` | [`Array<AccountVelocityLimit>`](../../doc/models/account-velocity-limit.md) | Optional | - |
+| `error` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "RequestId": "RequestId0",
-  "Status": "Status6",
-  "Data": {
-    "AccountId": 62,
-    "AccountNumber": "AccountNumber8",
-    "ReferenceProduct": "ReferenceProduct8",
-    "RestrictionCondition": "RestrictionCondition4",
-    "VelocityLimits": [
-      {
-        "Type": "Type0",
-        "Period": "Period2",
-        "Limit": 24.94,
-        "Accumulation": 132.24,
-        "Balance": 189.6
-      },
-      {
-        "Type": "Type0",
-        "Period": "Period2",
-        "Limit": 24.94,
-        "Accumulation": 132.24,
-        "Balance": 189.6
-      },
-      {
-        "Type": "Type0",
-        "Period": "Period2",
-        "Limit": 24.94,
-        "Accumulation": 132.24,
-        "Balance": 189.6
-      }
-    ]
-  }
+  "RequestId": "2ace3991-5d03-4a68-ac68-ca9119b25101",
+  "AccountId": 114,
+  "AccountNumber": "AccountNumber2",
+  "ReferenceProduct": "ReferenceProduct2",
+  "RestrictionCondition": "RestrictionCondition0"
 }
 ```
 

@@ -13,8 +13,8 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :faultstring
 
-    # Details about the error
-    # @return [DefaultErrorFaultDetail]
+    # Error Description
+    # @return [Detail]
     attr_accessor :detail
 
     # A mapping from model property names to API property names.
@@ -38,8 +38,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(faultstring = SKIP,
-                   detail = SKIP)
+    def initialize(faultstring = SKIP, detail = SKIP)
       @faultstring = faultstring unless faultstring == SKIP
       @detail = detail unless detail == SKIP
     end
@@ -50,7 +49,7 @@ module ShellCardManagementApIs
 
       # Extract variables from the hash.
       faultstring = hash.key?('faultstring') ? hash['faultstring'] : SKIP
-      detail = DefaultErrorFaultDetail.from_hash(hash['detail']) if hash['detail']
+      detail = Detail.from_hash(hash['detail']) if hash['detail']
 
       # Create object from extracted values.
       DefaultErrorFault.new(faultstring,

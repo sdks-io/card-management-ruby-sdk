@@ -188,27 +188,17 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(account_id = SKIP,
-                   account_number = SKIP,
-                   account_short_name = SKIP,
-                   active_cards = SKIP,
-                   blocked_cards = SKIP,
-                   cancelled_cards = SKIP,
-                   card_delivery_point = SKIP,
-                   card_group_id = SKIP,
-                   card_group_name = SKIP,
-                   card_type_code = SKIP,
-                   card_type_id = SKIP,
-                   card_type_name = SKIP,
-                   expired_cards = SKIP,
-                   expiry_date = SKIP,
-                   print_on_card = SKIP,
-                   renewal_pending_cards = SKIP,
-                   replaced_cards = SKIP,
-                   status = SKIP,
+    def initialize(account_id = SKIP, account_number = SKIP,
+                   account_short_name = SKIP, active_cards = SKIP,
+                   blocked_cards = SKIP, cancelled_cards = SKIP,
+                   card_delivery_point = SKIP, card_group_id = SKIP,
+                   card_group_name = SKIP, card_type_code = SKIP,
+                   card_type_id = SKIP, card_type_name = SKIP,
+                   expired_cards = SKIP, expiry_date = SKIP,
+                   print_on_card = SKIP, renewal_pending_cards = SKIP,
+                   replaced_cards = SKIP, status = SKIP,
                    temporary_block_by_customer = SKIP,
-                   temporary_block_by_shell = SKIP,
-                   terminated_date = SKIP,
+                   temporary_block_by_shell = SKIP, terminated_date = SKIP,
                    total_cards = SKIP)
       @account_id = account_id unless account_id == SKIP
       @account_number = account_number unless account_number == SKIP

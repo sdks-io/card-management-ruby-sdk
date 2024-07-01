@@ -81,12 +81,8 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(account_id = SKIP,
-                   account_number = SKIP,
-                   col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   payer_id = SKIP,
-                   payer_number = SKIP,
+    def initialize(account_id = SKIP, account_number = SKIP, col_co_code = SKIP,
+                   col_co_id = SKIP, payer_id = SKIP, payer_number = SKIP,
                    pin_reminder_card_details = SKIP)
       @account_id = account_id unless account_id == SKIP
       @account_number = account_number unless account_number == SKIP

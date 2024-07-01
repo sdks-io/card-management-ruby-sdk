@@ -9,24 +9,44 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # API Request Id
+    # Request Id of the API call
     # @return [String]
     attr_accessor :request_id
 
-    # API Response Status
-    # @return [String]
-    attr_accessor :status
+    # Request Id of the API call
+    # @return [ErrorStatus]
+    attr_accessor :request_action_status
 
-    # API Response Status
-    # @return [ErrorDetails]
-    attr_accessor :errors
+    # Request Id of the API call
+    # @return [ErrorStatus]
+    attr_accessor :day_time_restriction_status
+
+    # Request Id of the API call
+    # @return [ErrorStatus]
+    attr_accessor :location_restriction_status
+
+    # Request Id of the API call
+    # @return [ErrorStatus]
+    attr_accessor :product_restriction_status
+
+    # Request Id of the API call
+    # @return [ErrorStatus]
+    attr_accessor :usage_restriction_status
+
+    # Request Id of the API call
+    # @return [ErrorStatus]
+    attr_accessor :error
 
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
       @_hash['request_id'] = 'RequestId'
-      @_hash['status'] = 'Status'
-      @_hash['errors'] = 'Errors'
+      @_hash['request_action_status'] = 'RequestActionStatus'
+      @_hash['day_time_restriction_status'] = 'DayTimeRestrictionStatus'
+      @_hash['location_restriction_status'] = 'LocationRestrictionStatus'
+      @_hash['product_restriction_status'] = 'ProductRestrictionStatus'
+      @_hash['usage_restriction_status'] = 'UsageRestrictionStatus'
+      @_hash['error'] = 'Error'
       @_hash
     end
 
@@ -34,22 +54,43 @@ module ShellCardManagementApIs
     def self.optionals
       %w[
         request_id
-        status
-        errors
+        request_action_status
+        day_time_restriction_status
+        location_restriction_status
+        product_restriction_status
+        usage_restriction_status
+        error
       ]
     end
 
     # An array for nullable fields
     def self.nullables
-      []
+      %w[
+        request_id
+      ]
     end
 
-    def initialize(request_id = SKIP,
-                   status = SKIP,
-                   errors = SKIP)
+    def initialize(request_id = SKIP, request_action_status = SKIP,
+                   day_time_restriction_status = SKIP,
+                   location_restriction_status = SKIP,
+                   product_restriction_status = SKIP,
+                   usage_restriction_status = SKIP, error = SKIP)
       @request_id = request_id unless request_id == SKIP
-      @status = status unless status == SKIP
-      @errors = errors unless errors == SKIP
+      @request_action_status = request_action_status unless request_action_status == SKIP
+      unless day_time_restriction_status == SKIP
+        @day_time_restriction_status =
+          day_time_restriction_status
+      end
+      unless location_restriction_status == SKIP
+        @location_restriction_status =
+          location_restriction_status
+      end
+      unless product_restriction_status == SKIP
+        @product_restriction_status =
+          product_restriction_status
+      end
+      @usage_restriction_status = usage_restriction_status unless usage_restriction_status == SKIP
+      @error = error unless error == SKIP
     end
 
     # Creates an instance of the object from a hash.
@@ -58,13 +99,26 @@ module ShellCardManagementApIs
 
       # Extract variables from the hash.
       request_id = hash.key?('RequestId') ? hash['RequestId'] : SKIP
-      status = hash.key?('Status') ? hash['Status'] : SKIP
-      errors = ErrorDetails.from_hash(hash['Errors']) if hash['Errors']
+      request_action_status = ErrorStatus.from_hash(hash['RequestActionStatus']) if
+        hash['RequestActionStatus']
+      day_time_restriction_status = ErrorStatus.from_hash(hash['DayTimeRestrictionStatus']) if
+        hash['DayTimeRestrictionStatus']
+      location_restriction_status = ErrorStatus.from_hash(hash['LocationRestrictionStatus']) if
+        hash['LocationRestrictionStatus']
+      product_restriction_status = ErrorStatus.from_hash(hash['ProductRestrictionStatus']) if
+        hash['ProductRestrictionStatus']
+      usage_restriction_status = ErrorStatus.from_hash(hash['UsageRestrictionStatus']) if
+        hash['UsageRestrictionStatus']
+      error = ErrorStatus.from_hash(hash['Error']) if hash['Error']
 
       # Create object from extracted values.
       UpdateBundleResponse.new(request_id,
-                               status,
-                               errors)
+                               request_action_status,
+                               day_time_restriction_status,
+                               location_restriction_status,
+                               product_restriction_status,
+                               usage_restriction_status,
+                               error)
     end
   end
 end

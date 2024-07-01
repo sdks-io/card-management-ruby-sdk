@@ -38,8 +38,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(code = SKIP,
-                   description = SKIP)
+    def initialize(code = SKIP, description = SKIP)
       @code = code unless code == SKIP
       @description = description unless description == SKIP
     end

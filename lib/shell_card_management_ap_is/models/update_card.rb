@@ -66,8 +66,19 @@ module ShellCardManagementApIs
     # @return [TrueClass | FalseClass]
     attr_accessor :order_card_replacement
 
-    # Request entity object for ReplaceCardSettings
-    # @return [ReplaceCardSettings]
+    # True/False.<br />
+    # Pass True if a replacement order card request is to be placed, else
+    # False.<br />
+    # Optional.Default value False.<br />
+    # Replacement of a card is only applicable when the target status requested
+    # is either permanently Block or Damaged for the existing card.<br />
+    # Request for Replacement card will be placed only when the Block card or
+    # Block damaged card request is successfully placed.<br />
+    # The Replacement card request will be processed only when the permanent
+    # Block card request is successfully processed. <br />
+    # In case of damaged card request, the replacement card request will be
+    # processed immediately.
+    # @return [CardSettings]
     attr_accessor :card_settings
 
     # Reason id for updating the card status.
@@ -223,23 +234,13 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(caller = SKIP,
-                   is_replacement_chargeable = SKIP,
-                   notify_caller = SKIP,
-                   notify_caller_on_sync = SKIP,
-                   order_card_replacement = SKIP,
-                   card_settings = SKIP,
-                   reason_id = SKIP,
-                   reason_text = SKIP,
-                   target_status = SKIP,
-                   account_id = SKIP,
-                   account_number = SKIP,
-                   card_expiry_date = SKIP,
-                   card_id = SKIP,
-                   col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   pan = SKIP,
-                   payer_id = SKIP,
+    def initialize(caller = SKIP, is_replacement_chargeable = SKIP,
+                   notify_caller = SKIP, notify_caller_on_sync = SKIP,
+                   order_card_replacement = SKIP, card_settings = SKIP,
+                   reason_id = SKIP, reason_text = SKIP, target_status = SKIP,
+                   account_id = SKIP, account_number = SKIP,
+                   card_expiry_date = SKIP, card_id = SKIP, col_co_code = SKIP,
+                   col_co_id = SKIP, pan = SKIP, payer_id = SKIP,
                    payer_number = SKIP)
       @caller = caller unless caller == SKIP
       unless is_replacement_chargeable == SKIP
@@ -277,7 +278,7 @@ module ShellCardManagementApIs
         hash.key?('NotifyCallerOnSync') ? hash['NotifyCallerOnSync'] : SKIP
       order_card_replacement =
         hash.key?('OrderCardReplacement') ? hash['OrderCardReplacement'] : SKIP
-      card_settings = ReplaceCardSettings.from_hash(hash['CardSettings']) if hash['CardSettings']
+      card_settings = CardSettings.from_hash(hash['CardSettings']) if hash['CardSettings']
       reason_id = hash.key?('ReasonId') ? hash['ReasonId'] : SKIP
       reason_text = hash.key?('ReasonText') ? hash['ReasonText'] : SKIP
       target_status = hash.key?('TargetStatus') ? hash['TargetStatus'] : SKIP

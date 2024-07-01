@@ -18,7 +18,7 @@ module ShellCardManagementApIs
     attr_accessor :service_reference
 
     # Service reference number for tracking.
-    # @return [Array[DeliveryAddressUpdateReferences]]
+    # @return [DeliveryAddressUpdateReferences2]
     attr_accessor :delivery_address_update_references
 
     # Service reference number for tracking.
@@ -51,10 +51,8 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(request_id = SKIP,
-                   service_reference = SKIP,
-                   delivery_address_update_references = SKIP,
-                   error = SKIP)
+    def initialize(request_id = SKIP, service_reference = SKIP,
+                   delivery_address_update_references = SKIP, error = SKIP)
       @request_id = request_id unless request_id == SKIP
       @service_reference = service_reference unless service_reference == SKIP
       unless delivery_address_update_references == SKIP
@@ -72,16 +70,9 @@ module ShellCardManagementApIs
       request_id = hash.key?('RequestId') ? hash['RequestId'] : SKIP
       service_reference =
         hash.key?('ServiceReference') ? hash['ServiceReference'] : SKIP
-      # Parameter is an array, so we need to iterate through it
-      delivery_address_update_references = nil
-      unless hash['DeliveryAddressUpdateReferences'].nil?
-        delivery_address_update_references = []
-        hash['DeliveryAddressUpdateReferences'].each do |structure|
-          delivery_address_update_references << (DeliveryAddressUpdateReferences.from_hash(structure) if structure)
-        end
+      if hash['DeliveryAddressUpdateReferences']
+        delivery_address_update_references = DeliveryAddressUpdateReferences2.from_hash(hash['DeliveryAddressUpdateReferences'])
       end
-
-      delivery_address_update_references = SKIP unless hash.key?('DeliveryAddressUpdateReferences')
       error = ErrorStatus.from_hash(hash['Error']) if hash['Error']
 
       # Create object from extracted values.

@@ -9,25 +9,46 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # Collecting Company Id  of the selected payer. 
+    # Collecting Company Id of the selected payer. 
     # Optional if ColCoCode is passed else Mandatory.
     # Example:
-    # 1-Philippines
-    # 5-UK
+    # 1 for Philippines
+    # 5 for UK
     # @return [Integer]
     attr_accessor :col_co_id
 
+    # Collecting Company Code (Shell Code) of the selected payer. 
+    # Mandatory for serviced OUs such as Romania, Latvia, Lithuania, Estonia,
+    # Ukraine etc. It is optional for other countries if ColCoID is provided.
+    # Example:
+    # 86 for Philippines
+    # 5 for UK
+    # @return [Integer]
+    attr_accessor :col_co_code
+
     # Payer Id of the selected payer.
-    # Optional if PayerNumber is passed else Mandatory
+    # Either PayerId or PayerNumber or both must be passed.
     # Example: 123456
     # @return [Integer]
     attr_accessor :payer_id
+
+    # Payer Number of the selected payer.
+    # Either PayerId or PayerNumber or both must be passed.
+    # Example: GB000000123
+    # @return [String]
+    attr_accessor :payer_number
 
     # Account ID of the customer.
     # Either AccountId or AccountNumber or both must be passed.
     # Example: 123456
     # @return [Integer]
     attr_accessor :account_id
+
+    # Account Number of the customer. 
+    # Either AccountId or AccountNumber or both must be passed.
+    # Example: GB000000123
+    # @return [String]
+    attr_accessor :account_number
 
     # Identifier of the bundle in external system.
     # Optional.
@@ -47,43 +68,26 @@ module ShellCardManagementApIs
     # @return [Array[String]]
     attr_accessor :cards
 
-    # Collecting Company Code (Shell Code) of the selected payer. 
-    # Mandatory for serviced OUs such as Romania, Latvia, Lithuania, Estonia,
-    # Ukraine etc. It is optional for other countries if ColCoID is provided.
-    # Example:
-    # 86-Philippines
-    # 5-UK
-    # @return [Integer]
-    attr_accessor :col_co_code
-
-    # Payer Number (Ex: GB000000123) of the selected payer.
-    # Optional if PayerId is passed else Mandatory
-    # @return [String]
-    attr_accessor :payer_number
-
-    # Account Number of the customer. 
-    # Either AccountId or AccountNumber or both must be passed.
-    # Example: GB000000123
-    # @return [String]
-    attr_accessor :account_number
-
-    # Restrictions to be applied on the bundle.
-    # Mandatory
-    # @return [CreateBundleRequestRestrictions]
+    # List of Card PANs to be added in the bundle.
+    # Mandatory.
+    # Example: 7002051006629890645
+    # When PAN matches with multiple cards, the restriction will be applied on
+    # the latest issued card.
+    # @return [BundleRestriction]
     attr_accessor :restrictions
 
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
       @_hash['col_co_id'] = 'ColCoId'
+      @_hash['col_co_code'] = 'ColCoCode'
       @_hash['payer_id'] = 'PayerId'
+      @_hash['payer_number'] = 'PayerNumber'
       @_hash['account_id'] = 'AccountId'
+      @_hash['account_number'] = 'AccountNumber'
       @_hash['external_bundle_id'] = 'ExternalBundleId'
       @_hash['description'] = 'Description'
       @_hash['cards'] = 'Cards'
-      @_hash['col_co_code'] = 'ColCoCode'
-      @_hash['payer_number'] = 'PayerNumber'
-      @_hash['account_number'] = 'AccountNumber'
       @_hash['restrictions'] = 'Restrictions'
       @_hash
     end
@@ -92,12 +96,14 @@ module ShellCardManagementApIs
     def self.optionals
       %w[
         col_co_id
-        payer_id
-        account_id
-        external_bundle_id
         col_co_code
+        payer_id
         payer_number
+        account_id
         account_number
+        external_bundle_id
+        description
+        cards
         restrictions
       ]
     end
@@ -105,31 +111,29 @@ module ShellCardManagementApIs
     # An array for nullable fields
     def self.nullables
       %w[
-        external_bundle_id
+        col_co_id
         col_co_code
+        payer_id
+        account_id
         account_number
+        external_bundle_id
+        restrictions
       ]
     end
 
-    def initialize(description = nil,
-                   cards = nil,
-                   col_co_id = SKIP,
-                   payer_id = SKIP,
-                   account_id = SKIP,
-                   external_bundle_id = SKIP,
-                   col_co_code = SKIP,
-                   payer_number = SKIP,
-                   account_number = SKIP,
-                   restrictions = SKIP)
+    def initialize(col_co_id = SKIP, col_co_code = SKIP, payer_id = SKIP,
+                   payer_number = SKIP, account_id = SKIP,
+                   account_number = SKIP, external_bundle_id = SKIP,
+                   description = SKIP, cards = SKIP, restrictions = SKIP)
       @col_co_id = col_co_id unless col_co_id == SKIP
-      @payer_id = payer_id unless payer_id == SKIP
-      @account_id = account_id unless account_id == SKIP
-      @external_bundle_id = external_bundle_id unless external_bundle_id == SKIP
-      @description = description
-      @cards = cards
       @col_co_code = col_co_code unless col_co_code == SKIP
+      @payer_id = payer_id unless payer_id == SKIP
       @payer_number = payer_number unless payer_number == SKIP
+      @account_id = account_id unless account_id == SKIP
       @account_number = account_number unless account_number == SKIP
+      @external_bundle_id = external_bundle_id unless external_bundle_id == SKIP
+      @description = description unless description == SKIP
+      @cards = cards unless cards == SKIP
       @restrictions = restrictions unless restrictions == SKIP
     end
 
@@ -138,29 +142,28 @@ module ShellCardManagementApIs
       return nil unless hash
 
       # Extract variables from the hash.
-      description = hash.key?('Description') ? hash['Description'] : nil
-      cards = hash.key?('Cards') ? hash['Cards'] : nil
       col_co_id = hash.key?('ColCoId') ? hash['ColCoId'] : SKIP
+      col_co_code = hash.key?('ColCoCode') ? hash['ColCoCode'] : SKIP
       payer_id = hash.key?('PayerId') ? hash['PayerId'] : SKIP
+      payer_number = hash.key?('PayerNumber') ? hash['PayerNumber'] : SKIP
       account_id = hash.key?('AccountId') ? hash['AccountId'] : SKIP
+      account_number = hash.key?('AccountNumber') ? hash['AccountNumber'] : SKIP
       external_bundle_id =
         hash.key?('ExternalBundleId') ? hash['ExternalBundleId'] : SKIP
-      col_co_code = hash.key?('ColCoCode') ? hash['ColCoCode'] : SKIP
-      payer_number = hash.key?('PayerNumber') ? hash['PayerNumber'] : SKIP
-      account_number = hash.key?('AccountNumber') ? hash['AccountNumber'] : SKIP
-      restrictions = CreateBundleRequestRestrictions.from_hash(hash['Restrictions']) if
-        hash['Restrictions']
+      description = hash.key?('Description') ? hash['Description'] : SKIP
+      cards = hash.key?('Cards') ? hash['Cards'] : SKIP
+      restrictions = BundleRestriction.from_hash(hash['Restrictions']) if hash['Restrictions']
 
       # Create object from extracted values.
-      CreateBundleRequest.new(description,
-                              cards,
-                              col_co_id,
-                              payer_id,
-                              account_id,
-                              external_bundle_id,
+      CreateBundleRequest.new(col_co_id,
                               col_co_code,
+                              payer_id,
                               payer_number,
+                              account_id,
                               account_number,
+                              external_bundle_id,
+                              description,
+                              cards,
                               restrictions)
     end
   end

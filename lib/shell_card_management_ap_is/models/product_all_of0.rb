@@ -39,8 +39,7 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(global_product_code = nil,
-                   description = nil)
+    def initialize(global_product_code = nil, description = nil)
       @global_product_code = global_product_code
       @description = description
     end

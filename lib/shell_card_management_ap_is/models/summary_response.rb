@@ -115,18 +115,12 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(active_cards = SKIP,
-                   blocked_cards = SKIP,
-                   cancelled_cards = SKIP,
-                   expired_cards = SKIP,
-                   expiring_cards = SKIP,
-                   fraud_cards = SKIP,
-                   new_cards = SKIP,
-                   renewal_pending_cards = SKIP,
-                   replaced_cards = SKIP,
+    def initialize(active_cards = SKIP, blocked_cards = SKIP,
+                   cancelled_cards = SKIP, expired_cards = SKIP,
+                   expiring_cards = SKIP, fraud_cards = SKIP, new_cards = SKIP,
+                   renewal_pending_cards = SKIP, replaced_cards = SKIP,
                    temporary_block_by_customer = SKIP,
-                   temporary_block_by_shell = SKIP,
-                   total_cards = SKIP)
+                   temporary_block_by_shell = SKIP, total_cards = SKIP)
       @active_cards = active_cards unless active_cards == SKIP
       @blocked_cards = blocked_cards unless blocked_cards == SKIP
       @cancelled_cards = cancelled_cards unless cancelled_cards == SKIP

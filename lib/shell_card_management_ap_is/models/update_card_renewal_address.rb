@@ -109,15 +109,9 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(contact_name = nil,
-                   company_name = nil,
-                   address_line = nil,
-                   zip_code = nil,
-                   country_id = nil,
-                   contact_title = SKIP,
-                   city = SKIP,
-                   region_id = SKIP,
-                   email_address = SKIP,
+    def initialize(contact_name = nil, company_name = nil, address_line = nil,
+                   zip_code = nil, country_id = nil, contact_title = SKIP,
+                   city = SKIP, region_id = SKIP, email_address = SKIP,
                    phone_number = SKIP)
       @contact_name = contact_name
       @contact_title = contact_title unless contact_title == SKIP

@@ -179,9 +179,12 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :card_delivery_type
 
-    # Request entity object for CardDeliveryContact
-    # Mandatory when CardDeliveryType is 2 else ignored.
-    # @return [CardDeliveryContact]
+    # Card delivery type.<br />
+    # Mandatory <br />
+    # Allowed Value: <br />
+    # 1.	Customer Address(Default) <br />
+    # 2.	New Delivery Address
+    # @return [CardContact]
     attr_accessor :card_contact
 
     # PIN delivery address type selection.<br />
@@ -204,10 +207,15 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :pin_advice_type
 
-    # Request entity object for PINDeliveryContact
-    # Mandatory when PINDeliveryAddressType is ‘3’ (New delivery address). Else,
-    # ignored.
-    # @return [PINDeliveryContact]
+    # PIN delivery method.<br />
+    # Mandatory<br />
+    # Allowed Values:<br />
+    # 1.	Paper<br />
+    # 2.	Email<br />
+    # 3.	SMS<br />
+    # 4.	None <br /> **Note:** Paper delivery not applicable for selfselctedPIN
+    # type
+    # @return [PINContact]
     attr_accessor :pin_contact
 
     # True/False.<br />
@@ -335,11 +343,9 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :client_reference_id
 
-    # Whether to reissue card automatically when nearing the expiry. 
-    # Allowed values: -
-    # 1.    As per card type setting (Default).
-    # 2.    Card will be Reissued when nearing its expiry date.
-    # 3.    Card will not be Reissued.
+    # This is the Client Reference Id of card in the order which needs to be
+    # passed by the client.This will be playback in the ordercard enquiry<br />
+    # Optional
     # @return [CardDetailAutoRenewEnum]
     attr_accessor :auto_renew
 
@@ -463,45 +469,26 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(card_delivery_type = nil,
-                   pin_advice_type = nil,
-                   payer_id = SKIP,
-                   payer_number = SKIP,
-                   account_id = SKIP,
-                   account_number = SKIP,
-                   col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   card_type_id = SKIP,
-                   token_type_id = SKIP,
-                   emboss_text = SKIP,
-                   vrn = SKIP,
-                   driver_name = SKIP,
+    def initialize(card_delivery_type = nil, pin_advice_type = nil,
+                   payer_id = SKIP, payer_number = SKIP, account_id = SKIP,
+                   account_number = SKIP, col_co_code = SKIP, col_co_id = SKIP,
+                   card_type_id = SKIP, token_type_id = SKIP,
+                   emboss_text = SKIP, vrn = SKIP, driver_name = SKIP,
                    odometer_input_required = SKIP,
-                   fleet_id_input_required = SKIP,
-                   purchase_category_id = SKIP,
+                   fleet_id_input_required = SKIP, purchase_category_id = SKIP,
                    self_selected_encrypted_pin = SKIP,
                    self_selected_pin_key_id = SKIP,
-                   self_selected_pin_session_key = SKIP,
-                   card_group_id = SKIP,
-                   card_group_name = SKIP,
-                   is_new_card_group = SKIP,
-                   emboss_card_group = SKIP,
-                   card_contact = SKIP,
-                   pin_delivery_address_type = SKIP,
-                   pin_contact = SKIP,
-                   notify_caller = SKIP,
-                   caller = SKIP,
-                   notify_caller_on_sync = SKIP,
-                   validate_fleet_id = SKIP,
-                   fleet_option = SKIP,
-                   bundle_id = SKIP,
+                   self_selected_pin_session_key = SKIP, card_group_id = SKIP,
+                   card_group_name = SKIP, is_new_card_group = SKIP,
+                   emboss_card_group = SKIP, card_contact = SKIP,
+                   pin_delivery_address_type = SKIP, pin_contact = SKIP,
+                   notify_caller = SKIP, caller = SKIP,
+                   notify_caller_on_sync = SKIP, validate_fleet_id = SKIP,
+                   fleet_option = SKIP, bundle_id = SKIP,
                    usage_restriction_action = SKIP,
-                   product_restriction_action = SKIP,
-                   products = SKIP,
-                   product_groups = SKIP,
-                   expiry_date = SKIP,
-                   client_reference_id = SKIP,
-                   auto_renew = SKIP)
+                   product_restriction_action = SKIP, products = SKIP,
+                   product_groups = SKIP, expiry_date = SKIP,
+                   client_reference_id = SKIP, auto_renew = SKIP)
       @payer_id = payer_id unless payer_id == SKIP
       @payer_number = payer_number unless payer_number == SKIP
       @account_id = account_id unless account_id == SKIP
@@ -593,10 +580,10 @@ module ShellCardManagementApIs
         hash.key?('IsNewCardGroup') ? hash['IsNewCardGroup'] : SKIP
       emboss_card_group =
         hash.key?('EmbossCardGroup') ? hash['EmbossCardGroup'] : SKIP
-      card_contact = CardDeliveryContact.from_hash(hash['CardContact']) if hash['CardContact']
+      card_contact = CardContact.from_hash(hash['CardContact']) if hash['CardContact']
       pin_delivery_address_type =
         hash.key?('PINDeliveryAddressType') ? hash['PINDeliveryAddressType'] : SKIP
-      pin_contact = PINDeliveryContact.from_hash(hash['PINContact']) if hash['PINContact']
+      pin_contact = PINContact.from_hash(hash['PINContact']) if hash['PINContact']
       notify_caller = hash.key?('NotifyCaller') ? hash['NotifyCaller'] : SKIP
       caller = hash.key?('Caller') ? hash['Caller'] : SKIP
       notify_caller_on_sync =

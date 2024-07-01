@@ -41,8 +41,7 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(auto_renew_reference_id = SKIP,
-                   card_id_and_pan = SKIP)
+    def initialize(auto_renew_reference_id = SKIP, card_id_and_pan = SKIP)
       @auto_renew_reference_id = auto_renew_reference_id unless auto_renew_reference_id == SKIP
       @card_id_and_pan = card_id_and_pan unless card_id_and_pan == SKIP
     end

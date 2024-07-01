@@ -123,19 +123,11 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(account_number = SKIP,
-                   bank_name = SKIP,
-                   account_name = SKIP,
-                   date_effective = SKIP,
-                   date_terminated = SKIP,
-                   iban = SKIP,
-                   currency_code = SKIP,
-                   currency_symbol = SKIP,
-                   country_iso_code = SKIP,
-                   country = SKIP,
-                   sort_code = SKIP,
-                   swift_code = SKIP,
-                   bank_type = SKIP)
+    def initialize(account_number = SKIP, bank_name = SKIP, account_name = SKIP,
+                   date_effective = SKIP, date_terminated = SKIP, iban = SKIP,
+                   currency_code = SKIP, currency_symbol = SKIP,
+                   country_iso_code = SKIP, country = SKIP, sort_code = SKIP,
+                   swift_code = SKIP, bank_type = SKIP)
       @account_number = account_number unless account_number == SKIP
       @bank_name = bank_name unless bank_name == SKIP
       @account_name = account_name unless account_name == SKIP

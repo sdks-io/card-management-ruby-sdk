@@ -52,9 +52,7 @@ module ShellCardManagementApIs
       []
     end
 
-    def initialize(main_reference = SKIP,
-                   request_id = SKIP,
-                   status = SKIP,
+    def initialize(main_reference = SKIP, request_id = SKIP, status = SKIP,
                    data = SKIP)
       @main_reference = main_reference unless main_reference == SKIP
       @request_id = request_id unless request_id == SKIP

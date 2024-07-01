@@ -72,10 +72,8 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(include_payer_group = false,
-                   include_eid_details = false,
-                   requested_api_name = SKIP,
-                   payer_id = SKIP,
+    def initialize(include_payer_group = false, include_eid_details = false,
+                   requested_api_name = SKIP, payer_id = SKIP,
                    payer_number = SKIP)
       @include_payer_group = include_payer_group unless include_payer_group == SKIP
       @include_eid_details = include_eid_details unless include_eid_details == SKIP

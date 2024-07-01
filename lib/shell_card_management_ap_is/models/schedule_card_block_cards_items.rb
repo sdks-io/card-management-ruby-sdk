@@ -178,20 +178,11 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(action = nil,
-                   col_co_code = SKIP,
-                   col_co_id = SKIP,
-                   account_id = SKIP,
-                   account_number = SKIP,
-                   payer_id = SKIP,
-                   payer_number = SKIP,
-                   card_id = SKIP,
-                   pan = SKIP,
-                   card_expiry_date = SKIP,
-                   from_date = SKIP,
-                   to_date = SKIP,
-                   caller = SKIP,
-                   notify_caller = SKIP)
+    def initialize(action = nil, col_co_code = SKIP, col_co_id = SKIP,
+                   account_id = SKIP, account_number = SKIP, payer_id = SKIP,
+                   payer_number = SKIP, card_id = SKIP, pan = SKIP,
+                   card_expiry_date = SKIP, from_date = SKIP, to_date = SKIP,
+                   caller = SKIP, notify_caller = SKIP)
       @col_co_code = col_co_code unless col_co_code == SKIP
       @col_co_id = col_co_id unless col_co_id == SKIP
       @account_id = account_id unless account_id == SKIP

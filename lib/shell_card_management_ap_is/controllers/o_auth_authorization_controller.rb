@@ -19,8 +19,8 @@ module ShellCardManagementApIs
                                    _field_parameters: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
-                                     '/token',
-                                     Server::ACCESS_TOKEN_SERVER)
+                                     '/v1/oauth/token',
+                                     Server::OAUTH_SERVER)
                    .form_param(new_parameter('client_credentials', key: 'grant_type'))
                    .header_param(new_parameter(authorization, key: 'Authorization'))
                    .form_param(new_parameter(scope, key: 'scope'))
