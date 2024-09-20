@@ -54,20 +54,20 @@ module ShellCardManagementApIs
     attr_accessor :billing_address
 
     # Card group position at –
-    # •	Payer – Payer level
-    # •	Account – Account level
+    # •    Payer – Payer level
+    # •    Account – Account level
     # @return [String]
     attr_accessor :card_group_position
 
     # Card group position at –
-    # •	Payer – Payer level
-    # •	Account – Account level
+    # •    Payer – Payer level
+    # •    Account – Account level
     # @return [Address]
     attr_accessor :correspondence_address
 
     # Card group position at –
-    # •	Payer – Payer level
-    # •	Account – Account level
+    # •    Payer – Payer level
+    # •    Account – Account level
     # @return [Array[DeliveryAddresses]]
     attr_accessor :delivery_addresses
 
@@ -132,28 +132,28 @@ module ShellCardManagementApIs
 
     # Default PIN AdviceType of the customer.
     # Possible Values:
-    # 1.	Paper
-    # 2.	Email
-    # 3.	SMS
-    # 4.	None
+    # 1.    Paper
+    # 2.    Email
+    # 3.    SMS
+    # 4.    None
     # @return [Integer]
     attr_accessor :default_pin_advice_type
 
     # Default PIN AdviceType of the customer.
     # Possible Values:
-    # 1.	Paper
-    # 2.	Email
-    # 3.	SMS
-    # 4.	None
+    # 1.    Paper
+    # 2.    Email
+    # 3.    SMS
+    # 4.    None
     # @return [Array[PINAdviceTypes]]
     attr_accessor :pin_advice_types
 
     # Default PIN AdviceType of the customer.
     # Possible Values:
-    # 1.	Paper
-    # 2.	Email
-    # 3.	SMS
-    # 4.	None
+    # 1.    Paper
+    # 2.    Email
+    # 3.    SMS
+    # 4.    None
     # @return [ErrorStatus]
     attr_accessor :error
 

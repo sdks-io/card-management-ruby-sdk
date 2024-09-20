@@ -58,9 +58,9 @@ module ShellCardManagementApIs
     # The value indicates the action to be performed with the request.
     # Mandatory
     # Allowed values:
-    # •	Add
-    # •	Update
-    # •	Remove
+    # •    Add
+    # •    Update
+    # •    Remove
     # @return [String]
     attr_accessor :request_action
 
@@ -76,8 +76,8 @@ module ShellCardManagementApIs
     # restrictions on the list of cards being added or removed.
     # Mandatory for Add / Remove request action. Ignored for Update action.
     # Allowed values:
-    # •	Update
-    # •	None
+    # •    Update
+    # •    None
     # @return [String]
     attr_accessor :usage_restriction_action
 
@@ -85,8 +85,8 @@ module ShellCardManagementApIs
     # restrictions on the list of cards being added or removed.
     # Mandatory for Add / Remove request action. Ignored for Update action.
     # Allowed values:
-    # •	Update
-    # •	None
+    # •    Update
+    # •    None
     # @return [BundleRestrictionUpdate]
     attr_accessor :restrictions
 

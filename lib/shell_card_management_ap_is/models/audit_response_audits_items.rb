@@ -114,23 +114,23 @@ module ShellCardManagementApIs
 
     # User requested operation. 
     # Possible values:
-    # •	OrderCard
-    # •	CreateCardGroup
-    # •	PINReminder
-    # •	MoveCard
-    # •	UpdateCardStatus
-    # •	UpdateCardGroup
-    # •	AutoRenew
-    # •	BulkCardOrder
-    # •	BulkCardBlock
-    # •	BulkCardOrderMultiAccount
-    # •	MobilePaymentRegistration
-    # •	UpdateCompanyInfo
-    # •	BCOSummary
-    # •	BCOMultiAccountSummary
-    # •	BCBSummary
-    # •	FundTransfer
-    # •	DeliveryAddressUpdate
+    # •    OrderCard
+    # •    CreateCardGroup
+    # •    PINReminder
+    # •    MoveCard
+    # •    UpdateCardStatus
+    # •    UpdateCardGroup
+    # •    AutoRenew
+    # •    BulkCardOrder
+    # •    BulkCardBlock
+    # •    BulkCardOrderMultiAccount
+    # •    MobilePaymentRegistration
+    # •    UpdateCompanyInfo
+    # •    BCOSummary
+    # •    BCOMultiAccountSummary
+    # •    BCBSummary
+    # •    FundTransfer
+    # •    DeliveryAddressUpdate
     # @return [String]
     attr_accessor :requested_operation
 
@@ -140,35 +140,35 @@ module ShellCardManagementApIs
 
     # Request type initiated under the requested operation. 
     # Possible values:
-    # •	OrderCard
-    # •	CreateCardGroup
-    # •	PINReminder
-    # •	MoveCard
-    # •	UpdateCardStatus
-    # •	UpdateCardGroup
-    # •	AutoRenew
-    # •	BulkCardOrder
-    # •	BulkCardBlock
-    # •	BulkCardOrderMultiAccount
-    # •	MobilePaymentRegistration
-    # •	UpdateCompanyInfo
-    # •	BCOSummary
-    # •	BCOMultiAccountSummary
-    # •	BCBSummary
-    # •	FundTransfer
-    # •	DeliveryAddressUpdate
+    # •    OrderCard
+    # •    CreateCardGroup
+    # •    PINReminder
+    # •    MoveCard
+    # •    UpdateCardStatus
+    # •    UpdateCardGroup
+    # •    AutoRenew
+    # •    BulkCardOrder
+    # •    BulkCardBlock
+    # •    BulkCardOrderMultiAccount
+    # •    MobilePaymentRegistration
+    # •    UpdateCompanyInfo
+    # •    BCOSummary
+    # •    BCOMultiAccountSummary
+    # •    BCBSummary
+    # •    FundTransfer
+    # •    DeliveryAddressUpdate
     # @return [String]
     attr_accessor :request_type
 
     # Status of the request.
     # Possible values:
-    # •	Success
-    # •	Failed
-    # •	InProgress
-    # •	Submitted
-    # •	Rejected
-    # •	PendingApproval
-    # •	MailedToCSC
+    # •    Success
+    # •    Failed
+    # •    InProgress
+    # •    Submitted
+    # •    Rejected
+    # •    PendingApproval
+    # •    MailedToCSC
     # @return [String]
     attr_accessor :status
 

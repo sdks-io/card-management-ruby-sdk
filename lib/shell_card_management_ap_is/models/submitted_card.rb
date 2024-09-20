@@ -58,6 +58,14 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :pan
 
+    # PANID of the card
+    # @return [Float]
+    attr_accessor :panid
+
+    # Card PAN
+    # @return [String]
+    attr_accessor :masked_pan
+
     # Payer id of the customer.<br />
     # Optional if PayerNumber is passed, else Mandatory.
     # @return [Integer]
@@ -80,6 +88,8 @@ module ShellCardManagementApIs
       @_hash['col_co_code'] = 'ColCoCode'
       @_hash['col_co_id'] = 'ColCoId'
       @_hash['pan'] = 'PAN'
+      @_hash['panid'] = 'PANID'
+      @_hash['masked_pan'] = 'MaskedPAN'
       @_hash['payer_id'] = 'PayerId'
       @_hash['payer_number'] = 'PayerNumber'
       @_hash
@@ -97,6 +107,8 @@ module ShellCardManagementApIs
         col_co_code
         col_co_id
         pan
+        panid
+        masked_pan
         payer_id
         payer_number
       ]
@@ -114,6 +126,8 @@ module ShellCardManagementApIs
         col_co_code
         col_co_id
         pan
+        panid
+        masked_pan
         payer_id
         payer_number
       ]
@@ -123,7 +137,8 @@ module ShellCardManagementApIs
                    update_card_reference = SKIP, account_id = SKIP,
                    account_number = SKIP, card_expiry_date = SKIP,
                    card_id = SKIP, col_co_code = SKIP, col_co_id = SKIP,
-                   pan = SKIP, payer_id = SKIP, payer_number = SKIP)
+                   pan = SKIP, panid = SKIP, masked_pan = SKIP, payer_id = SKIP,
+                   payer_number = SKIP)
       unless replacement_card_reference == SKIP
         @replacement_card_reference =
           replacement_card_reference
@@ -136,6 +151,8 @@ module ShellCardManagementApIs
       @col_co_code = col_co_code unless col_co_code == SKIP
       @col_co_id = col_co_id unless col_co_id == SKIP
       @pan = pan unless pan == SKIP
+      @panid = panid unless panid == SKIP
+      @masked_pan = masked_pan unless masked_pan == SKIP
       @payer_id = payer_id unless payer_id == SKIP
       @payer_number = payer_number unless payer_number == SKIP
     end
@@ -157,6 +174,8 @@ module ShellCardManagementApIs
       col_co_code = hash.key?('ColCoCode') ? hash['ColCoCode'] : SKIP
       col_co_id = hash.key?('ColCoId') ? hash['ColCoId'] : SKIP
       pan = hash.key?('PAN') ? hash['PAN'] : SKIP
+      panid = hash.key?('PANID') ? hash['PANID'] : SKIP
+      masked_pan = hash.key?('MaskedPAN') ? hash['MaskedPAN'] : SKIP
       payer_id = hash.key?('PayerId') ? hash['PayerId'] : SKIP
       payer_number = hash.key?('PayerNumber') ? hash['PayerNumber'] : SKIP
 
@@ -170,6 +189,8 @@ module ShellCardManagementApIs
                         col_co_code,
                         col_co_id,
                         pan,
+                        panid,
+                        masked_pan,
                         payer_id,
                         payer_number)
     end

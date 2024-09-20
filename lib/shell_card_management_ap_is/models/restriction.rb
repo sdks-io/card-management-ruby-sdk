@@ -9,23 +9,19 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # Details of the usage restrictions such as day/week/month value and volume
-    # restrictions applied on the card.
-    # @return [UsageRestriction]
+    # TODO: Write general description for this method
+    # @return [Object]
     attr_accessor :usage_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
-    # @return [DayTimeRestriction]
+    # TODO: Write general description for this method
+    # @return [DayTimeRestrictions]
     attr_accessor :day_time_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
+    # TODO: Write general description for this method
     # @return [SearchProductRestriction]
     attr_accessor :product_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
+    # TODO: Write general description for this method
     # @return [LocationRestriction]
     attr_accessor :location_restrictions
 
@@ -51,9 +47,7 @@ module ShellCardManagementApIs
 
     # An array for nullable fields
     def self.nullables
-      %w[
-        usage_restrictions
-      ]
+      []
     end
 
     def initialize(usage_restrictions = SKIP, day_time_restrictions = SKIP,
@@ -69,9 +63,9 @@ module ShellCardManagementApIs
       return nil unless hash
 
       # Extract variables from the hash.
-      usage_restrictions = UsageRestriction.from_hash(hash['UsageRestrictions']) if
-        hash['UsageRestrictions']
-      day_time_restrictions = DayTimeRestriction.from_hash(hash['DayTimeRestrictions']) if
+      usage_restrictions =
+        hash.key?('UsageRestrictions') ? hash['UsageRestrictions'] : SKIP
+      day_time_restrictions = DayTimeRestrictions.from_hash(hash['DayTimeRestrictions']) if
         hash['DayTimeRestrictions']
       product_restrictions = SearchProductRestriction.from_hash(hash['ProductRestrictions']) if
         hash['ProductRestrictions']

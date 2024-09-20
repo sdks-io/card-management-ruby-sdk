@@ -13,7 +13,7 @@ module ShellCardManagementApIs
     # space-delimited list.
     # @param [Hash] _field_parameters Additional optional form parameters are
     # supported by this endpoint.
-    # @return [OAuthToken] response from the API call
+    # @return [OAuthToken] response from the API call.
     def request_token_bearer_token(authorization,
                                    scope: nil,
                                    _field_parameters: nil)
@@ -28,14 +28,14 @@ module ShellCardManagementApIs
                    .header_param(new_parameter('application/json', key: 'accept'))
                    .additional_form_params(_field_parameters))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(OAuthToken.method(:from_hash))
-                   .local_error('400',
-                                'OAuth 2 provider returned an error.',
-                                OAuthProviderException)
-                   .local_error('401',
-                                'OAuth 2 provider says client authentication failed.',
-                                OAuthProviderException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(OAuthToken.method(:from_hash))
+                    .local_error('400',
+                                 'OAuth 2 provider returned an error.',
+                                 OAuthProviderException)
+                    .local_error('401',
+                                 'OAuth 2 provider says client authentication failed.',
+                                 OAuthProviderException))
         .execute
     end
   end

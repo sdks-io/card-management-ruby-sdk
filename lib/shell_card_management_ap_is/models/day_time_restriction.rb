@@ -41,7 +41,7 @@ module ShellCardManagementApIs
     # Card could be used from this time in a day.
     # Format: HH:mm (24-hour format)
     # Note: 
-    # 1.	Clients to convert this to appropriate DateTime or TimeSpan type.
+    # 1.    Clients to convert this to appropriate DateTime or TimeSpan type.
     # “00:00” is the lowest time value and “23:59” is the highest time value.
     # @return [String]
     attr_accessor :time_from
@@ -49,7 +49,7 @@ module ShellCardManagementApIs
     # Card could be used up to this time in a day. 
     # Format: HH:mm (24-hour format)
     # Note: 
-    # 1.	Clients to convert this to appropriate DateTime or TimeSpan type. 
+    # 1.    Clients to convert this to appropriate DateTime or TimeSpan type. 
     # “00:00” is the lowest time value and “23:59” is the highest time value.
     # @return [String]
     attr_accessor :time_to

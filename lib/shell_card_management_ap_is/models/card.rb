@@ -175,9 +175,17 @@ module ShellCardManagementApIs
     # @return [TrueClass | FalseClass]
     attr_accessor :odometer_input
 
-    # Card PAN Mask PAN (Mask all digits except the Last 6 digits of the PAN)
+    # Card PAN
     # @return [String]
     attr_accessor :pan
+
+    # Card PAN Mask PAN (Mask all digits except the Last 6 digits of the PAN)
+    # @return [String]
+    attr_accessor :masked_pan
+
+    # Card PAN ID.
+    # @return [Float]
+    attr_accessor :panid
 
     # Purchase category code
     # @return [String]
@@ -326,6 +334,8 @@ module ShellCardManagementApIs
       @_hash['local_currency_symbol'] = 'LocalCurrencySymbol'
       @_hash['odometer_input'] = 'OdometerInput'
       @_hash['pan'] = 'PAN'
+      @_hash['masked_pan'] = 'MaskedPAN'
+      @_hash['panid'] = 'PANID'
       @_hash['purchase_category_code'] = 'PurchaseCategoryCode'
       @_hash['purchase_category_id'] = 'PurchaseCategoryId'
       @_hash['purchase_category_name'] = 'PurchaseCategoryName'
@@ -383,6 +393,8 @@ module ShellCardManagementApIs
         local_currency_symbol
         odometer_input
         pan
+        masked_pan
+        panid
         purchase_category_code
         purchase_category_id
         purchase_category_name
@@ -461,11 +473,12 @@ module ShellCardManagementApIs
                    is_virtual_card = SKIP, last_modified_date = SKIP,
                    last_used_date = SKIP, local_currency_code = SKIP,
                    local_currency_symbol = SKIP, odometer_input = SKIP,
-                   pan = SKIP, purchase_category_code = SKIP,
-                   purchase_category_id = SKIP, purchase_category_name = SKIP,
-                   reason = SKIP, reissue_setting = SKIP,
-                   status_description = SKIP, status_id = SKIP,
-                   token_type_id = SKIP, token_type_name = SKIP, vrn = SKIP,
+                   pan = SKIP, masked_pan = SKIP, panid = SKIP,
+                   purchase_category_code = SKIP, purchase_category_id = SKIP,
+                   purchase_category_name = SKIP, reason = SKIP,
+                   reissue_setting = SKIP, status_description = SKIP,
+                   status_id = SKIP, token_type_id = SKIP,
+                   token_type_name = SKIP, vrn = SKIP,
                    client_reference_id = SKIP, is_emv_contact = SKIP,
                    is_emv_contactless = SKIP, is_rfid = SKIP, rfiduid = SKIP,
                    emaid = SKIP, ev_printed_number = SKIP,
@@ -506,6 +519,8 @@ module ShellCardManagementApIs
       @local_currency_symbol = local_currency_symbol unless local_currency_symbol == SKIP
       @odometer_input = odometer_input unless odometer_input == SKIP
       @pan = pan unless pan == SKIP
+      @masked_pan = masked_pan unless masked_pan == SKIP
+      @panid = panid unless panid == SKIP
       @purchase_category_code = purchase_category_code unless purchase_category_code == SKIP
       @purchase_category_id = purchase_category_id unless purchase_category_id == SKIP
       @purchase_category_name = purchase_category_name unless purchase_category_name == SKIP
@@ -583,6 +598,8 @@ module ShellCardManagementApIs
         hash.key?('LocalCurrencySymbol') ? hash['LocalCurrencySymbol'] : SKIP
       odometer_input = hash.key?('OdometerInput') ? hash['OdometerInput'] : SKIP
       pan = hash.key?('PAN') ? hash['PAN'] : SKIP
+      masked_pan = hash.key?('MaskedPAN') ? hash['MaskedPAN'] : SKIP
+      panid = hash.key?('PANID') ? hash['PANID'] : SKIP
       purchase_category_code =
         hash.key?('PurchaseCategoryCode') ? hash['PurchaseCategoryCode'] : SKIP
       purchase_category_id =
@@ -646,6 +663,8 @@ module ShellCardManagementApIs
                local_currency_symbol,
                odometer_input,
                pan,
+               masked_pan,
+               panid,
                purchase_category_code,
                purchase_category_id,
                purchase_category_name,

@@ -16,20 +16,20 @@ Go to the Shell Developer Portal: [https://developer.shell.com](https://develope
 Install the gem from the command line:
 
 ```ruby
-gem install card-management-sdk -v 1.1.0
+gem install card-management-sdk -v 1.2.0
 ```
 
 Or add the gem to your Gemfile and run `bundle`:
 
 ```ruby
-gem 'card-management-sdk', '1.1.0'
+gem 'card-management-sdk', '1.2.0'
 ```
 
-For additional gem details, see the [RubyGems page for the card-management-sdk gem](https://rubygems.org/gems/card-management-sdk/versions/1.1.0).
+For additional gem details, see the [RubyGems page for the card-management-sdk gem](https://rubygems.org/gems/card-management-sdk/versions/1.2.0).
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
@@ -45,8 +45,8 @@ The following parameters are configurable for the API Client:
 | `retry_statuses` | `Array` | A list of HTTP statuses to retry. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
 | `retry_methods` | `Array` | A list of HTTP methods to retry. <br> **Default: %i[get put]** |
 | `http_callback` | `HttpCallBack` | The Http CallBack allows defining callables for pre and post API calls. |
-| `basic_auth_credentials` | [`BasicAuthCredentials`](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/$a/https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/basic-authentication.md) | The credential object for Basic Authentication |
-| `bearer_token_credentials` | [`BearerTokenCredentials`](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/$a/https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/oauth-2-client-credentials-grant.md) | The credential object for OAuth 2 Client Credentials Grant |
+| `basic_auth_credentials` | [`BasicAuthCredentials`](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/auth/basic-authentication.md) | The credential object for Basic Authentication |
+| `bearer_token_credentials` | [`BearerTokenCredentials`](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/auth/oauth-2-client-credentials-grant.md) | The credential object for OAuth 2 Client Credentials Grant |
 
 The API client can be initialized as follows:
 
@@ -79,19 +79,18 @@ The SDK can be configured to use a different environment for making API calls. A
 
 This API uses the following authentication schemes.
 
-* [`BasicAuth (Basic Authentication)`](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/$a/https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/basic-authentication.md)
-* [`BearerToken (OAuth 2 Client Credentials Grant)`](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/$a/https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/oauth-2-client-credentials-grant.md)
+* [`BasicAuth (Basic Authentication)`](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/auth/basic-authentication.md)
+* [`BearerToken (OAuth 2 Client Credentials Grant)`](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/auth/oauth-2-client-credentials-grant.md)
 
 ## List of APIs
 
-* [O Auth Authorization](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/controllers/o-auth-authorization.md)
-* [Customer](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/controllers/customer.md)
-* [Restriction](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/controllers/restriction.md)
-* [Card](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/controllers/card.md)
+* [Customer](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/controllers/customer.md)
+* [Restriction](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/controllers/restriction.md)
+* [Card](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/controllers/card.md)
 
 ## Classes Documentation
 
-* [Utility Classes](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/utility-classes.md)
-* [HttpResponse](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/http-response.md)
-* [HttpRequest](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.1.0/doc/http-request.md)
+* [Utility Classes](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/utility-classes.md)
+* [HttpResponse](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/http-response.md)
+* [HttpRequest](https://www.github.com/sdks-io/card-management-ruby-sdk/tree/1.2.0/doc/http-request.md)
 

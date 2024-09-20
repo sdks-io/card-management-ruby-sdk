@@ -13,8 +13,8 @@ module ShellCardManagementApIs
     # restriction. 
     # Mandatory
     # Allowed values –
-    # •	Add: Apply the given restriction on the bundle.
-    # •	Default: No Day/Time restriction will be applied on the bundle in
+    # •    Add: Apply the given restriction on the bundle.
+    # •    Default: No Day/Time restriction will be applied on the bundle in
     # Gateway.
     # @return [String]
     attr_accessor :day_time_restriction_action
@@ -23,8 +23,8 @@ module ShellCardManagementApIs
     # restriction. 
     # Mandatory
     # Allowed values –
-    # •	Add: Apply the given restriction on the bundle.
-    # •	Default: No location restriction will be applied on the bundle in
+    # •    Add: Apply the given restriction on the bundle.
+    # •    Default: No location restriction will be applied on the bundle in
     # Gateway.
     # @return [String]
     attr_accessor :location_restriction_action
@@ -33,24 +33,39 @@ module ShellCardManagementApIs
     # restriction. 
     # Mandatory
     # Allowed values –
-    # •	Add: Apply the given restriction on the bundle.
-    # •	Default: No location restriction will be applied on the bundle in
+    # •    Add: Apply the given restriction on the bundle.
+    # •    Default: No location restriction will be applied on the bundle in
     # Gateway.
-    # @return [UsageRestrictionsCard]
+    # @return [Object]
     attr_accessor :usage_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
-    # @return [DayTimeRestriction]
+    # The value indicates what actions to be performed with respect to location
+    # restriction. 
+    # Mandatory
+    # Allowed values –
+    # •    Add: Apply the given restriction on the bundle.
+    # •    Default: No location restriction will be applied on the bundle in
+    # Gateway.
+    # @return [DayTimeRestrictions]
     attr_accessor :day_time_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
-    # @return [ProductRestrictionCard]
+    # The value indicates what actions to be performed with respect to location
+    # restriction. 
+    # Mandatory
+    # Allowed values –
+    # •    Add: Apply the given restriction on the bundle.
+    # •    Default: No location restriction will be applied on the bundle in
+    # Gateway.
+    # @return [Object]
     attr_accessor :product_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
+    # The value indicates what actions to be performed with respect to location
+    # restriction. 
+    # Mandatory
+    # Allowed values –
+    # •    Add: Apply the given restriction on the bundle.
+    # •    Default: No location restriction will be applied on the bundle in
+    # Gateway.
     # @return [LocationRestriction]
     attr_accessor :location_restrictions
 
@@ -83,8 +98,6 @@ module ShellCardManagementApIs
       %w[
         day_time_restriction_action
         location_restriction_action
-        usage_restrictions
-        product_restrictions
       ]
     end
 
@@ -115,12 +128,12 @@ module ShellCardManagementApIs
         hash.key?('DayTimeRestrictionAction') ? hash['DayTimeRestrictionAction'] : SKIP
       location_restriction_action =
         hash.key?('LocationRestrictionAction') ? hash['LocationRestrictionAction'] : SKIP
-      usage_restrictions = UsageRestrictionsCard.from_hash(hash['UsageRestrictions']) if
-        hash['UsageRestrictions']
-      day_time_restrictions = DayTimeRestriction.from_hash(hash['DayTimeRestrictions']) if
+      usage_restrictions =
+        hash.key?('UsageRestrictions') ? hash['UsageRestrictions'] : SKIP
+      day_time_restrictions = DayTimeRestrictions.from_hash(hash['DayTimeRestrictions']) if
         hash['DayTimeRestrictions']
-      product_restrictions = ProductRestrictionCard.from_hash(hash['ProductRestrictions']) if
-        hash['ProductRestrictions']
+      product_restrictions =
+        hash.key?('ProductRestrictions') ? hash['ProductRestrictions'] : SKIP
       location_restrictions = LocationRestriction.from_hash(hash['LocationRestrictions']) if
         hash['LocationRestrictions']
 

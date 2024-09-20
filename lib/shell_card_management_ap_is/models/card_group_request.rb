@@ -57,9 +57,9 @@ module ShellCardManagementApIs
     # Card Group Status
     # Mandatory
     # Allowed values:
-    # •	ALL
-    # •	TERMINATED
-    # •	ACTIVE
+    # •    ALL
+    # •    TERMINATED
+    # •    ACTIVE
     # @return [String]
     attr_accessor :status
 

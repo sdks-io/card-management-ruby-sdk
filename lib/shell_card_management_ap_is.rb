@@ -249,11 +249,28 @@ require_relative 'shell_card_management_ap_is/models/filters2'
 require_relative 'shell_card_management_ap_is/models/finance_currency2'
 require_relative 'shell_card_management_ap_is/models/' \
                  'fleetmanagement_v1_user_loggedinuser_request'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v1_user_loggedinuser400_error1'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v1_user_loggedinuser401_error1'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v1_user_loggedinuser404_error1'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v1_user_loggedinuser500_error1'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v1_customer_payers400_error1'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v1_customer_payers404_error1'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v2_restriction_searchcard401_error1'
+require_relative 'shell_card_management_ap_is/models/' \
+                 'fleetmanagement_v2_restriction_searchcard500_error1'
 require_relative 'shell_card_management_ap_is/models/pin_contact'
 require_relative 'shell_card_management_ap_is/models/pin_deliver_to'
 require_relative 'shell_card_management_ap_is/models/pin_delivery_address'
 require_relative 'shell_card_management_ap_is/models/' \
                  'update_card_renewal_address2'
+require_relative 'shell_card_management_ap_is/models/day_time_restrictions'
 require_relative 'shell_card_management_ap_is/models/o_auth_token'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_detail_auto_renew_enum'

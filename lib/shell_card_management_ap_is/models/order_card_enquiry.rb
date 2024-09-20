@@ -48,6 +48,14 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :card_pan
 
+    # Card PAN
+    # @return [String]
+    attr_accessor :masked_pan
+
+    # Card PAN ID as a unique number for each PAN
+    # @return [Float]
+    attr_accessor :panid
+
     # CardTypeCode<br />
     # ISO code of the card i.e. first 7 digits of the PAN
     # @return [String]
@@ -109,11 +117,11 @@ module ShellCardManagementApIs
     # Possible values:<br />
     # P   Pending<br />
     # I   Picked up for processing<br />
-    # PX	Failed at Queue but retry attempts pending<br />
-    # X	Failed  at Queue<br />
-    # R	Card is processed, awaiting for PAN update.<br />
-    # S	Processed<br />
-    # F	Failed
+    # PX    Failed at Queue but retry attempts pending<br />
+    # X    Failed  at Queue<br />
+    # R    Card is processed, awaiting for PAN update.<br />
+    # S    Processed<br />
+    # F    Failed
     # @return [String]
     attr_accessor :order_status
 
@@ -223,6 +231,8 @@ module ShellCardManagementApIs
       @_hash['card_group_name'] = 'CardGroupName'
       @_hash['card_id'] = 'CardId'
       @_hash['card_pan'] = 'CardPAN'
+      @_hash['masked_pan'] = 'MaskedPAN'
+      @_hash['panid'] = 'PANID'
       @_hash['card_type_code'] = 'CardTypeCode'
       @_hash['card_type_id'] = 'CardTypeId'
       @_hash['card_type_name'] = 'CardTypeName'
@@ -264,6 +274,8 @@ module ShellCardManagementApIs
         card_group_name
         card_id
         card_pan
+        masked_pan
+        panid
         card_type_code
         card_type_id
         card_type_name
@@ -305,6 +317,8 @@ module ShellCardManagementApIs
         card_group_name
         card_id
         card_pan
+        masked_pan
+        panid
         card_type_code
         card_type_id
         card_type_name
@@ -335,7 +349,8 @@ module ShellCardManagementApIs
     def initialize(account_id = SKIP, account_number = SKIP,
                    bco_reference = SKIP, bco_row_number = SKIP,
                    card_group_id = SKIP, card_group_name = SKIP, card_id = SKIP,
-                   card_pan = SKIP, card_type_code = SKIP, card_type_id = SKIP,
+                   card_pan = SKIP, masked_pan = SKIP, panid = SKIP,
+                   card_type_code = SKIP, card_type_id = SKIP,
                    card_type_name = SKIP, driver_name = SKIP, error_code = SKIP,
                    error_description = SKIP, gateway_sync_error_code = SKIP,
                    gateway_sync_error_description = SKIP,
@@ -356,6 +371,8 @@ module ShellCardManagementApIs
       @card_group_name = card_group_name unless card_group_name == SKIP
       @card_id = card_id unless card_id == SKIP
       @card_pan = card_pan unless card_pan == SKIP
+      @masked_pan = masked_pan unless masked_pan == SKIP
+      @panid = panid unless panid == SKIP
       @card_type_code = card_type_code unless card_type_code == SKIP
       @card_type_id = card_type_id unless card_type_id == SKIP
       @card_type_name = card_type_name unless card_type_name == SKIP
@@ -402,6 +419,8 @@ module ShellCardManagementApIs
         hash.key?('CardGroupName') ? hash['CardGroupName'] : SKIP
       card_id = hash.key?('CardId') ? hash['CardId'] : SKIP
       card_pan = hash.key?('CardPAN') ? hash['CardPAN'] : SKIP
+      masked_pan = hash.key?('MaskedPAN') ? hash['MaskedPAN'] : SKIP
+      panid = hash.key?('PANID') ? hash['PANID'] : SKIP
       card_type_code = hash.key?('CardTypeCode') ? hash['CardTypeCode'] : SKIP
       card_type_id = hash.key?('CardTypeId') ? hash['CardTypeId'] : SKIP
       card_type_name = hash.key?('CardTypeName') ? hash['CardTypeName'] : SKIP
@@ -452,6 +471,8 @@ module ShellCardManagementApIs
                            card_group_name,
                            card_id,
                            card_pan,
+                           masked_pan,
+                           panid,
                            card_type_code,
                            card_type_id,
                            card_type_name,

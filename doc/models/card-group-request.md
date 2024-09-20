@@ -15,7 +15,7 @@
 | `payer_number` | `String` | Optional | PayerNumber of the customer.<br>Optional if PayerId is passed, else Mandatory.<br>This input is a search criterion.<br>Example: GB00123456 |
 | `account` | [`Array<Accounts>`](../../doc/models/accounts.md) | Optional | - |
 | `card_group_name` | `String` | Optional | Card Group Name<br>Optional.<br>Minimum of 2 characters should be provided else not considered.<br>CardGroups those have the entered value at any part |
-| `status` | `String` | Optional | Card Group Status<br>Mandatory<br>Allowed values:<br>•	ALL<br>•	TERMINATED<br>•	ACTIVE |
+| `status` | `String` | Optional | Card Group Status<br>Mandatory<br>Allowed values:<br>•    ALL<br>•    TERMINATED<br>•    ACTIVE |
 | `current_page` | `Integer` | Optional | Page Number (as shown to the users)<br>Optional<br>Default value 1 |
 | `page_size` | `Integer` | Optional | Page Size – Number of records to show on a page.<br>Optional<br>Default value 50.<br>Return all rows if -1 is supplied as page size. |
 

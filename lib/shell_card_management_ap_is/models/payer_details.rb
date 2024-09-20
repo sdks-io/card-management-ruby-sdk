@@ -143,10 +143,10 @@ module ShellCardManagementApIs
     # Billing/Invoice frequency. The frequency in which the transactions will be
     # considered for invoicing in a bulling run
     # E.g.: 
-    # 1	Daily (all days)
-    # 2	Daily (only working days)
-    # 3	Weekly - Monday
-    # 4	Weekly – Tuesday
+    # 1    Daily (all days)
+    # 2    Daily (only working days)
+    # 3    Weekly - Monday
+    # 4    Weekly – Tuesday
     # Etc.
     # @return [String]
     attr_accessor :billing_frequency_type
@@ -157,10 +157,10 @@ module ShellCardManagementApIs
     attr_accessor :billing_run_frequency_type_id
 
     # Frequency at which the billing process is triggered.E.g.: 
-    # 1	Daily (all days)
-    # 2	Daily (only working days)
-    # 3	Weekly - Monday
-    # 4	Weekly – Tuesday
+    # 1    Daily (all days)
+    # 2    Daily (only working days)
+    # 3    Weekly - Monday
+    # 4    Weekly – Tuesday
     # Etc.
     # @return [String]
     attr_accessor :billing_run_frequnecy
@@ -482,13 +482,13 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :tolls_customer_id
 
-    # String	Colco country type id in e-TM system
+    # String    Colco country type id in e-TM system
     # This field will have value only when ReturnTollsCustomerId is set to true
     # in the request else set to null or empty.
     # @return [String]
     attr_accessor :tolls_colco_country_type_id
 
-    # String	Colco country type id in e-TM system
+    # String    Colco country type id in e-TM system
     # This field will have value only when ReturnTollsCustomerId is set to true
     # in the request else set to null or empty.
     # @return [Array[CustomerContract]]

@@ -11,10 +11,10 @@ module ShellCardManagementApIs
 
     # Id of of PIN advice type.
     # Possible Values:
-    # 1.	Paper
-    # 2.	Email
-    # 3.	SMS
-    # 4.	None
+    # 1.    Paper
+    # 2.    Email
+    # 3.    SMS
+    # 4.    None
     # @return [Integer]
     attr_accessor :pin_advice_type_id
 

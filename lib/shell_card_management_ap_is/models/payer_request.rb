@@ -12,10 +12,10 @@ module ShellCardManagementApIs
     # List of Payer entity.
     # Optional.
     # Note:
-    # •	Max number of payers allowed in the input is 10, if it exceeds in the
+    # •    Max number of payers allowed in the input is 10, if it exceeds in the
     # input it will throw an error.
-    # •	This value is configurable. Initial configuration will be 1000 and will
-    # change to 10 once SFH changes are integrated.
+    # •    This value is configurable. Initial configuration will be 1000 and
+    # will change to 10 once SFH changes are integrated.
     # @return [Array[Payers]]
     attr_accessor :payers
 
@@ -41,9 +41,9 @@ module ShellCardManagementApIs
     # Default value 50
     # Return 250 rows only in the response if -1 is supplied as page size.
     # Note: 
-    # •	Max page size is 250, if the user provided value is more than 250 then
-    # it will throw error.
-    # •	This value is configurable.
+    # •    Max page size is 250, if the user provided value is more than 250
+    # then it will throw error.
+    # •    This value is configurable.
     # @return [Integer]
     attr_accessor :page_size
 

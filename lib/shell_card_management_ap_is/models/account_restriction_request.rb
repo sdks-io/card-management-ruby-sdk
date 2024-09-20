@@ -61,7 +61,7 @@ module ShellCardManagementApIs
     # If true, the usage restrictions applied on the account will be removed.
     # Optional
     # Default: False
-    # @return [UsageRestrictionsCard]
+    # @return [Object]
     attr_accessor :usage_restrictions
 
     # A mapping from model property names to API property names.
@@ -102,7 +102,6 @@ module ShellCardManagementApIs
         account_id
         account_number
         reset_usage_restrictions
-        usage_restrictions
       ]
     end
 
@@ -133,8 +132,8 @@ module ShellCardManagementApIs
       account_number = hash.key?('AccountNumber') ? hash['AccountNumber'] : SKIP
       reset_usage_restrictions =
         hash.key?('ResetUsageRestrictions') ? hash['ResetUsageRestrictions'] : SKIP
-      usage_restrictions = UsageRestrictionsCard.from_hash(hash['UsageRestrictions']) if
-        hash['UsageRestrictions']
+      usage_restrictions =
+        hash.key?('UsageRestrictions') ? hash['UsageRestrictions'] : SKIP
 
       # Create object from extracted values.
       AccountRestrictionRequest.new(col_co_id,

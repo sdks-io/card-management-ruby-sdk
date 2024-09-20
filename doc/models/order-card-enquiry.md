@@ -19,6 +19,8 @@ This entity models the data that is sent in the https
 | `card_group_name` | `String` | Optional | Card group name |
 | `card_id` | `Integer` | Optional | Unique Card Id.<br /><br>The field will be null if the card order request is not successly processed. |
 | `card_pan` | `String` | Optional | Card PAN.<br /><br>Mask PAN (Mask all digits except the Last 6 digits of the PAN).<br /><br>The field will be null if the card order request is not successly processed. |
+| `masked_pan` | `String` | Optional | Card PAN |
+| `panid` | `Float` | Optional | Card PAN ID as a unique number for each PAN |
 | `card_type_code` | `String` | Optional | CardTypeCode<br /><br>ISO code of the card i.e. first 7 digits of the PAN |
 | `card_type_id` | `Integer` | Optional | CardTypeId |
 | `card_type_name` | `String` | Optional | CardTypeName |
@@ -30,7 +32,7 @@ This entity models the data that is sent in the https
 | `gateway_sync_status` | `String` | Optional | GatewaySyncStatus<br /><br>Status of the card sync with CFGW.<br /><br>Possible values:<br /><br>-Success<br /><br>-Failed<br /><br>-In Progress<br /><br>-Not Submitted |
 | `main_reference` | `Integer` | Optional | Main reference number for the order card request.<br /><br>This field will be null if the order is through BCO. |
 | `order_card_reference` | `Integer` | Optional | Indivitual card reference number for the order card request.<br /><br>This field will be null if the order is through BCO. |
-| `order_status` | `String` | Optional | Order status.<br /><br>Possible values:<br /><br>P   Pending<br /><br>I   Picked up for processing<br /><br>PX	Failed at Queue but retry attempts pending<br /><br>X	Failed  at Queue<br /><br>R	Card is processed, awaiting for PAN update.<br /><br>S	Processed<br /><br>F	Failed |
+| `order_status` | `String` | Optional | Order status.<br /><br>Possible values:<br /><br>P   Pending<br /><br>I   Picked up for processing<br /><br>PX    Failed at Queue but retry attempts pending<br /><br>X    Failed  at Queue<br /><br>R    Card is processed, awaiting for PAN update.<br /><br>S    Processed<br /><br>F    Failed |
 | `payer_id` | `Integer` | Optional | Payer ID on the card request. |
 | `payer_number` | `String` | Optional | Payer Number on the card request |
 | `processed_date` | `String` | Optional | Date and time (in cutomers local time) when the card order request is processed<br /><br>Format: yyyyMMdd HH:mm:ss<br /><br>Note: The client application to convert the string to appropriate date/time type. |

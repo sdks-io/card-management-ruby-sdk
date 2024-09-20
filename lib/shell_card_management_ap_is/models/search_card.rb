@@ -20,11 +20,18 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :pan
 
+    # Card PANID 
+    #  optional id cardid given, else mandatory 
+    # Note: PANID is ignored if CardId is given.
+    # @return [Float]
+    attr_accessor :panid
+
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
       @_hash['card_id'] = 'CardId'
       @_hash['pan'] = 'PAN'
+      @_hash['panid'] = 'PANID'
       @_hash
     end
 
@@ -33,6 +40,7 @@ module ShellCardManagementApIs
       %w[
         card_id
         pan
+        panid
       ]
     end
 
@@ -44,9 +52,10 @@ module ShellCardManagementApIs
       ]
     end
 
-    def initialize(card_id = SKIP, pan = SKIP)
+    def initialize(card_id = SKIP, pan = SKIP, panid = SKIP)
       @card_id = card_id unless card_id == SKIP
       @pan = pan unless pan == SKIP
+      @panid = panid unless panid == SKIP
     end
 
     # Creates an instance of the object from a hash.
@@ -56,10 +65,12 @@ module ShellCardManagementApIs
       # Extract variables from the hash.
       card_id = hash.key?('CardId') ? hash['CardId'] : SKIP
       pan = hash.key?('PAN') ? hash['PAN'] : SKIP
+      panid = hash.key?('PANID') ? hash['PANID'] : SKIP
 
       # Create object from extracted values.
       SearchCard.new(card_id,
-                     pan)
+                     pan,
+                     panid)
     end
   end
 end

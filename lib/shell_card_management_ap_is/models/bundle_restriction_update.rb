@@ -38,7 +38,7 @@ module ShellCardManagementApIs
     # bundle.
     # Optional
     # Default value is False.
-    # @return [UsageRestrictionsCard]
+    # @return [Object]
     attr_accessor :usage_restrictions
 
     # Identifier of the day/time restriction profile to be updated for the
@@ -56,7 +56,7 @@ module ShellCardManagementApIs
     # Identifier of the day/time restriction profile to be updated for the
     # bundle in Gateway.
     # Optional
-    # @return [ProductRestrictionCard]
+    # @return [Object]
     attr_accessor :product_restrictions
 
     # Identifier of the location restriction profile to be updated for the
@@ -109,9 +109,7 @@ module ShellCardManagementApIs
         reset_day_time_restriction
         reset_location_restriction
         reset_product_restriction
-        usage_restrictions
         day_time_restriction_profile_id
-        product_restrictions
       ]
     end
 
@@ -159,14 +157,14 @@ module ShellCardManagementApIs
         hash.key?('ResetLocationRestriction') ? hash['ResetLocationRestriction'] : SKIP
       reset_product_restriction =
         hash.key?('ResetProductRestriction') ? hash['ResetProductRestriction'] : SKIP
-      usage_restrictions = UsageRestrictionsCard.from_hash(hash['UsageRestrictions']) if
-        hash['UsageRestrictions']
+      usage_restrictions =
+        hash.key?('UsageRestrictions') ? hash['UsageRestrictions'] : SKIP
       day_time_restriction_profile_id =
         hash.key?('DayTimeRestrictionProfileId') ? hash['DayTimeRestrictionProfileId'] : SKIP
       day_time_restrictions = CardDayTimeRestrictions.from_hash(hash['DayTimeRestrictions']) if
         hash['DayTimeRestrictions']
-      product_restrictions = ProductRestrictionCard.from_hash(hash['ProductRestrictions']) if
-        hash['ProductRestrictions']
+      product_restrictions =
+        hash.key?('ProductRestrictions') ? hash['ProductRestrictions'] : SKIP
       location_restriction_profile_id =
         hash.key?('LocationRestrictionProfileId') ? hash['LocationRestrictionProfileId'] : SKIP
       location_restrictions = LocationRestriction.from_hash(hash['LocationRestrictions']) if

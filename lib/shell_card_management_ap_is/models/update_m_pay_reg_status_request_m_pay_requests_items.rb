@@ -18,7 +18,7 @@ module ShellCardManagementApIs
     # Status of mobile payment registration request
     # Mandatory.
     # Allowed values –
-    # •	Approved
+    # •    Approved
     # •   Rejected
     # @return [String]
     attr_accessor :status

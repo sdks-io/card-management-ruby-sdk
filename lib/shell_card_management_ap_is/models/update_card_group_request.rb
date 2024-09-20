@@ -72,9 +72,9 @@ module ShellCardManagementApIs
     # ‘null’.
     # Optional
     # Note: 
-    # 1)	If a card type is passed, the cardgorup will allow cards with same card
-    # type to be moved in to the card group.
-    # 2)	Pass ‘-1’ to remove the card type from the card group.
+    # 1)    If a card type is passed, the cardgorup will allow cards with same
+    # card type to be moved in to the card group.
+    # 2)    Pass ‘-1’ to remove the card type from the card group.
     # @return [Integer]
     attr_accessor :card_type_id
 

@@ -57,6 +57,12 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :pan
 
+    # Card PAN ID.
+    # Optional if CardId is given, else mandatory.
+    # Note: PANID is ignored if CardId is given.
+    # @return [String]
+    attr_accessor :panid
+
     # Expiry date of the card.
     # Optional if CardId is passed, else Mandatory.
     # Format: yyyyMMdd
@@ -67,32 +73,32 @@ module ShellCardManagementApIs
     # Action
     # Mandatory
     # Possible values are:
-    # •	AddOrUpdate – adds a new request or updates any existing requests, with
-    # overlapping dates, for the card
-    # •	AddAndOverwriteAll - all the existing requests of the given card will be
-    # removed and a new request with the specified FromDate and ToDate will be
-    # added.
-    # •	Delete – deletes any existing request with the same start date and end
-    # date for the card
-    # •	DeleteAll – deletes all saved future dated requests (all block and
+    # •    AddOrUpdate – adds a new request or updates any existing requests,
+    # with overlapping dates, for the card
+    # •    AddAndOverwriteAll - all the existing requests of the given card will
+    # be removed and a new request with the specified FromDate and ToDate will
+    # be added.
+    # •    Delete – deletes any existing request with the same start date and
+    # end date for the card
+    # •    DeleteAll – deletes all saved future dated requests (all block and
     # unblock requests) of the card.
     # @return [String]
     attr_accessor :action
 
     # Effective start date of Block / Unblock
     # Allowed Formats: –
-    # •	yyyyMMdd
-    # •	yyyyMMdd HH:mm
+    # •    yyyyMMdd
+    # •    yyyyMMdd HH:mm
     # Eg: 20230512 14:30, 20230512
     # Optional
     # Default value: 
-    # •	 If the card status is “Active” then Current date & Time
-    # •	If the card status is “TemporaryBlock (Customer)” then null.
+    # •     If the card status is “Active” then Current date & Time
+    # •    If the card status is “TemporaryBlock (Customer)” then null.
     # Note:
-    # •	Time is considered only when “IsTimeSupported” is true else it will be
-    # treated as a date.
-    # •	Time will be passed in UTC time-zone.
-    # •	If the Card Status is “Temporary Block (Customer)” and FromDate is
+    # •    Time is considered only when “IsTimeSupported” is true else it will
+    # be treated as a date.
+    # •    Time will be passed in UTC time-zone.
+    # •    If the Card Status is “Temporary Block (Customer)” and FromDate is
     # provided – The fromdate & time is considered as starting period of unblock
     # request.
     # @return [String]
@@ -100,20 +106,21 @@ module ShellCardManagementApIs
 
     # Effective end date of Block / Unblock
     # Allowed Formats: –
-    # •	yyyyMMdd
-    # •	yyyyMMdd HH:mm
+    # •    yyyyMMdd
+    # •    yyyyMMdd HH:mm
     # Eg: 20230512 14:30, 20230512
     # Optional – When the Card status is Active else mandatory.
     # When not provided, the card will remain blocked until manually unblocked.
     # Note:
-    # •	Time is considered only when the “IsTimeSupported” flag is set as true,
-    # else it will be considered as only date.
-    # •	Date & Time passed in the request will be considered in UTC time-zone.
-    # •	If the card is currently in ‘Temporary Block (Customer)’ status, then
+    # •    Time is considered only when the “IsTimeSupported” flag is set as
+    # true, else it will be considered as only date.
+    # •    Date & Time passed in the request will be considered in UTC
+    # time-zone.
+    # •    If the card is currently in ‘Temporary Block (Customer)’ status, then
     # this date is treated as the unblock date and is mandatory.
-    # •	If the Card Status is “Temporary Block (Customer)” and FromDate & ToDate
-    # is provided - The request will be considered as a scheduled specific
-    # period unblock request.
+    # •    If the Card Status is “Temporary Block (Customer)” and FromDate &
+    # ToDate is provided - The request will be considered as a scheduled
+    # specific period unblock request.
     # @return [String]
     attr_accessor :to_date
 
@@ -143,6 +150,7 @@ module ShellCardManagementApIs
       @_hash['payer_number'] = 'PayerNumber'
       @_hash['card_id'] = 'CardId'
       @_hash['pan'] = 'PAN'
+      @_hash['panid'] = 'PANID'
       @_hash['card_expiry_date'] = 'CardExpiryDate'
       @_hash['action'] = 'Action'
       @_hash['from_date'] = 'FromDate'
@@ -163,6 +171,7 @@ module ShellCardManagementApIs
         payer_number
         card_id
         pan
+        panid
         card_expiry_date
         from_date
         to_date
@@ -181,8 +190,8 @@ module ShellCardManagementApIs
     def initialize(action = nil, col_co_code = SKIP, col_co_id = SKIP,
                    account_id = SKIP, account_number = SKIP, payer_id = SKIP,
                    payer_number = SKIP, card_id = SKIP, pan = SKIP,
-                   card_expiry_date = SKIP, from_date = SKIP, to_date = SKIP,
-                   caller = SKIP, notify_caller = SKIP)
+                   panid = SKIP, card_expiry_date = SKIP, from_date = SKIP,
+                   to_date = SKIP, caller = SKIP, notify_caller = SKIP)
       @col_co_code = col_co_code unless col_co_code == SKIP
       @col_co_id = col_co_id unless col_co_id == SKIP
       @account_id = account_id unless account_id == SKIP
@@ -191,6 +200,7 @@ module ShellCardManagementApIs
       @payer_number = payer_number unless payer_number == SKIP
       @card_id = card_id unless card_id == SKIP
       @pan = pan unless pan == SKIP
+      @panid = panid unless panid == SKIP
       @card_expiry_date = card_expiry_date unless card_expiry_date == SKIP
       @action = action
       @from_date = from_date unless from_date == SKIP
@@ -213,6 +223,7 @@ module ShellCardManagementApIs
       payer_number = hash.key?('PayerNumber') ? hash['PayerNumber'] : SKIP
       card_id = hash.key?('CardId') ? hash['CardId'] : SKIP
       pan = hash.key?('PAN') ? hash['PAN'] : SKIP
+      panid = hash.key?('PANID') ? hash['PANID'] : SKIP
       card_expiry_date =
         hash.key?('CardExpiryDate') ? hash['CardExpiryDate'] : SKIP
       from_date = hash.key?('FromDate') ? hash['FromDate'] : SKIP
@@ -230,6 +241,7 @@ module ShellCardManagementApIs
                                       payer_number,
                                       card_id,
                                       pan,
+                                      panid,
                                       card_expiry_date,
                                       from_date,
                                       to_date,

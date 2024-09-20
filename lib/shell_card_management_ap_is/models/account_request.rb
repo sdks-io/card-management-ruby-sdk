@@ -13,12 +13,12 @@ module ShellCardManagementApIs
     # Optional if StatusList is passed, else mandatory.
     # Ignored if StatusList is passed.
     # Allowed values:
-    # •	ALL
-    # •	ACTIVE
-    # •	BLOCKED
-    # •	CANCELLED
-    # •	CREDITLOCK
-    # •	DELINQUENCYLOCK
+    # •    ALL
+    # •    ACTIVE
+    # •    BLOCKED
+    # •    CANCELLED
+    # •    CREDITLOCK
+    # •    DELINQUENCYLOCK
     # @return [String]
     attr_accessor :status
 
@@ -100,11 +100,11 @@ module ShellCardManagementApIs
     # Optional 
     # Multiple statuses are allowed to be included in the search criteria.
     # Allowed values:
-    # •	ACTIVE
-    # •	BLOCKED
-    # •	CANCELLED
-    # •	CREDITLOCK
-    # •	DELINQUENCYLOCK
+    # •    ACTIVE
+    # •    BLOCKED
+    # •    CANCELLED
+    # •    CREDITLOCK
+    # •    DELINQUENCYLOCK
     # @return [Array[String]]
     attr_accessor :status_list
 

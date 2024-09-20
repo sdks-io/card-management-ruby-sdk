@@ -58,9 +58,9 @@ module ShellCardManagementApIs
     # Card delivery type.<br />
     # Mandatory <br />
     # Allowed Value: <br />
-    # 1.	Customer Address(Default) <br />
-    # 2.	New Delivery Address <br />
-    # 3.	Old Card Address
+    # 1.    Customer Address(Default) <br />
+    # 2.    New Delivery Address <br />
+    # 3.    Old Card Address
     # @return [Integer]
     attr_accessor :card_delivery_type
 
@@ -153,19 +153,19 @@ module ShellCardManagementApIs
     # PIN delivery address type selection.<br />
     # Optional<br />
     # Allowed Values:<br />
-    # 1.	Customer Address(Default)<br />
-    # 2.	Card Address<br />
-    # 3.	New Delivery Address
+    # 1.    Customer Address(Default)<br />
+    # 2.    Card Address<br />
+    # 3.    New Delivery Address
     # @return [Integer]
     attr_accessor :pin_delivery_address_type
 
     # PIN delivery method.<br />
     # Mandatory when OrderReplacement Is true.<br />
     # Allowed Values:<br />
-    # 1.	Paper<br />
-    # 2.	Email<br />
-    # 3.	SMS<br />
-    # 4.	None
+    # 1.    Paper<br />
+    # 2.    Email<br />
+    # 3.    SMS<br />
+    # 4.    None
     # @return [Integer]
     attr_accessor :pin_advice_type
 

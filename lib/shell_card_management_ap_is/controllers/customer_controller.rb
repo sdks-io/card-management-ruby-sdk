@@ -19,7 +19,7 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [FleetmanagementV1UserLoggedinuserRequest] body Optional parameter:
     # Logged in user request body
-    # @return [LoggedInUserResponse] response from the API call
+    # @return [LoggedInUserResponse] response from the API call.
     def loggedinuser(apikey,
                      request_id,
                      body: nil)
@@ -35,30 +35,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(LoggedInUserResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                FleetmanagementV1UserLoggedinuser400ErrorException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                FleetmanagementV1UserLoggedinuser401ErrorException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                FleetmanagementV1UserLoggedinuser403ErrorException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                FleetmanagementV1UserLoggedinuser404ErrorException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                FleetmanagementV1UserLoggedinuser500ErrorException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(LoggedInUserResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 FleetmanagementV1UserLoggedinuser400ErrorException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 FleetmanagementV1UserLoggedinuser401ErrorException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 FleetmanagementV1UserLoggedinuser403ErrorException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 FleetmanagementV1UserLoggedinuser404ErrorException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 FleetmanagementV1UserLoggedinuser500ErrorException))
         .execute
     end
 
@@ -78,7 +79,7 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [PayerRequest] body Optional parameter: Serach payers request
     # body
-    # @return [PayerResponse] response from the API call
+    # @return [PayerResponse] response from the API call.
     def payers(apikey,
                request_id,
                body: nil)
@@ -94,30 +95,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(PayerResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                FleetmanagementV1CustomerPayers400ErrorException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                APIException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                APIException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                FleetmanagementV1CustomerPayers404ErrorException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                APIException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(PayerResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 FleetmanagementV1CustomerPayers400ErrorException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 APIException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 APIException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 FleetmanagementV1CustomerPayers404ErrorException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 APIException))
         .execute
     end
 
@@ -131,7 +133,7 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [CustomerDetailRequest] body Optional parameter: Customerdetails
     # request body
-    # @return [CustomerDetailResponse] response from the API call
+    # @return [CustomerDetailResponse] response from the API call.
     def customer(apikey,
                  request_id,
                  body: nil)
@@ -147,30 +149,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(CustomerDetailResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                APIException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                APIException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                FleetmanagementV1CustomerCustomer403ErrorException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                APIException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                APIException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(CustomerDetailResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 APIException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 APIException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 FleetmanagementV1CustomerCustomer403ErrorException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 APIException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 APIException))
         .execute
     end
 
@@ -183,7 +186,7 @@ module ShellCardManagementApIs
     # to RFC 4122 standards) for requests and responses. This will be played
     # back in the response from the request.
     # @param [AccountRequest] body Optional parameter: Example:
-    # @return [AccountResponse] response from the API call
+    # @return [AccountResponse] response from the API call.
     def accounts(apikey,
                  request_id,
                  body: nil)
@@ -199,30 +202,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(AccountResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                APIException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                APIException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                APIException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                APIException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                APIException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(AccountResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 APIException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 APIException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 APIException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 APIException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 APIException))
         .execute
     end
 
@@ -235,7 +239,7 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [CardTypeRequest] body Optional parameter: Get CardType Request
     # Body
-    # @return [CardTypeResponse] response from the API call
+    # @return [CardTypeResponse] response from the API call.
     def card_type(apikey,
                   request_id,
                   body: nil)
@@ -251,30 +255,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(CardTypeResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                APIException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                APIException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                APIException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                APIException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                APIException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(CardTypeResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 APIException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 APIException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 APIException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 APIException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 APIException))
         .execute
     end
 
@@ -294,7 +299,7 @@ module ShellCardManagementApIs
     # to RFC 4122 standards) for requests and responses. This will be played
     # back in the response from the request.
     # @param [CardGroupRequest] body Optional parameter: Request Body
-    # @return [CardGroupResponse] response from the API call
+    # @return [CardGroupResponse] response from the API call.
     def cardgroups(apikey,
                    request_id,
                    body: nil)
@@ -310,30 +315,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(CardGroupResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                APIException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                APIException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                APIException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                APIException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                APIException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(CardGroupResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 APIException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 APIException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 APIException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 APIException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 APIException))
         .execute
     end
 
@@ -362,7 +368,7 @@ module ShellCardManagementApIs
     # to RFC 4122 standards) for requests and responses. This will be played
     # back in the response from the request.
     # @param [AuditRequest] body Optional parameter: request body
-    # @return [AuditResponse] response from the API call
+    # @return [AuditResponse] response from the API call.
     def auditreport(apikey,
                     request_id,
                     body: nil)
@@ -378,30 +384,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(AuditResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                APIException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                APIException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                APIException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                APIException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                APIException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(AuditResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 APIException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 APIException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 APIException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 APIException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 APIException))
         .execute
     end
 
@@ -424,7 +431,7 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [CreateCardGroupRequest] body Optional parameter: CreateCardGroup
     # request body
-    # @return [CreateCardGroupResponse] response from the API call
+    # @return [CreateCardGroupResponse] response from the API call.
     def createcardgroup(apikey,
                         request_id,
                         body: nil)
@@ -440,30 +447,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(CreateCardGroupResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                APIException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                APIException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                APIException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                APIException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                APIException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(CreateCardGroupResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 APIException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 APIException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 APIException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 APIException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 APIException))
         .execute
     end
 
@@ -482,7 +490,7 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [UpdateCardGroupRequest] body Optional parameter: request body of
     # customer card group
-    # @return [UpdateCardGroupResponse] response from the API call
+    # @return [UpdateCardGroupResponse] response from the API call.
     def updatecardgroup(apikey,
                         request_id,
                         body: nil)
@@ -498,30 +506,31 @@ module ShellCardManagementApIs
                    .body_serializer(proc do |param| param.to_json unless param.nil? end)
                    .auth(Single.new('BasicAuth')))
         .response(new_response_handler
-                   .deserializer(APIHelper.method(:custom_type_deserializer))
-                   .deserialize_into(UpdateCardGroupResponse.method(:from_hash))
-                   .local_error('400',
-                                "The server cannot or will not process the request  due to'\
-                                 ' something that is perceived to be a client\r\n error (e.g.,'\
-                                 ' malformed request syntax, invalid \r\n request message framing,'\
-                                 ' or deceptive request routing).",
-                                APIException)
-                   .local_error('401',
-                                'The request has not been applied because it lacks valid '\
-                                 ' authentication credentials for the target resource.',
-                                APIException)
-                   .local_error('403',
-                                'The server understood the request but refuses to authorize it.',
-                                APIException)
-                   .local_error('404',
-                                'The origin server did not find a current representation  for'\
-                                 ' the target resource or is not willing to disclose  that one'\
-                                 ' exists.',
-                                APIException)
-                   .local_error('500',
-                                'The server encountered an unexpected condition the prevented it'\
-                                 ' from fulfilling the request.',
-                                APIException))
+                    .deserializer(APIHelper.method(:custom_type_deserializer))
+                    .deserialize_into(UpdateCardGroupResponse.method(:from_hash))
+                    .local_error('400',
+                                 "The server cannot or will not process the request  due to'\
+                                  ' something that is perceived to be a client\r\n error (e.g.,'\
+                                  ' malformed request syntax, invalid \r\n request message'\
+                                  ' framing, or deceptive request routing).",
+                                 APIException)
+                    .local_error('401',
+                                 'The request has not been applied because it lacks valid '\
+                                  ' authentication credentials for the target resource.',
+                                 APIException)
+                    .local_error('403',
+                                 'The server understood the request but refuses to authorize it'\
+                                  '.',
+                                 APIException)
+                    .local_error('404',
+                                 'The origin server did not find a current representation  for'\
+                                  ' the target resource or is not willing to disclose  that one'\
+                                  ' exists.',
+                                 APIException)
+                    .local_error('500',
+                                 'The server encountered an unexpected condition the prevented'\
+                                  ' it from fulfilling the request.',
+                                 APIException))
         .execute
     end
   end

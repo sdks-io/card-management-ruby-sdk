@@ -73,7 +73,7 @@ module ShellCardManagementApIs
     # Example: 7002051006629890645
     # When PAN matches with multiple cards, the restriction will be applied on
     # the latest issued card.
-    # @return [BundleRestriction]
+    # @return [Object]
     attr_accessor :restrictions
 
     # A mapping from model property names to API property names.
@@ -117,7 +117,6 @@ module ShellCardManagementApIs
         account_id
         account_number
         external_bundle_id
-        restrictions
       ]
     end
 
@@ -152,7 +151,7 @@ module ShellCardManagementApIs
         hash.key?('ExternalBundleId') ? hash['ExternalBundleId'] : SKIP
       description = hash.key?('Description') ? hash['Description'] : SKIP
       cards = hash.key?('Cards') ? hash['Cards'] : SKIP
-      restrictions = BundleRestriction.from_hash(hash['Restrictions']) if hash['Restrictions']
+      restrictions = hash.key?('Restrictions') ? hash['Restrictions'] : SKIP
 
       # Create object from extracted values.
       CreateBundleRequest.new(col_co_id,

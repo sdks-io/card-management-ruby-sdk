@@ -24,6 +24,12 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :pan
 
+    # Card PAN ID.
+    # Optional if CardId is given, else mandatory.
+    # Note: PANID is ignored if CardId is given.
+    # @return [Float]
+    attr_accessor :panid
+
     # Card Id of the card.
     # Optional if PAN is passed, else Mandatory.
     # @return [Integer]
@@ -43,6 +49,7 @@ module ShellCardManagementApIs
       @_hash['account_number'] = 'AccountNumber'
       @_hash['account_id'] = 'AccountId'
       @_hash['pan'] = 'PAN'
+      @_hash['panid'] = 'PANID'
       @_hash['card_id'] = 'CardId'
       @_hash['reissue_setting'] = 'ReissueSetting'
       @_hash
@@ -54,6 +61,7 @@ module ShellCardManagementApIs
         account_number
         account_id
         pan
+        panid
         card_id
       ]
     end
@@ -64,10 +72,11 @@ module ShellCardManagementApIs
     end
 
     def initialize(reissue_setting = nil, account_number = SKIP,
-                   account_id = SKIP, pan = SKIP, card_id = SKIP)
+                   account_id = SKIP, pan = SKIP, panid = SKIP, card_id = SKIP)
       @account_number = account_number unless account_number == SKIP
       @account_id = account_id unless account_id == SKIP
       @pan = pan unless pan == SKIP
+      @panid = panid unless panid == SKIP
       @card_id = card_id unless card_id == SKIP
       @reissue_setting = reissue_setting
     end
@@ -82,6 +91,7 @@ module ShellCardManagementApIs
       account_number = hash.key?('AccountNumber') ? hash['AccountNumber'] : SKIP
       account_id = hash.key?('AccountId') ? hash['AccountId'] : SKIP
       pan = hash.key?('PAN') ? hash['PAN'] : SKIP
+      panid = hash.key?('PANID') ? hash['PANID'] : SKIP
       card_id = hash.key?('CardId') ? hash['CardId'] : SKIP
 
       # Create object from extracted values.
@@ -89,6 +99,7 @@ module ShellCardManagementApIs
                                                   account_number,
                                                   account_id,
                                                   pan,
+                                                  panid,
                                                   card_id)
     end
   end

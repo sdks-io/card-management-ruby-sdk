@@ -122,7 +122,8 @@ body = SearchCardRequest.new(
     [
       SearchCard.new(
         466907,
-        '7077327290224795811'
+        '7077327290224795811',
+        17350065
       )
     ],
     false,
@@ -134,7 +135,8 @@ body = SearchCardRequest.new(
     [
       SearchCard.new(
         466906,
-        '7077327290224795801'
+        '7077327290224795801',
+        17350065
       )
     ],
     false,
@@ -215,6 +217,8 @@ result = card_controller.searchcard(
       "LocalCurrencySymbol": "Kč",
       "OdometerInput": true,
       "PAN": "7077327290223410782",
+      "MaskedPAN": "7077327******410782",
+      "PANID": 17350064,
       "PurchaseCategoryCode": "3",
       "PurchaseCategoryId": 103,
       "PurchaseCategoryName": "3 - No Restriction",
@@ -645,6 +649,8 @@ result = card_controller.cardordercardenquiry(
       "CardGroupName": "null",
       "CardId": 41008,
       "CardPAN": "7077187910757000712",
+      "MaskedPAN": "707718******000712",
+      "PANID": 17285721,
       "CardTypeCode": "7077187",
       "CardTypeId": 704,
       "CardTypeName": "NL CRT Nat. Shell + partnernetwerk",
@@ -802,6 +808,7 @@ body = CardManagementV1CancelRequest.new(
       86,
       1,
       '7002861007636000020',
+      nil,
       853,
       'PH50000843'
     )
@@ -981,6 +988,7 @@ body = CardManagementV1UpdatestatusRequest.new(
       32,
       32,
       '7077327290223410816',
+      17350064,
       1223,
       'CZ00000928'
     )
@@ -1015,6 +1023,8 @@ result = card_controller.cardupdatestatus(
       "ColCoCode": 32,
       "ColCoId": 32,
       "PAN": "7077327290223421201",
+      "PANID": 17352931,
+      "MaskedPAN": "7077327******421201",
       "PayerId": 1227,
       "PayerNumber": "CZ00000927"
     }
@@ -1645,6 +1655,7 @@ body = ScheduleCardBlockRequest.new(
       'CZ00000928',
       234,
       '7077327290223418348',
+      '130128',
       '20240731',
       '20230701 14:30',
       '20230731 16:30',
@@ -1743,6 +1754,7 @@ body = AutoRenewCardRequest.new(
       'CZ00000929',
       1229,
       '7077327290223440243',
+      17240826,
       446472
     )
   ]
@@ -1764,7 +1776,8 @@ result = card_controller.autorenew(
   "Data": [
     {
       "AutoRenewReferenceId": 226,
-      "CardIdAndPAN": "446472;7077327290223440243"
+      "CardIdAndPAN": "446472;7077327290223440243",
+      "PANID": 17240826
     }
   ]
 }

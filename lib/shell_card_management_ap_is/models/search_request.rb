@@ -334,9 +334,9 @@ module ShellCardManagementApIs
     # If ‘ALL’, API will return cards with ReIssueSetting value True &amp; False
     # both.<br />
     # Allowed Values:<br />
-    # 1.	All<br />
-    # 2.	True<br />
-    # 3.	False
+    # 1.    All<br />
+    # 2.    True<br />
+    # 3.    False
     # @return [String]
     attr_accessor :reissue_setting
 
@@ -351,9 +351,9 @@ module ShellCardManagementApIs
     # If ‘ALL’, API will return cards with ReIssueSetting value True &amp; False
     # both.<br />
     # Allowed Values:<br />
-    # 1.	All<br />
-    # 2.	True<br />
-    # 3.	False
+    # 1.    All<br />
+    # 2.    True<br />
+    # 3.    False
     # @return [String]
     attr_accessor :request_id
 

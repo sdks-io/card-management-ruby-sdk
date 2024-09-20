@@ -24,7 +24,7 @@ module ShellCardManagementApIs
     # Optional if CardId is given, else mandatory. 
     # Example: 7002051006629890645 
     # Note: 
-    # •	PAN is ignored if CardId is given.
+    # •    PAN is ignored if CardId is given.
     # When PAN matches with multiple cards, the restriction will be applied on
     # the latest issued card.
     # @return [String]
@@ -66,21 +66,27 @@ module ShellCardManagementApIs
     # If true, the location restrictions applied on the card will be deleted.
     # Else, the card restrictions will be updated with the location restrictions
     # provided in the API.
-    # @return [UsageRestrictionsCard]
+    # @return [Object]
     attr_accessor :usage_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
-    # @return [DayTimeRestriction]
+    # True/False.
+    # If true, the location restrictions applied on the card will be deleted.
+    # Else, the card restrictions will be updated with the location restrictions
+    # provided in the API.
+    # @return [DayTimeRestrictions]
     attr_accessor :day_time_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
-    # @return [ProductRestrictionCard]
+    # True/False.
+    # If true, the location restrictions applied on the card will be deleted.
+    # Else, the card restrictions will be updated with the location restrictions
+    # provided in the API.
+    # @return [Object]
     attr_accessor :product_restrictions
 
-    # Details of the day/time restrictions such as weekdays and time range in
-    # which transactions should be allowed on the card.
+    # True/False.
+    # If true, the location restrictions applied on the card will be deleted.
+    # Else, the card restrictions will be updated with the location restrictions
+    # provided in the API.
     # @return [LocationRestriction]
     attr_accessor :location_restrictions
 
@@ -127,8 +133,6 @@ module ShellCardManagementApIs
         reset_day_time_restrictions
         reset_product_restrictions
         reset_location_restrictions
-        usage_restrictions
-        product_restrictions
       ]
     end
 
@@ -177,12 +181,12 @@ module ShellCardManagementApIs
         hash.key?('ResetProductRestrictions') ? hash['ResetProductRestrictions'] : SKIP
       reset_location_restrictions =
         hash.key?('ResetLocationRestrictions') ? hash['ResetLocationRestrictions'] : SKIP
-      usage_restrictions = UsageRestrictionsCard.from_hash(hash['UsageRestrictions']) if
-        hash['UsageRestrictions']
-      day_time_restrictions = DayTimeRestriction.from_hash(hash['DayTimeRestrictions']) if
+      usage_restrictions =
+        hash.key?('UsageRestrictions') ? hash['UsageRestrictions'] : SKIP
+      day_time_restrictions = DayTimeRestrictions.from_hash(hash['DayTimeRestrictions']) if
         hash['DayTimeRestrictions']
-      product_restrictions = ProductRestrictionCard.from_hash(hash['ProductRestrictions']) if
-        hash['ProductRestrictions']
+      product_restrictions =
+        hash.key?('ProductRestrictions') ? hash['ProductRestrictions'] : SKIP
       location_restrictions = LocationRestriction.from_hash(hash['LocationRestrictions']) if
         hash['LocationRestrictions']
 

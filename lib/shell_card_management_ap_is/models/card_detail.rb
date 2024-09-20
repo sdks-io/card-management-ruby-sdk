@@ -174,47 +174,47 @@ module ShellCardManagementApIs
     # Card delivery type.<br />
     # Mandatory <br />
     # Allowed Value: <br />
-    # 1.	Customer Address(Default) <br />
-    # 2.	New Delivery Address
+    # 1.    Customer Address(Default) <br />
+    # 2.    New Delivery Address
     # @return [Integer]
     attr_accessor :card_delivery_type
 
     # Card delivery type.<br />
     # Mandatory <br />
     # Allowed Value: <br />
-    # 1.	Customer Address(Default) <br />
-    # 2.	New Delivery Address
+    # 1.    Customer Address(Default) <br />
+    # 2.    New Delivery Address
     # @return [CardContact]
     attr_accessor :card_contact
 
     # PIN delivery address type selection.<br />
     # Optional<br />
     # Allowed Values:<br />
-    # 1.	Customer Address(Default)<br />
-    # 2.	Card Address<br />
-    # 3.	New Delivery Address
+    # 1.    Customer Address(Default)<br />
+    # 2.    Card Address<br />
+    # 3.    New Delivery Address
     # @return [Integer]
     attr_accessor :pin_delivery_address_type
 
     # PIN delivery method.<br />
     # Mandatory<br />
     # Allowed Values:<br />
-    # 1.	Paper<br />
-    # 2.	Email<br />
-    # 3.	SMS<br />
-    # 4.	None <br /> **Note:** Paper delivery not applicable for selfselctedPIN
-    # type
+    # 1.    Paper<br />
+    # 2.    Email<br />
+    # 3.    SMS<br />
+    # 4.    None <br /> **Note:** Paper delivery not applicable for
+    # selfselctedPIN type
     # @return [Integer]
     attr_accessor :pin_advice_type
 
     # PIN delivery method.<br />
     # Mandatory<br />
     # Allowed Values:<br />
-    # 1.	Paper<br />
-    # 2.	Email<br />
-    # 3.	SMS<br />
-    # 4.	None <br /> **Note:** Paper delivery not applicable for selfselctedPIN
-    # type
+    # 1.    Paper<br />
+    # 2.    Email<br />
+    # 3.    SMS<br />
+    # 4.    None <br /> **Note:** Paper delivery not applicable for
+    # selfselctedPIN type
     # @return [PINContact]
     attr_accessor :pin_contact
 
@@ -232,9 +232,9 @@ module ShellCardManagementApIs
     # Mandatory, if NotifyCaller is true.<br />
     # Maximum field length: 20<br />
     # Allowed values:<br />
-    # •	“NextGenUI”: This value to be used by next gen UI application.<br />
-    # •	“FleetHubUILifeTime”: This value to be used by Fleet Hub UI application
-    # for life time restriction cards.<br />
+    # •    “NextGenUI”: This value to be used by next gen UI application.<br />
+    # •    “FleetHubUILifeTime”: This value to be used by Fleet Hub UI
+    # application for life time restriction cards.<br />
     # Note: The values passed in this field are case insensitive
     # @return [String]
     attr_accessor :caller
@@ -263,10 +263,10 @@ module ShellCardManagementApIs
     # Optional.<br />
     # Default: NO_VALIDATION<br />
     # Allowed values:<br />
-    # •	ALERT<br />
-    # •	DECLINE<br />
-    # •	DECLINE_ALERT<br />
-    # •	NO_VALIDATION<br />
+    # •    ALERT<br />
+    # •    DECLINE<br />
+    # •    DECLINE_ALERT<br />
+    # •    NO_VALIDATION<br />
     # Note: When FleetIdOption is not provided and validatefleetid is true then
     # by default allowed value is NO_VALIDATION.
     # @return [String]
@@ -343,9 +343,11 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :client_reference_id
 
-    # This is the Client Reference Id of card in the order which needs to be
-    # passed by the client.This will be playback in the ordercard enquiry<br />
-    # Optional
+    # Whether to reissue card automatically when nearing the expiry. 
+    # Allowed values: -
+    # 1.    As per card type setting (Default).
+    # 2.    Card will be Reissued when nearing its expiry date.
+    # 3.    Card will not be Reissued.
     # @return [CardDetailAutoRenewEnum]
     attr_accessor :auto_renew
 
