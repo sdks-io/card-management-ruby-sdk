@@ -81,47 +81,6 @@ module ShellCardManagementApIs
     # @return [CardSettings]
     attr_accessor :card_settings
 
-    # Reason id for updating the card status.
-    # Either Reason ID or Text is madatory when TargetStatus is ‘Block’ or
-    # ‘Damaged’. Else ignored.
-    # Possible values:
-    # 1 (Lost)
-    # 2 (Stolen)
-    # 3 (Card no longer required)
-    #  <br>When passed, the reason Id will be mapped to allowed reason IDs
-    # configured for the card type of the card. If the given reason Id is not
-    # allowed for certain card types, then the request will be rejected as
-    # invalid ResonId
-    # @return [Integer]
-    attr_accessor :reason_id
-
-    # Reason text for updating the card status.
-    # Possible Values:
-    # 1) Lost
-    # 2) Stolen
-    # 3) Card no longer required
-    # Optional – However, either Reason ID or Text is madatory when TargetStatus
-    # is ‘Block’ or ‘Damaged’. Else, Ignored.
-    # When Reason Text is passed and the Target Status is either Block or
-    # Damaged, the text will be validated with the allowed list of values
-    # configured for the card type of the card. If the text is not allowed,
-    # request will be rejected as invaid ResonText. 
-    # Note:
-    # ‘Customer blocked’ will be used as the reason for ‘Temporary Block’.
-    # @return [String]
-    attr_accessor :reason_text
-
-    # The list of cards passed in ‘Cards’ parameter will be updated to this
-    # status.<br />
-    # Mandatory.<br />
-    # Allowed values –<br />
-    # - TemporaryBlock<br />
-    # - Unblock<br />
-    # - Block<br />
-    # - Damaged<br />
-    # @return [Integer]
-    attr_accessor :target_status
-
     # Account Id of the customer.<br />
     # Optional if AccountNumber is passed, else Mandatory.
     # @return [Integer]
@@ -181,9 +140,6 @@ module ShellCardManagementApIs
       @_hash['notify_caller_on_sync'] = 'NotifyCallerOnSync'
       @_hash['order_card_replacement'] = 'OrderCardReplacement'
       @_hash['card_settings'] = 'CardSettings'
-      @_hash['reason_id'] = 'ReasonId'
-      @_hash['reason_text'] = 'ReasonText'
-      @_hash['target_status'] = 'TargetStatus'
       @_hash['account_id'] = 'AccountId'
       @_hash['account_number'] = 'AccountNumber'
       @_hash['card_expiry_date'] = 'CardExpiryDate'
@@ -206,9 +162,6 @@ module ShellCardManagementApIs
         notify_caller_on_sync
         order_card_replacement
         card_settings
-        reason_id
-        reason_text
-        target_status
         account_id
         account_number
         card_expiry_date
@@ -226,8 +179,6 @@ module ShellCardManagementApIs
     def self.nullables
       %w[
         caller
-        reason_text
-        target_status
         account_id
         account_number
         card_expiry_date
@@ -244,7 +195,6 @@ module ShellCardManagementApIs
     def initialize(caller = SKIP, is_replacement_chargeable = SKIP,
                    notify_caller = SKIP, notify_caller_on_sync = SKIP,
                    order_card_replacement = SKIP, card_settings = SKIP,
-                   reason_id = SKIP, reason_text = SKIP, target_status = SKIP,
                    account_id = SKIP, account_number = SKIP,
                    card_expiry_date = SKIP, card_id = SKIP, col_co_code = SKIP,
                    col_co_id = SKIP, pan = SKIP, panid = SKIP, payer_id = SKIP,
@@ -258,9 +208,6 @@ module ShellCardManagementApIs
       @notify_caller_on_sync = notify_caller_on_sync unless notify_caller_on_sync == SKIP
       @order_card_replacement = order_card_replacement unless order_card_replacement == SKIP
       @card_settings = card_settings unless card_settings == SKIP
-      @reason_id = reason_id unless reason_id == SKIP
-      @reason_text = reason_text unless reason_text == SKIP
-      @target_status = target_status unless target_status == SKIP
       @account_id = account_id unless account_id == SKIP
       @account_number = account_number unless account_number == SKIP
       @card_expiry_date = card_expiry_date unless card_expiry_date == SKIP
@@ -287,9 +234,6 @@ module ShellCardManagementApIs
       order_card_replacement =
         hash.key?('OrderCardReplacement') ? hash['OrderCardReplacement'] : SKIP
       card_settings = CardSettings.from_hash(hash['CardSettings']) if hash['CardSettings']
-      reason_id = hash.key?('ReasonId') ? hash['ReasonId'] : SKIP
-      reason_text = hash.key?('ReasonText') ? hash['ReasonText'] : SKIP
-      target_status = hash.key?('TargetStatus') ? hash['TargetStatus'] : SKIP
       account_id = hash.key?('AccountId') ? hash['AccountId'] : SKIP
       account_number = hash.key?('AccountNumber') ? hash['AccountNumber'] : SKIP
       card_expiry_date =
@@ -309,9 +253,6 @@ module ShellCardManagementApIs
                      notify_caller_on_sync,
                      order_card_replacement,
                      card_settings,
-                     reason_id,
-                     reason_text,
-                     target_status,
                      account_id,
                      account_number,
                      card_expiry_date,

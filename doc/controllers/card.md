@@ -798,9 +798,6 @@ body = CardManagementV1CancelRequest.new(
         false,
         '1221'
       ),
-      nil,
-      nil,
-      nil,
       854,
       'PH50000844',
       '20181031',
@@ -978,9 +975,6 @@ body = CardManagementV1UpdatestatusRequest.new(
         false,
         '1221'
       ),
-      nil,
-      nil,
-      nil,
       1223,
       'CZ00000928',
       '20221215',
