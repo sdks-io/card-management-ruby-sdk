@@ -722,5 +722,84 @@ module ShellCardManagementApIs
                                        contracts,
                                        is_consortium_member)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_full_name: #{@account_full_name}, account_id: #{@account_id},"\
+      " account_number: #{@account_number}, account_short_name: #{@account_short_name},"\
+      " best_of_indicator: #{@best_of_indicator}, billing_frequency_type:"\
+      " #{@billing_frequency_type}, billing_frequency_type_id: #{@billing_frequency_type_id},"\
+      " billing_run_frequency: #{@billing_run_frequency}, billing_run_frequency_type_id:"\
+      " #{@billing_run_frequency_type_id}, col_co_country_code: #{@col_co_country_code},"\
+      " currency_code: #{@currency_code}, currency_symbol: #{@currency_symbol}, day1_run:"\
+      " #{@day1_run}, day2_run: #{@day2_run}, day3_run: #{@day3_run}, day4_run: #{@day4_run},"\
+      " frequency_type: #{@frequency_type}, gross_amount: #{@gross_amount},"\
+      " international_pos_language_code: #{@international_pos_language_code},"\
+      " international_pos_language_id: #{@international_pos_language_id}, invoice_account_id:"\
+      " #{@invoice_account_id}, invoice_account_number: #{@invoice_account_number},"\
+      " invoice_account_short_name: #{@invoice_account_short_name}, invoice_distribution_methods:"\
+      " #{@invoice_distribution_methods}, is_international: #{@is_international},"\
+      " is_invoice_point: #{@is_invoice_point}, last_modified_date: #{@last_modified_date},"\
+      " local_currency_code: #{@local_currency_code}, local_currency_symbol:"\
+      " #{@local_currency_symbol}, local_pos_language_code: #{@local_pos_language_code},"\
+      " local_pos_language_id: #{@local_pos_language_id}, net_amount: #{@net_amount},"\
+      " outstanding_balance: #{@outstanding_balance}, paid_amount: #{@paid_amount}, status:"\
+      " #{@status}, status_reason: #{@status_reason}, total_active_card_groups:"\
+      " #{@total_active_card_groups}, total_active_cards: #{@total_active_cards},"\
+      " total_blocked_cards: #{@total_blocked_cards}, total_cancelled_cards:"\
+      " #{@total_cancelled_cards}, total_cards: #{@total_cards}, total_expired_cards:"\
+      " #{@total_expired_cards}, total_fraud_cards: #{@total_fraud_cards}, total_new_cards:"\
+      " #{@total_new_cards}, total_renewal_pending_cards: #{@total_renewal_pending_cards},"\
+      " total_replaced_cards: #{@total_replaced_cards}, total_temporary_block_cards_by_customer:"\
+      " #{@total_temporary_block_cards_by_customer}, total_temporary_block_cards_by_shell:"\
+      " #{@total_temporary_block_cards_by_shell}, vat_amount: #{@vat_amount}, is_partner_card:"\
+      " #{@is_partner_card}, tolls_customer_id: #{@tolls_customer_id},"\
+      " tolls_colco_country_type_id: #{@tolls_colco_country_type_id}, contracts: #{@contracts},"\
+      " is_consortium_member: #{@is_consortium_member}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_full_name: #{@account_full_name.inspect}, account_id:"\
+      " #{@account_id.inspect}, account_number: #{@account_number.inspect}, account_short_name:"\
+      " #{@account_short_name.inspect}, best_of_indicator: #{@best_of_indicator.inspect},"\
+      " billing_frequency_type: #{@billing_frequency_type.inspect}, billing_frequency_type_id:"\
+      " #{@billing_frequency_type_id.inspect}, billing_run_frequency:"\
+      " #{@billing_run_frequency.inspect}, billing_run_frequency_type_id:"\
+      " #{@billing_run_frequency_type_id.inspect}, col_co_country_code:"\
+      " #{@col_co_country_code.inspect}, currency_code: #{@currency_code.inspect},"\
+      " currency_symbol: #{@currency_symbol.inspect}, day1_run: #{@day1_run.inspect}, day2_run:"\
+      " #{@day2_run.inspect}, day3_run: #{@day3_run.inspect}, day4_run: #{@day4_run.inspect},"\
+      " frequency_type: #{@frequency_type.inspect}, gross_amount: #{@gross_amount.inspect},"\
+      " international_pos_language_code: #{@international_pos_language_code.inspect},"\
+      " international_pos_language_id: #{@international_pos_language_id.inspect},"\
+      " invoice_account_id: #{@invoice_account_id.inspect}, invoice_account_number:"\
+      " #{@invoice_account_number.inspect}, invoice_account_short_name:"\
+      " #{@invoice_account_short_name.inspect}, invoice_distribution_methods:"\
+      " #{@invoice_distribution_methods.inspect}, is_international: #{@is_international.inspect},"\
+      " is_invoice_point: #{@is_invoice_point.inspect}, last_modified_date:"\
+      " #{@last_modified_date.inspect}, local_currency_code: #{@local_currency_code.inspect},"\
+      " local_currency_symbol: #{@local_currency_symbol.inspect}, local_pos_language_code:"\
+      " #{@local_pos_language_code.inspect}, local_pos_language_id:"\
+      " #{@local_pos_language_id.inspect}, net_amount: #{@net_amount.inspect},"\
+      " outstanding_balance: #{@outstanding_balance.inspect}, paid_amount:"\
+      " #{@paid_amount.inspect}, status: #{@status.inspect}, status_reason:"\
+      " #{@status_reason.inspect}, total_active_card_groups: #{@total_active_card_groups.inspect},"\
+      " total_active_cards: #{@total_active_cards.inspect}, total_blocked_cards:"\
+      " #{@total_blocked_cards.inspect}, total_cancelled_cards: #{@total_cancelled_cards.inspect},"\
+      " total_cards: #{@total_cards.inspect}, total_expired_cards:"\
+      " #{@total_expired_cards.inspect}, total_fraud_cards: #{@total_fraud_cards.inspect},"\
+      " total_new_cards: #{@total_new_cards.inspect}, total_renewal_pending_cards:"\
+      " #{@total_renewal_pending_cards.inspect}, total_replaced_cards:"\
+      " #{@total_replaced_cards.inspect}, total_temporary_block_cards_by_customer:"\
+      " #{@total_temporary_block_cards_by_customer.inspect}, total_temporary_block_cards_by_shell:"\
+      " #{@total_temporary_block_cards_by_shell.inspect}, vat_amount: #{@vat_amount.inspect},"\
+      " is_partner_card: #{@is_partner_card.inspect}, tolls_customer_id:"\
+      " #{@tolls_customer_id.inspect}, tolls_colco_country_type_id:"\
+      " #{@tolls_colco_country_type_id.inspect}, contracts: #{@contracts.inspect},"\
+      " is_consortium_member: #{@is_consortium_member.inspect}>"
+    end
   end
 end

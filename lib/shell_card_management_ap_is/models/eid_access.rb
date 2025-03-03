@@ -70,5 +70,19 @@ module ShellCardManagementApIs
                     col_co_code,
                     account_group_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_id: #{@col_co_id}, col_co_code: #{@col_co_code}, account_group_id:"\
+      " #{@account_group_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_id: #{@col_co_id.inspect}, col_co_code: #{@col_co_code.inspect},"\
+      " account_group_id: #{@account_group_id.inspect}>"
+    end
   end
 end

@@ -20,9 +20,9 @@ module ShellCardManagementApIs
     # @param [FleetmanagementV1UserLoggedinuserRequest] body Optional parameter:
     # Logged in user request body
     # @return [LoggedInUserResponse] response from the API call.
-    def loggedinuser(apikey,
-                     request_id,
-                     body: nil)
+    def loggedin_user(apikey,
+                      request_id,
+                      body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/user/loggedinuser',
@@ -300,9 +300,9 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [CardGroupRequest] body Optional parameter: Request Body
     # @return [CardGroupResponse] response from the API call.
-    def cardgroups(apikey,
-                   request_id,
-                   body: nil)
+    def card_groups(apikey,
+                    request_id,
+                    body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/cardgroups',
@@ -369,9 +369,9 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [AuditRequest] body Optional parameter: request body
     # @return [AuditResponse] response from the API call.
-    def auditreport(apikey,
-                    request_id,
-                    body: nil)
+    def audit_report(apikey,
+                     request_id,
+                     body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/auditreport',
@@ -432,9 +432,9 @@ module ShellCardManagementApIs
     # @param [CreateCardGroupRequest] body Optional parameter: CreateCardGroup
     # request body
     # @return [CreateCardGroupResponse] response from the API call.
-    def createcardgroup(apikey,
-                        request_id,
-                        body: nil)
+    def create_card_group(apikey,
+                          request_id,
+                          body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/createcardgroup',
@@ -491,9 +491,9 @@ module ShellCardManagementApIs
     # @param [UpdateCardGroupRequest] body Optional parameter: request body of
     # customer card group
     # @return [UpdateCardGroupResponse] response from the API call.
-    def updatecardgroup(apikey,
-                        request_id,
-                        body: nil)
+    def update_card_group(apikey,
+                          request_id,
+                          body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/customer/updatecardgroup',

@@ -174,5 +174,29 @@ module ShellCardManagementApIs
                           temporary_block_by_shell,
                           total_cards)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} active_cards: #{@active_cards}, blocked_cards: #{@blocked_cards},"\
+      " cancelled_cards: #{@cancelled_cards}, expired_cards: #{@expired_cards}, expiring_cards:"\
+      " #{@expiring_cards}, fraud_cards: #{@fraud_cards}, new_cards: #{@new_cards},"\
+      " renewal_pending_cards: #{@renewal_pending_cards}, replaced_cards: #{@replaced_cards},"\
+      " temporary_block_by_customer: #{@temporary_block_by_customer}, temporary_block_by_shell:"\
+      " #{@temporary_block_by_shell}, total_cards: #{@total_cards}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} active_cards: #{@active_cards.inspect}, blocked_cards:"\
+      " #{@blocked_cards.inspect}, cancelled_cards: #{@cancelled_cards.inspect}, expired_cards:"\
+      " #{@expired_cards.inspect}, expiring_cards: #{@expiring_cards.inspect}, fraud_cards:"\
+      " #{@fraud_cards.inspect}, new_cards: #{@new_cards.inspect}, renewal_pending_cards:"\
+      " #{@renewal_pending_cards.inspect}, replaced_cards: #{@replaced_cards.inspect},"\
+      " temporary_block_by_customer: #{@temporary_block_by_customer.inspect},"\
+      " temporary_block_by_shell: #{@temporary_block_by_shell.inspect}, total_cards:"\
+      " #{@total_cards.inspect}>"
+    end
   end
 end

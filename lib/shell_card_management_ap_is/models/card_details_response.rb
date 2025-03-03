@@ -52,8 +52,32 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :pan
 
-    # Card PAN. In the response body the PAN will be masked if the option is
-    # enabled in the Shell Card Platform.
+    # Possible Id’s and description:
+    # * 1  Active
+    # * 7  Blocked Card
+    # * 8  Expired
+    # * 9  Cancelled
+    # * 10  New
+    # * 23  Pending Renewal
+    # * 31  Replaced
+    # * 41  Temporary Block (Customer)
+    # * 42  Temporary Block (Shell)
+    # * 43  Fraud
+    # * 101 Active (Block in progress) *
+    # * 102 Blocked Card (Unblock in progress) *
+    # * 103 Active (Cancel in progress) *
+    # * 104 Active (Marked as damaged) *
+    # * 105 New (Cancel as damaged) *
+    # * 106 Active(Scheduled for block) ”#
+    # * 107 Blocked Card(Scheduled for unblock)*#
+    # * 108 Blocked Card (Cancel in progress) *
+    # > Note:
+    # •  Items marked with * are intermediate statuses  to indicate that there
+    # are pending requests in progress. , The response can contain these
+    # intermediate statuses only if the IncludeIntermediateStatus flag is true.
+    # •  The placeholder “<Shell Card Platform Status>” in the items marked with
+    # # will be replaced with the Shell Card Platform status description. E.g.,
+    # “Active (Scheduled for block)”
     # @return [CardDetailsResponseStatusIdEnum]
     attr_accessor :status_id
 
@@ -94,7 +118,9 @@ module ShellCardManagementApIs
     # @return [TrueClass | FalseClass]
     attr_accessor :fleet_id_prompt
 
-    # True if fleet id input is enabled, else false
+    # PIN type:
+    #   * `Card` - Card PIN
+    #   * `Fleet` - Fleet PIN
     # @return [CardDetailsResponsePINTypeEnum]
     attr_accessor :pin_type
 
@@ -126,19 +152,143 @@ module ShellCardManagementApIs
     # @return [Object]
     attr_accessor :reissue_setting
 
-    # Issue number of the card
+    # POS language identifier. Language Id:
+    #   * `1` - German
+    #   * `2` - French
+    #   * `3` - Bulgarian
+    #   * `4` - Croatian
+    #   * `5` - Czech
+    #   * `6` - Danish
+    #   * `7` - Finnish
+    #   * `8` - English
+    #   * `9` - Greek
+    #   * `10` - Chinese
+    #   * `11` - Hungarian
+    #   * `12` - Italian
+    #   * `13` - Luxembourgish
+    #   * `14` - Malay
+    #   * `15` - Dutch
+    #   * `16` - Norwegian, Bokmal
+    #   * `17` - Urdu
+    #   * `18` - Polish
+    #   * `19` - Portuguese
+    #   * `20` - Romanian
+    #   * `21` - Russian
+    #   * `22` - Slovak
+    #   * `23` - Slovenian
+    #   * `24` - Spanish
+    #   * `25` - Swedish
+    #   * `26` - Turkish
+    #   * `27` - Thai
+    #   * `28` - Filipino
+    #   * `29` - Estonian
+    #   * `30` - Latvian
+    #   * `31` - Lithuanian
     # @return [CardDetailsResponseInternationalPOSLanguageIDEnum]
     attr_accessor :international_pos_language_id
 
-    # Issue number of the card
+    # POS language code. Language code:
+    #   * `deu` - German
+    #   * `fra` - French
+    #   * `bul` - Bulgarian
+    #   * `hrv` - Croatian
+    #   * `ces` - Czech
+    #   * `dan` - Danish
+    #   * `fin` - Finnish
+    #   * `eng` - English
+    #   * `ell` - Greek
+    #   * `zho` - Chinese
+    #   * `hun` - Hungarian
+    #   * `ita` - Italian
+    #   * `ltz` - Luxembourgish
+    #   * `msa` - Malay
+    #   * `nld` - Dutch
+    #   * `nob` - Norwegian, Bokmal
+    #   * `urd` - Urdu
+    #   * `pol` - Polish
+    #   * `por` - Portuguese
+    #   * `ron` - Romanian
+    #   * `rus` - Russian
+    #   * `slk` - Slovak
+    #   * `slv` - Slovenian
+    #   * `spa` - Spanish
+    #   * `swe` - Swedish
+    #   * `tur` - Turkish
+    #   * `tha` - Thai
+    #   * `fil` - Filipino
+    #   * `est` - Estonian
+    #   * `lav` - Latvian
+    #   * `lit` - Lithuanian
     # @return [CardDetailsResponseInternationalPOSLanguageCodeEnum]
     attr_accessor :international_pos_language_code
 
-    # Issue number of the card
+    # POS language identifier. Language Id:
+    #   * `1` - German
+    #   * `2` - French
+    #   * `3` - Bulgarian
+    #   * `4` - Croatian
+    #   * `5` - Czech
+    #   * `6` - Danish
+    #   * `7` - Finnish
+    #   * `8` - English
+    #   * `9` - Greek
+    #   * `10` - Chinese
+    #   * `11` - Hungarian
+    #   * `12` - Italian
+    #   * `13` - Luxembourgish
+    #   * `14` - Malay
+    #   * `15` - Dutch
+    #   * `16` - Norwegian, Bokmal
+    #   * `17` - Urdu
+    #   * `18` - Polish
+    #   * `19` - Portuguese
+    #   * `20` - Romanian
+    #   * `21` - Russian
+    #   * `22` - Slovak
+    #   * `23` - Slovenian
+    #   * `24` - Spanish
+    #   * `25` - Swedish
+    #   * `26` - Turkish
+    #   * `27` - Thai
+    #   * `28` - Filipino
+    #   * `29` - Estonian
+    #   * `30` - Latvian
+    #   * `31` - Lithuanian
     # @return [CardDetailsResponseInternationalPOSLanguageIDEnum]
     attr_accessor :local_pos_language_id
 
-    # Issue number of the card
+    # POS language code. Language code:
+    #   * `deu` - German
+    #   * `fra` - French
+    #   * `bul` - Bulgarian
+    #   * `hrv` - Croatian
+    #   * `ces` - Czech
+    #   * `dan` - Danish
+    #   * `fin` - Finnish
+    #   * `eng` - English
+    #   * `ell` - Greek
+    #   * `zho` - Chinese
+    #   * `hun` - Hungarian
+    #   * `ita` - Italian
+    #   * `ltz` - Luxembourgish
+    #   * `msa` - Malay
+    #   * `nld` - Dutch
+    #   * `nob` - Norwegian, Bokmal
+    #   * `urd` - Urdu
+    #   * `pol` - Polish
+    #   * `por` - Portuguese
+    #   * `ron` - Romanian
+    #   * `rus` - Russian
+    #   * `slk` - Slovak
+    #   * `slv` - Slovenian
+    #   * `spa` - Spanish
+    #   * `swe` - Swedish
+    #   * `tur` - Turkish
+    #   * `tha` - Thai
+    #   * `fil` - Filipino
+    #   * `est` - Estonian
+    #   * `lav` - Latvian
+    #   * `lit` - Lithuanian
     # @return [CardDetailsResponseInternationalPOSLanguageCodeEnum]
     attr_accessor :local_pos_language_code
 
@@ -291,7 +441,9 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :renewed_card_issue_number
 
-    # Renewed card issue number.
+    # Reissue setting of the renewed new card. Reissue Setting:
+    #   * `True` - Card will be sent to production
+    #   * `False` - Parent Card is Dormant or the Card is not to be produced
     # @return [CardDetailsResponseRenewedCardReissueSettingEnum]
     attr_accessor :renewed_card_reissue_setting
 
@@ -864,6 +1016,92 @@ module ShellCardManagementApIs
                               card_block_schedules,
                               error,
                               request_id)
+    end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} payer_id: #{@payer_id}, payer_number: #{@payer_number}, account_id:"\
+      " #{@account_id}, account_number: #{@account_number}, account_short_name:"\
+      " #{@account_short_name}, col_co_country_code: #{@col_co_country_code}, local_currency_code:"\
+      " #{@local_currency_code}, local_currency_symbol: #{@local_currency_symbol}, card_id:"\
+      " #{@card_id}, pan: #{@pan}, status_id: #{@status_id}, status: #{@status}, odometer_prompt:"\
+      " #{@odometer_prompt}, fleet_id_prompt: #{@fleet_id_prompt}, pin_type: #{@pin_type},"\
+      " has_pin: #{@has_pin}, is_self_selected_pin: #{@is_self_selected_pin},"\
+      " temporary_block_allowed: #{@temporary_block_allowed}, unblock_allowed:"\
+      " #{@unblock_allowed}, permanent_block_allowed: #{@permanent_block_allowed}, issue_number:"\
+      " #{@issue_number}, reissue_setting: #{@reissue_setting}, international_pos_language_id:"\
+      " #{@international_pos_language_id}, international_pos_language_code:"\
+      " #{@international_pos_language_code}, local_pos_language_id: #{@local_pos_language_id},"\
+      " local_pos_language_code: #{@local_pos_language_code}, card_type_code: #{@card_type_code},"\
+      " card_type_id: #{@card_type_id}, card_type_name: #{@card_type_name}, token_type_id:"\
+      " #{@token_type_id}, token_type_name: #{@token_type_name}, is_chip_card: #{@is_chip_card},"\
+      " is_mag_strip_card: #{@is_mag_strip_card}, is_virtual_card: #{@is_virtual_card},"\
+      " purchase_category_code: #{@purchase_category_code}, purchase_category_id:"\
+      " #{@purchase_category_id}, purchase_category_name: #{@purchase_category_name}, is_crt:"\
+      " #{@is_crt}, is_fleet: #{@is_fleet}, is_international: #{@is_international}, is_national:"\
+      " #{@is_national}, is_partner_sites_included: #{@is_partner_sites_included},"\
+      " is_shell_sites_only: #{@is_shell_sites_only}, fuel_sets: #{@fuel_sets}, non_fuel_sets:"\
+      " #{@non_fuel_sets}, issued_date: #{@issued_date}, expiry_date: #{@expiry_date},"\
+      " last_used_date: #{@last_used_date}, misuse_date: #{@misuse_date}, temperature:"\
+      " #{@temperature}, driver_name: #{@driver_name}, vrn: #{@vrn}, emboss_text: #{@emboss_text},"\
+      " card_group_id: #{@card_group_id}, card_group_name: #{@card_group_name}, renewal_date:"\
+      " #{@renewal_date}, renewed_card_id: #{@renewed_card_id}, renewed_card_status_id:"\
+      " #{@renewed_card_status_id}, renewed_card_status: #{@renewed_card_status},"\
+      " renewed_card_expiry_date: #{@renewed_card_expiry_date}, renewed_card_issue_number:"\
+      " #{@renewed_card_issue_number}, renewed_card_reissue_setting:"\
+      " #{@renewed_card_reissue_setting}, creation_date: #{@creation_date}, effective_date:"\
+      " #{@effective_date}, last_modified_date: #{@last_modified_date}, bundle_id: #{@bundle_id},"\
+      " card_delivery_address: #{@card_delivery_address}, pin_delivery_address:"\
+      " #{@pin_delivery_address}, card_block_schedules: #{@card_block_schedules}, error:"\
+      " #{@error}, request_id: #{@request_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} payer_id: #{@payer_id.inspect}, payer_number: #{@payer_number.inspect},"\
+      " account_id: #{@account_id.inspect}, account_number: #{@account_number.inspect},"\
+      " account_short_name: #{@account_short_name.inspect}, col_co_country_code:"\
+      " #{@col_co_country_code.inspect}, local_currency_code: #{@local_currency_code.inspect},"\
+      " local_currency_symbol: #{@local_currency_symbol.inspect}, card_id: #{@card_id.inspect},"\
+      " pan: #{@pan.inspect}, status_id: #{@status_id.inspect}, status: #{@status.inspect},"\
+      " odometer_prompt: #{@odometer_prompt.inspect}, fleet_id_prompt:"\
+      " #{@fleet_id_prompt.inspect}, pin_type: #{@pin_type.inspect}, has_pin: #{@has_pin.inspect},"\
+      " is_self_selected_pin: #{@is_self_selected_pin.inspect}, temporary_block_allowed:"\
+      " #{@temporary_block_allowed.inspect}, unblock_allowed: #{@unblock_allowed.inspect},"\
+      " permanent_block_allowed: #{@permanent_block_allowed.inspect}, issue_number:"\
+      " #{@issue_number.inspect}, reissue_setting: #{@reissue_setting.inspect},"\
+      " international_pos_language_id: #{@international_pos_language_id.inspect},"\
+      " international_pos_language_code: #{@international_pos_language_code.inspect},"\
+      " local_pos_language_id: #{@local_pos_language_id.inspect}, local_pos_language_code:"\
+      " #{@local_pos_language_code.inspect}, card_type_code: #{@card_type_code.inspect},"\
+      " card_type_id: #{@card_type_id.inspect}, card_type_name: #{@card_type_name.inspect},"\
+      " token_type_id: #{@token_type_id.inspect}, token_type_name: #{@token_type_name.inspect},"\
+      " is_chip_card: #{@is_chip_card.inspect}, is_mag_strip_card: #{@is_mag_strip_card.inspect},"\
+      " is_virtual_card: #{@is_virtual_card.inspect}, purchase_category_code:"\
+      " #{@purchase_category_code.inspect}, purchase_category_id:"\
+      " #{@purchase_category_id.inspect}, purchase_category_name:"\
+      " #{@purchase_category_name.inspect}, is_crt: #{@is_crt.inspect}, is_fleet:"\
+      " #{@is_fleet.inspect}, is_international: #{@is_international.inspect}, is_national:"\
+      " #{@is_national.inspect}, is_partner_sites_included: #{@is_partner_sites_included.inspect},"\
+      " is_shell_sites_only: #{@is_shell_sites_only.inspect}, fuel_sets: #{@fuel_sets.inspect},"\
+      " non_fuel_sets: #{@non_fuel_sets.inspect}, issued_date: #{@issued_date.inspect},"\
+      " expiry_date: #{@expiry_date.inspect}, last_used_date: #{@last_used_date.inspect},"\
+      " misuse_date: #{@misuse_date.inspect}, temperature: #{@temperature.inspect}, driver_name:"\
+      " #{@driver_name.inspect}, vrn: #{@vrn.inspect}, emboss_text: #{@emboss_text.inspect},"\
+      " card_group_id: #{@card_group_id.inspect}, card_group_name: #{@card_group_name.inspect},"\
+      " renewal_date: #{@renewal_date.inspect}, renewed_card_id: #{@renewed_card_id.inspect},"\
+      " renewed_card_status_id: #{@renewed_card_status_id.inspect}, renewed_card_status:"\
+      " #{@renewed_card_status.inspect}, renewed_card_expiry_date:"\
+      " #{@renewed_card_expiry_date.inspect}, renewed_card_issue_number:"\
+      " #{@renewed_card_issue_number.inspect}, renewed_card_reissue_setting:"\
+      " #{@renewed_card_reissue_setting.inspect}, creation_date: #{@creation_date.inspect},"\
+      " effective_date: #{@effective_date.inspect}, last_modified_date:"\
+      " #{@last_modified_date.inspect}, bundle_id: #{@bundle_id.inspect}, card_delivery_address:"\
+      " #{@card_delivery_address.inspect}, pin_delivery_address: #{@pin_delivery_address.inspect},"\
+      " card_block_schedules: #{@card_block_schedules.inspect}, error: #{@error.inspect},"\
+      " request_id: #{@request_id.inspect}>"
     end
   end
 end

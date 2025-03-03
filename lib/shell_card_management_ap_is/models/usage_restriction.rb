@@ -1123,5 +1123,140 @@ module ShellCardManagementApIs
                            life_time_transaction_override,
                            life_time_transaction_threshold)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} level: #{@level}, daily_spend: #{@daily_spend}, daily_spend_accumulated:"\
+      " #{@daily_spend_accumulated}, daily_spend_balance: #{@daily_spend_balance},"\
+      " daily_spend_override: #{@daily_spend_override}, daily_spend_threshold:"\
+      " #{@daily_spend_threshold}, weekly_spend: #{@weekly_spend}, weekly_spend_accumulated:"\
+      " #{@weekly_spend_accumulated}, weekly_spend_balance: #{@weekly_spend_balance},"\
+      " weekly_spend_override: #{@weekly_spend_override}, weekly_spend_threshold:"\
+      " #{@weekly_spend_threshold}, monthly_spend: #{@monthly_spend}, monthly_spend_accumulated:"\
+      " #{@monthly_spend_accumulated}, monthly_spend_balance: #{@monthly_spend_balance},"\
+      " monthly_spend_override: #{@monthly_spend_override}, per_transaction_spend:"\
+      " #{@per_transaction_spend}, per_transaction_spend_override:"\
+      " #{@per_transaction_spend_override}, annual_spend: #{@annual_spend},"\
+      " annual_spend_accumulated: #{@annual_spend_accumulated}, annual_spend_balance:"\
+      " #{@annual_spend_balance}, annual_spend_override: #{@annual_spend_override},"\
+      " annual_spend_threshold: #{@annual_spend_threshold}, life_time_spend: #{@life_time_spend},"\
+      " life_time_spend_accumulated: #{@life_time_spend_accumulated}, life_time_spend_balance:"\
+      " #{@life_time_spend_balance}, life_time_spend_override: #{@life_time_spend_override},"\
+      " life_time_spend_threshold: #{@life_time_spend_threshold}, daily_volume: #{@daily_volume},"\
+      " daily_volume_accumulated: #{@daily_volume_accumulated}, daily_volume_balance:"\
+      " #{@daily_volume_balance}, daily_volume_override: #{@daily_volume_override},"\
+      " daily_volume_threshold: #{@daily_volume_threshold}, weekly_volume: #{@weekly_volume},"\
+      " weekly_volume_accumulated: #{@weekly_volume_accumulated}, weekly_volume_balance:"\
+      " #{@weekly_volume_balance}, weekly_volume_override: #{@weekly_volume_override},"\
+      " weekly_volume_threshold: #{@weekly_volume_threshold}, monthly_volume: #{@monthly_volume},"\
+      " monthly_volume_accumulated: #{@monthly_volume_accumulated}, monthly_volume_balance:"\
+      " #{@monthly_volume_balance}, monthly_volume_override: #{@monthly_volume_override},"\
+      " monthly_volume_threshold: #{@monthly_volume_threshold}, per_transaction_volume:"\
+      " #{@per_transaction_volume}, per_transaction_volume_override:"\
+      " #{@per_transaction_volume_override}, annual_volume: #{@annual_volume},"\
+      " annual_volume_accumulated: #{@annual_volume_accumulated}, annual_volume_balance:"\
+      " #{@annual_volume_balance}, annual_volume_override: #{@annual_volume_override},"\
+      " annual_volume_threshold: #{@annual_volume_threshold}, life_time_volume:"\
+      " #{@life_time_volume}, life_time_volume_accumulated: #{@life_time_volume_accumulated},"\
+      " life_time_volume_balance: #{@life_time_volume_balance}, life_time_volume_override:"\
+      " #{@life_time_volume_override}, life_time_volume_threshold: #{@life_time_volume_threshold},"\
+      " daily_transaction_count: #{@daily_transaction_count}, daily_transaction_accumulated:"\
+      " #{@daily_transaction_accumulated}, daily_transaction_balance:"\
+      " #{@daily_transaction_balance}, daily_transaction_override: #{@daily_transaction_override},"\
+      " daily_transaction_threshold: #{@daily_transaction_threshold}, weekly_transaction_count:"\
+      " #{@weekly_transaction_count}, weekly_transaction_accumulated:"\
+      " #{@weekly_transaction_accumulated}, weekly_transaction_balance:"\
+      " #{@weekly_transaction_balance}, weekly_transaction_override:"\
+      " #{@weekly_transaction_override}, weekly_transaction_threshold:"\
+      " #{@weekly_transaction_threshold}, monthly_transaction_count:"\
+      " #{@monthly_transaction_count}, monthly_transaction_accumulated:"\
+      " #{@monthly_transaction_accumulated}, monthly_transaction_balance:"\
+      " #{@monthly_transaction_balance}, monthly_transaction_override:"\
+      " #{@monthly_transaction_override}, monthly_transaction_threshold:"\
+      " #{@monthly_transaction_threshold}, annual_transaction_count: #{@annual_transaction_count},"\
+      " annual_transaction_accumulated: #{@annual_transaction_accumulated},"\
+      " annual_transaction_balance: #{@annual_transaction_balance}, annual_transaction_override:"\
+      " #{@annual_transaction_override}, annual_transaction_threshold:"\
+      " #{@annual_transaction_threshold}, life_time_transaction_count:"\
+      " #{@life_time_transaction_count}, life_time_transaction_accumulated:"\
+      " #{@life_time_transaction_accumulated}, life_time_transaction_balance:"\
+      " #{@life_time_transaction_balance}, life_time_transaction_override:"\
+      " #{@life_time_transaction_override}, life_time_transaction_threshold:"\
+      " #{@life_time_transaction_threshold}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} level: #{@level.inspect}, daily_spend: #{@daily_spend.inspect},"\
+      " daily_spend_accumulated: #{@daily_spend_accumulated.inspect}, daily_spend_balance:"\
+      " #{@daily_spend_balance.inspect}, daily_spend_override: #{@daily_spend_override.inspect},"\
+      " daily_spend_threshold: #{@daily_spend_threshold.inspect}, weekly_spend:"\
+      " #{@weekly_spend.inspect}, weekly_spend_accumulated: #{@weekly_spend_accumulated.inspect},"\
+      " weekly_spend_balance: #{@weekly_spend_balance.inspect}, weekly_spend_override:"\
+      " #{@weekly_spend_override.inspect}, weekly_spend_threshold:"\
+      " #{@weekly_spend_threshold.inspect}, monthly_spend: #{@monthly_spend.inspect},"\
+      " monthly_spend_accumulated: #{@monthly_spend_accumulated.inspect}, monthly_spend_balance:"\
+      " #{@monthly_spend_balance.inspect}, monthly_spend_override:"\
+      " #{@monthly_spend_override.inspect}, per_transaction_spend:"\
+      " #{@per_transaction_spend.inspect}, per_transaction_spend_override:"\
+      " #{@per_transaction_spend_override.inspect}, annual_spend: #{@annual_spend.inspect},"\
+      " annual_spend_accumulated: #{@annual_spend_accumulated.inspect}, annual_spend_balance:"\
+      " #{@annual_spend_balance.inspect}, annual_spend_override:"\
+      " #{@annual_spend_override.inspect}, annual_spend_threshold:"\
+      " #{@annual_spend_threshold.inspect}, life_time_spend: #{@life_time_spend.inspect},"\
+      " life_time_spend_accumulated: #{@life_time_spend_accumulated.inspect},"\
+      " life_time_spend_balance: #{@life_time_spend_balance.inspect}, life_time_spend_override:"\
+      " #{@life_time_spend_override.inspect}, life_time_spend_threshold:"\
+      " #{@life_time_spend_threshold.inspect}, daily_volume: #{@daily_volume.inspect},"\
+      " daily_volume_accumulated: #{@daily_volume_accumulated.inspect}, daily_volume_balance:"\
+      " #{@daily_volume_balance.inspect}, daily_volume_override:"\
+      " #{@daily_volume_override.inspect}, daily_volume_threshold:"\
+      " #{@daily_volume_threshold.inspect}, weekly_volume: #{@weekly_volume.inspect},"\
+      " weekly_volume_accumulated: #{@weekly_volume_accumulated.inspect}, weekly_volume_balance:"\
+      " #{@weekly_volume_balance.inspect}, weekly_volume_override:"\
+      " #{@weekly_volume_override.inspect}, weekly_volume_threshold:"\
+      " #{@weekly_volume_threshold.inspect}, monthly_volume: #{@monthly_volume.inspect},"\
+      " monthly_volume_accumulated: #{@monthly_volume_accumulated.inspect},"\
+      " monthly_volume_balance: #{@monthly_volume_balance.inspect}, monthly_volume_override:"\
+      " #{@monthly_volume_override.inspect}, monthly_volume_threshold:"\
+      " #{@monthly_volume_threshold.inspect}, per_transaction_volume:"\
+      " #{@per_transaction_volume.inspect}, per_transaction_volume_override:"\
+      " #{@per_transaction_volume_override.inspect}, annual_volume: #{@annual_volume.inspect},"\
+      " annual_volume_accumulated: #{@annual_volume_accumulated.inspect}, annual_volume_balance:"\
+      " #{@annual_volume_balance.inspect}, annual_volume_override:"\
+      " #{@annual_volume_override.inspect}, annual_volume_threshold:"\
+      " #{@annual_volume_threshold.inspect}, life_time_volume: #{@life_time_volume.inspect},"\
+      " life_time_volume_accumulated: #{@life_time_volume_accumulated.inspect},"\
+      " life_time_volume_balance: #{@life_time_volume_balance.inspect}, life_time_volume_override:"\
+      " #{@life_time_volume_override.inspect}, life_time_volume_threshold:"\
+      " #{@life_time_volume_threshold.inspect}, daily_transaction_count:"\
+      " #{@daily_transaction_count.inspect}, daily_transaction_accumulated:"\
+      " #{@daily_transaction_accumulated.inspect}, daily_transaction_balance:"\
+      " #{@daily_transaction_balance.inspect}, daily_transaction_override:"\
+      " #{@daily_transaction_override.inspect}, daily_transaction_threshold:"\
+      " #{@daily_transaction_threshold.inspect}, weekly_transaction_count:"\
+      " #{@weekly_transaction_count.inspect}, weekly_transaction_accumulated:"\
+      " #{@weekly_transaction_accumulated.inspect}, weekly_transaction_balance:"\
+      " #{@weekly_transaction_balance.inspect}, weekly_transaction_override:"\
+      " #{@weekly_transaction_override.inspect}, weekly_transaction_threshold:"\
+      " #{@weekly_transaction_threshold.inspect}, monthly_transaction_count:"\
+      " #{@monthly_transaction_count.inspect}, monthly_transaction_accumulated:"\
+      " #{@monthly_transaction_accumulated.inspect}, monthly_transaction_balance:"\
+      " #{@monthly_transaction_balance.inspect}, monthly_transaction_override:"\
+      " #{@monthly_transaction_override.inspect}, monthly_transaction_threshold:"\
+      " #{@monthly_transaction_threshold.inspect}, annual_transaction_count:"\
+      " #{@annual_transaction_count.inspect}, annual_transaction_accumulated:"\
+      " #{@annual_transaction_accumulated.inspect}, annual_transaction_balance:"\
+      " #{@annual_transaction_balance.inspect}, annual_transaction_override:"\
+      " #{@annual_transaction_override.inspect}, annual_transaction_threshold:"\
+      " #{@annual_transaction_threshold.inspect}, life_time_transaction_count:"\
+      " #{@life_time_transaction_count.inspect}, life_time_transaction_accumulated:"\
+      " #{@life_time_transaction_accumulated.inspect}, life_time_transaction_balance:"\
+      " #{@life_time_transaction_balance.inspect}, life_time_transaction_override:"\
+      " #{@life_time_transaction_override.inspect}, life_time_transaction_threshold:"\
+      " #{@life_time_transaction_threshold.inspect}>"
+    end
   end
 end

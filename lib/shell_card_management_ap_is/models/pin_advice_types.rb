@@ -75,5 +75,20 @@ module ShellCardManagementApIs
                          is_card_order_option,
                          is_pin_reminder_option)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} pin_advice_type_id: #{@pin_advice_type_id}, is_card_order_option:"\
+      " #{@is_card_order_option}, is_pin_reminder_option: #{@is_pin_reminder_option}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} pin_advice_type_id: #{@pin_advice_type_id.inspect}, is_card_order_option:"\
+      " #{@is_card_order_option.inspect}, is_pin_reminder_option:"\
+      " #{@is_pin_reminder_option.inspect}>"
+    end
   end
 end

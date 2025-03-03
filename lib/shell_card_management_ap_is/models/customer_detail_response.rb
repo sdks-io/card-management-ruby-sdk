@@ -419,5 +419,48 @@ module ShellCardManagementApIs
                                  pin_change_allowed_by_cardholder,
                                  pin_change_allowed_from_fleet_pin)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_name: #{@account_name}, account_number:"\
+      " #{@account_number}, account_short_name: #{@account_short_name}, account_trading_name:"\
+      " #{@account_trading_name}, allow_fleet_id_input: #{@allow_fleet_id_input}, band: #{@band},"\
+      " billing_address: #{@billing_address}, card_group_position: #{@card_group_position},"\
+      " correspondence_address: #{@correspondence_address}, delivery_addresses:"\
+      " #{@delivery_addresses}, fleet_pin: #{@fleet_pin}, full_name: #{@full_name},"\
+      " invoice_customer_id: #{@invoice_customer_id}, invoice_customer_short_name:"\
+      " #{@invoice_customer_short_name}, is_invoice_point: #{@is_invoice_point},"\
+      " marketing_segmentation: #{@marketing_segmentation}, vat_number: #{@vat_number}, payer_id:"\
+      " #{@payer_id}, payer_name: #{@payer_name}, payer_number: #{@payer_number},"\
+      " self_selected_pin: #{@self_selected_pin}, status: #{@status}, default_pin_advice_type:"\
+      " #{@default_pin_advice_type}, pin_advice_types: #{@pin_advice_types}, error: #{@error},"\
+      " request_id: #{@request_id}, pin_change_allowed_by_cardholder:"\
+      " #{@pin_change_allowed_by_cardholder}, pin_change_allowed_from_fleet_pin:"\
+      " #{@pin_change_allowed_from_fleet_pin}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_name: #{@account_name.inspect},"\
+      " account_number: #{@account_number.inspect}, account_short_name:"\
+      " #{@account_short_name.inspect}, account_trading_name: #{@account_trading_name.inspect},"\
+      " allow_fleet_id_input: #{@allow_fleet_id_input.inspect}, band: #{@band.inspect},"\
+      " billing_address: #{@billing_address.inspect}, card_group_position:"\
+      " #{@card_group_position.inspect}, correspondence_address:"\
+      " #{@correspondence_address.inspect}, delivery_addresses: #{@delivery_addresses.inspect},"\
+      " fleet_pin: #{@fleet_pin.inspect}, full_name: #{@full_name.inspect}, invoice_customer_id:"\
+      " #{@invoice_customer_id.inspect}, invoice_customer_short_name:"\
+      " #{@invoice_customer_short_name.inspect}, is_invoice_point: #{@is_invoice_point.inspect},"\
+      " marketing_segmentation: #{@marketing_segmentation.inspect}, vat_number:"\
+      " #{@vat_number.inspect}, payer_id: #{@payer_id.inspect}, payer_name:"\
+      " #{@payer_name.inspect}, payer_number: #{@payer_number.inspect}, self_selected_pin:"\
+      " #{@self_selected_pin.inspect}, status: #{@status.inspect}, default_pin_advice_type:"\
+      " #{@default_pin_advice_type.inspect}, pin_advice_types: #{@pin_advice_types.inspect},"\
+      " error: #{@error.inspect}, request_id: #{@request_id.inspect},"\
+      " pin_change_allowed_by_cardholder: #{@pin_change_allowed_by_cardholder.inspect},"\
+      " pin_change_allowed_from_fleet_pin: #{@pin_change_allowed_from_fleet_pin.inspect}>"
+    end
   end
 end

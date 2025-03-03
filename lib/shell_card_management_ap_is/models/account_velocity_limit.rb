@@ -133,5 +133,22 @@ module ShellCardManagementApIs
                                product_group,
                                threshold)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} type: #{@type}, period: #{@period}, limit: #{@limit}, accumulation:"\
+      " #{@accumulation}, balance: #{@balance}, override: #{@override}, product_group:"\
+      " #{@product_group}, threshold: #{@threshold}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} type: #{@type.inspect}, period: #{@period.inspect}, limit:"\
+      " #{@limit.inspect}, accumulation: #{@accumulation.inspect}, balance: #{@balance.inspect},"\
+      " override: #{@override.inspect}, product_group: #{@product_group.inspect}, threshold:"\
+      " #{@threshold.inspect}>"
+    end
   end
 end

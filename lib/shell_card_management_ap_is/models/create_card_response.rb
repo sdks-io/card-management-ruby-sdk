@@ -60,5 +60,19 @@ module ShellCardManagementApIs
       CreateCardResponse.new(driver_and_vrn,
                              order_card_reference)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} driver_and_vrn: #{@driver_and_vrn}, order_card_reference:"\
+      " #{@order_card_reference}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} driver_and_vrn: #{@driver_and_vrn.inspect}, order_card_reference:"\
+      " #{@order_card_reference.inspect}>"
+    end
   end
 end

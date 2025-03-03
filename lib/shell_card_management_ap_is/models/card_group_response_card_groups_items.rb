@@ -287,5 +287,39 @@ module ShellCardManagementApIs
                                            terminated_date,
                                            total_cards)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_number: #{@account_number},"\
+      " account_short_name: #{@account_short_name}, active_cards: #{@active_cards}, blocked_cards:"\
+      " #{@blocked_cards}, cancelled_cards: #{@cancelled_cards}, card_delivery_point:"\
+      " #{@card_delivery_point}, card_group_id: #{@card_group_id}, card_group_name:"\
+      " #{@card_group_name}, card_type_code: #{@card_type_code}, card_type_id: #{@card_type_id},"\
+      " card_type_name: #{@card_type_name}, expired_cards: #{@expired_cards}, expiry_date:"\
+      " #{@expiry_date}, print_on_card: #{@print_on_card}, renewal_pending_cards:"\
+      " #{@renewal_pending_cards}, replaced_cards: #{@replaced_cards}, status: #{@status},"\
+      " temporary_block_by_customer: #{@temporary_block_by_customer}, temporary_block_by_shell:"\
+      " #{@temporary_block_by_shell}, terminated_date: #{@terminated_date}, total_cards:"\
+      " #{@total_cards}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, account_short_name: #{@account_short_name.inspect},"\
+      " active_cards: #{@active_cards.inspect}, blocked_cards: #{@blocked_cards.inspect},"\
+      " cancelled_cards: #{@cancelled_cards.inspect}, card_delivery_point:"\
+      " #{@card_delivery_point.inspect}, card_group_id: #{@card_group_id.inspect},"\
+      " card_group_name: #{@card_group_name.inspect}, card_type_code: #{@card_type_code.inspect},"\
+      " card_type_id: #{@card_type_id.inspect}, card_type_name: #{@card_type_name.inspect},"\
+      " expired_cards: #{@expired_cards.inspect}, expiry_date: #{@expiry_date.inspect},"\
+      " print_on_card: #{@print_on_card.inspect}, renewal_pending_cards:"\
+      " #{@renewal_pending_cards.inspect}, replaced_cards: #{@replaced_cards.inspect}, status:"\
+      " #{@status.inspect}, temporary_block_by_customer: #{@temporary_block_by_customer.inspect},"\
+      " temporary_block_by_shell: #{@temporary_block_by_shell.inspect}, terminated_date:"\
+      " #{@terminated_date.inspect}, total_cards: #{@total_cards.inspect}>"
+    end
   end
 end

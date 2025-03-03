@@ -131,5 +131,20 @@ module ShellCardManagementApIs
                                   title,
                                   description)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} id: #{@id}, code: #{@code}, name: #{@name}, is_visible: #{@is_visible},"\
+      " product_groups: #{@product_groups}, title: #{@title}, description: #{@description}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} id: #{@id.inspect}, code: #{@code.inspect}, name: #{@name.inspect},"\
+      " is_visible: #{@is_visible.inspect}, product_groups: #{@product_groups.inspect}, title:"\
+      " #{@title.inspect}, description: #{@description.inspect}>"
+    end
   end
 end

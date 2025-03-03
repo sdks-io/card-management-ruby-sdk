@@ -684,5 +684,67 @@ module ShellCardManagementApIs
                ev_printed_number,
                card_media_code)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_name: #{@account_name}, account_number:"\
+      " #{@account_number}, account_short_name: #{@account_short_name}, bundle_id: #{@bundle_id},"\
+      " card_block_schedules: #{@card_block_schedules}, card_group_id: #{@card_group_id},"\
+      " card_group_name: #{@card_group_name}, card_id: #{@card_id}, card_type_code:"\
+      " #{@card_type_code}, card_type_id: #{@card_type_id}, card_type_name: #{@card_type_name},"\
+      " col_co_country_code: #{@col_co_country_code}, creation_date: #{@creation_date},"\
+      " driver_name: #{@driver_name}, effective_date: #{@effective_date}, expiry_date:"\
+      " #{@expiry_date}, fleet_id_input: #{@fleet_id_input}, is_crt: #{@is_crt}, is_fleet:"\
+      " #{@is_fleet}, is_international: #{@is_international}, is_national: #{@is_national},"\
+      " is_partner_sites_included: #{@is_partner_sites_included}, is_shell_sites_only:"\
+      " #{@is_shell_sites_only}, issue_date: #{@issue_date}, is_superseded: #{@is_superseded},"\
+      " is_virtual_card: #{@is_virtual_card}, last_modified_date: #{@last_modified_date},"\
+      " last_used_date: #{@last_used_date}, local_currency_code: #{@local_currency_code},"\
+      " local_currency_symbol: #{@local_currency_symbol}, odometer_input: #{@odometer_input}, pan:"\
+      " #{@pan}, masked_pan: #{@masked_pan}, panid: #{@panid}, purchase_category_code:"\
+      " #{@purchase_category_code}, purchase_category_id: #{@purchase_category_id},"\
+      " purchase_category_name: #{@purchase_category_name}, reason: #{@reason}, reissue_setting:"\
+      " #{@reissue_setting}, status_description: #{@status_description}, status_id: #{@status_id},"\
+      " token_type_id: #{@token_type_id}, token_type_name: #{@token_type_name}, vrn: #{@vrn},"\
+      " client_reference_id: #{@client_reference_id}, is_emv_contact: #{@is_emv_contact},"\
+      " is_emv_contactless: #{@is_emv_contactless}, is_rfid: #{@is_rfid}, rfiduid: #{@rfiduid},"\
+      " emaid: #{@emaid}, ev_printed_number: #{@ev_printed_number}, card_media_code:"\
+      " #{@card_media_code}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_name: #{@account_name.inspect},"\
+      " account_number: #{@account_number.inspect}, account_short_name:"\
+      " #{@account_short_name.inspect}, bundle_id: #{@bundle_id.inspect}, card_block_schedules:"\
+      " #{@card_block_schedules.inspect}, card_group_id: #{@card_group_id.inspect},"\
+      " card_group_name: #{@card_group_name.inspect}, card_id: #{@card_id.inspect},"\
+      " card_type_code: #{@card_type_code.inspect}, card_type_id: #{@card_type_id.inspect},"\
+      " card_type_name: #{@card_type_name.inspect}, col_co_country_code:"\
+      " #{@col_co_country_code.inspect}, creation_date: #{@creation_date.inspect}, driver_name:"\
+      " #{@driver_name.inspect}, effective_date: #{@effective_date.inspect}, expiry_date:"\
+      " #{@expiry_date.inspect}, fleet_id_input: #{@fleet_id_input.inspect}, is_crt:"\
+      " #{@is_crt.inspect}, is_fleet: #{@is_fleet.inspect}, is_international:"\
+      " #{@is_international.inspect}, is_national: #{@is_national.inspect},"\
+      " is_partner_sites_included: #{@is_partner_sites_included.inspect}, is_shell_sites_only:"\
+      " #{@is_shell_sites_only.inspect}, issue_date: #{@issue_date.inspect}, is_superseded:"\
+      " #{@is_superseded.inspect}, is_virtual_card: #{@is_virtual_card.inspect},"\
+      " last_modified_date: #{@last_modified_date.inspect}, last_used_date:"\
+      " #{@last_used_date.inspect}, local_currency_code: #{@local_currency_code.inspect},"\
+      " local_currency_symbol: #{@local_currency_symbol.inspect}, odometer_input:"\
+      " #{@odometer_input.inspect}, pan: #{@pan.inspect}, masked_pan: #{@masked_pan.inspect},"\
+      " panid: #{@panid.inspect}, purchase_category_code: #{@purchase_category_code.inspect},"\
+      " purchase_category_id: #{@purchase_category_id.inspect}, purchase_category_name:"\
+      " #{@purchase_category_name.inspect}, reason: #{@reason.inspect}, reissue_setting:"\
+      " #{@reissue_setting.inspect}, status_description: #{@status_description.inspect},"\
+      " status_id: #{@status_id.inspect}, token_type_id: #{@token_type_id.inspect},"\
+      " token_type_name: #{@token_type_name.inspect}, vrn: #{@vrn.inspect}, client_reference_id:"\
+      " #{@client_reference_id.inspect}, is_emv_contact: #{@is_emv_contact.inspect},"\
+      " is_emv_contactless: #{@is_emv_contactless.inspect}, is_rfid: #{@is_rfid.inspect}, rfiduid:"\
+      " #{@rfiduid.inspect}, emaid: #{@emaid.inspect}, ev_printed_number:"\
+      " #{@ev_printed_number.inspect}, card_media_code: #{@card_media_code.inspect}>"
+    end
   end
 end

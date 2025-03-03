@@ -181,5 +181,30 @@ module ShellCardManagementApIs
                                   location_restriction_profile_id,
                                   location_restrictions)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} reset_day_time_restriction: #{@reset_day_time_restriction},"\
+      " reset_location_restriction: #{@reset_location_restriction}, reset_product_restriction:"\
+      " #{@reset_product_restriction}, usage_restrictions: #{@usage_restrictions},"\
+      " day_time_restriction_profile_id: #{@day_time_restriction_profile_id},"\
+      " day_time_restrictions: #{@day_time_restrictions}, product_restrictions:"\
+      " #{@product_restrictions}, location_restriction_profile_id:"\
+      " #{@location_restriction_profile_id}, location_restrictions: #{@location_restrictions}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} reset_day_time_restriction: #{@reset_day_time_restriction.inspect},"\
+      " reset_location_restriction: #{@reset_location_restriction.inspect},"\
+      " reset_product_restriction: #{@reset_product_restriction.inspect}, usage_restrictions:"\
+      " #{@usage_restrictions.inspect}, day_time_restriction_profile_id:"\
+      " #{@day_time_restriction_profile_id.inspect}, day_time_restrictions:"\
+      " #{@day_time_restrictions.inspect}, product_restrictions: #{@product_restrictions.inspect},"\
+      " location_restriction_profile_id: #{@location_restriction_profile_id.inspect},"\
+      " location_restrictions: #{@location_restrictions.inspect}>"
+    end
   end
 end

@@ -123,5 +123,24 @@ module ShellCardManagementApIs
                                   error,
                                   request_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} main_reference: #{@main_reference}, update_card_group_reference:"\
+      " #{@update_card_group_reference}, new_card_group_reference: #{@new_card_group_reference},"\
+      " move_card_references: #{@move_card_references}, error: #{@error}, request_id:"\
+      " #{@request_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} main_reference: #{@main_reference.inspect}, update_card_group_reference:"\
+      " #{@update_card_group_reference.inspect}, new_card_group_reference:"\
+      " #{@new_card_group_reference.inspect}, move_card_references:"\
+      " #{@move_card_references.inspect}, error: #{@error.inspect}, request_id:"\
+      " #{@request_id.inspect}>"
+    end
   end
 end

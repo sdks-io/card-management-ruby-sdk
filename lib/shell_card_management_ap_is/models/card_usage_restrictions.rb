@@ -272,5 +272,43 @@ module ShellCardManagementApIs
                                 life_time_transaction_count,
                                 is_velocity_ceiling)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} level: #{@level}, daily_spend_limit: #{@daily_spend_limit},"\
+      " weekly_spend_limit: #{@weekly_spend_limit}, monthly_spend_limit: #{@monthly_spend_limit},"\
+      " annual_spend_limit: #{@annual_spend_limit}, life_time_spend_limit:"\
+      " #{@life_time_spend_limit}, daily_volume_limit: #{@daily_volume_limit},"\
+      " weekly_volume_limit: #{@weekly_volume_limit}, monthly_volume_limit:"\
+      " #{@monthly_volume_limit}, annual_volume_limit: #{@annual_volume_limit},"\
+      " life_time_volume_limit: #{@life_time_volume_limit}, transaction_spend_limit:"\
+      " #{@transaction_spend_limit}, transaction_volume_limit: #{@transaction_volume_limit},"\
+      " daily_transaction_count: #{@daily_transaction_count}, weekly_transaction_count:"\
+      " #{@weekly_transaction_count}, monthly_transaction_count: #{@monthly_transaction_count},"\
+      " annual_transaction_count: #{@annual_transaction_count}, life_time_transaction_count:"\
+      " #{@life_time_transaction_count}, is_velocity_ceiling: #{@is_velocity_ceiling}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} level: #{@level.inspect}, daily_spend_limit: #{@daily_spend_limit.inspect},"\
+      " weekly_spend_limit: #{@weekly_spend_limit.inspect}, monthly_spend_limit:"\
+      " #{@monthly_spend_limit.inspect}, annual_spend_limit: #{@annual_spend_limit.inspect},"\
+      " life_time_spend_limit: #{@life_time_spend_limit.inspect}, daily_volume_limit:"\
+      " #{@daily_volume_limit.inspect}, weekly_volume_limit: #{@weekly_volume_limit.inspect},"\
+      " monthly_volume_limit: #{@monthly_volume_limit.inspect}, annual_volume_limit:"\
+      " #{@annual_volume_limit.inspect}, life_time_volume_limit:"\
+      " #{@life_time_volume_limit.inspect}, transaction_spend_limit:"\
+      " #{@transaction_spend_limit.inspect}, transaction_volume_limit:"\
+      " #{@transaction_volume_limit.inspect}, daily_transaction_count:"\
+      " #{@daily_transaction_count.inspect}, weekly_transaction_count:"\
+      " #{@weekly_transaction_count.inspect}, monthly_transaction_count:"\
+      " #{@monthly_transaction_count.inspect}, annual_transaction_count:"\
+      " #{@annual_transaction_count.inspect}, life_time_transaction_count:"\
+      " #{@life_time_transaction_count.inspect}, is_velocity_ceiling:"\
+      " #{@is_velocity_ceiling.inspect}>"
+    end
   end
 end

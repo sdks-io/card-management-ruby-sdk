@@ -120,5 +120,26 @@ module ShellCardManagementApIs
                                usage_restriction_status,
                                error)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id}, request_action_status:"\
+      " #{@request_action_status}, day_time_restriction_status: #{@day_time_restriction_status},"\
+      " location_restriction_status: #{@location_restriction_status}, product_restriction_status:"\
+      " #{@product_restriction_status}, usage_restriction_status: #{@usage_restriction_status},"\
+      " error: #{@error}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id.inspect}, request_action_status:"\
+      " #{@request_action_status.inspect}, day_time_restriction_status:"\
+      " #{@day_time_restriction_status.inspect}, location_restriction_status:"\
+      " #{@location_restriction_status.inspect}, product_restriction_status:"\
+      " #{@product_restriction_status.inspect}, usage_restriction_status:"\
+      " #{@usage_restriction_status.inspect}, error: #{@error.inspect}>"
+    end
   end
 end

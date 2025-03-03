@@ -433,5 +433,51 @@ module ShellCardManagementApIs
                                    sub_request_reference,
                                    user_display_name)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_number: #{@account_number},"\
+      " additional_information1: #{@additional_information1}, additional_information2:"\
+      " #{@additional_information2}, additional_information3: #{@additional_information3},"\
+      " additional_information4: #{@additional_information4}, additional_information5:"\
+      " #{@additional_information5}, additional_information6: #{@additional_information6},"\
+      " additional_information7: #{@additional_information7}, additional_information8:"\
+      " #{@additional_information8}, additional_information9: #{@additional_information9},"\
+      " card_group_id: #{@card_group_id}, card_group_name: #{@card_group_name}, card_id:"\
+      " #{@card_id}, col_co_code: #{@col_co_code}, col_co_id: #{@col_co_id}, error_code:"\
+      " #{@error_code}, error_string: #{@error_string}, global_request_id: #{@global_request_id},"\
+      " pan: #{@pan}, payer_id: #{@payer_id}, payer_number: #{@payer_number}, processed_on:"\
+      " #{@processed_on}, requested_by: #{@requested_by}, requested_operation:"\
+      " #{@requested_operation}, request_reference: #{@request_reference}, request_type:"\
+      " #{@request_type}, status: #{@status}, submitted_on: #{@submitted_on},"\
+      " sub_request_reference: #{@sub_request_reference}, user_display_name:"\
+      " #{@user_display_name}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, additional_information1: #{@additional_information1.inspect},"\
+      " additional_information2: #{@additional_information2.inspect}, additional_information3:"\
+      " #{@additional_information3.inspect}, additional_information4:"\
+      " #{@additional_information4.inspect}, additional_information5:"\
+      " #{@additional_information5.inspect}, additional_information6:"\
+      " #{@additional_information6.inspect}, additional_information7:"\
+      " #{@additional_information7.inspect}, additional_information8:"\
+      " #{@additional_information8.inspect}, additional_information9:"\
+      " #{@additional_information9.inspect}, card_group_id: #{@card_group_id.inspect},"\
+      " card_group_name: #{@card_group_name.inspect}, card_id: #{@card_id.inspect}, col_co_code:"\
+      " #{@col_co_code.inspect}, col_co_id: #{@col_co_id.inspect}, error_code:"\
+      " #{@error_code.inspect}, error_string: #{@error_string.inspect}, global_request_id:"\
+      " #{@global_request_id.inspect}, pan: #{@pan.inspect}, payer_id: #{@payer_id.inspect},"\
+      " payer_number: #{@payer_number.inspect}, processed_on: #{@processed_on.inspect},"\
+      " requested_by: #{@requested_by.inspect}, requested_operation:"\
+      " #{@requested_operation.inspect}, request_reference: #{@request_reference.inspect},"\
+      " request_type: #{@request_type.inspect}, status: #{@status.inspect}, submitted_on:"\
+      " #{@submitted_on.inspect}, sub_request_reference: #{@sub_request_reference.inspect},"\
+      " user_display_name: #{@user_display_name.inspect}>"
+    end
   end
 end

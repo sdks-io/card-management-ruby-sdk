@@ -135,5 +135,22 @@ module ShellCardManagementApIs
                                  pin_contact_type,
                                  pin_deliver_to)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} card_id: #{@card_id}, panid: #{@panid}, pan: #{@pan}, card_expiry_date:"\
+      " #{@card_expiry_date}, pin_advice_type: #{@pin_advice_type}, pin_contact_type:"\
+      " #{@pin_contact_type}, pin_deliver_to: #{@pin_deliver_to}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} card_id: #{@card_id.inspect}, panid: #{@panid.inspect}, pan:"\
+      " #{@pan.inspect}, card_expiry_date: #{@card_expiry_date.inspect}, pin_advice_type:"\
+      " #{@pin_advice_type.inspect}, pin_contact_type: #{@pin_contact_type.inspect},"\
+      " pin_deliver_to: #{@pin_deliver_to.inspect}>"
+    end
   end
 end

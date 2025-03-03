@@ -73,5 +73,19 @@ module ShellCardManagementApIs
                            error,
                            request_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} customer_card_types: #{@customer_card_types}, error: #{@error}, request_id:"\
+      " #{@request_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} customer_card_types: #{@customer_card_types.inspect}, error:"\
+      " #{@error.inspect}, request_id: #{@request_id.inspect}>"
+    end
   end
 end

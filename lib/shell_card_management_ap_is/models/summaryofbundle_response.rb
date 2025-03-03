@@ -122,5 +122,24 @@ module ShellCardManagementApIs
                                   card_bundles,
                                   error)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id}, payer_id: #{@payer_id}, payer_number:"\
+      " #{@payer_number}, account_id: #{@account_id}, account_number: #{@account_number},"\
+      " count_of_cards_not_in_bundle: #{@count_of_cards_not_in_bundle}, card_bundles:"\
+      " #{@card_bundles}, error: #{@error}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id.inspect}, payer_id: #{@payer_id.inspect},"\
+      " payer_number: #{@payer_number.inspect}, account_id: #{@account_id.inspect},"\
+      " account_number: #{@account_number.inspect}, count_of_cards_not_in_bundle:"\
+      " #{@count_of_cards_not_in_bundle.inspect}, card_bundles: #{@card_bundles.inspect}, error:"\
+      " #{@error.inspect}>"
+    end
   end
 end

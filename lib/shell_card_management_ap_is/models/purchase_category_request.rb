@@ -107,5 +107,22 @@ module ShellCardManagementApIs
                                   purchase_category_id,
                                   language_code)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id}, col_co_code: #{@col_co_code}, col_co_id:"\
+      " #{@col_co_id}, card_type_id: #{@card_type_id}, purchase_category_id:"\
+      " #{@purchase_category_id}, language_code: #{@language_code}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id.inspect}, col_co_code: #{@col_co_code.inspect},"\
+      " col_co_id: #{@col_co_id.inspect}, card_type_id: #{@card_type_id.inspect},"\
+      " purchase_category_id: #{@purchase_category_id.inspect}, language_code:"\
+      " #{@language_code.inspect}>"
+    end
   end
 end

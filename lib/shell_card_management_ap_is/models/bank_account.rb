@@ -180,5 +180,27 @@ module ShellCardManagementApIs
                       swift_code,
                       bank_type)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_number: #{@account_number}, bank_name: #{@bank_name}, account_name:"\
+      " #{@account_name}, date_effective: #{@date_effective}, date_terminated:"\
+      " #{@date_terminated}, iban: #{@iban}, currency_code: #{@currency_code}, currency_symbol:"\
+      " #{@currency_symbol}, country_iso_code: #{@country_iso_code}, country: #{@country},"\
+      " sort_code: #{@sort_code}, swift_code: #{@swift_code}, bank_type: #{@bank_type}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_number: #{@account_number.inspect}, bank_name:"\
+      " #{@bank_name.inspect}, account_name: #{@account_name.inspect}, date_effective:"\
+      " #{@date_effective.inspect}, date_terminated: #{@date_terminated.inspect}, iban:"\
+      " #{@iban.inspect}, currency_code: #{@currency_code.inspect}, currency_symbol:"\
+      " #{@currency_symbol.inspect}, country_iso_code: #{@country_iso_code.inspect}, country:"\
+      " #{@country.inspect}, sort_code: #{@sort_code.inspect}, swift_code: #{@swift_code.inspect},"\
+      " bank_type: #{@bank_type.inspect}>"
+    end
   end
 end

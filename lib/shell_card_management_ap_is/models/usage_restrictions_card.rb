@@ -250,5 +250,37 @@ module ShellCardManagementApIs
                                 annual_transaction_count,
                                 life_time_transaction_count)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} daily_spend: #{@daily_spend}, weekly_spend: #{@weekly_spend},"\
+      " monthly_spend: #{@monthly_spend}, per_transaction_spend: #{@per_transaction_spend},"\
+      " annual_spend: #{@annual_spend}, life_time_spend: #{@life_time_spend}, daily_volume:"\
+      " #{@daily_volume}, weekly_volume: #{@weekly_volume}, monthly_volume: #{@monthly_volume},"\
+      " per_transaction_volume: #{@per_transaction_volume}, annual_volume: #{@annual_volume},"\
+      " life_time_volume: #{@life_time_volume}, daily_transaction_count:"\
+      " #{@daily_transaction_count}, weekly_transaction_count: #{@weekly_transaction_count},"\
+      " monthly_transaction_count: #{@monthly_transaction_count}, annual_transaction_count:"\
+      " #{@annual_transaction_count}, life_time_transaction_count:"\
+      " #{@life_time_transaction_count}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} daily_spend: #{@daily_spend.inspect}, weekly_spend:"\
+      " #{@weekly_spend.inspect}, monthly_spend: #{@monthly_spend.inspect}, per_transaction_spend:"\
+      " #{@per_transaction_spend.inspect}, annual_spend: #{@annual_spend.inspect},"\
+      " life_time_spend: #{@life_time_spend.inspect}, daily_volume: #{@daily_volume.inspect},"\
+      " weekly_volume: #{@weekly_volume.inspect}, monthly_volume: #{@monthly_volume.inspect},"\
+      " per_transaction_volume: #{@per_transaction_volume.inspect}, annual_volume:"\
+      " #{@annual_volume.inspect}, life_time_volume: #{@life_time_volume.inspect},"\
+      " daily_transaction_count: #{@daily_transaction_count.inspect}, weekly_transaction_count:"\
+      " #{@weekly_transaction_count.inspect}, monthly_transaction_count:"\
+      " #{@monthly_transaction_count.inspect}, annual_transaction_count:"\
+      " #{@annual_transaction_count.inspect}, life_time_transaction_count:"\
+      " #{@life_time_transaction_count.inspect}>"
+    end
   end
 end

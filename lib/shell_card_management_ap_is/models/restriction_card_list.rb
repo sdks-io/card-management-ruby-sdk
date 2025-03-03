@@ -466,5 +466,52 @@ module ShellCardManagementApIs
                               medium_type_id,
                               medium_type)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} card_id: #{@card_id}, pan: #{@pan}, expiry_date: #{@expiry_date},"\
+      " status_id: #{@status_id}, status_description: #{@status_description}, driver_name:"\
+      " #{@driver_name}, vrn: #{@vrn}, issue_date: #{@issue_date}, issue_number: #{@issue_number},"\
+      " account_id: #{@account_id}, account_number: #{@account_number}, account_name:"\
+      " #{@account_name}, account_short_name: #{@account_short_name}, currency_code:"\
+      " #{@currency_code}, col_co_currency_code: #{@col_co_currency_code}, col_co_currency_symbol:"\
+      " #{@col_co_currency_symbol}, restriction_currency_code: #{@restriction_currency_code},"\
+      " restriction_currency_symbol: #{@restriction_currency_symbol}, purchase_category_id:"\
+      " #{@purchase_category_id}, purchase_category_code: #{@purchase_category_code},"\
+      " purchase_category_name: #{@purchase_category_name}, is_superseded: #{@is_superseded},"\
+      " is_virtual_card: #{@is_virtual_card}, is_national: #{@is_national}, is_international:"\
+      " #{@is_international}, is_crt: #{@is_crt}, is_fleet: #{@is_fleet}, is_shell_sites_only:"\
+      " #{@is_shell_sites_only}, is_partner_sites_included: #{@is_partner_sites_included},"\
+      " card_type_id: #{@card_type_id}, card_type_code: #{@card_type_code}, card_type_name:"\
+      " #{@card_type_name}, bundle_id: #{@bundle_id}, medium_type_id: #{@medium_type_id},"\
+      " medium_type: #{@medium_type}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} card_id: #{@card_id.inspect}, pan: #{@pan.inspect}, expiry_date:"\
+      " #{@expiry_date.inspect}, status_id: #{@status_id.inspect}, status_description:"\
+      " #{@status_description.inspect}, driver_name: #{@driver_name.inspect}, vrn:"\
+      " #{@vrn.inspect}, issue_date: #{@issue_date.inspect}, issue_number:"\
+      " #{@issue_number.inspect}, account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, account_name: #{@account_name.inspect}, account_short_name:"\
+      " #{@account_short_name.inspect}, currency_code: #{@currency_code.inspect},"\
+      " col_co_currency_code: #{@col_co_currency_code.inspect}, col_co_currency_symbol:"\
+      " #{@col_co_currency_symbol.inspect}, restriction_currency_code:"\
+      " #{@restriction_currency_code.inspect}, restriction_currency_symbol:"\
+      " #{@restriction_currency_symbol.inspect}, purchase_category_id:"\
+      " #{@purchase_category_id.inspect}, purchase_category_code:"\
+      " #{@purchase_category_code.inspect}, purchase_category_name:"\
+      " #{@purchase_category_name.inspect}, is_superseded: #{@is_superseded.inspect},"\
+      " is_virtual_card: #{@is_virtual_card.inspect}, is_national: #{@is_national.inspect},"\
+      " is_international: #{@is_international.inspect}, is_crt: #{@is_crt.inspect}, is_fleet:"\
+      " #{@is_fleet.inspect}, is_shell_sites_only: #{@is_shell_sites_only.inspect},"\
+      " is_partner_sites_included: #{@is_partner_sites_included.inspect}, card_type_id:"\
+      " #{@card_type_id.inspect}, card_type_code: #{@card_type_code.inspect}, card_type_name:"\
+      " #{@card_type_name.inspect}, bundle_id: #{@bundle_id.inspect}, medium_type_id:"\
+      " #{@medium_type_id.inspect}, medium_type: #{@medium_type.inspect}>"
+    end
   end
 end

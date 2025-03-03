@@ -222,5 +222,39 @@ module ShellCardManagementApIs
                               validation_error_code,
                               validation_error_description)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_number: #{@account_number}, card_id:"\
+      " #{@card_id}, pan: #{@pan}, usage_restriction_status: #{@usage_restriction_status},"\
+      " usage_restriction_description: #{@usage_restriction_description},"\
+      " day_time_restriction_status: #{@day_time_restriction_status},"\
+      " day_time_restriction_description: #{@day_time_restriction_description},"\
+      " product_restriction_status: #{@product_restriction_status},"\
+      " product_restriction_description: #{@product_restriction_description},"\
+      " location_restriction_status: #{@location_restriction_status},"\
+      " location_restriction_status_description: #{@location_restriction_status_description},"\
+      " validation_error_code: #{@validation_error_code}, validation_error_description:"\
+      " #{@validation_error_description}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, card_id: #{@card_id.inspect}, pan: #{@pan.inspect},"\
+      " usage_restriction_status: #{@usage_restriction_status.inspect},"\
+      " usage_restriction_description: #{@usage_restriction_description.inspect},"\
+      " day_time_restriction_status: #{@day_time_restriction_status.inspect},"\
+      " day_time_restriction_description: #{@day_time_restriction_description.inspect},"\
+      " product_restriction_status: #{@product_restriction_status.inspect},"\
+      " product_restriction_description: #{@product_restriction_description.inspect},"\
+      " location_restriction_status: #{@location_restriction_status.inspect},"\
+      ' location_restriction_status_description:'\
+      " #{@location_restriction_status_description.inspect}, validation_error_code:"\
+      " #{@validation_error_code.inspect}, validation_error_description:"\
+      " #{@validation_error_description.inspect}>"
+    end
   end
 end

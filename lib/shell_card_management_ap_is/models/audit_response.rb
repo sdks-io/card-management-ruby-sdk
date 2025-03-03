@@ -103,5 +103,21 @@ module ShellCardManagementApIs
                         error,
                         request_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} audits: #{@audits}, current_page: #{@current_page}, row_count:"\
+      " #{@row_count}, total_pages: #{@total_pages}, error: #{@error}, request_id:"\
+      " #{@request_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} audits: #{@audits.inspect}, current_page: #{@current_page.inspect},"\
+      " row_count: #{@row_count.inspect}, total_pages: #{@total_pages.inspect}, error:"\
+      " #{@error.inspect}, request_id: #{@request_id.inspect}>"
+    end
   end
 end

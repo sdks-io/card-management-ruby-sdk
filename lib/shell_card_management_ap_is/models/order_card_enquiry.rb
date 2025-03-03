@@ -501,5 +501,55 @@ module ShellCardManagementApIs
                            status_description,
                            col_co_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_number: #{@account_number},"\
+      " bco_reference: #{@bco_reference}, bco_row_number: #{@bco_row_number}, card_group_id:"\
+      " #{@card_group_id}, card_group_name: #{@card_group_name}, card_id: #{@card_id}, card_pan:"\
+      " #{@card_pan}, masked_pan: #{@masked_pan}, panid: #{@panid}, card_type_code:"\
+      " #{@card_type_code}, card_type_id: #{@card_type_id}, card_type_name: #{@card_type_name},"\
+      " driver_name: #{@driver_name}, error_code: #{@error_code}, error_description:"\
+      " #{@error_description}, gateway_sync_error_code: #{@gateway_sync_error_code},"\
+      " gateway_sync_error_description: #{@gateway_sync_error_description}, gateway_sync_status:"\
+      " #{@gateway_sync_status}, main_reference: #{@main_reference}, order_card_reference:"\
+      " #{@order_card_reference}, order_status: #{@order_status}, payer_id: #{@payer_id},"\
+      " payer_number: #{@payer_number}, processed_date: #{@processed_date},"\
+      " purchase_category_code: #{@purchase_category_code}, purchase_category_id:"\
+      " #{@purchase_category_id}, purchase_category_name: #{@purchase_category_name},"\
+      " submitted_date: #{@submitted_date}, sync_processed_date: #{@sync_processed_date},"\
+      " sync_requested_date: #{@sync_requested_date}, vrn: #{@vrn}, order_request_id:"\
+      " #{@order_request_id}, expiry_date: #{@expiry_date}, client_reference_id:"\
+      " #{@client_reference_id}, status_description: #{@status_description}, col_co_id:"\
+      " #{@col_co_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, bco_reference: #{@bco_reference.inspect}, bco_row_number:"\
+      " #{@bco_row_number.inspect}, card_group_id: #{@card_group_id.inspect}, card_group_name:"\
+      " #{@card_group_name.inspect}, card_id: #{@card_id.inspect}, card_pan: #{@card_pan.inspect},"\
+      " masked_pan: #{@masked_pan.inspect}, panid: #{@panid.inspect}, card_type_code:"\
+      " #{@card_type_code.inspect}, card_type_id: #{@card_type_id.inspect}, card_type_name:"\
+      " #{@card_type_name.inspect}, driver_name: #{@driver_name.inspect}, error_code:"\
+      " #{@error_code.inspect}, error_description: #{@error_description.inspect},"\
+      " gateway_sync_error_code: #{@gateway_sync_error_code.inspect},"\
+      " gateway_sync_error_description: #{@gateway_sync_error_description.inspect},"\
+      " gateway_sync_status: #{@gateway_sync_status.inspect}, main_reference:"\
+      " #{@main_reference.inspect}, order_card_reference: #{@order_card_reference.inspect},"\
+      " order_status: #{@order_status.inspect}, payer_id: #{@payer_id.inspect}, payer_number:"\
+      " #{@payer_number.inspect}, processed_date: #{@processed_date.inspect},"\
+      " purchase_category_code: #{@purchase_category_code.inspect}, purchase_category_id:"\
+      " #{@purchase_category_id.inspect}, purchase_category_name:"\
+      " #{@purchase_category_name.inspect}, submitted_date: #{@submitted_date.inspect},"\
+      " sync_processed_date: #{@sync_processed_date.inspect}, sync_requested_date:"\
+      " #{@sync_requested_date.inspect}, vrn: #{@vrn.inspect}, order_request_id:"\
+      " #{@order_request_id.inspect}, expiry_date: #{@expiry_date.inspect}, client_reference_id:"\
+      " #{@client_reference_id.inspect}, status_description: #{@status_description.inspect},"\
+      " col_co_id: #{@col_co_id.inspect}>"
+    end
   end
 end

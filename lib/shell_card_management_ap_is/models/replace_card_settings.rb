@@ -622,5 +622,69 @@ module ShellCardManagementApIs
                               save_for_card_reissue,
                               expiry_date)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} self_selected_encrypted_pin: #{@self_selected_encrypted_pin},"\
+      " self_selected_pin_key_id: #{@self_selected_pin_key_id}, self_selected_pin_session_key:"\
+      " #{@self_selected_pin_session_key}, validate_fleet_id: #{@validate_fleet_id},"\
+      " card_group_id: #{@card_group_id}, card_delivery_type: #{@card_delivery_type},"\
+      " delivery_contact_title: #{@delivery_contact_title}, delivery_contact_name:"\
+      " #{@delivery_contact_name}, delivery_company_name: #{@delivery_company_name},"\
+      " delivery_address_line1: #{@delivery_address_line1}, delivery_address_line2:"\
+      " #{@delivery_address_line2}, delivery_address_line3: #{@delivery_address_line3},"\
+      " delivery_zip_code: #{@delivery_zip_code}, delivery_city: #{@delivery_city},"\
+      " delivery_region_id: #{@delivery_region_id}, delivery_region: #{@delivery_region},"\
+      " delivery_country: #{@delivery_country}, delivery_country_id: #{@delivery_country_id},"\
+      " phone_number: #{@phone_number}, email_address: #{@email_address},"\
+      " pin_delivery_address_type: #{@pin_delivery_address_type}, pin_advice_type:"\
+      " #{@pin_advice_type}, pin_delivery_contact_title: #{@pin_delivery_contact_title},"\
+      " pin_delivery_contact_name: #{@pin_delivery_contact_name}, pin_delivery_company_name:"\
+      " #{@pin_delivery_company_name}, pin_delivery_address_line1: #{@pin_delivery_address_line1},"\
+      " pin_delivery_address_line2: #{@pin_delivery_address_line2}, pin_delivery_address_line3:"\
+      " #{@pin_delivery_address_line3}, pin_delivery_zip_code: #{@pin_delivery_zip_code},"\
+      " pin_delivery_city: #{@pin_delivery_city}, pin_delivery_region_id:"\
+      " #{@pin_delivery_region_id}, pin_delivery_region: #{@pin_delivery_region},"\
+      " pin_delivery_country: #{@pin_delivery_country}, pin_delivery_country_id:"\
+      " #{@pin_delivery_country_id}, pin_phone_number: #{@pin_phone_number}, pin_email_address:"\
+      " #{@pin_email_address}, save_for_pin_reminder: #{@save_for_pin_reminder},"\
+      " save_for_card_reissue: #{@save_for_card_reissue}, expiry_date: #{@expiry_date}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} self_selected_encrypted_pin: #{@self_selected_encrypted_pin.inspect},"\
+      " self_selected_pin_key_id: #{@self_selected_pin_key_id.inspect},"\
+      " self_selected_pin_session_key: #{@self_selected_pin_session_key.inspect},"\
+      " validate_fleet_id: #{@validate_fleet_id.inspect}, card_group_id:"\
+      " #{@card_group_id.inspect}, card_delivery_type: #{@card_delivery_type.inspect},"\
+      " delivery_contact_title: #{@delivery_contact_title.inspect}, delivery_contact_name:"\
+      " #{@delivery_contact_name.inspect}, delivery_company_name:"\
+      " #{@delivery_company_name.inspect}, delivery_address_line1:"\
+      " #{@delivery_address_line1.inspect}, delivery_address_line2:"\
+      " #{@delivery_address_line2.inspect}, delivery_address_line3:"\
+      " #{@delivery_address_line3.inspect}, delivery_zip_code: #{@delivery_zip_code.inspect},"\
+      " delivery_city: #{@delivery_city.inspect}, delivery_region_id:"\
+      " #{@delivery_region_id.inspect}, delivery_region: #{@delivery_region.inspect},"\
+      " delivery_country: #{@delivery_country.inspect}, delivery_country_id:"\
+      " #{@delivery_country_id.inspect}, phone_number: #{@phone_number.inspect}, email_address:"\
+      " #{@email_address.inspect}, pin_delivery_address_type:"\
+      " #{@pin_delivery_address_type.inspect}, pin_advice_type: #{@pin_advice_type.inspect},"\
+      " pin_delivery_contact_title: #{@pin_delivery_contact_title.inspect},"\
+      " pin_delivery_contact_name: #{@pin_delivery_contact_name.inspect},"\
+      " pin_delivery_company_name: #{@pin_delivery_company_name.inspect},"\
+      " pin_delivery_address_line1: #{@pin_delivery_address_line1.inspect},"\
+      " pin_delivery_address_line2: #{@pin_delivery_address_line2.inspect},"\
+      " pin_delivery_address_line3: #{@pin_delivery_address_line3.inspect}, pin_delivery_zip_code:"\
+      " #{@pin_delivery_zip_code.inspect}, pin_delivery_city: #{@pin_delivery_city.inspect},"\
+      " pin_delivery_region_id: #{@pin_delivery_region_id.inspect}, pin_delivery_region:"\
+      " #{@pin_delivery_region.inspect}, pin_delivery_country: #{@pin_delivery_country.inspect},"\
+      " pin_delivery_country_id: #{@pin_delivery_country_id.inspect}, pin_phone_number:"\
+      " #{@pin_phone_number.inspect}, pin_email_address: #{@pin_email_address.inspect},"\
+      " save_for_pin_reminder: #{@save_for_pin_reminder.inspect}, save_for_card_reissue:"\
+      " #{@save_for_card_reissue.inspect}, expiry_date: #{@expiry_date.inspect}>"
+    end
   end
 end

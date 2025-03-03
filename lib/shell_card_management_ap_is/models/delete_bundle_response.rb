@@ -55,5 +55,17 @@ module ShellCardManagementApIs
       DeleteBundleResponse.new(request_id,
                                error)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id}, error: #{@error}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id.inspect}, error: #{@error.inspect}>"
+    end
   end
 end

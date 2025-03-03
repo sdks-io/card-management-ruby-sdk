@@ -377,5 +377,40 @@ module ShellCardManagementApIs
                                error,
                                request_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} user_name: #{@user_name}, display_name: #{@display_name}, id_mssoid:"\
+      " #{@id_mssoid}, preferred_language: #{@preferred_language}, is_super_admin:"\
+      " #{@is_super_admin}, date_format: #{@date_format}, time_format: #{@time_format},"\
+      " week_begins: #{@week_begins}, display_week: #{@display_week}, csv_separator:"\
+      " #{@csv_separator}, decimal_separator: #{@decimal_separator}, report_format:"\
+      " #{@report_format}, has_api_access: #{@has_api_access}, roles: #{@roles}, payers:"\
+      " #{@payers}, accounts: #{@accounts}, collecting_companies: #{@collecting_companies},"\
+      " eid_access_details: #{@eid_access_details}, user_classification_by_system:"\
+      " #{@user_classification_by_system}, user_classification_by_shell:"\
+      " #{@user_classification_by_shell}, payer_count: #{@payer_count}, account_count:"\
+      " #{@account_count}, card_count: #{@card_count}, error: #{@error}, request_id:"\
+      " #{@request_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} user_name: #{@user_name.inspect}, display_name: #{@display_name.inspect},"\
+      " id_mssoid: #{@id_mssoid.inspect}, preferred_language: #{@preferred_language.inspect},"\
+      " is_super_admin: #{@is_super_admin.inspect}, date_format: #{@date_format.inspect},"\
+      " time_format: #{@time_format.inspect}, week_begins: #{@week_begins.inspect}, display_week:"\
+      " #{@display_week.inspect}, csv_separator: #{@csv_separator.inspect}, decimal_separator:"\
+      " #{@decimal_separator.inspect}, report_format: #{@report_format.inspect}, has_api_access:"\
+      " #{@has_api_access.inspect}, roles: #{@roles.inspect}, payers: #{@payers.inspect},"\
+      " accounts: #{@accounts.inspect}, collecting_companies: #{@collecting_companies.inspect},"\
+      " eid_access_details: #{@eid_access_details.inspect}, user_classification_by_system:"\
+      " #{@user_classification_by_system.inspect}, user_classification_by_shell:"\
+      " #{@user_classification_by_shell.inspect}, payer_count: #{@payer_count.inspect},"\
+      " account_count: #{@account_count.inspect}, card_count: #{@card_count.inspect}, error:"\
+      " #{@error.inspect}, request_id: #{@request_id.inspect}>"
+    end
   end
 end

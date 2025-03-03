@@ -248,5 +248,27 @@ module ShellCardManagementApIs
                                       caller,
                                       notify_caller)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_code: #{@col_co_code}, col_co_id: #{@col_co_id}, account_id:"\
+      " #{@account_id}, account_number: #{@account_number}, payer_id: #{@payer_id}, payer_number:"\
+      " #{@payer_number}, card_id: #{@card_id}, pan: #{@pan}, panid: #{@panid}, card_expiry_date:"\
+      " #{@card_expiry_date}, action: #{@action}, from_date: #{@from_date}, to_date: #{@to_date},"\
+      " caller: #{@caller}, notify_caller: #{@notify_caller}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_code: #{@col_co_code.inspect}, col_co_id: #{@col_co_id.inspect},"\
+      " account_id: #{@account_id.inspect}, account_number: #{@account_number.inspect}, payer_id:"\
+      " #{@payer_id.inspect}, payer_number: #{@payer_number.inspect}, card_id:"\
+      " #{@card_id.inspect}, pan: #{@pan.inspect}, panid: #{@panid.inspect}, card_expiry_date:"\
+      " #{@card_expiry_date.inspect}, action: #{@action.inspect}, from_date:"\
+      " #{@from_date.inspect}, to_date: #{@to_date.inspect}, caller: #{@caller.inspect},"\
+      " notify_caller: #{@notify_caller.inspect}>"
+    end
   end
 end

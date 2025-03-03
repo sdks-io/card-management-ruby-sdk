@@ -120,5 +120,22 @@ module ShellCardManagementApIs
                                      velocity_limits,
                                      error)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id}, account_id: #{@account_id}, account_number:"\
+      " #{@account_number}, reference_product: #{@reference_product}, restriction_condition:"\
+      " #{@restriction_condition}, velocity_limits: #{@velocity_limits}, error: #{@error}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id.inspect}, account_id: #{@account_id.inspect},"\
+      " account_number: #{@account_number.inspect}, reference_product:"\
+      " #{@reference_product.inspect}, restriction_condition: #{@restriction_condition.inspect},"\
+      " velocity_limits: #{@velocity_limits.inspect}, error: #{@error.inspect}>"
+    end
   end
 end

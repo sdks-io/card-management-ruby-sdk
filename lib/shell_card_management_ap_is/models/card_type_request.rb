@@ -137,5 +137,24 @@ module ShellCardManagementApIs
                           include_usage_restrictions,
                           include_purchase_categories)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_id: #{@col_co_id}, col_co_code: #{@col_co_code}, payer_id:"\
+      " #{@payer_id}, payer_number: #{@payer_number}, account_id: #{@account_id}, account_number:"\
+      " #{@account_number}, include_usage_restrictions: #{@include_usage_restrictions},"\
+      " include_purchase_categories: #{@include_purchase_categories}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_id: #{@col_co_id.inspect}, col_co_code: #{@col_co_code.inspect},"\
+      " payer_id: #{@payer_id.inspect}, payer_number: #{@payer_number.inspect}, account_id:"\
+      " #{@account_id.inspect}, account_number: #{@account_number.inspect},"\
+      " include_usage_restrictions: #{@include_usage_restrictions.inspect},"\
+      " include_purchase_categories: #{@include_purchase_categories.inspect}>"
+    end
   end
 end

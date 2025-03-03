@@ -55,5 +55,17 @@ module ShellCardManagementApIs
       DefaultErrorFault.new(faultstring,
                             detail)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} faultstring: #{@faultstring}, detail: #{@detail}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} faultstring: #{@faultstring.inspect}, detail: #{@detail.inspect}>"
+    end
   end
 end

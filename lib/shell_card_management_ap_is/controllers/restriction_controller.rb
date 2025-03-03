@@ -408,9 +408,9 @@ module ShellCardManagementApIs
     # @param [SummaryofbundlerRequest] body Optional parameter: Summary of
     # Bundle request body
     # @return [SummaryofbundleResponse] response from the API call.
-    def summaryofbundles(apikey,
-                         request_id,
-                         body: nil)
+    def summary_of_bundles(apikey,
+                           request_id,
+                           body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/restriction/summaryofbundles',
@@ -580,9 +580,9 @@ module ShellCardManagementApIs
     # @param [BudleDetailsRequest] body Optional parameter: Bundle Details
     # Request body
     # @return [BundleDetailsResponse] response from the API call.
-    def bundledetails(apikey,
-                      request_id,
-                      body: nil)
+    def bundle_details(apikey,
+                       request_id,
+                       body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/restriction/bundledetails',

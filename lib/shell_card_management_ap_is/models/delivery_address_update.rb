@@ -110,5 +110,22 @@ module ShellCardManagementApIs
                                 card_expiry_date,
                                 update_card_renewal_address)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} card_id: #{@card_id}, pan: #{@pan}, card_expiry_date: #{@card_expiry_date},"\
+      " use_customer_default_address: #{@use_customer_default_address},"\
+      " update_card_renewal_address: #{@update_card_renewal_address}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} card_id: #{@card_id.inspect}, pan: #{@pan.inspect}, card_expiry_date:"\
+      " #{@card_expiry_date.inspect}, use_customer_default_address:"\
+      " #{@use_customer_default_address.inspect}, update_card_renewal_address:"\
+      " #{@update_card_renewal_address.inspect}>"
+    end
   end
 end

@@ -82,5 +82,21 @@ module ShellCardManagementApIs
                       col_co_country_name,
                       issuing_country_number)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_id: #{@col_co_id}, col_co_code: #{@col_co_code},"\
+      " col_co_country_name: #{@col_co_country_name}, issuing_country_number:"\
+      " #{@issuing_country_number}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_id: #{@col_co_id.inspect}, col_co_code: #{@col_co_code.inspect},"\
+      " col_co_country_name: #{@col_co_country_name.inspect}, issuing_country_number:"\
+      " #{@issuing_country_number.inspect}>"
+    end
   end
 end

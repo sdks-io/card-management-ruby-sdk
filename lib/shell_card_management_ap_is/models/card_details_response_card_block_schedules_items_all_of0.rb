@@ -55,5 +55,17 @@ module ShellCardManagementApIs
       CardDetailsResponseCardBlockSchedulesItemsAllOf0.new(from_date,
                                                            to_date)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} from_date: #{@from_date}, to_date: #{@to_date}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} from_date: #{@from_date.inspect}, to_date: #{@to_date.inspect}>"
+    end
   end
 end

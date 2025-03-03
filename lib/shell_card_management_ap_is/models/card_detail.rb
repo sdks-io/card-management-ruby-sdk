@@ -343,9 +343,11 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :client_reference_id
 
-    # This is the Client Reference Id of card in the order which needs to be
-    # passed by the client.This will be playback in the ordercard enquiry<br />
-    # Optional
+    # Whether to reissue card automatically when nearing the expiry. 
+    # Allowed values: -
+    # 1.    As per card type setting (Default).
+    # 2.    Card will be Reissued when nearing its expiry date.
+    # 3.    Card will not be Reissued.
     # @return [CardDetailAutoRenewEnum]
     attr_accessor :auto_renew
 
@@ -643,6 +645,59 @@ module ShellCardManagementApIs
                      expiry_date,
                      client_reference_id,
                      auto_renew)
+    end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} payer_id: #{@payer_id}, payer_number: #{@payer_number}, account_id:"\
+      " #{@account_id}, account_number: #{@account_number}, col_co_code: #{@col_co_code},"\
+      " col_co_id: #{@col_co_id}, card_type_id: #{@card_type_id}, token_type_id:"\
+      " #{@token_type_id}, emboss_text: #{@emboss_text}, vrn: #{@vrn}, driver_name:"\
+      " #{@driver_name}, odometer_input_required: #{@odometer_input_required},"\
+      " fleet_id_input_required: #{@fleet_id_input_required}, purchase_category_id:"\
+      " #{@purchase_category_id}, self_selected_encrypted_pin: #{@self_selected_encrypted_pin},"\
+      " self_selected_pin_key_id: #{@self_selected_pin_key_id}, self_selected_pin_session_key:"\
+      " #{@self_selected_pin_session_key}, card_group_id: #{@card_group_id}, card_group_name:"\
+      " #{@card_group_name}, is_new_card_group: #{@is_new_card_group}, emboss_card_group:"\
+      " #{@emboss_card_group}, card_delivery_type: #{@card_delivery_type}, card_contact:"\
+      " #{@card_contact}, pin_delivery_address_type: #{@pin_delivery_address_type},"\
+      " pin_advice_type: #{@pin_advice_type}, pin_contact: #{@pin_contact}, notify_caller:"\
+      " #{@notify_caller}, caller: #{@caller}, notify_caller_on_sync: #{@notify_caller_on_sync},"\
+      " validate_fleet_id: #{@validate_fleet_id}, fleet_option: #{@fleet_option}, bundle_id:"\
+      " #{@bundle_id}, usage_restriction_action: #{@usage_restriction_action},"\
+      " product_restriction_action: #{@product_restriction_action}, products: #{@products},"\
+      " product_groups: #{@product_groups}, expiry_date: #{@expiry_date}, client_reference_id:"\
+      " #{@client_reference_id}, auto_renew: #{@auto_renew}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} payer_id: #{@payer_id.inspect}, payer_number: #{@payer_number.inspect},"\
+      " account_id: #{@account_id.inspect}, account_number: #{@account_number.inspect},"\
+      " col_co_code: #{@col_co_code.inspect}, col_co_id: #{@col_co_id.inspect}, card_type_id:"\
+      " #{@card_type_id.inspect}, token_type_id: #{@token_type_id.inspect}, emboss_text:"\
+      " #{@emboss_text.inspect}, vrn: #{@vrn.inspect}, driver_name: #{@driver_name.inspect},"\
+      " odometer_input_required: #{@odometer_input_required.inspect}, fleet_id_input_required:"\
+      " #{@fleet_id_input_required.inspect}, purchase_category_id:"\
+      " #{@purchase_category_id.inspect}, self_selected_encrypted_pin:"\
+      " #{@self_selected_encrypted_pin.inspect}, self_selected_pin_key_id:"\
+      " #{@self_selected_pin_key_id.inspect}, self_selected_pin_session_key:"\
+      " #{@self_selected_pin_session_key.inspect}, card_group_id: #{@card_group_id.inspect},"\
+      " card_group_name: #{@card_group_name.inspect}, is_new_card_group:"\
+      " #{@is_new_card_group.inspect}, emboss_card_group: #{@emboss_card_group.inspect},"\
+      " card_delivery_type: #{@card_delivery_type.inspect}, card_contact:"\
+      " #{@card_contact.inspect}, pin_delivery_address_type:"\
+      " #{@pin_delivery_address_type.inspect}, pin_advice_type: #{@pin_advice_type.inspect},"\
+      " pin_contact: #{@pin_contact.inspect}, notify_caller: #{@notify_caller.inspect}, caller:"\
+      " #{@caller.inspect}, notify_caller_on_sync: #{@notify_caller_on_sync.inspect},"\
+      " validate_fleet_id: #{@validate_fleet_id.inspect}, fleet_option: #{@fleet_option.inspect},"\
+      " bundle_id: #{@bundle_id.inspect}, usage_restriction_action:"\
+      " #{@usage_restriction_action.inspect}, product_restriction_action:"\
+      " #{@product_restriction_action.inspect}, products: #{@products.inspect}, product_groups:"\
+      " #{@product_groups.inspect}, expiry_date: #{@expiry_date.inspect}, client_reference_id:"\
+      " #{@client_reference_id.inspect}, auto_renew: #{@auto_renew.inspect}>"
     end
   end
 end

@@ -92,5 +92,20 @@ module ShellCardManagementApIs
                                card_expiry_date,
                                reference_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} card_id: #{@card_id}, panid: #{@panid}, pan: #{@pan}, card_expiry_date:"\
+      " #{@card_expiry_date}, reference_id: #{@reference_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} card_id: #{@card_id.inspect}, panid: #{@panid.inspect}, pan:"\
+      " #{@pan.inspect}, card_expiry_date: #{@card_expiry_date.inspect}, reference_id:"\
+      " #{@reference_id.inspect}>"
+    end
   end
 end

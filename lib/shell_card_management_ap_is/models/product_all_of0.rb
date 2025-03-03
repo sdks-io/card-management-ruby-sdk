@@ -57,5 +57,19 @@ module ShellCardManagementApIs
       ProductAllOf0.new(global_product_code,
                         description)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} global_product_code: #{@global_product_code}, description:"\
+      " #{@description}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} global_product_code: #{@global_product_code.inspect}, description:"\
+      " #{@description.inspect}>"
+    end
   end
 end

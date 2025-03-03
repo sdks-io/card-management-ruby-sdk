@@ -95,5 +95,22 @@ module ShellCardManagementApIs
                is_service_account,
                is_user_admin)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} role_name: #{@role_name}, is_customer_admin: #{@is_customer_admin},"\
+      " is_customer_user: #{@is_customer_user}, is_shell_admin: #{@is_shell_admin},"\
+      " is_service_account: #{@is_service_account}, is_user_admin: #{@is_user_admin}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} role_name: #{@role_name.inspect}, is_customer_admin:"\
+      " #{@is_customer_admin.inspect}, is_customer_user: #{@is_customer_user.inspect},"\
+      " is_shell_admin: #{@is_shell_admin.inspect}, is_service_account:"\
+      " #{@is_service_account.inspect}, is_user_admin: #{@is_user_admin.inspect}>"
+    end
   end
 end

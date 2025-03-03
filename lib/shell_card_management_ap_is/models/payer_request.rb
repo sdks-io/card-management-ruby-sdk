@@ -119,5 +119,23 @@ module ShellCardManagementApIs
                        current_page,
                        page_size)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} payers: #{@payers}, return_basic_details_only:"\
+      " #{@return_basic_details_only}, include_addresses: #{@include_addresses},"\
+      " include_bonus_parameters: #{@include_bonus_parameters}, current_page: #{@current_page},"\
+      " page_size: #{@page_size}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} payers: #{@payers.inspect}, return_basic_details_only:"\
+      " #{@return_basic_details_only.inspect}, include_addresses: #{@include_addresses.inspect},"\
+      " include_bonus_parameters: #{@include_bonus_parameters.inspect}, current_page:"\
+      " #{@current_page.inspect}, page_size: #{@page_size.inspect}>"
+    end
   end
 end

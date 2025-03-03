@@ -70,5 +70,19 @@ module ShellCardManagementApIs
                                          card_id_and_pan,
                                          panid)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} auto_renew_reference_id: #{@auto_renew_reference_id}, card_id_and_pan:"\
+      " #{@card_id_and_pan}, panid: #{@panid}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} auto_renew_reference_id: #{@auto_renew_reference_id.inspect},"\
+      " card_id_and_pan: #{@card_id_and_pan.inspect}, panid: #{@panid.inspect}>"
+    end
   end
 end

@@ -106,5 +106,22 @@ module ShellCardManagementApIs
                               shell_site_restrictions,
                               partner_site_restrictions)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} country_restrictions: #{@country_restrictions}, network_restrictions:"\
+      " #{@network_restrictions}, shell_site_restrictions: #{@shell_site_restrictions},"\
+      " partner_site_restrictions: #{@partner_site_restrictions}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} country_restrictions: #{@country_restrictions.inspect},"\
+      " network_restrictions: #{@network_restrictions.inspect}, shell_site_restrictions:"\
+      " #{@shell_site_restrictions.inspect}, partner_site_restrictions:"\
+      " #{@partner_site_restrictions.inspect}>"
+    end
   end
 end

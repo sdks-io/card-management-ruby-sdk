@@ -264,5 +264,31 @@ module ShellCardManagementApIs
                      payer_id,
                      payer_number)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} caller: #{@caller}, is_replacement_chargeable:"\
+      " #{@is_replacement_chargeable}, notify_caller: #{@notify_caller}, notify_caller_on_sync:"\
+      " #{@notify_caller_on_sync}, order_card_replacement: #{@order_card_replacement},"\
+      " card_settings: #{@card_settings}, account_id: #{@account_id}, account_number:"\
+      " #{@account_number}, card_expiry_date: #{@card_expiry_date}, card_id: #{@card_id},"\
+      " col_co_code: #{@col_co_code}, col_co_id: #{@col_co_id}, pan: #{@pan}, panid: #{@panid},"\
+      " payer_id: #{@payer_id}, payer_number: #{@payer_number}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} caller: #{@caller.inspect}, is_replacement_chargeable:"\
+      " #{@is_replacement_chargeable.inspect}, notify_caller: #{@notify_caller.inspect},"\
+      " notify_caller_on_sync: #{@notify_caller_on_sync.inspect}, order_card_replacement:"\
+      " #{@order_card_replacement.inspect}, card_settings: #{@card_settings.inspect}, account_id:"\
+      " #{@account_id.inspect}, account_number: #{@account_number.inspect}, card_expiry_date:"\
+      " #{@card_expiry_date.inspect}, card_id: #{@card_id.inspect}, col_co_code:"\
+      " #{@col_co_code.inspect}, col_co_id: #{@col_co_id.inspect}, pan: #{@pan.inspect}, panid:"\
+      " #{@panid.inspect}, payer_id: #{@payer_id.inspect}, payer_number:"\
+      " #{@payer_number.inspect}>"
+    end
   end
 end

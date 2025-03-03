@@ -239,5 +239,31 @@ module ShellCardManagementApIs
                          account_name,
                          status_list)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} status: #{@status}, include_card_summary: #{@include_card_summary},"\
+      " payer_id: #{@payer_id}, payer_number: #{@payer_number}, page_size: #{@page_size},"\
+      " request_id: #{@request_id}, col_co_code: #{@col_co_code}, col_co_country_code:"\
+      " #{@col_co_country_code}, current_page: #{@current_page}, invoice_points_only:"\
+      " #{@invoice_points_only}, col_co_id: #{@col_co_id}, return_tolls_customer_id:"\
+      " #{@return_tolls_customer_id}, accounts: #{@accounts}, account_name: #{@account_name},"\
+      " status_list: #{@status_list}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} status: #{@status.inspect}, include_card_summary:"\
+      " #{@include_card_summary.inspect}, payer_id: #{@payer_id.inspect}, payer_number:"\
+      " #{@payer_number.inspect}, page_size: #{@page_size.inspect}, request_id:"\
+      " #{@request_id.inspect}, col_co_code: #{@col_co_code.inspect}, col_co_country_code:"\
+      " #{@col_co_country_code.inspect}, current_page: #{@current_page.inspect},"\
+      " invoice_points_only: #{@invoice_points_only.inspect}, col_co_id: #{@col_co_id.inspect},"\
+      " return_tolls_customer_id: #{@return_tolls_customer_id.inspect}, accounts:"\
+      " #{@accounts.inspect}, account_name: #{@account_name.inspect}, status_list:"\
+      " #{@status_list.inspect}>"
+    end
   end
 end

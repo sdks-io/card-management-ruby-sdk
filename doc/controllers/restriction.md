@@ -17,10 +17,10 @@ restriction_controller = client.restriction
 * [Create Bundle](../../doc/controllers/restriction.md#create-bundle)
 * [Update Bundle](../../doc/controllers/restriction.md#update-bundle)
 * [Delete Bundle](../../doc/controllers/restriction.md#delete-bundle)
-* [Summaryofbundles](../../doc/controllers/restriction.md#summaryofbundles)
+* [Summary of Bundles](../../doc/controllers/restriction.md#summary-of-bundles)
 * [Restriction Account](../../doc/controllers/restriction.md#restriction-account)
 * [Search Account Limit](../../doc/controllers/restriction.md#search-account-limit)
-* [Bundledetails](../../doc/controllers/restriction.md#bundledetails)
+* [Bundle Details](../../doc/controllers/restriction.md#bundle-details)
 
 
 # Search Card Restriction
@@ -741,7 +741,7 @@ result = restriction_controller.delete_bundle(
 | 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
 
 
-# Summaryofbundles
+# Summary of Bundles
 
 This API allows clients to get a summary of card bundles associated with Payer/Account. This API will return the basic bundle details including card and restriction details. Optionally the API will also include a count of cards that are not associated with the bundle but returned by the search criteria.
 
@@ -752,9 +752,9 @@ Note - to include count of cards of an account that are not associated with any 
 * Get summary of bundles by list of bundle Ids
 
 ```ruby
-def summaryofbundles(apikey,
-                     request_id,
-                     body: nil)
+def summary_of_bundles(apikey,
+                       request_id,
+                       body: nil)
 ```
 
 ## Parameters
@@ -778,7 +778,7 @@ request_id = 'RequestId8'
 
 body = SummaryofbundlerRequest.new
 
-result = restriction_controller.summaryofbundles(
+result = restriction_controller.summary_of_bundles(
   apikey,
   request_id,
   body: body
@@ -931,14 +931,14 @@ result = restriction_controller.search_account_limit(
 | 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
 
 
-# Bundledetails
+# Bundle Details
 
 This API allows to get the details of a specific card bundle. It returns the bundle basic details along with the cards in the bundle and restrictions applied on them.
 
 ```ruby
-def bundledetails(apikey,
-                  request_id,
-                  body: nil)
+def bundle_details(apikey,
+                   request_id,
+                   body: nil)
 ```
 
 ## Parameters
@@ -970,7 +970,7 @@ body = BudleDetailsRequest.new(
   '1060'
 )
 
-result = restriction_controller.bundledetails(
+result = restriction_controller.bundle_details(
   apikey,
   request_id,
   body: body

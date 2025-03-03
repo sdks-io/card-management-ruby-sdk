@@ -78,5 +78,19 @@ module ShellCardManagementApIs
                                            card_id,
                                            pan)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_number: #{@account_number}, card_id:"\
+      " #{@card_id}, pan: #{@pan}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, card_id: #{@card_id.inspect}, pan: #{@pan.inspect}>"
+    end
   end
 end

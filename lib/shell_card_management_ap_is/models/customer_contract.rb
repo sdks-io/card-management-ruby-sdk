@@ -58,5 +58,18 @@ module ShellCardManagementApIs
       CustomerContract.new(partner_id,
                            partner_name)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} partner_id: #{@partner_id}, partner_name: #{@partner_name}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} partner_id: #{@partner_id.inspect}, partner_name:"\
+      " #{@partner_name.inspect}>"
+    end
   end
 end

@@ -163,5 +163,26 @@ module ShellCardManagementApIs
                   email_address,
                   fax)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} address_id: #{@address_id}, address_line1: #{@address_line1},"\
+      " address_line2: #{@address_line2}, address_line3: #{@address_line3}, zip_code:"\
+      " #{@zip_code}, city: #{@city}, region_id: #{@region_id}, country_iso_code:"\
+      " #{@country_iso_code}, country: #{@country}, telephone: #{@telephone}, email_address:"\
+      " #{@email_address}, fax: #{@fax}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} address_id: #{@address_id.inspect}, address_line1:"\
+      " #{@address_line1.inspect}, address_line2: #{@address_line2.inspect}, address_line3:"\
+      " #{@address_line3.inspect}, zip_code: #{@zip_code.inspect}, city: #{@city.inspect},"\
+      " region_id: #{@region_id.inspect}, country_iso_code: #{@country_iso_code.inspect}, country:"\
+      " #{@country.inspect}, telephone: #{@telephone.inspect}, email_address:"\
+      " #{@email_address.inspect}, fax: #{@fax.inspect}>"
+    end
   end
 end

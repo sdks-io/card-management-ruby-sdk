@@ -46,5 +46,17 @@ module ShellCardManagementApIs
       # Create object from extracted values.
       OrderCardEnquiryRequest.new(filters)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} filters: #{@filters}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} filters: #{@filters.inspect}>"
+    end
   end
 end

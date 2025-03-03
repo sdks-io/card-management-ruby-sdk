@@ -53,9 +53,15 @@ module ShellCardManagementApIs
     # @return [Integer]
     attr_accessor :reference_number
 
-    # Reference number of the Card Order/ Bulk Card Order/ Order Card
-    # Request.<br />
-    # Mandatory when ColCo and Payer fields are not provided. Else, optional.
+    # Type of the reference number provided.<br />
+    # Mandatory if ReferenceNumber is provided. Else optional.<br />
+    # Allowed Values:<br />
+    # 1=Main Reference(Main Order Reference Number returned in the output of
+    # Card/OrderCard service. <br />
+    # 2=Order Card Reference (Reference number for each individual card in the
+    # order submitted via Card/OrderCard service. <br />
+    # 3=Bulk Order Card Reference (Reference number returned in the response of
+    # bulkcardinterface /UploadOrderCardTemplate. )
     # @return [OrderCardEnquiryReqReferenceTypeEnum]
     attr_accessor :reference_type
 
@@ -189,6 +195,28 @@ module ShellCardManagementApIs
                    from_date,
                    to_date,
                    order_request_id)
+    end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_number: #{@account_number},"\
+      " col_co_code: #{@col_co_code}, col_co_id: #{@col_co_id}, col_co_country_code:"\
+      " #{@col_co_country_code}, payer_id: #{@payer_id}, payer_number: #{@payer_number},"\
+      " reference_number: #{@reference_number}, reference_type: #{@reference_type}, from_date:"\
+      " #{@from_date}, to_date: #{@to_date}, order_request_id: #{@order_request_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, col_co_code: #{@col_co_code.inspect}, col_co_id:"\
+      " #{@col_co_id.inspect}, col_co_country_code: #{@col_co_country_code.inspect}, payer_id:"\
+      " #{@payer_id.inspect}, payer_number: #{@payer_number.inspect}, reference_number:"\
+      " #{@reference_number.inspect}, reference_type: #{@reference_type.inspect}, from_date:"\
+      " #{@from_date.inspect}, to_date: #{@to_date.inspect}, order_request_id:"\
+      " #{@order_request_id.inspect}>"
     end
   end
 end

@@ -75,5 +75,19 @@ module ShellCardManagementApIs
                        detail,
                        additional_info)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} code: #{@code}, title: #{@title}, detail: #{@detail}, additional_info:"\
+      " #{@additional_info}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} code: #{@code.inspect}, title: #{@title.inspect}, detail:"\
+      " #{@detail.inspect}, additional_info: #{@additional_info.inspect}>"
+    end
   end
 end

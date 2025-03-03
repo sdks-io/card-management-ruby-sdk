@@ -81,5 +81,21 @@ module ShellCardManagementApIs
                                         delivery_address_update_references,
                                         error)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id}, service_reference: #{@service_reference},"\
+      " delivery_address_update_references: #{@delivery_address_update_references}, error:"\
+      " #{@error}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id.inspect}, service_reference:"\
+      " #{@service_reference.inspect}, delivery_address_update_references:"\
+      " #{@delivery_address_update_references.inspect}, error: #{@error.inspect}>"
+    end
   end
 end

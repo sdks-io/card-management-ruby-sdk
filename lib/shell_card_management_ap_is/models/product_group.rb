@@ -108,5 +108,21 @@ module ShellCardManagementApIs
                        is_fuel_type,
                        products)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} reference_id: #{@reference_id}, product_group_id: #{@product_group_id},"\
+      " name: #{@name}, is_default: #{@is_default}, is_fuel_type: #{@is_fuel_type}, products:"\
+      " #{@products}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} reference_id: #{@reference_id.inspect}, product_group_id:"\
+      " #{@product_group_id.inspect}, name: #{@name.inspect}, is_default: #{@is_default.inspect},"\
+      " is_fuel_type: #{@is_fuel_type.inspect}, products: #{@products.inspect}>"
+    end
   end
 end

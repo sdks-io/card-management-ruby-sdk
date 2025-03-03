@@ -78,5 +78,21 @@ module ShellCardManagementApIs
                                   product_restrictions,
                                   location_restrictions)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} usage_restrictions: #{@usage_restrictions}, day_time_restrictions:"\
+      " #{@day_time_restrictions}, product_restrictions: #{@product_restrictions},"\
+      " location_restrictions: #{@location_restrictions}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} usage_restrictions: #{@usage_restrictions.inspect}, day_time_restrictions:"\
+      " #{@day_time_restrictions.inspect}, product_restrictions: #{@product_restrictions.inspect},"\
+      " location_restrictions: #{@location_restrictions.inspect}>"
+    end
   end
 end

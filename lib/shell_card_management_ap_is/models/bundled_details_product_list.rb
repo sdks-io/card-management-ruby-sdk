@@ -112,5 +112,24 @@ module ShellCardManagementApIs
                                     fuel_set_name,
                                     non_fuel_sets)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} purchase_category_id: #{@purchase_category_id}, purchase_category_code:"\
+      " #{@purchase_category_code}, products: #{@products}, product_groups: #{@product_groups},"\
+      " fuel_set_id: #{@fuel_set_id}, fuel_set_name: #{@fuel_set_name}, non_fuel_sets:"\
+      " #{@non_fuel_sets}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} purchase_category_id: #{@purchase_category_id.inspect},"\
+      " purchase_category_code: #{@purchase_category_code.inspect}, products:"\
+      " #{@products.inspect}, product_groups: #{@product_groups.inspect}, fuel_set_id:"\
+      " #{@fuel_set_id.inspect}, fuel_set_name: #{@fuel_set_name.inspect}, non_fuel_sets:"\
+      " #{@non_fuel_sets.inspect}>"
+    end
   end
 end

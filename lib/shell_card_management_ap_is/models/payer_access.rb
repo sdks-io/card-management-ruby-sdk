@@ -138,5 +138,24 @@ module ShellCardManagementApIs
                       payer_number,
                       payer_name)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} is_default: #{@is_default}, colco_id: #{@colco_id}, colco_code:"\
+      " #{@colco_code}, col_co_country_code: #{@col_co_country_code}, payer_group_id:"\
+      " #{@payer_group_id}, payer_group: #{@payer_group}, payer_id: #{@payer_id}, payer_number:"\
+      " #{@payer_number}, payer_name: #{@payer_name}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} is_default: #{@is_default.inspect}, colco_id: #{@colco_id.inspect},"\
+      " colco_code: #{@colco_code.inspect}, col_co_country_code: #{@col_co_country_code.inspect},"\
+      " payer_group_id: #{@payer_group_id.inspect}, payer_group: #{@payer_group.inspect},"\
+      " payer_id: #{@payer_id.inspect}, payer_number: #{@payer_number.inspect}, payer_name:"\
+      " #{@payer_name.inspect}>"
+    end
   end
 end

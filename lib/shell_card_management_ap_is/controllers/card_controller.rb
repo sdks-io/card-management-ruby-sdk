@@ -33,8 +33,8 @@ module ShellCardManagementApIs
     # back in the response from the request.
     # @param [SearchCardRequest] body Optional parameter: requestbody
     # @return [CardSearchResponse] response from the API call.
-    def searchcard(request_id,
-                   body: nil)
+    def search_card(request_id,
+                    body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/search',
@@ -93,8 +93,8 @@ module ShellCardManagementApIs
     # @param [CardSummaryRequest] body Optional parameter: summary request
     # body
     # @return [CardSummaryResponse] response from the API call.
-    def cardsummary(request_id,
-                    body: nil)
+    def card_summary(request_id,
+                     body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/summary',
@@ -172,8 +172,8 @@ module ShellCardManagementApIs
     # @param [CardManagementV1OrdercardRequest] body Optional parameter: Order
     # card request body
     # @return [OrderCardResponse] response from the API call.
-    def cardordercard(request_id,
-                      body: nil)
+    def order_card(request_id,
+                   body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/ordercard',
@@ -228,8 +228,8 @@ module ShellCardManagementApIs
     # @param [OrderCardEnquiryRequest] body Optional parameter: Order Card
     # Enquiry request body
     # @return [OrderCardEnquiryResponse] response from the API call.
-    def cardordercardenquiry(request_id,
-                             body: nil)
+    def order_card_enquiry(request_id,
+                           body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/ordercardenquiry',
@@ -317,8 +317,8 @@ module ShellCardManagementApIs
     # @param [CardManagementV1CancelRequest] body Optional parameter: Update
     # status request body
     # @return [CancelCardResponse] response from the API call.
-    def cardcancel(request_id,
-                   body: nil)
+    def card_cancel(request_id,
+                    body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/cancel',
@@ -430,8 +430,8 @@ module ShellCardManagementApIs
     # @param [CardManagementV1UpdatestatusRequest] body Optional parameter:
     # Update status request body
     # @return [UpdateCardStatusResponse] response from the API call.
-    def cardupdatestatus(request_id,
-                         body: nil)
+    def card_update_status(request_id,
+                           body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/updatestatus',
@@ -542,9 +542,9 @@ module ShellCardManagementApIs
     # @param [CardDetailsRequest] body Optional parameter: Card details request
     # body
     # @return [CardDetailsResponse] response from the API call.
-    def carddetails(apikey,
-                    request_id,
-                    body: nil)
+    def card_details(apikey,
+                     request_id,
+                     body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/card/card',
@@ -695,8 +695,8 @@ module ShellCardManagementApIs
     # @param [CardManagementV1PinreminderRequest] body Optional parameter: PIN
     # reminder request body
     # @return [PINReminderResponse] response from the API call.
-    def cardpinreminder(request_id,
-                        body: nil)
+    def card_pin_reminder(request_id,
+                          body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/pinreminder',
@@ -849,8 +849,8 @@ module ShellCardManagementApIs
     # @param [AutoRenewCardRequest] body Optional parameter: Auto renew request
     # body
     # @return [AutoRenewCardResponse] response from the API call.
-    def autorenew(request_id,
-                  body: nil)
+    def auto_renew(request_id,
+                   body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/autorenew',
@@ -902,8 +902,8 @@ module ShellCardManagementApIs
     # @param [UpdateMPayRegStatusRequest] body Optional parameter: Request
     # body
     # @return [UpdateMPayRegStatusResponse] response from the API call.
-    def updatemobilepaymentregistrationstatus(request_id,
-                                              body: nil)
+    def update_mobile_payment_registration_status(request_id,
+                                                  body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/card-management/v1/updatemobilepaymentregistrationstatus',
@@ -954,8 +954,8 @@ module ShellCardManagementApIs
     # If the parameter is false then the key will be valid for one time. default
     # value will be false.
     # @return [GeneratePINKeyResponse] response from the API call.
-    def getkey(request_id,
-               fleet: nil)
+    def get_key(request_id,
+                fleet: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::GET,
                                      '/pin-management/v1/generatepinkeys',
@@ -1003,8 +1003,8 @@ module ShellCardManagementApIs
     # @param [DeliveryAddressUpdateRequest] body Optional parameter: Delivery
     # Address Update Request Body
     # @return [DeliveryAddressUpdateResponse] response from the API call.
-    def deliveryaddressupdate(apikey,
-                              body: nil)
+    def delivery_address_update(apikey,
+                                body: nil)
       new_api_call_builder
         .request(new_request_builder(HttpMethodEnum::POST,
                                      '/fleetmanagement/v1/card/deliveryaddressupdate',

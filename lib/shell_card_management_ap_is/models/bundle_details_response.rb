@@ -177,5 +177,28 @@ module ShellCardManagementApIs
                                 error,
                                 request_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} payer_id: #{@payer_id}, payer_number: #{@payer_number}, account_id:"\
+      " #{@account_id}, account_number: #{@account_number}, bundle_id: #{@bundle_id},"\
+      " external_bundle_id: #{@external_bundle_id}, description: #{@description}, pans: #{@pans},"\
+      " restriction_currency_code: #{@restriction_currency_code}, restriction_currency_symbol:"\
+      " #{@restriction_currency_symbol}, restrictions: #{@restrictions}, error: #{@error},"\
+      " request_id: #{@request_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} payer_id: #{@payer_id.inspect}, payer_number: #{@payer_number.inspect},"\
+      " account_id: #{@account_id.inspect}, account_number: #{@account_number.inspect}, bundle_id:"\
+      " #{@bundle_id.inspect}, external_bundle_id: #{@external_bundle_id.inspect}, description:"\
+      " #{@description.inspect}, pans: #{@pans.inspect}, restriction_currency_code:"\
+      " #{@restriction_currency_code.inspect}, restriction_currency_symbol:"\
+      " #{@restriction_currency_symbol.inspect}, restrictions: #{@restrictions.inspect}, error:"\
+      " #{@error.inspect}, request_id: #{@request_id.inspect}>"
+    end
   end
 end

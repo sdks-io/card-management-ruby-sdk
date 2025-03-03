@@ -99,5 +99,22 @@ module ShellCardManagementApIs
                                                       approver_user_display_name,
                                                       reason)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} global_request_id: #{@global_request_id}, status: #{@status},"\
+      " approver_user_id: #{@approver_user_id}, approver_user_display_name:"\
+      " #{@approver_user_display_name}, reason: #{@reason}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} global_request_id: #{@global_request_id.inspect}, status:"\
+      " #{@status.inspect}, approver_user_id: #{@approver_user_id.inspect},"\
+      " approver_user_display_name: #{@approver_user_display_name.inspect}, reason:"\
+      " #{@reason.inspect}>"
+    end
   end
 end

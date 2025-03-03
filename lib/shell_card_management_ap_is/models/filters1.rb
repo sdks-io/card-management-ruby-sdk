@@ -575,5 +575,54 @@ module ShellCardManagementApIs
                    exclude_old_cards,
                    reissue_setting)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_number: #{@account_number},"\
+      " col_co_code: #{@col_co_code}, col_co_country_code: #{@col_co_country_code}, col_co_id:"\
+      " #{@col_co_id}, payer_id: #{@payer_id}, payer_number: #{@payer_number}, card_group_id:"\
+      " #{@card_group_id}, card_group_name: #{@card_group_name}, card_status: #{@card_status},"\
+      " expiring_in_days: #{@expiring_in_days}, issued_after: #{@issued_after}, pan_ends_with:"\
+      " #{@pan_ends_with}, driver_name: #{@driver_name}, vehicle_registration_number:"\
+      " #{@vehicle_registration_number}, include_cards: #{@include_cards}, exclude_cards:"\
+      " #{@exclude_cards}, exclude_bundle_id: #{@exclude_bundle_id}, card_segment:"\
+      " #{@card_segment}, purchase_category_code: #{@purchase_category_code}, card_type_code:"\
+      " #{@card_type_code}, exclude_pending_renewal_cards: #{@exclude_pending_renewal_cards},"\
+      " exclude_cancelled_cards: #{@exclude_cancelled_cards}, exclude_replaced_cards:"\
+      " #{@exclude_replaced_cards}, exclude_fraud_cards: #{@exclude_fraud_cards},"\
+      " exclude_card_group_id: #{@exclude_card_group_id}, exclude_card_group_name:"\
+      " #{@exclude_card_group_name}, creation_date: #{@creation_date}, effective_date:"\
+      " #{@effective_date}, network: #{@network}, coverage: #{@coverage}, expiry_month:"\
+      " #{@expiry_month}, exclude_old_cards: #{@exclude_old_cards}, reissue_setting:"\
+      " #{@reissue_setting}, request_id: #{@request_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, col_co_code: #{@col_co_code.inspect}, col_co_country_code:"\
+      " #{@col_co_country_code.inspect}, col_co_id: #{@col_co_id.inspect}, payer_id:"\
+      " #{@payer_id.inspect}, payer_number: #{@payer_number.inspect}, card_group_id:"\
+      " #{@card_group_id.inspect}, card_group_name: #{@card_group_name.inspect}, card_status:"\
+      " #{@card_status.inspect}, expiring_in_days: #{@expiring_in_days.inspect}, issued_after:"\
+      " #{@issued_after.inspect}, pan_ends_with: #{@pan_ends_with.inspect}, driver_name:"\
+      " #{@driver_name.inspect}, vehicle_registration_number:"\
+      " #{@vehicle_registration_number.inspect}, include_cards: #{@include_cards.inspect},"\
+      " exclude_cards: #{@exclude_cards.inspect}, exclude_bundle_id:"\
+      " #{@exclude_bundle_id.inspect}, card_segment: #{@card_segment.inspect},"\
+      " purchase_category_code: #{@purchase_category_code.inspect}, card_type_code:"\
+      " #{@card_type_code.inspect}, exclude_pending_renewal_cards:"\
+      " #{@exclude_pending_renewal_cards.inspect}, exclude_cancelled_cards:"\
+      " #{@exclude_cancelled_cards.inspect}, exclude_replaced_cards:"\
+      " #{@exclude_replaced_cards.inspect}, exclude_fraud_cards: #{@exclude_fraud_cards.inspect},"\
+      " exclude_card_group_id: #{@exclude_card_group_id.inspect}, exclude_card_group_name:"\
+      " #{@exclude_card_group_name.inspect}, creation_date: #{@creation_date.inspect},"\
+      " effective_date: #{@effective_date.inspect}, network: #{@network.inspect}, coverage:"\
+      " #{@coverage.inspect}, expiry_month: #{@expiry_month.inspect}, exclude_old_cards:"\
+      " #{@exclude_old_cards.inspect}, reissue_setting: #{@reissue_setting.inspect}, request_id:"\
+      " #{@request_id.inspect}>"
+    end
   end
 end

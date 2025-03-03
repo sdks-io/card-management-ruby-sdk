@@ -93,5 +93,21 @@ module ShellCardManagementApIs
                           invoice_exchange_rate,
                           credit_limit_exchange_rate)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} currency_code: #{@currency_code}, currency_symbol: #{@currency_symbol},"\
+      " invoice_exchange_rate: #{@invoice_exchange_rate}, credit_limit_exchange_rate:"\
+      " #{@credit_limit_exchange_rate}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} currency_code: #{@currency_code.inspect}, currency_symbol:"\
+      " #{@currency_symbol.inspect}, invoice_exchange_rate: #{@invoice_exchange_rate.inspect},"\
+      " credit_limit_exchange_rate: #{@credit_limit_exchange_rate.inspect}>"
+    end
   end
 end

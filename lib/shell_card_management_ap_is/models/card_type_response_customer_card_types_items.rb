@@ -450,5 +450,57 @@ module ShellCardManagementApIs
                                                  medium_type,
                                                  col_co_currency_symbol)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} can_have_pin: #{@can_have_pin}, card_type_id: #{@card_type_id},"\
+      " card_type_name: #{@card_type_name}, col_co_currency_code: #{@col_co_currency_code},"\
+      " customer_card_type_id: #{@customer_card_type_id}, day_time_restrictions:"\
+      " #{@day_time_restrictions}, default_purchase_category_id: #{@default_purchase_category_id},"\
+      " emboss_account_name: #{@emboss_account_name}, expiry_period: #{@expiry_period}, is_crt:"\
+      " #{@is_crt}, is_fleet: #{@is_fleet}, is_international: #{@is_international}, is_national:"\
+      " #{@is_national}, is_partner_sites_included: #{@is_partner_sites_included},"\
+      " is_shell_sites_only: #{@is_shell_sites_only}, is_virtual: #{@is_virtual},"\
+      " is_visible_to_customers: #{@is_visible_to_customers}, is_active: #{@is_active},"\
+      " is_card_available_for_download: #{@is_card_available_for_download},"\
+      " is_card_visible_to_customers: #{@is_card_visible_to_customers}, pan_length:"\
+      " #{@pan_length}, purchase_categories: #{@purchase_categories}, token_type_id:"\
+      " #{@token_type_id}, token_type_name: #{@token_type_name}, usage_restrictions:"\
+      " #{@usage_restrictions}, emv_contactless: #{@emv_contactless}, rfid: #{@rfid},"\
+      " pin_change_supported: #{@pin_change_supported}, require_pin: #{@require_pin}, offline_pin:"\
+      " #{@offline_pin}, is_default: #{@is_default}, applications_to_show_npii_tokens:"\
+      " #{@applications_to_show_npii_tokens}, medium_type_id: #{@medium_type_id}, medium_type:"\
+      " #{@medium_type}, col_co_currency_symbol: #{@col_co_currency_symbol}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} can_have_pin: #{@can_have_pin.inspect}, card_type_id:"\
+      " #{@card_type_id.inspect}, card_type_name: #{@card_type_name.inspect},"\
+      " col_co_currency_code: #{@col_co_currency_code.inspect}, customer_card_type_id:"\
+      " #{@customer_card_type_id.inspect}, day_time_restrictions:"\
+      " #{@day_time_restrictions.inspect}, default_purchase_category_id:"\
+      " #{@default_purchase_category_id.inspect}, emboss_account_name:"\
+      " #{@emboss_account_name.inspect}, expiry_period: #{@expiry_period.inspect}, is_crt:"\
+      " #{@is_crt.inspect}, is_fleet: #{@is_fleet.inspect}, is_international:"\
+      " #{@is_international.inspect}, is_national: #{@is_national.inspect},"\
+      " is_partner_sites_included: #{@is_partner_sites_included.inspect}, is_shell_sites_only:"\
+      " #{@is_shell_sites_only.inspect}, is_virtual: #{@is_virtual.inspect},"\
+      " is_visible_to_customers: #{@is_visible_to_customers.inspect}, is_active:"\
+      " #{@is_active.inspect}, is_card_available_for_download:"\
+      " #{@is_card_available_for_download.inspect}, is_card_visible_to_customers:"\
+      " #{@is_card_visible_to_customers.inspect}, pan_length: #{@pan_length.inspect},"\
+      " purchase_categories: #{@purchase_categories.inspect}, token_type_id:"\
+      " #{@token_type_id.inspect}, token_type_name: #{@token_type_name.inspect},"\
+      " usage_restrictions: #{@usage_restrictions.inspect}, emv_contactless:"\
+      " #{@emv_contactless.inspect}, rfid: #{@rfid.inspect}, pin_change_supported:"\
+      " #{@pin_change_supported.inspect}, require_pin: #{@require_pin.inspect}, offline_pin:"\
+      " #{@offline_pin.inspect}, is_default: #{@is_default.inspect},"\
+      " applications_to_show_npii_tokens: #{@applications_to_show_npii_tokens.inspect},"\
+      " medium_type_id: #{@medium_type_id.inspect}, medium_type: #{@medium_type.inspect},"\
+      " col_co_currency_symbol: #{@col_co_currency_symbol.inspect}>"
+    end
   end
 end

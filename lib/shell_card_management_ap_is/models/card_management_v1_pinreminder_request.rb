@@ -126,5 +126,23 @@ module ShellCardManagementApIs
                                              payer_number,
                                              pin_reminder_card_details)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id}, account_number: #{@account_number},"\
+      " col_co_code: #{@col_co_code}, col_co_id: #{@col_co_id}, payer_id: #{@payer_id},"\
+      " payer_number: #{@payer_number}, pin_reminder_card_details: #{@pin_reminder_card_details}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_id: #{@account_id.inspect}, account_number:"\
+      " #{@account_number.inspect}, col_co_code: #{@col_co_code.inspect}, col_co_id:"\
+      " #{@col_co_id.inspect}, payer_id: #{@payer_id.inspect}, payer_number:"\
+      " #{@payer_number.inspect}, pin_reminder_card_details:"\
+      " #{@pin_reminder_card_details.inspect}>"
+    end
   end
 end

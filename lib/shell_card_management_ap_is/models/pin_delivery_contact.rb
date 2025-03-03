@@ -231,5 +231,34 @@ module ShellCardManagementApIs
                              email_address,
                              save_for_pin_reminder)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} delivery_contact_title: #{@delivery_contact_title}, delivery_contact_name:"\
+      " #{@delivery_contact_name}, delivery_company_name: #{@delivery_company_name},"\
+      " delivery_address_line1: #{@delivery_address_line1}, delivery_address_line2:"\
+      " #{@delivery_address_line2}, delivery_address_line3: #{@delivery_address_line3},"\
+      " delivery_zip_code: #{@delivery_zip_code}, delivery_city: #{@delivery_city},"\
+      " delivery_region_id: #{@delivery_region_id}, delivery_region: #{@delivery_region},"\
+      " delivery_country: #{@delivery_country}, phone_number: #{@phone_number}, email_address:"\
+      " #{@email_address}, save_for_pin_reminder: #{@save_for_pin_reminder}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} delivery_contact_title: #{@delivery_contact_title.inspect},"\
+      " delivery_contact_name: #{@delivery_contact_name.inspect}, delivery_company_name:"\
+      " #{@delivery_company_name.inspect}, delivery_address_line1:"\
+      " #{@delivery_address_line1.inspect}, delivery_address_line2:"\
+      " #{@delivery_address_line2.inspect}, delivery_address_line3:"\
+      " #{@delivery_address_line3.inspect}, delivery_zip_code: #{@delivery_zip_code.inspect},"\
+      " delivery_city: #{@delivery_city.inspect}, delivery_region_id:"\
+      " #{@delivery_region_id.inspect}, delivery_region: #{@delivery_region.inspect},"\
+      " delivery_country: #{@delivery_country.inspect}, phone_number: #{@phone_number.inspect},"\
+      " email_address: #{@email_address.inspect}, save_for_pin_reminder:"\
+      " #{@save_for_pin_reminder.inspect}>"
+    end
   end
 end

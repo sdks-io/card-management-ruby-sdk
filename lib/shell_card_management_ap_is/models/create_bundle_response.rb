@@ -169,5 +169,32 @@ module ShellCardManagementApIs
                                cards,
                                error)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id}, bundle_creation_status:"\
+      " #{@bundle_creation_status}, bundle_id: #{@bundle_id}, day_time_restriction_status:"\
+      " #{@day_time_restriction_status}, day_time_restriction_profile_id:"\
+      " #{@day_time_restriction_profile_id}, location_restriction_status:"\
+      " #{@location_restriction_status}, location_restriction_profile_id:"\
+      " #{@location_restriction_profile_id}, usage_restriction_status:"\
+      " #{@usage_restriction_status}, product_restriction_status: #{@product_restriction_status},"\
+      " cards: #{@cards}, error: #{@error}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} request_id: #{@request_id.inspect}, bundle_creation_status:"\
+      " #{@bundle_creation_status.inspect}, bundle_id: #{@bundle_id.inspect},"\
+      " day_time_restriction_status: #{@day_time_restriction_status.inspect},"\
+      " day_time_restriction_profile_id: #{@day_time_restriction_profile_id.inspect},"\
+      " location_restriction_status: #{@location_restriction_status.inspect},"\
+      " location_restriction_profile_id: #{@location_restriction_profile_id.inspect},"\
+      " usage_restriction_status: #{@usage_restriction_status.inspect},"\
+      " product_restriction_status: #{@product_restriction_status.inspect}, cards:"\
+      " #{@cards.inspect}, error: #{@error.inspect}>"
+    end
   end
 end

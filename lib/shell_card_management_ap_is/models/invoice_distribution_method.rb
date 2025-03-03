@@ -93,5 +93,20 @@ module ShellCardManagementApIs
                                     distribution_method,
                                     output_type)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} is_primary: #{@is_primary}, frequency_type: #{@frequency_type},"\
+      " distribution_method: #{@distribution_method}, output_type: #{@output_type}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} is_primary: #{@is_primary.inspect}, frequency_type:"\
+      " #{@frequency_type.inspect}, distribution_method: #{@distribution_method.inspect},"\
+      " output_type: #{@output_type.inspect}>"
+    end
   end
 end

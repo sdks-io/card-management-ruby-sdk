@@ -72,5 +72,19 @@ module ShellCardManagementApIs
       ScheduleCardBlockRequest.new(is_time_supported,
                                    schedule_card_block_cards)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} is_time_supported: #{@is_time_supported}, schedule_card_block_cards:"\
+      " #{@schedule_card_block_cards}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} is_time_supported: #{@is_time_supported.inspect},"\
+      " schedule_card_block_cards: #{@schedule_card_block_cards.inspect}>"
+    end
   end
 end

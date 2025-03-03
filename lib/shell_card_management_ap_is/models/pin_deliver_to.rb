@@ -157,5 +157,26 @@ module ShellCardManagementApIs
                        email_address,
                        save_pin_reminder)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} contact_name: #{@contact_name}, contact_title: #{@contact_title},"\
+      " company_name: #{@company_name}, address_line: #{@address_line}, zip_code: #{@zip_code},"\
+      " city: #{@city}, region_id: #{@region_id}, country_id: #{@country_id}, phone_number:"\
+      " #{@phone_number}, email_address: #{@email_address}, save_pin_reminder:"\
+      " #{@save_pin_reminder}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} contact_name: #{@contact_name.inspect}, contact_title:"\
+      " #{@contact_title.inspect}, company_name: #{@company_name.inspect}, address_line:"\
+      " #{@address_line.inspect}, zip_code: #{@zip_code.inspect}, city: #{@city.inspect},"\
+      " region_id: #{@region_id.inspect}, country_id: #{@country_id.inspect}, phone_number:"\
+      " #{@phone_number.inspect}, email_address: #{@email_address.inspect}, save_pin_reminder:"\
+      " #{@save_pin_reminder.inspect}>"
+    end
   end
 end

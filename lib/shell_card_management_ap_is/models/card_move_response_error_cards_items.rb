@@ -105,5 +105,22 @@ module ShellCardManagementApIs
                                           validation_error_code,
                                           validation_error_description)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_number: #{@account_number}, account_id: #{@account_id}, pan:"\
+      " #{@pan}, card_id: #{@card_id}, validation_error_code: #{@validation_error_code},"\
+      " validation_error_description: #{@validation_error_description}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} account_number: #{@account_number.inspect}, account_id:"\
+      " #{@account_id.inspect}, pan: #{@pan.inspect}, card_id: #{@card_id.inspect},"\
+      " validation_error_code: #{@validation_error_code.inspect}, validation_error_description:"\
+      " #{@validation_error_description.inspect}>"
+    end
   end
 end

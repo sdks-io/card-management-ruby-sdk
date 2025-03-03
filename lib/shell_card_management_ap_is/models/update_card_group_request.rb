@@ -246,5 +246,32 @@ module ShellCardManagementApIs
                                  target_new_card_group_name,
                                  target_card_group_id)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_code: #{@col_co_code}, col_co_id: #{@col_co_id}, payer_number:"\
+      " #{@payer_number}, payer_id: #{@payer_id}, account_id: #{@account_id}, account_number:"\
+      " #{@account_number}, card_group_id: #{@card_group_id}, card_group_name:"\
+      " #{@card_group_name}, print_on_card: #{@print_on_card}, card_type_id: #{@card_type_id},"\
+      " terminate_card_group: #{@terminate_card_group}, move_cards: #{@move_cards},"\
+      " target_account_id: #{@target_account_id}, target_account_number:"\
+      " #{@target_account_number}, target_new_card_group_name: #{@target_new_card_group_name},"\
+      " target_card_group_id: #{@target_card_group_id}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_code: #{@col_co_code.inspect}, col_co_id: #{@col_co_id.inspect},"\
+      " payer_number: #{@payer_number.inspect}, payer_id: #{@payer_id.inspect}, account_id:"\
+      " #{@account_id.inspect}, account_number: #{@account_number.inspect}, card_group_id:"\
+      " #{@card_group_id.inspect}, card_group_name: #{@card_group_name.inspect}, print_on_card:"\
+      " #{@print_on_card.inspect}, card_type_id: #{@card_type_id.inspect}, terminate_card_group:"\
+      " #{@terminate_card_group.inspect}, move_cards: #{@move_cards.inspect}, target_account_id:"\
+      " #{@target_account_id.inspect}, target_account_number: #{@target_account_number.inspect},"\
+      " target_new_card_group_name: #{@target_new_card_group_name.inspect}, target_card_group_id:"\
+      " #{@target_card_group_id.inspect}>"
+    end
   end
 end

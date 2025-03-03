@@ -1367,5 +1367,155 @@ module ShellCardManagementApIs
                        tolls_colco_country_type_id,
                        contracts)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_id: #{@col_co_id}, col_co_code: #{@col_co_code}, country_code:"\
+      " #{@country_code}, country: #{@country}, payer_id: #{@payer_id}, payer_number:"\
+      " #{@payer_number}, payer_full_name: #{@payer_full_name}, payer_short_name:"\
+      " #{@payer_short_name}, payer_group_id: #{@payer_group_id}, amount_due: #{@amount_due},"\
+      " amount_overdue: #{@amount_overdue}, amount_not_overdue: #{@amount_not_overdue},"\
+      " outstanding_balance: #{@outstanding_balance}, unallocated_payment:"\
+      " #{@unallocated_payment}, soa_currency_code: #{@soa_currency_code}, soa_currency_symbol:"\
+      " #{@soa_currency_symbol}, soa_credit_limit_currency_code:"\
+      " #{@soa_credit_limit_currency_code}, soa_credit_limit_currency_symbol:"\
+      " #{@soa_credit_limit_currency_symbol}, last_payment_currency_code:"\
+      " #{@last_payment_currency_code}, last_payment_currency_symbol:"\
+      " #{@last_payment_currency_symbol}, last_payment_amount: #{@last_payment_amount},"\
+      " last_payment_date: #{@last_payment_date}, soa_last_payment_amount:"\
+      " #{@soa_last_payment_amount}, soa_last_payment_date: #{@soa_last_payment_date},"\
+      " currency_code: #{@currency_code}, currency_symbol: #{@currency_symbol},"\
+      " col_co_country_code: #{@col_co_country_code}, local_currency_code:"\
+      " #{@local_currency_code}, local_currency_symbol: #{@local_currency_symbol},"\
+      " local_currency_exchange_rate: #{@local_currency_exchange_rate},"\
+      " local_currency_exchange_rate_so_a: #{@local_currency_exchange_rate_so_a},"\
+      " billing_frequency_type_id: #{@billing_frequency_type_id}, billing_frequency_type:"\
+      " #{@billing_frequency_type}, billing_run_frequency_type_id:"\
+      " #{@billing_run_frequency_type_id}, billing_run_frequnecy: #{@billing_run_frequnecy},"\
+      " day1_run: #{@day1_run}, day2_run: #{@day2_run}, day3_run: #{@day3_run}, day4_run:"\
+      " #{@day4_run}, invoice_distribution_methods: #{@invoice_distribution_methods}, output_type:"\
+      " #{@output_type}, invoice_account_id: #{@invoice_account_id}, invoice_account_number:"\
+      " #{@invoice_account_number}, invoice_account_short_name: #{@invoice_account_short_name},"\
+      " best_of_indicator: #{@best_of_indicator}, is_international: #{@is_international},"\
+      " total_accounts: #{@total_accounts}, total_active_accounts: #{@total_active_accounts},"\
+      " total_cards: #{@total_cards}, total_active_cards: #{@total_active_cards},"\
+      " total_blocked_cards: #{@total_blocked_cards}, total_cancelled_cards:"\
+      " #{@total_cancelled_cards}, total_expired_cards: #{@total_expired_cards},"\
+      " total_renewal_pending_cards: #{@total_renewal_pending_cards}, total_replaced_cards:"\
+      " #{@total_replaced_cards}, total_temporary_block_cards_by_customer:"\
+      " #{@total_temporary_block_cards_by_customer}, total_temporary_block_cards_by_shell:"\
+      " #{@total_temporary_block_cards_by_shell}, total_new_cards: #{@total_new_cards},"\
+      " total_fraud_cards: #{@total_fraud_cards}, total_blocked_accounts:"\
+      " #{@total_blocked_accounts}, total_cancelled_accounts: #{@total_cancelled_accounts},"\
+      " payer_trading_name: #{@payer_trading_name}, status: #{@status}, billing_language:"\
+      " #{@billing_language}, legal_entity: #{@legal_entity}, date_established:"\
+      " #{@date_established}, customer_classification: #{@customer_classification},"\
+      " industry_class: #{@industry_class}, marketing_segmentation: #{@marketing_segmentation},"\
+      " line_of_business: #{@line_of_business}, print_credit_limit: #{@print_credit_limit},"\
+      " card_group_type: #{@card_group_type}, renew_cards: #{@renew_cards}, allow_select_pin:"\
+      " #{@allow_select_pin}, use_fleet_pin: #{@use_fleet_pin}, vat_reg_number:"\
+      " #{@vat_reg_number}, vat_reg_number2: #{@vat_reg_number2}, registration_number:"\
+      " #{@registration_number}, registration_number2: #{@registration_number2},"\
+      " sales_ledger_balance: #{@sales_ledger_balance}, exposure: #{@exposure}, outstanding_debt:"\
+      " #{@outstanding_debt}, available_credit: #{@available_credit}, band: #{@band},"\
+      " global_customer_reference_id: #{@global_customer_reference_id}, credit_limit:"\
+      " #{@credit_limit}, credit_limit_in_customer_currency:"\
+      " #{@credit_limit_in_customer_currency}, billing_currency_code: #{@billing_currency_code},"\
+      " billing_currency_symbol: #{@billing_currency_symbol}, payment_method: #{@payment_method},"\
+      " payment_terms: #{@payment_terms}, temporary_credit_limit_increase:"\
+      " #{@temporary_credit_limit_increase}, temporary_credit_limit_increase_in_customer_currency:"\
+      " #{@temporary_credit_limit_increase_in_customer_currency},"\
+      " temporary_credit_limit_expiry_date: #{@temporary_credit_limit_expiry_date},"\
+      " payer_bank_account: #{@payer_bank_account}, card_delivery_address:"\
+      " #{@card_delivery_address}, correspondance_address: #{@correspondance_address},"\
+      " billing_address: #{@billing_address}, has_active_vol_based_pricing:"\
+      " #{@has_active_vol_based_pricing}, has_active_vol_based_bonus:"\
+      " #{@has_active_vol_based_bonus}, has_active_vol_based_association_bonus:"\
+      " #{@has_active_vol_based_association_bonus}, finance_currency: #{@finance_currency},"\
+      " tolls_customer_id: #{@tolls_customer_id}, tolls_colco_country_type_id:"\
+      " #{@tolls_colco_country_type_id}, contracts: #{@contracts}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} col_co_id: #{@col_co_id.inspect}, col_co_code: #{@col_co_code.inspect},"\
+      " country_code: #{@country_code.inspect}, country: #{@country.inspect}, payer_id:"\
+      " #{@payer_id.inspect}, payer_number: #{@payer_number.inspect}, payer_full_name:"\
+      " #{@payer_full_name.inspect}, payer_short_name: #{@payer_short_name.inspect},"\
+      " payer_group_id: #{@payer_group_id.inspect}, amount_due: #{@amount_due.inspect},"\
+      " amount_overdue: #{@amount_overdue.inspect}, amount_not_overdue:"\
+      " #{@amount_not_overdue.inspect}, outstanding_balance: #{@outstanding_balance.inspect},"\
+      " unallocated_payment: #{@unallocated_payment.inspect}, soa_currency_code:"\
+      " #{@soa_currency_code.inspect}, soa_currency_symbol: #{@soa_currency_symbol.inspect},"\
+      " soa_credit_limit_currency_code: #{@soa_credit_limit_currency_code.inspect},"\
+      " soa_credit_limit_currency_symbol: #{@soa_credit_limit_currency_symbol.inspect},"\
+      " last_payment_currency_code: #{@last_payment_currency_code.inspect},"\
+      " last_payment_currency_symbol: #{@last_payment_currency_symbol.inspect},"\
+      " last_payment_amount: #{@last_payment_amount.inspect}, last_payment_date:"\
+      " #{@last_payment_date.inspect}, soa_last_payment_amount:"\
+      " #{@soa_last_payment_amount.inspect}, soa_last_payment_date:"\
+      " #{@soa_last_payment_date.inspect}, currency_code: #{@currency_code.inspect},"\
+      " currency_symbol: #{@currency_symbol.inspect}, col_co_country_code:"\
+      " #{@col_co_country_code.inspect}, local_currency_code: #{@local_currency_code.inspect},"\
+      " local_currency_symbol: #{@local_currency_symbol.inspect}, local_currency_exchange_rate:"\
+      " #{@local_currency_exchange_rate.inspect}, local_currency_exchange_rate_so_a:"\
+      " #{@local_currency_exchange_rate_so_a.inspect}, billing_frequency_type_id:"\
+      " #{@billing_frequency_type_id.inspect}, billing_frequency_type:"\
+      " #{@billing_frequency_type.inspect}, billing_run_frequency_type_id:"\
+      " #{@billing_run_frequency_type_id.inspect}, billing_run_frequnecy:"\
+      " #{@billing_run_frequnecy.inspect}, day1_run: #{@day1_run.inspect}, day2_run:"\
+      " #{@day2_run.inspect}, day3_run: #{@day3_run.inspect}, day4_run: #{@day4_run.inspect},"\
+      " invoice_distribution_methods: #{@invoice_distribution_methods.inspect}, output_type:"\
+      " #{@output_type.inspect}, invoice_account_id: #{@invoice_account_id.inspect},"\
+      " invoice_account_number: #{@invoice_account_number.inspect}, invoice_account_short_name:"\
+      " #{@invoice_account_short_name.inspect}, best_of_indicator: #{@best_of_indicator.inspect},"\
+      " is_international: #{@is_international.inspect}, total_accounts:"\
+      " #{@total_accounts.inspect}, total_active_accounts: #{@total_active_accounts.inspect},"\
+      " total_cards: #{@total_cards.inspect}, total_active_cards: #{@total_active_cards.inspect},"\
+      " total_blocked_cards: #{@total_blocked_cards.inspect}, total_cancelled_cards:"\
+      " #{@total_cancelled_cards.inspect}, total_expired_cards: #{@total_expired_cards.inspect},"\
+      " total_renewal_pending_cards: #{@total_renewal_pending_cards.inspect},"\
+      " total_replaced_cards: #{@total_replaced_cards.inspect},"\
+      ' total_temporary_block_cards_by_customer:'\
+      " #{@total_temporary_block_cards_by_customer.inspect}, total_temporary_block_cards_by_shell:"\
+      " #{@total_temporary_block_cards_by_shell.inspect}, total_new_cards:"\
+      " #{@total_new_cards.inspect}, total_fraud_cards: #{@total_fraud_cards.inspect},"\
+      " total_blocked_accounts: #{@total_blocked_accounts.inspect}, total_cancelled_accounts:"\
+      " #{@total_cancelled_accounts.inspect}, payer_trading_name: #{@payer_trading_name.inspect},"\
+      " status: #{@status.inspect}, billing_language: #{@billing_language.inspect}, legal_entity:"\
+      " #{@legal_entity.inspect}, date_established: #{@date_established.inspect},"\
+      " customer_classification: #{@customer_classification.inspect}, industry_class:"\
+      " #{@industry_class.inspect}, marketing_segmentation: #{@marketing_segmentation.inspect},"\
+      " line_of_business: #{@line_of_business.inspect}, print_credit_limit:"\
+      " #{@print_credit_limit.inspect}, card_group_type: #{@card_group_type.inspect}, renew_cards:"\
+      " #{@renew_cards.inspect}, allow_select_pin: #{@allow_select_pin.inspect}, use_fleet_pin:"\
+      " #{@use_fleet_pin.inspect}, vat_reg_number: #{@vat_reg_number.inspect}, vat_reg_number2:"\
+      " #{@vat_reg_number2.inspect}, registration_number: #{@registration_number.inspect},"\
+      " registration_number2: #{@registration_number2.inspect}, sales_ledger_balance:"\
+      " #{@sales_ledger_balance.inspect}, exposure: #{@exposure.inspect}, outstanding_debt:"\
+      " #{@outstanding_debt.inspect}, available_credit: #{@available_credit.inspect}, band:"\
+      " #{@band.inspect}, global_customer_reference_id: #{@global_customer_reference_id.inspect},"\
+      " credit_limit: #{@credit_limit.inspect}, credit_limit_in_customer_currency:"\
+      " #{@credit_limit_in_customer_currency.inspect}, billing_currency_code:"\
+      " #{@billing_currency_code.inspect}, billing_currency_symbol:"\
+      " #{@billing_currency_symbol.inspect}, payment_method: #{@payment_method.inspect},"\
+      " payment_terms: #{@payment_terms.inspect}, temporary_credit_limit_increase:"\
+      " #{@temporary_credit_limit_increase.inspect},"\
+      ' temporary_credit_limit_increase_in_customer_currency:'\
+      " #{@temporary_credit_limit_increase_in_customer_currency.inspect},"\
+      " temporary_credit_limit_expiry_date: #{@temporary_credit_limit_expiry_date.inspect},"\
+      " payer_bank_account: #{@payer_bank_account.inspect}, card_delivery_address:"\
+      " #{@card_delivery_address.inspect}, correspondance_address:"\
+      " #{@correspondance_address.inspect}, billing_address: #{@billing_address.inspect},"\
+      " has_active_vol_based_pricing: #{@has_active_vol_based_pricing.inspect},"\
+      " has_active_vol_based_bonus: #{@has_active_vol_based_bonus.inspect},"\
+      ' has_active_vol_based_association_bonus:'\
+      " #{@has_active_vol_based_association_bonus.inspect}, finance_currency:"\
+      " #{@finance_currency.inspect}, tolls_customer_id: #{@tolls_customer_id.inspect},"\
+      " tolls_colco_country_type_id: #{@tolls_colco_country_type_id.inspect}, contracts:"\
+      " #{@contracts.inspect}>"
+    end
   end
 end

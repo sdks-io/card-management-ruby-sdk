@@ -214,5 +214,30 @@ module ShellCardManagementApIs
                                                  region_id,
                                                  region)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} contact_fore_name: #{@contact_fore_name}, contact_middle_name:"\
+      " #{@contact_middle_name}, contact_last_name: #{@contact_last_name}, contact_title:"\
+      " #{@contact_title}, company_name: #{@company_name}, address_id: #{@address_id},"\
+      " address_line1: #{@address_line1}, address_line2: #{@address_line2}, address_line3:"\
+      " #{@address_line3}, zip_code: #{@zip_code}, city: #{@city}, region_id: #{@region_id},"\
+      " region: #{@region}, country_id: #{@country_id}, country_iso_code: #{@country_iso_code},"\
+      " country: #{@country}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} contact_fore_name: #{@contact_fore_name.inspect}, contact_middle_name:"\
+      " #{@contact_middle_name.inspect}, contact_last_name: #{@contact_last_name.inspect},"\
+      " contact_title: #{@contact_title.inspect}, company_name: #{@company_name.inspect},"\
+      " address_id: #{@address_id.inspect}, address_line1: #{@address_line1.inspect},"\
+      " address_line2: #{@address_line2.inspect}, address_line3: #{@address_line3.inspect},"\
+      " zip_code: #{@zip_code.inspect}, city: #{@city.inspect}, region_id: #{@region_id.inspect},"\
+      " region: #{@region.inspect}, country_id: #{@country_id.inspect}, country_iso_code:"\
+      " #{@country_iso_code.inspect}, country: #{@country.inspect}>"
+    end
   end
 end

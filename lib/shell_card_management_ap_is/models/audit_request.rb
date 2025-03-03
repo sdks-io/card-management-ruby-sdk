@@ -256,5 +256,26 @@ module ShellCardManagementApIs
                        from_date,
                        to_date)
     end
+
+    # Provides a human-readable string representation of the object.
+    def to_s
+      class_name = self.class.name.split('::').last
+      "<#{class_name} status: #{@status}, payer_number: #{@payer_number}, payer_id: #{@payer_id},"\
+      " account_number: #{@account_number}, col_co_code: #{@col_co_code}, col_co_id:"\
+      " #{@col_co_id}, accounts: #{@accounts}, page_size: #{@page_size}, requested_operation:"\
+      " #{@requested_operation}, sort_order: #{@sort_order}, search_text: #{@search_text},"\
+      " current_page: #{@current_page}, from_date: #{@from_date}, to_date: #{@to_date}>"
+    end
+
+    # Provides a debugging-friendly string with detailed object information.
+    def inspect
+      class_name = self.class.name.split('::').last
+      "<#{class_name} status: #{@status.inspect}, payer_number: #{@payer_number.inspect},"\
+      " payer_id: #{@payer_id.inspect}, account_number: #{@account_number.inspect}, col_co_code:"\
+      " #{@col_co_code.inspect}, col_co_id: #{@col_co_id.inspect}, accounts: #{@accounts.inspect},"\
+      " page_size: #{@page_size.inspect}, requested_operation: #{@requested_operation.inspect},"\
+      " sort_order: #{@sort_order.inspect}, search_text: #{@search_text.inspect}, current_page:"\
+      " #{@current_page.inspect}, from_date: #{@from_date.inspect}, to_date: #{@to_date.inspect}>"
+    end
   end
 end
