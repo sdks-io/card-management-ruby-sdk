@@ -13,16 +13,13 @@
 | `new_card_group_reference` | `Integer` | Optional | Reference number for tracking the execution of card group creation.<br>Reference number will be null when the validations of new card group parameters fail. |
 | `successful_requests` | [`Array<CreateCardGroupResponseSuccessfulRequestsItems>`](../../doc/models/create-card-group-response-successful-requests-items.md) | Optional | List of cards validated and submitted successfully for processing. |
 | `error_cards` | [`Array<CreateCardGroupResponseErrorCardsItems>`](../../doc/models/create-card-group-response-error-cards-items.md) | Optional | List of cards that failed validation and not submitted for processing.<br>Entity: FailedCardReference<br>This list will be empty when the validations of new card group parameters fail. |
-| `error` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
-| `request_id` | `String` | Optional | API Request Id |
 
 ## Example (as JSON)
 
 ```json
 {
-  "RequestId": "ed557f02-c7d7-4c01-b3e5-11bf3239c8ed",
-  "MainReference": 104,
-  "NewCardGroupReference": 174,
+  "MainReference": 12345,
+  "NewCardGroupReference": 1234,
   "SuccessfulRequests": [
     {
       "CardId": 18,
@@ -43,11 +40,7 @@
       "ErrorCode": "ErrorCode0",
       "ErrorDescription": "ErrorDescription6"
     }
-  ],
-  "Error": {
-    "Code": "Code4",
-    "Description": "Description2"
-  }
+  ]
 }
 ```
 

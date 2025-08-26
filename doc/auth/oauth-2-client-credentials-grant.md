@@ -18,7 +18,7 @@ Documentation for accessing and setting credentials for BearerToken.
 
 
 
-**Note:** Auth credentials can be set using `BearerTokenCredentials` object, passed in as named parameter `bearer_token_credentials` in the client initialization.
+**Note:** Auth credentials can be set using named parameter for any of the above credentials (e.g. `o_auth_client_id`) in the client initialization.
 
 ## Usage Example
 
@@ -27,8 +27,11 @@ Documentation for accessing and setting credentials for BearerToken.
 You must initialize the client with *OAuth 2.0 Client Credentials Grant* credentials as shown in the following code snippet. This will fetch the OAuth token automatically when any of the endpoints, requiring *OAuth 2.0 Client Credentials Grant* authentication, are called.
 
 ```ruby
-client = ShellCardManagementApIs::Client.new(
-  bearer_token_credentials: BearerTokenCredentials.new(
+require 'shell_card_management_ap_is'
+include ShellCardManagementApIs
+
+client = Client.new(
+  client_credentials_auth_credentials: ClientCredentialsAuthCredentials.new(
     o_auth_client_id: 'OAuthClientId',
     o_auth_client_secret: 'OAuthClientSecret'
   )
@@ -44,8 +47,11 @@ Your application can also manually provide an OAuthToken using the setter `in` o
 Whenever the OAuth Token gets updated, the provided callback implementation will be executed. For instance, you may use it to store your access token whenever it gets updated.
 
 ```ruby
-client = ShellCardManagementApIs::Client.new(
-  bearer_token_credentials: BearerTokenCredentials.new(
+require 'shell_card_management_ap_is'
+include ShellCardManagementApIs
+
+client = Client.new(
+  client_credentials_auth_credentials: ClientCredentialsAuthCredentials.new(
     o_auth_client_id: 'OAuthClientId',
     o_auth_client_secret: 'OAuthClientSecret',
     o_auth_on_token_update: Proc.new { | o_auth_token | 
@@ -62,6 +68,9 @@ client = ShellCardManagementApIs::Client.new(
 
 
 ```ruby
+require 'shell_card_management_ap_is'
+include ShellCardManagementApIs
+
 def o_auth_token_provider(last_oauth_token, auth_manager)
   # Add the callback handler to provide a new OAuth token
   # It will be triggered whenever the last provided o_auth_token is null or expired
@@ -75,8 +84,8 @@ _o_auth_token_provider = proc do | last_oauth_token, auth_manager |
 end
 
 
-client = ShellCardManagementApIs::Client.new(
-  bearer_token_credentials: BearerTokenCredentials.new(
+client = Client.new(
+  client_credentials_auth_credentials: ClientCredentialsAuthCredentials.new(
     o_auth_client_id: 'OAuthClientId',
     o_auth_client_secret: 'OAuthClientSecret',
     o_auth_token_provider: _o_auth_token_provider

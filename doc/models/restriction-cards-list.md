@@ -16,9 +16,9 @@
 | `reset_day_time_restrictions` | `TrueClass \| FalseClass` | Optional | True/False.<br>If true, the Day/Time restrictions applied on the card will be deleted. Else, the card restrictions will be updated with the day/time restrictions provided in the API. |
 | `reset_product_restrictions` | `TrueClass \| FalseClass` | Optional | True/False.<br>If true, Default fuel/non-fuel sets configured at the purchase category level will be applied to the card. Else, the card will be applied with product restrictions provided in the API. |
 | `reset_location_restrictions` | `TrueClass \| FalseClass` | Optional | True/False.<br>If true, the location restrictions applied on the card will be deleted. Else, the card restrictions will be updated with the location restrictions provided in the API. |
-| `usage_restrictions` | `Object` | Optional | - |
+| `usage_restrictions` | [`UsageRestrictionsCard`](../../doc/models/usage-restrictions-card.md) | Optional | - |
 | `day_time_restrictions` | [`DayTimeRestrictions`](../../doc/models/day-time-restrictions.md) | Optional | - |
-| `product_restrictions` | `Object` | Optional | - |
+| `product_restrictions` | [`ProductRestrictionCard`](../../doc/models/product-restriction-card.md) | Optional | - |
 | `location_restrictions` | [`LocationRestriction`](../../doc/models/location-restriction.md) | Optional | - |
 
 ## Example (as JSON)

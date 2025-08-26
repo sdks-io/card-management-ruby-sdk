@@ -9,7 +9,6 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `String` | Optional | Request Id of the API call |
 | `bundle_creation_status` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
 | `bundle_id` | `String` | Optional | Identifier of the newly created bundle |
 | `day_time_restriction_status` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
@@ -18,24 +17,29 @@
 | `location_restriction_profile_id` | `String` | Optional | Identifier of the location restriction profile created |
 | `usage_restriction_status` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
 | `product_restriction_status` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
-| `cards` | [`BundleCardRestrictionStatus`](../../doc/models/bundle-card-restriction-status.md) | Optional | - |
-| `error` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
+| `product_restriction_profile_id` | `String` | Optional | Identifier of the product restriction profile created |
+| `cards` | [`Array<BundleCardRestrictionStatus>`](../../doc/models/bundle-card-restriction-status.md) | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "RequestId": "2ace3991-5d03-4a68-ac68-ca9119b25101",
+  "BundleId": "1",
+  "DayTimeRestrictionProfileId": "2",
+  "LocationRestrictionProfileId": "3",
+  "ProductRestrictionProfileId": "4",
   "BundleCreationStatus": {
     "Code": "Code8",
     "Description": "Description8"
   },
-  "BundleId": "BundleId2",
   "DayTimeRestrictionStatus": {
     "Code": "Code4",
     "Description": "Description2"
   },
-  "DayTimeRestrictionProfileId": "DayTimeRestrictionProfileId0"
+  "LocationRestrictionStatus": {
+    "Code": "Code6",
+    "Description": "Description0"
+  }
 }
 ```
 

@@ -11,10 +11,11 @@
 |  --- | --- | --- | --- |
 | `day_time_restriction_action` | `String` | Optional | The value indicates what actions to be performed with respect to day time restriction.<br>Mandatory<br>Allowed values –<br>•    Add: Apply the given restriction on the bundle.<br>•    Default: No Day/Time restriction will be applied on the bundle in Gateway. |
 | `location_restriction_action` | `String` | Optional | The value indicates what actions to be performed with respect to location restriction.<br>Mandatory<br>Allowed values –<br>•    Add: Apply the given restriction on the bundle.<br>•    Default: No location restriction will be applied on the bundle in Gateway. |
-| `usage_restrictions` | `Object` | Optional | - |
+| `product_restriction_action` | `String` | Optional | The value indicates what actions to be performed with respect to Product restriction.<br>Mandatory<br>Allowed values –<br>•    Add: Apply the given restriction on the bundle.<br>•    Default: No Product restriction will be applied on the bundle in Gateway. |
 | `day_time_restrictions` | [`DayTimeRestrictions`](../../doc/models/day-time-restrictions.md) | Optional | - |
-| `product_restrictions` | `Object` | Optional | - |
+| `product_restrictions` | [`ProductRestrictionCard`](../../doc/models/product-restriction-card.md) | Optional | - |
 | `location_restrictions` | [`LocationRestriction`](../../doc/models/location-restriction.md) | Optional | - |
+| `usage_restrictions` | [`UsageRestrictionsCard`](../../doc/models/usage-restrictions-card.md) | Optional | - |
 
 ## Example (as JSON)
 
@@ -22,10 +23,7 @@
 {
   "DayTimeRestrictionAction": "DayTimeRestrictionAction8",
   "LocationRestrictionAction": "LocationRestrictionAction6",
-  "UsageRestrictions": {
-    "key1": "val1",
-    "key2": "val2"
-  },
+  "ProductRestrictionAction": "ProductRestrictionAction4",
   "DayTimeRestrictions": {
     "Monday": false,
     "Tuesday": false,
@@ -34,8 +32,13 @@
     "Friday": false
   },
   "ProductRestrictions": {
-    "key1": "val1",
-    "key2": "val2"
+    "Products": [
+      "Products4"
+    ],
+    "ProductGroups": [
+      "ProductGroups3",
+      "ProductGroups4"
+    ]
   }
 }
 ```

@@ -15,7 +15,6 @@
 | `reference_product` | `String` | Optional | 3 digit Shell global fuel product code, if already set up.<br>Example: 021 |
 | `restriction_condition` | `String` | Optional | The restriction condition code.<br>Example: DECLINE_ALERT |
 | `velocity_limits` | [`Array<AccountVelocityLimit>`](../../doc/models/account-velocity-limit.md) | Optional | - |
-| `error` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
 
 ## Example (as JSON)
 

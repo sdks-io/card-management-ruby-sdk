@@ -20,8 +20,6 @@
 | `restriction_currency_code` | `String` | Optional | ISO currency code of the country.<br>Example: GBP |
 | `restriction_currency_symbol` | `String` | Optional | Currency symbol of the country.<br>Example: £, $ |
 | `restrictions` | [`BundledRestrictionsList`](../../doc/models/bundled-restrictions-list.md) | Optional | - |
-| `error` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
-| `request_id` | `String` | Optional | API Request Id |
 
 ## Example (as JSON)
 

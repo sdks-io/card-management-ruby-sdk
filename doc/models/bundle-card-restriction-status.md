@@ -9,13 +9,13 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `pan` | `String` | Optional | Card PAN.<br>Example: 7002051006629890645 |
+| `pan` | `String` | Optional | Card PAN. |
 
 ## Example (as JSON)
 
 ```json
 {
-  "PAN": "PAN8"
+  "PAN": "[\r\n  7077117017500030015,\r\n  7077117017500030031\r\n]"
 }
 ```
 

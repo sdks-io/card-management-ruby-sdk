@@ -28,7 +28,7 @@
 | `error_code` | `String` | Optional | Error code of the request |
 | `error_string` | `String` | Optional | Error description of the request |
 | `global_request_id` | `String` | Optional | Global unique request reference provided by client application. |
-| `pan` | `String` | Optional | PAN in the request.<br>If Mask PAN is enabled at Microservices configuration then all digits of the PAN, except the last 6 digits, will be masked. |
+| `pan` | `String` | Optional | PAN in the request.<br>If Mask PAN is enabled then all digits of the PAN, except the last 6 digits, will be masked. |
 | `payer_id` | `Integer` | Optional | Payer id of the customer. |
 | `payer_number` | `String` | Optional | Payer number of the customer. |
 | `processed_on` | `String` | Optional | Request processed date.<br>Format: yyyyMMdd HH:mm: ss |
@@ -40,6 +40,8 @@
 | `submitted_on` | `String` | Optional | Request submitted date.<br>Format: yyyyMMdd HH:mm: ss |
 | `sub_request_reference` | `Integer` | Optional | Reference number for the individual request type. |
 | `user_display_name` | `String` | Optional | Display name of the user who submitted this request.<br>It will be the Display Name of the Driver in the case of “MobilePaymentRegistration” in the below format: |
+| `panid` | `String` | Optional | PAN ID of the card.<br>This will be null when the PAN is not available in the request. |
+| `masked_pan` | `String` | Optional | Masked PAN of the card.<br>This will be null when the Masked PAN is not available in the request. |
 
 ## Example (as JSON)
 
@@ -75,7 +77,9 @@
   "Status": "Success",
   "SubmittedOn": "20240201 14:29:16",
   "SubRequestReference": 720061,
-  "UserDisplayName": "Supriya-ThridPartyAgent"
+  "UserDisplayName": "Supriya-ThridPartyAgent",
+  "PANID": "70020975",
+  "MaskedPAN": "70020975******0717"
 }
 ```
 

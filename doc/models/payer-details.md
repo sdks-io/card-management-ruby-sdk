@@ -53,8 +53,8 @@
 | `invoice_account_id` | `Integer` | Optional | The Account ID of the account on which the invoice is generated. |
 | `invoice_account_number` | `String` | Optional | The Account Number of the account on which the invoice is generated. |
 | `invoice_account_short_name` | `String` | Optional | The Account Short Name of the account on which the invoice is generated. |
-| `best_of_indicator` | `TrueClass \| FalseClass` | Optional | Best of Indicator of the Pricing customer/account configured.<br>**Default**: `false` |
-| `is_international` | `TrueClass \| FalseClass` | Optional | Whether the account is international.<br>**Default**: `false` |
+| `best_of_indicator` | `TrueClass \| FalseClass` | Optional | Best of Indicator of the Pricing customer/account configured.<br><br>**Default**: `false` |
+| `is_international` | `TrueClass \| FalseClass` | Optional | Whether the account is international.<br><br>**Default**: `false` |
 | `total_accounts` | `Integer` | Optional | Total number of accounts under the payer. |
 | `total_active_accounts` | `Integer` | Optional | Total number of active accounts under the payer. |
 | `total_cards` | `Integer` | Optional | Total number of cards under the payer. |
@@ -79,10 +79,10 @@
 | `industry_class` | `String` | Optional | Payer/Company Industry class id and description |
 | `marketing_segmentation` | `String` | Optional | Marketing Segmentation id and description |
 | `line_of_business` | `String` | Optional | Payer/Company Line of Business Id and Description |
-| `print_credit_limit` | `TrueClass \| FalseClass` | Optional | Is Credit Limit printed on the statement of account: True/False<br>If True Credit Limit is printed on invoice/SOA<br>**Default**: `false` |
+| `print_credit_limit` | `TrueClass \| FalseClass` | Optional | Is Credit Limit printed on the statement of account: True/False<br>If True Credit Limit is printed on invoice/SOA<br><br>**Default**: `false` |
 | `card_group_type` | `String` | Optional | Card Group Type configured for Payer<br>e.g. (Id – Description):<br>1-Horizontal only<br>2-Vertical only<br>3-Both |
-| `renew_cards` | `TrueClass \| FalseClass` | Optional | If set to True cards will be automatically renewed on expiry<br>**Default**: `false` |
-| `allow_select_pin` | `TrueClass \| FalseClass` | Optional | If set to True then Self Select PIN is allowed for Payer<br>**Default**: `false` |
+| `renew_cards` | `TrueClass \| FalseClass` | Optional | If set to True cards will be automatically renewed on expiry<br><br>**Default**: `false` |
+| `allow_select_pin` | `TrueClass \| FalseClass` | Optional | If set to True then Self Select PIN is allowed for Payer<br><br>**Default**: `false` |
 | `use_fleet_pin` | `TrueClass \| FalseClass` | Optional | If set to True then Fleet PIN is applied for the cards directly under payer |
 | `vat_reg_number` | `String` | Optional | Payer/Company VAT registration number. |
 | `vat_reg_number_2` | `String` | Optional | Payer/Company VAT registration number 2. |

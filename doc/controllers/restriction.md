@@ -34,8 +34,7 @@ This API will allows querying card details including the day/time and product re
 * Include card bundle details (optional)
 
 ```ruby
-def search_card_restriction(apikey,
-                            request_id,
+def search_card_restriction(request_id,
                             body: nil)
 ```
 
@@ -43,432 +42,38 @@ def search_card_restriction(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
-| `body` | [`SearchCardRestrictionReq`](../../doc/models/search-card-restriction-req.md) | Body, Optional | Restriction search card request body |
+| `body` | [`SearchCardRestrictionReq1`](../../doc/models/search-card-restriction-req-1.md) | Body, Optional | Restriction search card request body |
 
 ## Response Type
 
-[`SearchCardRestrictionRes`](../../doc/models/search-card-restriction-res.md)
+[`SearchCardRestrictionRes1`](../../doc/models/search-card-restriction-res-1.md)
 
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
-result = restriction_controller.search_card_restriction(
-  apikey,
-  request_id
-)
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "Cards": [
-    {
-      "BundleId": null,
-      "Restrictions": {
-        "DayTimeRestrictions": {
-          "Friday": false,
-          "Monday": false,
-          "Saturday": true,
-          "Sunday": true,
-          "Thursday": true,
-          "TimeFrom": "02:00:00",
-          "TimeTo": "19:00:00",
-          "Tuesday": false,
-          "Wednesday": false
-        },
-        "LocationRestrictions": null,
-        "ProductRestrictions": {
-          "FuelSetId": 0,
-          "FuelSetName": null,
-          "NonFuelSets": null,
-          "ProductGroups": [
-            {
-              "IsDefault": true,
-              "IsFuelType": true,
-              "Name": "Electric",
-              "ProductGroupId": "P100",
-              "Products": [
-                {
-                  "Description": "Electric Charge",
-                  "GlobalProductCode": "018"
-                },
-                {
-                  "Description": "Electric Charge - Time",
-                  "GlobalProductCode": "087"
-                },
-                {
-                  "Description": "Electric Charge - Home",
-                  "GlobalProductCode": "088"
-                },
-                {
-                  "Description": "DC Rapid eCharge",
-                  "GlobalProductCode": "486"
-                },
-                {
-                  "Description": "eCharge Connection Fee",
-                  "GlobalProductCode": "489"
-                }
-              ],
-              "ReferenceId": 0
-            },
-            {
-              "IsDefault": true,
-              "IsFuelType": true,
-              "Name": "Standard Diesel",
-              "ProductGroupId": "P105",
-              "Products": [
-                {
-                  "Description": "Diesel AGO",
-                  "GlobalProductCode": "030"
-                },
-                {
-                  "Description": "GTL",
-                  "GlobalProductCode": "031"
-                },
-                {
-                  "Description": "Fuel Economy Diesel (AGO Low Sulphur)",
-                  "GlobalProductCode": "032"
-                },
-                {
-                  "Description": "Two Stroke",
-                  "GlobalProductCode": "035"
-                },
-                {
-                  "Description": "HVO-100",
-                  "GlobalProductCode": "036"
-                },
-                {
-                  "Description": "Industrial GasOil",
-                  "GlobalProductCode": "037"
-                },
-                {
-                  "Description": "AdBlue Bulk",
-                  "GlobalProductCode": "038"
-                },
-                {
-                  "Description": "AdBlue Packed",
-                  "GlobalProductCode": "039"
-                },
-                {
-                  "Description": "HVO Blended",
-                  "GlobalProductCode": "505"
-                }
-              ],
-              "ReferenceId": 0
-            },
-            {
-              "IsDefault": true,
-              "IsFuelType": true,
-              "Name": "Standard Petrol",
-              "ProductGroupId": "P106",
-              "Products": [
-                {
-                  "Description": "Unspecified Unleaded",
-                  "GlobalProductCode": "020"
-                },
-                {
-                  "Description": "Unleaded - High octane",
-                  "GlobalProductCode": "021"
-                },
-                {
-                  "Description": "Unleaded - Medium octane",
-                  "GlobalProductCode": "022"
-                },
-                {
-                  "Description": "Unleaded - Low octane",
-                  "GlobalProductCode": "023"
-                },
-                {
-                  "Description": "Unleaded Environmental",
-                  "GlobalProductCode": "024"
-                },
-                {
-                  "Description": "Leaded and Lead Replacement",
-                  "GlobalProductCode": "025"
-                },
-                {
-                  "Description": "Super Ethanol – E85",
-                  "GlobalProductCode": "502"
-                },
-                {
-                  "Description": "Super Ethanol – E85",
-                  "GlobalProductCode": "502"
-                }
-              ],
-              "ReferenceId": 0
-            },
-            {
-              "IsDefault": true,
-              "IsFuelType": false,
-              "Name": "Alcholic Drink",
-              "ProductGroupId": "P107",
-              "Products": [
-                {
-                  "Description": "Alcoholic drinks",
-                  "GlobalProductCode": "073"
-                }
-              ],
-              "ReferenceId": 0
-            },
-            {
-              "IsDefault": true,
-              "IsFuelType": false,
-              "Name": "Car Cleaning",
-              "ProductGroupId": "P109",
-              "Products": [
-                {
-                  "Description": "Automatic Carwash",
-                  "GlobalProductCode": "065"
-                },
-                {
-                  "Description": "Carwash Subscription",
-                  "GlobalProductCode": "465"
-                }
-              ],
-              "ReferenceId": 0
-            },
-            {
-              "IsDefault": true,
-              "IsFuelType": false,
-              "Name": "Controlled Road Services",
-              "ProductGroupId": "P110",
-              "Products": [
-                {
-                  "Description": "Public transport and taxi",
-                  "GlobalProductCode": "063"
-                },
-                {
-                  "Description": "Others",
-                  "GlobalProductCode": "080"
-                },
-                {
-                  "Description": "Car hire",
-                  "GlobalProductCode": "081"
-                },
-                {
-                  "Description": "Hotels",
-                  "GlobalProductCode": "082"
-                },
-                {
-                  "Description": "Restaurant",
-                  "GlobalProductCode": "083"
-                },
-                {
-                  "Description": "Telephone",
-                  "GlobalProductCode": "089"
-                }
-              ],
-              "ReferenceId": 0
-            },
-            {
-              "IsDefault": true,
-              "IsFuelType": false,
-              "Name": "Food and Drink",
-              "ProductGroupId": "P111",
-              "Products": [
-                {
-                  "Description": "Food (low VAT)",
-                  "GlobalProductCode": "071"
-                },
-                {
-                  "Description": "Non-alcoholic drinks",
-                  "GlobalProductCode": "072"
-                },
-                {
-                  "Description": "Food (high VAT)",
-                  "GlobalProductCode": "075"
-                }
-              ],
-              "ReferenceId": 0
-            }
-          ],
-          "Products": [
-            {
-              "Description": "Diesel AGO",
-              "GlobalProductCode": "030"
-            },
-            {
-              "Description": "GTL",
-              "GlobalProductCode": "031"
-            },
-            {
-              "Description": "Fuel Economy Diesel (AGO Low Sulphur)",
-              "GlobalProductCode": "032"
-            },
-            {
-              "Description": "Two Stroke",
-              "GlobalProductCode": "035"
-            },
-            {
-              "Description": "HVO-100",
-              "GlobalProductCode": "036"
-            },
-            {
-              "Description": "Industrial GasOil",
-              "GlobalProductCode": "037"
-            },
-            {
-              "Description": "AdBlue Bulk",
-              "GlobalProductCode": "038"
-            },
-            {
-              "Description": "AdBlue Packed",
-              "GlobalProductCode": "039"
-            },
-            {
-              "Description": "Automatic Carwash",
-              "GlobalProductCode": "065"
-            },
-            {
-              "Description": "Electric Charge",
-              "GlobalProductCode": "018"
-            },
-            {
-              "Description": "Electric Charge - Time",
-              "GlobalProductCode": "087"
-            },
-            {
-              "Description": "Electric Charge - Home",
-              "GlobalProductCode": "088"
-            },
-            {
-              "Description": "Unspecified Unleaded",
-              "GlobalProductCode": "020"
-            },
-            {
-              "Description": "Unleaded - High octane",
-              "GlobalProductCode": "021"
-            },
-            {
-              "Description": "Unleaded - Medium octane",
-              "GlobalProductCode": "022"
-            },
-            {
-              "Description": "Unleaded - Low octane",
-              "GlobalProductCode": "023"
-            },
-            {
-              "Description": "Unleaded Environmental",
-              "GlobalProductCode": "024"
-            },
-            {
-              "Description": "Leaded and Lead Replacement",
-              "GlobalProductCode": "025"
-            },
-            {
-              "Description": "Public transport and taxi",
-              "GlobalProductCode": "063"
-            },
-            {
-              "Description": "Others",
-              "GlobalProductCode": "080"
-            },
-            {
-              "Description": "Car hire",
-              "GlobalProductCode": "081"
-            },
-            {
-              "Description": "Hotels",
-              "GlobalProductCode": "082"
-            },
-            {
-              "Description": "Restaurant",
-              "GlobalProductCode": "083"
-            },
-            {
-              "Description": "Telephone",
-              "GlobalProductCode": "089"
-            },
-            {
-              "Description": "Food (low VAT)",
-              "GlobalProductCode": "071"
-            },
-            {
-              "Description": "Non-alcoholic drinks",
-              "GlobalProductCode": "072"
-            },
-            {
-              "Description": "Food (high VAT)",
-              "GlobalProductCode": "075"
-            },
-            {
-              "Description": "Alcoholic drinks",
-              "GlobalProductCode": "073"
-            }
-          ],
-          "PurchaseCategoryCode": "null",
-          "PurchaseCategoryId": 0
-        },
-        "UsageRestrictions": null
-      },
-      "RestrictionCurrencyCode": null,
-      "RestrictionCurrencySymbol": null,
-      "AccountId": 449,
-      "AccountName": "Test Card Customer Do Not Block",
-      "AccountNumber": "SG00000446",
-      "AccountShortName": "Test Card Customer Do Not Block",
-      "CardId": 6215,
-      "CardTypeCode": "7002872",
-      "CardTypeId": 15,
-      "CardTypeName": "SG FLE NAT SIN R2",
-      "ColCoCurrencyCode": "SGD",
-      "ColCoCurrencySymbol": "$",
-      "CurrencyCode": "SGD",
-      "CurrencySymbol": "$",
-      "DriverName": "P1D3 FEB 16TH",
-      "ExpiryDate": "20270430",
-      "IsCRT": false,
-      "IsFleet": true,
-      "IsInternational": false,
-      "IsNational": true,
-      "IsPartnerSitesIncluded": true,
-      "IsShellSitesOnly": false,
-      "IssueDate": "20240301",
-      "IssueNumber": 1,
-      "IsSuperseded": false,
-      "IsVirtualCard": false,
-      "PAN": "7002872532799004748",
-      "PurchaseCategoryCode": "1",
-      "PurchaseCategoryId": 55,
-      "PurchaseCategoryName": "1 - All Fuel Products",
-      "StatusDescription": "Active",
-      "StatusId": 1,
-      "VRN": "1234",
-      "MediumTypeID": 1,
-      "MediumType": "Fuel Card"
-    }
-  ],
-  "Error": {
-    "Code": "0000",
-    "Description": "Unable to fetch Usage Restriction / Day Time Restriction / Location Restriction details for few/all the cards."
-  },
-  "RequestId": "91bbb8f0-ec5c-473b-aa3a-a4eeca5ad594"
-}
+result = restriction_controller.search_card_restriction(request_id)
+puts result
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`FleetmanagementV2RestrictionSearchcard401ErrorException`](../../doc/models/fleetmanagement-v2-restriction-searchcard-401-error-exception.md) |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | [`FleetmanagementV2RestrictionSearchcard500ErrorException`](../../doc/models/fleetmanagement-v2-restriction-searchcard-500-error-exception.md) |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 
 
 # Apply Restriction
 
 The Card Limit and Restriction API is REST-based and employs Basic and ApiKey authentication. The API endpoints accept JSON-encoded request bodies, return JSON-encoded responses and use standard HTTP response codes.
 
-All resources are located in the Shell Card Platform.  The Shell Card Platform is the overall platform that encompasses all the internal Shell systems used to manage resources. The internal workings of the platform are not important when interacting with the API. However, it is worth noting that the platform uses a microservice architecture to communicate with various backend systems and some API calls are processed asynchronously.
+All resources are located in the Shell Card Platform.  The Shell Card Platform is the overall platform that encompasses all the internal Shell systems used to manage resources. The internal workings of the platform are not important when interacting with the API. However, it is worth noting that the platform uses to communicate with various backend systems and some API calls are processed asynchronously.
 
 All endpoints use the `POST` verb for retrieving, updating, creating and deleting resources in the Shell Card Platform. The endpoints that retrieve resources from the Shell Card Platform allow flexible search parameters in the API request body.
 
@@ -486,8 +91,7 @@ Usage restrictions for a card are lower than Customer Card Type level limits, if
 •    If ‘SetDefaultOnVelocityUpdate’ is ‘true’ then the operation will apply customer cardtype or OU level velocity limits on existing cards when restrictions are modified without providing custom values for all fields.
 
 ```ruby
-def apply_restriction(apikey,
-                      request_id,
+def apply_restriction(request_id,
                       body: nil)
 ```
 
@@ -495,36 +99,56 @@ def apply_restriction(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
 | `body` | [`CardRestrictionReq`](../../doc/models/card-restriction-req.md) | Body, Optional | Card Restriction request body |
 
 ## Response Type
 
-[`CardRestrictionResponse`](../../doc/models/card-restriction-response.md)
+[`CardRestrictionRes`](../../doc/models/card-restriction-res.md)
 
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
-result = restriction_controller.apply_restriction(
-  apikey,
-  request_id
-)
+result = restriction_controller.apply_restriction(request_id)
+puts result
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "Data": [
+    {
+      "AccountId": 158,
+      "AccountNumber": "DE00000141",
+      "CardId": "419096",
+      "DayTimeRestrictionDescription": "0000 - Success",
+      "DayTimeRestrictionStatus": "Success",
+      "LocationRestrictionDescription": "0000 - Success",
+      "LocationRestrictionStatus": "Success",
+      "PAN": "7002141909591602074",
+      "ProductRestrictionDescription": "0000 - Success",
+      "ProductRestrictionStatus": "Success",
+      "UsageRestrictionDescription": "0000 - Success",
+      "UsageRestrictionStatus": "Success"
+    }
+  ],
+  "RequestId": "598e9f58-a397-4914-9548-6217d3c2f9d3",
+  "Status": "SUCCESS"
+}
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | `APIException` |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 
 
 # Create Bundle
@@ -552,8 +176,7 @@ The following are the key validation rules with the associated error codes for f
 * `0007` - Error returned if request parameters fail validation e.g. mandatory check.
 
 ```ruby
-def create_bundle(apikey,
-                  request_id,
+def create_bundle(request_id,
                   body: nil)
 ```
 
@@ -561,36 +184,31 @@ def create_bundle(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
 | `body` | [`CreateBundleRequest`](../../doc/models/create-bundle-request.md) | Body, Optional | CreateBundle request body |
 
 ## Response Type
 
-[`CreateBundleResponse`](../../doc/models/create-bundle-response.md)
+[`CreateBundleRes`](../../doc/models/create-bundle-res.md)
 
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
-result = restriction_controller.create_bundle(
-  apikey,
-  request_id
-)
+result = restriction_controller.create_bundle(request_id)
+puts result
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | `APIException` |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 
 
 # Update Bundle
@@ -620,8 +238,7 @@ The following are the key validation rules with the associated error codes for f
 * `0007` - Error returned if request parameters fail validation e.g. at least one card must be provided in the input.
 
 ```ruby
-def update_bundle(apikey,
-                  request_id,
+def update_bundle(request_id,
                   body: nil)
 ```
 
@@ -629,36 +246,31 @@ def update_bundle(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
 | `body` | [`UpdateBundleRequest`](../../doc/models/update-bundle-request.md) | Body, Optional | Update Bundle request body |
 
 ## Response Type
 
-[`UpdateBundleResponse`](../../doc/models/update-bundle-response.md)
+[`UpdateBundleRes`](../../doc/models/update-bundle-res.md)
 
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
-result = restriction_controller.update_bundle(
-  apikey,
-  request_id
-)
+result = restriction_controller.update_bundle(request_id)
+puts result
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | `APIException` |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 
 
 # Delete Bundle
@@ -677,8 +289,7 @@ The following are the key validation rules with the associated error codes for f
 * `0007` - Error returned if request parameters fail validation e.g. mandatory check.
 
 ```ruby
-def delete_bundle(apikey,
-                  request_id,
+def delete_bundle(request_id,
                   body: nil)
 ```
 
@@ -686,7 +297,6 @@ def delete_bundle(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
 | `body` | [`DeleteBundleRequest`](../../doc/models/delete-bundle-request.md) | Body, Optional | Update Bundle request body |
 
@@ -697,8 +307,6 @@ def delete_bundle(apikey,
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
 body = DeleteBundleRequest.new(
@@ -712,33 +320,21 @@ body = DeleteBundleRequest.new(
 )
 
 result = restriction_controller.delete_bundle(
-  apikey,
   request_id,
   body: body
 )
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "Error": {
-    "Description": "Success",
-    "Code": "0000"
-  },
-  "RequestId": "ed557f02-c7d7-4c01-b3e5-11bf3239c8ed"
-}
+puts result
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | `APIException` |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 
 
 # Summary of Bundles
@@ -752,8 +348,7 @@ Note - to include count of cards of an account that are not associated with any 
 * Get summary of bundles by list of bundle Ids
 
 ```ruby
-def summary_of_bundles(apikey,
-                       request_id,
+def summary_of_bundles(request_id,
                        body: nil)
 ```
 
@@ -761,39 +356,68 @@ def summary_of_bundles(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
 | `body` | [`SummaryofbundlerRequest`](../../doc/models/summaryofbundler-request.md) | Body, Optional | Summary of Bundle request body |
 
 ## Response Type
 
-[`SummaryofbundleResponse`](../../doc/models/summaryofbundle-response.md)
+[`SummaryofbundleRes`](../../doc/models/summaryofbundle-res.md)
 
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
-body = SummaryofbundlerRequest.new
+body = SummaryofbundlerRequest.new(
+  nil,
+  nil,
+  nil,
+  nil,
+  nil,
+  nil,
+  []
+)
 
 result = restriction_controller.summary_of_bundles(
-  apikey,
   request_id,
   body: body
 )
+puts result
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "RequestId": "0e6fb42a-51b0-43b2-f010-92f822657f6a",
+  "Status": "SUCCESS",
+  "Data": [
+    {
+      "PayerId": 101,
+      "PayerNumber": "PN456789",
+      "AccountId": 202,
+      "AccountNumber": "789456123",
+      "CountOfCardsNotInBundle": 2,
+      "CardBundles": {
+        "BundleId": "1",
+        "ExternalBundleId": "11",
+        "Description": "Fuel Card Bundle",
+        "TotalCards": 10
+      }
+    }
+  ]
+}
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | `APIException` |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 
 
 # Restriction Account
@@ -808,8 +432,7 @@ Then validation rules applied for this API.
 •    In usage restrictions, the limits per transaction should be less than or equal to Daily, Daily should be less than or equal to Weekly, Weekly should be less than or equal to Monthly. Exception being 0/blank will be skipped, i.e., Daily value should be less than equal to Monthly value if Weekly value is 0/blank.
 
 ```ruby
-def restriction_account(apikey,
-                        request_id,
+def restriction_account(request_id,
                         body: nil)
 ```
 
@@ -817,36 +440,48 @@ def restriction_account(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
 | `body` | [`AccountRestrictionRequest`](../../doc/models/account-restriction-request.md) | Body, Optional | Account Restriction request body |
 
 ## Response Type
 
-[`AccountRestrictionResponse`](../../doc/models/account-restriction-response.md)
+[`AccountRestrictionRes`](../../doc/models/account-restriction-res.md)
 
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
-result = restriction_controller.restriction_account(
-  apikey,
-  request_id
-)
+result = restriction_controller.restriction_account(request_id)
+puts result
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "RequestId": "0e6fb42a-51b0-43b2-f010-92f822657f6a",
+  "Status": "SUCCESS",
+  "Data": [
+    {
+      "AccountId": 303,
+      "AccountNumber": "ACC789456123",
+      "UsageRestrictionStatus": "Success",
+      "UsageRestrictionDescription": "Usage restrictions applied successfully"
+    }
+  ]
+}
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | `APIException` |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 
 
 # Search Account Limit
@@ -854,8 +489,7 @@ result = restriction_controller.restriction_account(
 This API will allow user to get account level limits for the given account. It returns the velocity limits if its overridden at the account else the values will be null/empty.
 
 ```ruby
-def search_account_limit(apikey,
-                         request_id,
+def search_account_limit(request_id,
                          body: nil)
 ```
 
@@ -863,19 +497,16 @@ def search_account_limit(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
 | `body` | [`SearchAccountLimitRequest`](../../doc/models/search-account-limit-request.md) | Body, Optional | Search Account Limit RequestBody |
 
 ## Response Type
 
-[`SearchAccountLimitResponse`](../../doc/models/search-account-limit-response.md)
+[`SearchAccountLimitRes`](../../doc/models/search-account-limit-res.md)
 
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
 body = SearchAccountLimitRequest.new(
@@ -887,36 +518,52 @@ body = SearchAccountLimitRequest.new(
 )
 
 result = restriction_controller.search_account_limit(
-  apikey,
   request_id,
   body: body
 )
+puts result
 ```
 
 ## Example Response *(as JSON)*
 
 ```json
 {
-  "RequestId": "2ace3991-5d03-4a68-ac68-ca9119b25101",
-  "AccountId": 1232,
-  "ReferenceProduct": "021",
-  "RestrictionCondition": "DECLINE_ALERT",
-  "VelocityLimits": [
+  "RequestId": "233e4567-e89b-12d3-a456-426614174000",
+  "Status": "SUCCESS",
+  "Data": [
     {
-      "Type": "VALUE",
-      "Period": "MONTHLY",
-      "Limit": 330,
-      "Accumulation": 2220,
-      "Balance": 230,
-      "Override": true,
-      "ProductGroup": "RoadSvc",
-      "Threshold": 3230
+      "AccountId": 12,
+      "AccountNumber": "BE00000009",
+      "ReferenceProduct": "030",
+      "RestrictionCondition": "DECLINE",
+      "VelocityLimits": [
+        {
+          "Accumulation": 0,
+          "Balance": 10,
+          "Limit": 10,
+          "Override": true,
+          "Period": "DAILY",
+          "Type": "VOLUME"
+        },
+        {
+          "Accumulation": 0,
+          "Balance": 146,
+          "Limit": 146,
+          "Override": true,
+          "Period": "WEEKLY",
+          "Type": "VOLUME"
+        },
+        {
+          "Accumulation": 0,
+          "Balance": 5,
+          "Limit": 5,
+          "Override": true,
+          "Period": "DAILY",
+          "Type": "COUNT"
+        }
+      ]
     }
-  ],
-  "Error": {
-    "Code": "0000",
-    "Description": "Success"
-  }
+  ]
 }
 ```
 
@@ -924,11 +571,11 @@ result = restriction_controller.search_account_limit(
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | `APIException` |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 
 
 # Bundle Details
@@ -936,8 +583,7 @@ result = restriction_controller.search_account_limit(
 This API allows to get the details of a specific card bundle. It returns the bundle basic details along with the cards in the bundle and restrictions applied on them.
 
 ```ruby
-def bundle_details(apikey,
-                   request_id,
+def bundle_details(request_id,
                    body: nil)
 ```
 
@@ -945,45 +591,134 @@ def bundle_details(apikey,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `apikey` | `String` | Header, Required | This is the API key of the specific environment which needs to be passed by the client. |
 | `request_id` | `String` | Header, Required | Mandatory UUID (according to RFC 4122 standards) for requests and responses. This will be played back in the response from the request. |
-| `body` | [`BudleDetailsRequest`](../../doc/models/budle-details-request.md) | Body, Optional | Bundle Details Request body |
+| `body` | [`BudleDetailsReq`](../../doc/models/budle-details-req.md) | Body, Optional | Bundle Details Request body |
 
 ## Response Type
 
-[`BundleDetailsResponse`](../../doc/models/bundle-details-response.md)
+[`BundleDetails`](../../doc/models/bundle-details.md)
 
 ## Example Usage
 
 ```ruby
-apikey = 'apikey6'
-
 request_id = 'RequestId8'
 
-body = BudleDetailsRequest.new(
-  nil,
-  32,
-  nil,
-  'CZ00000927',
-  nil,
-  'CZ00000927',
-  '1060'
-)
+result = restriction_controller.bundle_details(request_id)
+puts result
+```
 
-result = restriction_controller.bundle_details(
-  apikey,
-  request_id,
-  body: body
-)
+## Example Response *(as JSON)*
+
+```json
+{
+  "RequestId": "233e4567-e89b-12d3-a456-426614174000",
+  "Status": "SUCCESS",
+  "Data": [
+    {
+      "AccountId": 56,
+      "AccountNumber": "BE00000050",
+      "BundleId": "124",
+      "Description": "Fleet fuel card bundle for Belgium",
+      "ExternalBundleId": "POC2TestBundleUpdate1",
+      "PayerId": 56,
+      "PayerNumber": "BE00000050",
+      "Pans": [
+        "7002091557439980713"
+      ],
+      "Restrictions": {
+        "DayTimeRestriction": {
+          "Friday": true,
+          "Monday": false,
+          "Saturday": true,
+          "Sunday": true,
+          "Thursday": false,
+          "TimeFrom": "03:10:00",
+          "TimeTo": "12:00:00",
+          "Tuesday": false,
+          "Wednesday": false
+        },
+        "LocationRestriction": {
+          "CountryRestrictions": {
+            "Countries": [
+              "250"
+            ],
+            "Exclusive": true
+          },
+          "NetworkRestrictions": [
+            {
+              "Country": "826",
+              "Exclusive": false,
+              "Networks": [
+                "0002003826"
+              ]
+            }
+          ],
+          "PartnerSiteRestrictions": [],
+          "ShellSiteRestrictions": []
+        },
+        "ProductRestriction": {
+          "FuelSetId": 0,
+          "FuelSetName": "",
+          "NonFuelSets": null,
+          "ProductGroups": [],
+          "Products": [
+            "010",
+            "011"
+          ],
+          "PurchaseCategoryCode": "1",
+          "PurchaseCategoryId": 113
+        },
+        "UsageRestriction": {
+          "AnnualSpend": 0,
+          "AnnualTransactionCount": 0,
+          "AnnualVolume": 0,
+          "DailySpend": 1000,
+          "DailyTransactionCount": 3,
+          "DailyVolume": 10,
+          "LifeTimeSpend": 0,
+          "LifeTimeTransactionCount": 0,
+          "LifeTimeVolume": 0,
+          "MonthlySpend": 14000,
+          "MonthlyTransactionCount": 20,
+          "MonthlyVolume": 1000,
+          "PerTransactionSpend": 800,
+          "PerTransactionVolume": 10,
+          "WeeklySpend": 0,
+          "WeeklyTransactionCount": 9,
+          "WeeklyVolume": 100,
+          "AnnualSpendOverride": false,
+          "DailySpendOverride": true,
+          "LifeTimeSpendOverride": false,
+          "MonthlySpendOverride": true,
+          "PerTransactionSpendOverride": true,
+          "WeeklySpendOverride": false,
+          "DailyVolumeOverride": true,
+          "WeeklyVolumeOverride": true,
+          "MonthlyVolumeOverride": true,
+          "PerTransactionVolumeOverride": true,
+          "AnnualVolumeOverride": false,
+          "LifeTimeVolumeOverride": false,
+          "DailyTransactionOverride": true,
+          "WeeklyTransactionOverride": true,
+          "MonthlyTransactionOverride": true,
+          "AnnualTransactionOverride": false,
+          "LifeTimeTransactionOverride": false
+        }
+      },
+      "RestrictionCurrencyCode": "EUR",
+      "RestrictionCurrencySymbol": "€"
+    }
+  ]
+}
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | The server cannot or will not process the request  due to something that is perceived to be a client<br>error (e.g., malformed request syntax, invalid<br>request message framing, or deceptive request routing). | `APIException` |
-| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | `APIException` |
-| 403 | The server understood the request but refuses to authorize it. | `APIException` |
-| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | `APIException` |
-| 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
+| 400 | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 401 | The request has not been applied because it lacks valid  authentication credentials for the target resource. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 403 | Forbidden | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 404 | The origin server did not find a current representation  for the target resource or is not willing to disclose  that one exists. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
+| 500 | The server encountered an unexpected condition that  prevented it from fulfilling the request. | [`ErrorObjectErrorException`](../../doc/models/error-object-error-exception.md) |
 

@@ -9,18 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `request_id` | `String` | Optional | API Request Id |
-| `error` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
+| `request_id` | `String` | Optional | Unique identifier for the request. This will be played back in the response from the request. |
+| `status` | `String` | Optional | Status of the request |
 
 ## Example (as JSON)
 
 ```json
 {
-  "RequestId": "RequestId4",
-  "Error": {
-    "Code": "Code4",
-    "Description": "Description2"
-  }
+  "RequestId": "0e6fb42a-51b0-43b2-f010-92f822657f6a",
+  "Status": "SUCCESS"
 }
 ```
 
