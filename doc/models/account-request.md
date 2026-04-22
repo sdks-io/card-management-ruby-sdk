@@ -21,9 +21,9 @@
 | `invoice_points_only` | `TrueClass \| FalseClass` | Optional | Optional – default value: false.<br>When passed as true, the API will return accounts that are configured as Invoice Point only.<br><br>**Default**: `false` |
 | `col_co_id` | `Integer` | Optional | Collecting Company Id  of the selected payer.<br>Optional if ColCoCode or ColCoCountryCode  is passed else Mandatory. |
 | `return_tolls_customer_id` | `TrueClass \| FalseClass` | Optional | Return e-Toll Customer details When True. |
-| `accounts` | [`Array<Accounts>`](../../doc/models/accounts.md) | Optional | - |
+| `accounts` | [`Array[Accounts]`](../../doc/models/accounts.md) | Optional | - |
 | `account_name` | `String` | Optional | Account Name of the customer.<br>Optional.<br>Minimum of 4 characters should be provided else not considered.<br>Accounts those have the entered value at any part of the Name will be returned. |
-| `status_list` | `Array<String>` | Optional | Account Statuses.<br>Optional<br>Multiple statuses are allowed to be included in the search criteria.<br>Allowed values:<br>•    ACTIVE<br>•    BLOCKED<br>•    CANCELLED<br>•    CREDITLOCK<br>•    DELINQUENCYLOCK |
+| `status_list` | `Array[String]` | Optional | Account Statuses.<br>Optional<br>Multiple statuses are allowed to be included in the search criteria.<br>Allowed values:<br>•    ACTIVE<br>•    BLOCKED<br>•    CANCELLED<br>•    CREDITLOCK<br>•    DELINQUENCYLOCK |
 
 ## Example (as JSON)
 

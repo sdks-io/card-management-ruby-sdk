@@ -114,5 +114,53 @@ module ShellCardManagementApIs
 
       CARD_DETAILS_RESPONSE_INTERNATIONAL_POS_LANGUAGE_ID_ENUM.include?(value)
     end
+
+    def self.from_value(value, default_value = ENUM_1)
+      return default_value if value.nil?
+
+      str = value.to_s.strip
+      if str.match?(/\A\d+\z/)
+        num = str.to_i
+        return num if CARD_DETAILS_RESPONSE_INTERNATIONAL_POS_LANGUAGE_ID_ENUM.include?(num)
+
+        return default_value
+      end
+
+      case str.downcase
+      when 'enum_1' then ENUM_1
+      when 'enum_2' then ENUM_2
+      when 'enum_3' then ENUM_3
+      when 'enum_4' then ENUM_4
+      when 'enum_5' then ENUM_5
+      when 'enum_6' then ENUM_6
+      when 'enum_7' then ENUM_7
+      when 'enum_8' then ENUM_8
+      when 'enum_9' then ENUM_9
+      when 'enum_10' then ENUM_10
+      when 'enum_11' then ENUM_11
+      when 'enum_12' then ENUM_12
+      when 'enum_13' then ENUM_13
+      when 'enum_14' then ENUM_14
+      when 'enum_15' then ENUM_15
+      when 'enum_16' then ENUM_16
+      when 'enum_17' then ENUM_17
+      when 'enum_18' then ENUM_18
+      when 'enum_19' then ENUM_19
+      when 'enum_20' then ENUM_20
+      when 'enum_21' then ENUM_21
+      when 'enum_22' then ENUM_22
+      when 'enum_23' then ENUM_23
+      when 'enum_24' then ENUM_24
+      when 'enum_25' then ENUM_25
+      when 'enum_26' then ENUM_26
+      when 'enum_27' then ENUM_27
+      when 'enum_28' then ENUM_28
+      when 'enum_29' then ENUM_29
+      when 'enum_30' then ENUM_30
+      when 'enum_31' then ENUM_31
+      else
+        default_value
+      end
+    end
   end
 end

@@ -14,7 +14,7 @@
 | `account_number` | `String` | Optional | Account Number |
 | `account_short_name` | `String` | Optional | Account Short Name |
 | `bundle_id` | `String` | Optional | Bundle Id associated with card in the Gateway.<br /><br><br>This field will have null value if the card is not associated with any bundle in Gateway or the value of IncludeBundleDetails in request is false. |
-| `card_block_schedules` | [`Array<CardBlockSchedule>`](../../doc/models/card-block-schedule.md) | Optional | List of Scheduled Card Blocks details<br /><br>Entity: CardBlockSchedule |
+| `card_block_schedules` | [`Array[CardBlockSchedule]`](../../doc/models/card-block-schedule.md) | Optional | List of Scheduled Card Blocks details<br /><br>Entity: CardBlockSchedule |
 | `card_group_id` | `Integer` | Optional | Card group ID |
 | `card_group_name` | `String` | Optional | Card group name |
 | `card_id` | `Integer` | Optional | Unique Card Id |

@@ -15,7 +15,7 @@
 | `payer_number` | `String` | Optional | Payer Number (Ex: GB000000123) of the selected payer.<br>Optional if PayerId is passed else Mandatory |
 | `account_id` | `Integer` | Optional | Account ID of the customer.<br>Optional if AccountNumber is passed, else mandatory. |
 | `account_number` | `String` | Optional | Account Number of the customer.<br>Optional if AccountId is passed, else mandatory.<br>This input is a search criterion, if given. |
-| `delivery_address_updates` | [`Array<DeliveryAddressUpdate>`](../../doc/models/delivery-address-update.md) | Optional | - |
+| `delivery_address_updates` | [`Array[DeliveryAddressUpdate]`](../../doc/models/delivery-address-update.md) | Optional | - |
 
 ## Example (as JSON)
 

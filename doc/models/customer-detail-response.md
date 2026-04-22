@@ -19,7 +19,7 @@
 | `billing_address` | [`Address`](../../doc/models/address.md) | Optional | - |
 | `card_group_position` | `String` | Optional | Card group position at –<br>•    Payer – Payer level<br>•    Account – Account level |
 | `correspondence_address` | [`Address`](../../doc/models/address.md) | Optional | - |
-| `delivery_addresses` | [`Array<DeliveryAddresses>`](../../doc/models/delivery-addresses.md) | Optional | - |
+| `delivery_addresses` | [`Array[DeliveryAddresses]`](../../doc/models/delivery-addresses.md) | Optional | - |
 | `fleet_pin` | `TrueClass \| FalseClass` | Optional | Is Fleet Pin optional enabled for the selected account |
 | `full_name` | `String` | Optional | Full Name of the customer |
 | `invoice_customer_id` | `Integer` | Optional | Customer Id of the Invoice Point of the account |
@@ -33,7 +33,7 @@
 | `self_selected_pin` | `TrueClass \| FalseClass` | Optional | Is Self-selected Pin enabled for the account |
 | `status` | `String` | Optional | Payer current status id and description<br>e.g. (Id – Description):<br>1-Active<br>2-Requested from UTA<br>3-Awaiting embossing<br>4-Manufactured<br>5-Awaiting despatch |
 | `default_pin_advice_type` | `Integer` | Optional | Default PIN AdviceType of the customer.<br>Possible Values:<br><br>1. Paper<br>2. Email<br>3. SMS<br>4. None |
-| `pin_advice_types` | [`Array<PINAdviceTypes>`](../../doc/models/pin-advice-types.md) | Optional | - |
+| `pin_advice_types` | [`Array[PINAdviceTypes]`](../../doc/models/pin-advice-types.md) | Optional | - |
 | `pin_change_allowed_by_cardholder` | `TrueClass \| FalseClass` | Optional | PIN change allowed for card holder or not. |
 | `pin_change_allowed_from_fleet_pin` | `TrueClass \| FalseClass` | Optional | PIN change allowed from fleetpin or not. |
 

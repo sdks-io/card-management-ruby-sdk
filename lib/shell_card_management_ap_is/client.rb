@@ -9,6 +9,10 @@ module ShellCardManagementApIs
     include CoreLibrary
     attr_reader :config, :auth_managers
 
+    def user_agent_detail
+      config.user_agent_detail
+    end
+
     # Returns the configured authentication BearerToken instance.
     def bearer_token
       @auth_managers['BearerToken']
@@ -43,8 +47,9 @@ module ShellCardManagementApIs
       max_retries: 0, retry_interval: 1, backoff_factor: 2,
       retry_statuses: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
       retry_methods: %i[get put], http_callback: nil, proxy_settings: nil,
-      environment: Environment::SIT, client_credentials_auth_credentials: nil,
-      config: nil
+      environment: Environment::SIT, o_auth_client_id: nil,
+      o_auth_client_secret: nil, o_auth_token: nil,
+      client_credentials_auth_credentials: nil, config: nil
     )
       @config = if config.nil?
                   Configuration.new(
@@ -54,6 +59,9 @@ module ShellCardManagementApIs
                     retry_statuses: retry_statuses,
                     retry_methods: retry_methods, http_callback: http_callback,
                     proxy_settings: proxy_settings, environment: environment,
+                    o_auth_client_id: o_auth_client_id,
+                    o_auth_client_secret: o_auth_client_secret,
+                    o_auth_token: o_auth_token,
                     client_credentials_auth_credentials: client_credentials_auth_credentials
                   )
                 else
@@ -78,6 +86,13 @@ module ShellCardManagementApIs
       @auth_managers['BearerToken'] = OAuth2.new(
         http_client_config.client_credentials_auth_credentials, global_config
       )
+    end
+
+    # Creates a client directly from environment variables.
+    def self.from_env(**overrides)
+      default_config = Configuration.build_default_config_from_env
+      new_config = default_config.clone_with(**overrides)
+      new(config: new_config)
     end
   end
 end

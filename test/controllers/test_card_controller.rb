@@ -31,7 +31,7 @@ class CardControllerTest < ControllerTestBase
     assert_equal(200, @response_catcher.response.status_code)
     # Test headers
     expected_headers = {}
-    expected_headers['content-type'] = 'application/json'
+    expected_headers['content-type'] = 'application/json; charset=utf-8'
 
     assert(ComparisonHelper.match_headers(expected_headers, @response_catcher.response.headers))
 
@@ -104,7 +104,7 @@ class CardControllerTest < ControllerTestBase
   #
   ##### Asynchronous processing of valid API request 
   #  * Move card requests that have been submitted and processed will be reflected after midnight according to the customers local date
-  #    
+  #
   def test_card_move
     # Parameters for the API call
     request_id = '233e4567-e89b-12d3-a456-426614174000'
@@ -120,7 +120,7 @@ class CardControllerTest < ControllerTestBase
     assert_equal(200, @response_catcher.response.status_code)
     # Test headers
     expected_headers = {}
-    expected_headers['content-type'] = 'application/json'
+    expected_headers['content-type'] = 'application/json; charset=utf-8'
 
     assert(ComparisonHelper.match_headers(expected_headers, @response_catcher.response.headers))
 

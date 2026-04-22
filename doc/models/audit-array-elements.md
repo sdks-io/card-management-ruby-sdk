@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `audits` | [`Array<AuditResponseAuditsItems>`](../../doc/models/audit-response-audits-items.md) | Optional | - |
+| `audits` | [`Array[AuditResponseAuditsItems]`](../../doc/models/audit-response-audits-items.md) | Optional | - |
 
 ## Example (as JSON)
 

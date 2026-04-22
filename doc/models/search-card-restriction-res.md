@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `request_id` | `String` | Optional | Request Id of the API call |
-| `cards` | [`Array<RestrictionCardList>`](../../doc/models/restriction-card-list.md) | Optional | - |
+| `cards` | [`Array[RestrictionCardList]`](../../doc/models/restriction-card-list.md) | Optional | - |
 | `restrictions` | [`Restriction`](../../doc/models/restriction.md) | Optional | - |
 | `error` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
 

@@ -14,7 +14,8 @@ module ShellCardManagementApIs
     # @return [UUID | String]
     attr_accessor :request_id
 
-    # Indicates overall status of the request
+    # Mandatory UUID (according to RFC 4122 standards) for requests and
+    # responses. This will be played back in the response from the requests.
     # @return [DeliveryAddressUpdateStatusEnum]
     attr_accessor :status
 

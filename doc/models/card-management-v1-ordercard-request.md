@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `card_details` | [`Array<CardDetail>`](../../doc/models/card-detail.md) | Optional | List of CardOrder entity. The fields in this entity are described below. |
+| `card_details` | [`Array[CardDetail]`](../../doc/models/card-detail.md) | Optional | List of CardOrder entity. The fields in this entity are described below. |
 
 ## Example (as JSON)
 

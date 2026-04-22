@@ -14,7 +14,7 @@
 | `col_co_country_code` | `String` | Optional | - |
 | `payer_number` | `String` | Optional | - |
 | `payer_id` | `Integer` | Optional | - |
-| `cards` | [`Array<CardMoveRequestCardsItems>`](../../doc/models/card-move-request-cards-items.md) | Optional | - |
+| `cards` | [`Array[CardMoveRequestCardsItems]`](../../doc/models/card-move-request-cards-items.md) | Optional | - |
 | `target_account_id` | `Integer` | Optional | - |
 | `target_account_number` | `String` | Optional | - |
 | `target_card_group_id` | `Integer` | Optional | - |

@@ -19,5 +19,18 @@ module ShellCardManagementApIs
 
       CARD_DETAILS_RESPONSE_PIN_TYPE_ENUM.include?(value)
     end
+
+    def self.from_value(value, default_value = CARD)
+      return default_value if value.nil?
+
+      str = value.to_s.strip
+
+      case str.downcase
+      when 'card' then CARD
+      when 'fleet' then FLEET
+      else
+        default_value
+      end
+    end
   end
 end

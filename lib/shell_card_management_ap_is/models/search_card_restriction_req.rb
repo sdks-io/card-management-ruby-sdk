@@ -53,7 +53,7 @@ module ShellCardManagementApIs
     # Identifier of the Card bundle
     # Optional if cards list is given, else mandatory.
     # This input is a search criterion, if given.
-    # @return [SearchCardRestriction]
+    # @return [Array[SearchCardRestriction]]
     attr_accessor :cards
 
     # True/False
@@ -154,7 +154,16 @@ module ShellCardManagementApIs
       payer_number = hash.key?('PayerNumber') ? hash['PayerNumber'] : SKIP
       accounts = Accounts.from_hash(hash['Accounts']) if hash['Accounts']
       bundle_id = hash.key?('BundleId') ? hash['BundleId'] : SKIP
-      cards = SearchCardRestriction.from_hash(hash['Cards']) if hash['Cards']
+      # Parameter is an array, so we need to iterate through it
+      cards = nil
+      unless hash['Cards'].nil?
+        cards = []
+        hash['Cards'].each do |structure|
+          cards << (SearchCardRestriction.from_hash(structure) if structure)
+        end
+      end
+
+      cards = SKIP unless hash.key?('Cards')
       include_location_restrictions =
         hash.key?('IncludeLocationRestrictions') ? hash['IncludeLocationRestrictions'] : SKIP
       include_bundle_details =

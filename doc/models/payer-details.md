@@ -48,7 +48,7 @@
 | `day_2_run` | `Integer` | Optional | The second day in a month when the billing should run in case of multiple billing runs configured with in a single month. |
 | `day_3_run` | `Integer` | Optional | The third day in a month when the billing should run in case of multiple billing runs configured with in a single month. |
 | `day_4_run` | `Integer` | Optional | The fourth day in a month when the billing should run in case of multiple billing runs configured with in a single month. |
-| `invoice_distribution_methods` | [`Array<InvoiceDistributionMethod>`](../../doc/models/invoice-distribution-method.md) | Optional | - |
+| `invoice_distribution_methods` | [`Array[InvoiceDistributionMethod]`](../../doc/models/invoice-distribution-method.md) | Optional | - |
 | `output_type` | `String` | Optional | Invoice output type (Id-Description)<br>E.g.:<br>1-PDF<br>6-Print |
 | `invoice_account_id` | `Integer` | Optional | The Account ID of the account on which the invoice is generated. |
 | `invoice_account_number` | `String` | Optional | The Account Number of the account on which the invoice is generated. |
@@ -103,7 +103,7 @@
 | `temporary_credit_limit_increase` | `Float` | Optional | Temporary Credit limit increase value |
 | `temporary_credit_limit_increase_in_customer_currency` | `Float` | Optional | Temporary Credit limit increase value |
 | `temporary_credit_limit_expiry_date` | `String` | Optional | Temporary Credit limit expiry date |
-| `payer_bank_account` | [`Array<BankAccount>`](../../doc/models/bank-account.md) | Optional | - |
+| `payer_bank_account` | [`Array[BankAccount]`](../../doc/models/bank-account.md) | Optional | - |
 | `card_delivery_address` | [`Address`](../../doc/models/address.md) | Optional | - |
 | `correspondance_address` | [`Address`](../../doc/models/address.md) | Optional | - |
 | `billing_address` | [`Address`](../../doc/models/address.md) | Optional | - |
@@ -113,7 +113,7 @@
 | `finance_currency` | [`FinanceCurrency2`](../../doc/models/finance-currency-2.md) | Optional | - |
 | `tolls_customer_id` | `String` | Optional | Customer id in e-TM system<br>This field will have value only when ReturnTollsCustomerId is set to true in the request else set to null or empty. |
 | `tolls_colco_country_type_id` | `String` | Optional | String    Colco country type id in e-TM system<br>This field will have value only when ReturnTollsCustomerId is set to true in the request else set to null or empty. |
-| `contracts` | [`Array<CustomerContract>`](../../doc/models/customer-contract.md) | Optional | - |
+| `contracts` | [`Array[CustomerContract]`](../../doc/models/customer-contract.md) | Optional | - |
 
 ## Example (as JSON)
 

@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `request_id` | `String` | Optional | Unique identifier for the request. This will be played back in the response from the request. |
 | `status` | `String` | Optional | Status of the request |
-| `data` | [`Array<PurchaseCategoryResponse>`](../../doc/models/purchase-category-response.md) | Optional | - |
+| `data` | [`Array[PurchaseCategoryResponse]`](../../doc/models/purchase-category-response.md) | Optional | - |
 
 ## Example (as JSON)
 

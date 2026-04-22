@@ -22,5 +22,19 @@ module ShellCardManagementApIs
 
       DELIVERY_ADDRESS_UPDATE_STATUS_ENUM.include?(value)
     end
+
+    def self.from_value(value, default_value = SUCCESS)
+      return default_value if value.nil?
+
+      str = value.to_s.strip
+
+      case str.downcase
+      when 'success' then SUCCESS
+      when 'failed' then FAILED
+      when 'partial_success' then PARTIAL_SUCCESS
+      else
+        default_value
+      end
+    end
   end
 end

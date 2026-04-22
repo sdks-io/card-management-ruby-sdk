@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `request_id` | `String` | Optional | Unique identifier for the request. This will be played back in the response from the request. |
 | `status` | `String` | Optional | Status of the request |
-| `data` | [`Array<CardTypeResponseCustomerCardTypesItems>`](../../doc/models/card-type-response-customer-card-types-items.md) | Optional | - |
+| `data` | [`Array[CardTypeResponseCustomerCardTypesItems]`](../../doc/models/card-type-response-customer-card-types-items.md) | Optional | - |
 
 ## Example (as JSON)
 
@@ -21,11 +21,11 @@
   "Status": "SUCCESS",
   "Data": [
     {
-      "CanHavePIN": false,
       "CardTypeId": 236,
+      "TokenTypeId": 168,
       "CardTypeName": "CardTypeName6",
-      "ColCoCurrencyCode": "ColCoCurrencyCode0",
-      "CustomerCardTypeId": 50
+      "TokenTypeName": "TokenTypeName8",
+      "PANLength": 32
     }
   ]
 }

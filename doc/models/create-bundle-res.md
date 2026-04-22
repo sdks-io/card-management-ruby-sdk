@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `request_id` | `String` | Optional | Unique identifier for the request. This will be played back in the response from the request. |
 | `status` | `String` | Optional | Status of the request |
-| `data` | [`Array<CreateBundleResponse>`](../../doc/models/create-bundle-response.md) | Optional | - |
+| `data` | [`Array[CreateBundleResponse]`](../../doc/models/create-bundle-response.md) | Optional | - |
 
 ## Example (as JSON)
 

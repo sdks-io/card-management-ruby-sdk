@@ -17,7 +17,7 @@
 | `account_number` | `String` | Optional | Account Number of the customer.<br>Optional if AccountId is passed else Mandatory. |
 | `print_on_card` | `TrueClass \| FalseClass` | Optional | Whether card group name to be embossed on the cards or not. |
 | `card_group_name` | `String` | Optional | - |
-| `cards` | [`Array<CreateCardGroupRequestCardsItems>`](../../doc/models/create-card-group-request-cards-items.md) | Optional | List of cards to be moved to the new card group. This list is optional – no card will be moved to the new card group when the list is empty.<br>The fields of Card entity are described in the below rows.<br>The maximum number of cards allowed to be moved in a request is 500 (configurable). The whole request including the card group creation will be rejected when the limit is exceeded. |
+| `cards` | [`Array[CreateCardGroupRequestCardsItems]`](../../doc/models/create-card-group-request-cards-items.md) | Optional | List of cards to be moved to the new card group. This list is optional – no card will be moved to the new card group when the list is empty.<br>The fields of Card entity are described in the below rows.<br>The maximum number of cards allowed to be moved in a request is 500 (configurable). The whole request including the card group creation will be rejected when the limit is exceeded. |
 
 ## Example (as JSON)
 

@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `products` | [`Array<RestrictionProduct>`](../../doc/models/restriction-product.md) | Optional | - |
-| `product_groups` | [`Array<ProductGroup>`](../../doc/models/product-group.md) | Optional | - |
+| `products` | [`Array[RestrictionProduct]`](../../doc/models/restriction-product.md) | Optional | - |
+| `product_groups` | [`Array[ProductGroup]`](../../doc/models/product-group.md) | Optional | - |
 
 ## Example (as JSON)
 

@@ -21,5 +21,18 @@ module ShellCardManagementApIs
 
       CARD_DETAILS_RESPONSE_RENEWED_CARD_REISSUE_SETTING_ENUM.include?(value)
     end
+
+    def self.from_value(value, default_value = TRUE)
+      return default_value if value.nil?
+
+      str = value.to_s.strip
+
+      case str.downcase
+      when 'true' then TRUE
+      when 'false' then FALSE
+      else
+        default_value
+      end
+    end
   end
 end

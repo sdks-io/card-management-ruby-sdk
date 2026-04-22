@@ -18,7 +18,7 @@
 | `usage_restriction_status` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
 | `product_restriction_status` | [`ErrorStatus`](../../doc/models/error-status.md) | Optional | - |
 | `product_restriction_profile_id` | `String` | Optional | Identifier of the product restriction profile created |
-| `cards` | [`Array<BundleCardRestrictionStatus>`](../../doc/models/bundle-card-restriction-status.md) | Optional | - |
+| `cards` | [`Array[BundleCardRestrictionStatus]`](../../doc/models/bundle-card-restriction-status.md) | Optional | - |
 
 ## Example (as JSON)
 

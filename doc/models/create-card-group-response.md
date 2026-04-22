@@ -11,8 +11,8 @@
 |  --- | --- | --- | --- |
 | `main_reference` | `Integer` | Optional | Reference number for tracking the execution of the requests – new Card Group creation and to move the cards to the new card group.<br>Reference number will be null when the validations of new card group parameters fail. |
 | `new_card_group_reference` | `Integer` | Optional | Reference number for tracking the execution of card group creation.<br>Reference number will be null when the validations of new card group parameters fail. |
-| `successful_requests` | [`Array<CreateCardGroupResponseSuccessfulRequestsItems>`](../../doc/models/create-card-group-response-successful-requests-items.md) | Optional | List of cards validated and submitted successfully for processing. |
-| `error_cards` | [`Array<CreateCardGroupResponseErrorCardsItems>`](../../doc/models/create-card-group-response-error-cards-items.md) | Optional | List of cards that failed validation and not submitted for processing.<br>Entity: FailedCardReference<br>This list will be empty when the validations of new card group parameters fail. |
+| `successful_requests` | [`Array[CreateCardGroupResponseSuccessfulRequestsItems]`](../../doc/models/create-card-group-response-successful-requests-items.md) | Optional | List of cards validated and submitted successfully for processing. |
+| `error_cards` | [`Array[CreateCardGroupResponseErrorCardsItems]`](../../doc/models/create-card-group-response-error-cards-items.md) | Optional | List of cards that failed validation and not submitted for processing.<br>Entity: FailedCardReference<br>This list will be empty when the validations of new card group parameters fail. |
 
 ## Example (as JSON)
 

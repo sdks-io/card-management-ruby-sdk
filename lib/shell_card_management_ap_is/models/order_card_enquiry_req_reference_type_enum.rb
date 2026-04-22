@@ -28,5 +28,25 @@ module ShellCardManagementApIs
 
       ORDER_CARD_ENQUIRY_REQ_REFERENCE_TYPE_ENUM.include?(value)
     end
+
+    def self.from_value(value, default_value = ENUM_1)
+      return default_value if value.nil?
+
+      str = value.to_s.strip
+      if str.match?(/\A\d+\z/)
+        num = str.to_i
+        return num if ORDER_CARD_ENQUIRY_REQ_REFERENCE_TYPE_ENUM.include?(num)
+
+        return default_value
+      end
+
+      case str.downcase
+      when 'enum_1' then ENUM_1
+      when 'enum_2' then ENUM_2
+      when 'enum_3' then ENUM_3
+      else
+        default_value
+      end
+    end
   end
 end

@@ -12,7 +12,7 @@
 | `request_id` | `String` | Optional | Unique request identifier passed from end user. This identifier helps in tracing a transaction |
 | `main_reference` | `Integer` | Optional | Service reference number for tracking. |
 | `status` | `String` | Optional | Indicates overall status of the request. Allowed values: SUCCESS, FAILED |
-| `data` | [`Array<PINReminderReference>`](../../doc/models/pin-reminder-reference.md) | Optional | - |
+| `data` | [`Array[PINReminderReference]`](../../doc/models/pin-reminder-reference.md) | Optional | - |
 
 ## Example (as JSON)
 

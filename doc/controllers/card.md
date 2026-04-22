@@ -26,7 +26,7 @@ card_controller = client.card
 * [Auto Renew](../../doc/controllers/card.md#auto-renew)
 * [Update Mobile Payment Registration Status](../../doc/controllers/card.md#update-mobile-payment-registration-status)
 * [Get Key](../../doc/controllers/card.md#get-key)
-* [Deliveryaddressupdate V2](../../doc/controllers/card.md#deliveryaddressupdate-v2)
+* [Delivery Address Update V2](../../doc/controllers/card.md#delivery-address-update-v2)
 
 
 # Search Card
@@ -1837,7 +1837,7 @@ puts result
 | 500 | The server encountered an unexpected condition the prevented it from fulfilling the request. | `APIException` |
 
 
-# Deliveryaddressupdate V2
+# Delivery Address Update V2
 
 This API allows users to update the card’s delivery addresses (card delivery address used for card re-issue and PIN delivery address used when PIN reminder is requested)
 
@@ -1846,8 +1846,8 @@ This API allows users to update the card’s delivery addresses (card delivery a
 * card delivery address update
 
 ```ruby
-def deliveryaddressupdate_v2(request_id,
-                             body)
+def delivery_address_update_v2(request_id,
+                               body)
 ```
 
 ## Parameters
@@ -1876,7 +1876,7 @@ body = DeliveryAddressUpdateRequest.new(
   []
 )
 
-result = card_controller.deliveryaddressupdate_v2(
+result = card_controller.delivery_address_update_v2(
   request_id,
   body
 )

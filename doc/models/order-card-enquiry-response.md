@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `request_id` | `String` | Optional | - |
 | `status` | `String` | Optional | - |
-| `data` | [`Array<OrderCardEnquiry>`](../../doc/models/order-card-enquiry.md) | Optional | - |
+| `data` | [`Array[OrderCardEnquiry]`](../../doc/models/order-card-enquiry.md) | Optional | - |
 
 ## Example (as JSON)
 

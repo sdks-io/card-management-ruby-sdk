@@ -16,14 +16,9 @@ class ControllerTestBase < Minitest::Test
   include ShellCardManagementApIs
   include CoreLibrary
 
-  # Create configuration and set any test parameters
-  def create_configuration
-    Configuration.new(http_callback: HttpResponseCatcher.new)
-  end
-
   # Initializes the base test controller
   def setup_class
-    _config = create_configuration
-    @client = Client.new(config: _config)
-  end
+    @client = Client.from_env(http_callback: HttpResponseCatcher.new)
+
+    _config = @client.config  end
 end

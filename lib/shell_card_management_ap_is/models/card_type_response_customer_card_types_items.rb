@@ -9,41 +9,37 @@ module ShellCardManagementApIs
     SKIP = Object.new
     private_constant :SKIP
 
-    # True/False – Whether the cards of this card type can have PIN.
-    # @return [TrueClass | FalseClass]
-    attr_accessor :can_have_pin
-
-    # Card Type Id
+    # Card Type Id in Cards Platform.
     # @return [Integer]
     attr_accessor :card_type_id
+
+    # Token type identifier.
+    # @return [Integer]
+    attr_accessor :token_type_id
 
     # Card Type Name.
     # @return [String]
     attr_accessor :card_type_name
 
-    # ISO currency code of the country.
+    # Token Type Name.
     # @return [String]
-    attr_accessor :col_co_currency_code
+    attr_accessor :token_type_name
 
-    # Customer Card Type Id
+    # PAN Length.
     # @return [Integer]
-    attr_accessor :customer_card_type_id
-
-    # Customer Card Type Id
-    # @return [CardDayTimeRestrictions]
-    attr_accessor :day_time_restrictions
-
-    # Default Purchase category of the card type.
-    # @return [Integer]
-    attr_accessor :default_purchase_category_id
-
-    # Default Name to be embossed on the card
-    # @return [String]
-    attr_accessor :emboss_account_name
+    attr_accessor :pan_length
 
     # Default Expiry period.
     # @return [Integer]
     attr_accessor :expiry_period
+
+    # True/False – Whether it is a National Card type or not.
+    # @return [TrueClass | FalseClass]
+    attr_accessor :is_national
+
+    # True/False – Whether it is an International Card type or not.
+    # @return [TrueClass | FalseClass]
+    attr_accessor :is_international
 
     # True/False – Wether it is a CRT Card type or not.
     # @return [TrueClass | FalseClass]
@@ -53,61 +49,37 @@ module ShellCardManagementApIs
     # @return [TrueClass | FalseClass]
     attr_accessor :is_fleet
 
-    # True/False – Whether it is an International Card type or not.
+    # True/False – Whether it is only allowed in Shell Stations or not.
     # @return [TrueClass | FalseClass]
-    attr_accessor :is_international
-
-    # True/False – Whether it is a National Card type or not.
-    # @return [TrueClass | FalseClass]
-    attr_accessor :is_national
+    attr_accessor :is_shell_sites_only
 
     # True/False – Whether this card type is allowed in partner Stations.
     # @return [TrueClass | FalseClass]
     attr_accessor :is_partner_sites_included
 
-    # True/False – Whether it is only allowed in Shell Stations or not.
+    # True/False – Whether the cards of this card type can have PIN.
     # @return [TrueClass | FalseClass]
-    attr_accessor :is_shell_sites_only
+    attr_accessor :can_have_pin
 
     # True/False - Whether it is a Virtual Card type or not.
     # @return [TrueClass | FalseClass]
     attr_accessor :is_virtual
 
-    # True/False – Whether this card type is visible in SFH for card ordering.
-    # @return [TrueClass | FalseClass]
-    attr_accessor :is_visible_to_customers
-
     # Whether card type is active or not.
     # @return [TrueClass | FalseClass]
     attr_accessor :is_active
 
-    # Whether card type is active or not.
+    # Whether card type is available for download.
     # @return [TrueClass | FalseClass]
     attr_accessor :is_card_available_for_download
 
-    # Whether card type is active or not.
-    # @return [TrueClass | FalseClass]
-    attr_accessor :is_card_visible_to_customers
-
-    # PAN Length
-    # @return [Integer]
-    attr_accessor :pan_length
-
-    # PAN Length
-    # @return [Array[PurchaseCategories]]
-    attr_accessor :purchase_categories
-
-    # Token type identifier.
-    # @return [Integer]
-    attr_accessor :token_type_id
-
-    # Token Type Name.
+    # ISO currency code of the country.
     # @return [String]
-    attr_accessor :token_type_name
+    attr_accessor :col_co_currency_code
 
-    # Token Type Name.
-    # @return [CardUsageRestrictions]
-    attr_accessor :usage_restrictions
+    # Currency symbol of the country.
+    # @return [String]
+    attr_accessor :col_co_currency_symbol
 
     # Is Europay, MasterCard, and Visa Contactless enabled or not.
     # @return [TrueClass | FalseClass]
@@ -129,221 +101,153 @@ module ShellCardManagementApIs
     # @return [TrueClass | FalseClass]
     attr_accessor :offline_pin
 
-    # Whether card type is default or not.
-    # @return [TrueClass | FalseClass]
-    attr_accessor :is_default
-
-    # True/False 
-    # Note: ApplicationsToShowNPIITokens will be set as ‘True’ when the
-    # accessing application API key exists in the “ApplicationsToShowNPIITokens”
-    # card type configuration else “False”.
-    # @return [TrueClass | FalseClass]
-    attr_accessor :applications_to_show_npii_tokens
-
-    # Id of the medium type identifier.
-    # Example: 1,2,4
-    # Full list below:
-    # 1 - Fuel Card
-    # 2 - Fuel Card with EV
-    # 3 - EV only
-    # 4 - Fuel Card and Key Fob
-    # 5 - Key Fob
-    # 6 - Virtual Card
-    # 7 - NPII Token
-    # 8 – Smartpay Token
+    # Id of the medium type identifier. <br><br> Full list below - <br> 1 - Fuel
+    # Card <br> 2 - Fuel Card with EV <br> 3 - EV only  <br> 4 - Fuel Card and
+    # Key Fob <br> 5 - Key Fob <br> 6 - Virtual Card <br> 7 - NPII Token <br> 8
+    # – Smartpay Token
     # @return [Integer]
     attr_accessor :medium_type_id
 
-    # Name of the medium type identifier.
-    # Example: Fuel Card, Fuel Card with EV, Key Fob  
-    # Full list below:
-    # 1 - Fuel Card
-    # 2 - Fuel Card with EV
-    # 3 - EV only
-    # 4 - Fuel Card and Key Fob
-    # 5 - Key Fob
-    # 6 - Virtual Card
-    # 7 - NPII Token
-    # 8 - Smartpay Token
+    # Name of the medium type identifier. <br><br> Full list below - <br> 1 -
+    # Fuel Card <br> 2 - Fuel Card with EV <br> 3 - EV only  <br> 4 - Fuel Card
+    # and Key Fob <br> 5 - Key Fob <br> 6 - Virtual Card <br> 7 - NPII Token
+    # <br> 8 – Smartpay Token
     # @return [String]
     attr_accessor :medium_type
 
-    # Currency symbol of the country.
-    # @return [String]
-    attr_accessor :col_co_currency_symbol
+    # List of accounts.
+    # @return [Array[CartTypeAccount]]
+    attr_accessor :cart_type_accounts
+
+    # List of accounts.
+    # @return [Array[PurchaseCategories]]
+    attr_accessor :purchase_categories
 
     # A mapping from model property names to API property names.
     def self.names
       @_hash = {} if @_hash.nil?
-      @_hash['can_have_pin'] = 'CanHavePIN'
       @_hash['card_type_id'] = 'CardTypeId'
+      @_hash['token_type_id'] = 'TokenTypeId'
       @_hash['card_type_name'] = 'CardTypeName'
-      @_hash['col_co_currency_code'] = 'ColCoCurrencyCode'
-      @_hash['customer_card_type_id'] = 'CustomerCardTypeId'
-      @_hash['day_time_restrictions'] = 'DayTimeRestrictions'
-      @_hash['default_purchase_category_id'] = 'DefaultPurchaseCategoryId'
-      @_hash['emboss_account_name'] = 'EmbossAccountName'
+      @_hash['token_type_name'] = 'TokenTypeName'
+      @_hash['pan_length'] = 'PANLength'
       @_hash['expiry_period'] = 'ExpiryPeriod'
+      @_hash['is_national'] = 'IsNational'
+      @_hash['is_international'] = 'IsInternational'
       @_hash['is_crt'] = 'IsCRT'
       @_hash['is_fleet'] = 'IsFleet'
-      @_hash['is_international'] = 'IsInternational'
-      @_hash['is_national'] = 'IsNational'
-      @_hash['is_partner_sites_included'] = 'IsPartnerSitesIncluded'
       @_hash['is_shell_sites_only'] = 'IsShellSitesOnly'
+      @_hash['is_partner_sites_included'] = 'IsPartnerSitesIncluded'
+      @_hash['can_have_pin'] = 'CanHavePIN'
       @_hash['is_virtual'] = 'IsVirtual'
-      @_hash['is_visible_to_customers'] = 'IsVisibleToCustomers'
       @_hash['is_active'] = 'IsActive'
       @_hash['is_card_available_for_download'] = 'IsCardAvailableForDownload'
-      @_hash['is_card_visible_to_customers'] = 'IsCardVisibleToCustomers'
-      @_hash['pan_length'] = 'PANLength'
-      @_hash['purchase_categories'] = 'PurchaseCategories'
-      @_hash['token_type_id'] = 'TokenTypeId'
-      @_hash['token_type_name'] = 'TokenTypeName'
-      @_hash['usage_restrictions'] = 'UsageRestrictions'
+      @_hash['col_co_currency_code'] = 'ColCoCurrencyCode'
+      @_hash['col_co_currency_symbol'] = 'ColCoCurrencySymbol'
       @_hash['emv_contactless'] = 'EMVContactless'
       @_hash['rfid'] = 'RFID'
       @_hash['pin_change_supported'] = 'PINChangeSupported'
       @_hash['require_pin'] = 'RequirePIN'
       @_hash['offline_pin'] = 'OfflinePIN'
-      @_hash['is_default'] = 'IsDefault'
-      @_hash['applications_to_show_npii_tokens'] =
-        'ApplicationsToShowNPIITokens'
       @_hash['medium_type_id'] = 'MediumTypeID'
       @_hash['medium_type'] = 'MediumType'
-      @_hash['col_co_currency_symbol'] = 'ColCoCurrencySymbol'
+      @_hash['cart_type_accounts'] = 'CartTypeAccounts'
+      @_hash['purchase_categories'] = 'PurchaseCategories'
       @_hash
     end
 
     # An array for optional fields
     def self.optionals
       %w[
-        can_have_pin
         card_type_id
+        token_type_id
         card_type_name
-        col_co_currency_code
-        customer_card_type_id
-        day_time_restrictions
-        default_purchase_category_id
-        emboss_account_name
+        token_type_name
+        pan_length
         expiry_period
+        is_national
+        is_international
         is_crt
         is_fleet
-        is_international
-        is_national
-        is_partner_sites_included
         is_shell_sites_only
+        is_partner_sites_included
+        can_have_pin
         is_virtual
-        is_visible_to_customers
         is_active
         is_card_available_for_download
-        is_card_visible_to_customers
-        pan_length
-        purchase_categories
-        token_type_id
-        token_type_name
-        usage_restrictions
+        col_co_currency_code
+        col_co_currency_symbol
         emv_contactless
         rfid
         pin_change_supported
         require_pin
         offline_pin
-        is_default
-        applications_to_show_npii_tokens
         medium_type_id
         medium_type
-        col_co_currency_symbol
+        cart_type_accounts
+        purchase_categories
       ]
     end
 
     # An array for nullable fields
     def self.nullables
       %w[
-        card_type_id
-        card_type_name
-        col_co_currency_code
-        customer_card_type_id
-        default_purchase_category_id
-        emboss_account_name
-        expiry_period
-        pan_length
+        is_card_available_for_download
+        emv_contactless
+        rfid
+        pin_change_supported
+        require_pin
+        offline_pin
         purchase_categories
-        token_type_id
-        token_type_name
-        medium_type_id
-        medium_type
-        col_co_currency_symbol
       ]
     end
 
-    def initialize(can_have_pin = SKIP, card_type_id = SKIP,
-                   card_type_name = SKIP, col_co_currency_code = SKIP,
-                   customer_card_type_id = SKIP, day_time_restrictions = SKIP,
-                   default_purchase_category_id = SKIP,
-                   emboss_account_name = SKIP, expiry_period = SKIP,
-                   is_crt = SKIP, is_fleet = SKIP, is_international = SKIP,
-                   is_national = SKIP, is_partner_sites_included = SKIP,
-                   is_shell_sites_only = SKIP, is_virtual = SKIP,
-                   is_visible_to_customers = SKIP, is_active = SKIP,
+    def initialize(card_type_id = SKIP, token_type_id = SKIP,
+                   card_type_name = SKIP, token_type_name = SKIP,
+                   pan_length = SKIP, expiry_period = SKIP, is_national = SKIP,
+                   is_international = SKIP, is_crt = SKIP, is_fleet = SKIP,
+                   is_shell_sites_only = SKIP, is_partner_sites_included = SKIP,
+                   can_have_pin = SKIP, is_virtual = SKIP, is_active = SKIP,
                    is_card_available_for_download = SKIP,
-                   is_card_visible_to_customers = SKIP, pan_length = SKIP,
-                   purchase_categories = SKIP, token_type_id = SKIP,
-                   token_type_name = SKIP, usage_restrictions = SKIP,
+                   col_co_currency_code = SKIP, col_co_currency_symbol = SKIP,
                    emv_contactless = SKIP, rfid = SKIP,
                    pin_change_supported = SKIP, require_pin = SKIP,
-                   offline_pin = SKIP, is_default = SKIP,
-                   applications_to_show_npii_tokens = SKIP,
-                   medium_type_id = SKIP, medium_type = SKIP,
-                   col_co_currency_symbol = SKIP)
-      @can_have_pin = can_have_pin unless can_have_pin == SKIP
+                   offline_pin = SKIP, medium_type_id = SKIP,
+                   medium_type = SKIP, cart_type_accounts = SKIP,
+                   purchase_categories = SKIP)
       @card_type_id = card_type_id unless card_type_id == SKIP
+      @token_type_id = token_type_id unless token_type_id == SKIP
       @card_type_name = card_type_name unless card_type_name == SKIP
-      @col_co_currency_code = col_co_currency_code unless col_co_currency_code == SKIP
-      @customer_card_type_id = customer_card_type_id unless customer_card_type_id == SKIP
-      @day_time_restrictions = day_time_restrictions unless day_time_restrictions == SKIP
-      unless default_purchase_category_id == SKIP
-        @default_purchase_category_id =
-          default_purchase_category_id
-      end
-      @emboss_account_name = emboss_account_name unless emboss_account_name == SKIP
+      @token_type_name = token_type_name unless token_type_name == SKIP
+      @pan_length = pan_length unless pan_length == SKIP
       @expiry_period = expiry_period unless expiry_period == SKIP
+      @is_national = is_national unless is_national == SKIP
+      @is_international = is_international unless is_international == SKIP
       @is_crt = is_crt unless is_crt == SKIP
       @is_fleet = is_fleet unless is_fleet == SKIP
-      @is_international = is_international unless is_international == SKIP
-      @is_national = is_national unless is_national == SKIP
+      @is_shell_sites_only = is_shell_sites_only unless is_shell_sites_only == SKIP
       unless is_partner_sites_included == SKIP
         @is_partner_sites_included =
           is_partner_sites_included
       end
-      @is_shell_sites_only = is_shell_sites_only unless is_shell_sites_only == SKIP
+      @can_have_pin = can_have_pin unless can_have_pin == SKIP
       @is_virtual = is_virtual unless is_virtual == SKIP
-      @is_visible_to_customers = is_visible_to_customers unless is_visible_to_customers == SKIP
       @is_active = is_active unless is_active == SKIP
       unless is_card_available_for_download == SKIP
         @is_card_available_for_download =
           is_card_available_for_download
       end
-      unless is_card_visible_to_customers == SKIP
-        @is_card_visible_to_customers =
-          is_card_visible_to_customers
-      end
-      @pan_length = pan_length unless pan_length == SKIP
-      @purchase_categories = purchase_categories unless purchase_categories == SKIP
-      @token_type_id = token_type_id unless token_type_id == SKIP
-      @token_type_name = token_type_name unless token_type_name == SKIP
-      @usage_restrictions = usage_restrictions unless usage_restrictions == SKIP
+      @col_co_currency_code = col_co_currency_code unless col_co_currency_code == SKIP
+      @col_co_currency_symbol = col_co_currency_symbol unless col_co_currency_symbol == SKIP
       @emv_contactless = emv_contactless unless emv_contactless == SKIP
       @rfid = rfid unless rfid == SKIP
       @pin_change_supported = pin_change_supported unless pin_change_supported == SKIP
       @require_pin = require_pin unless require_pin == SKIP
       @offline_pin = offline_pin unless offline_pin == SKIP
-      @is_default = is_default unless is_default == SKIP
-      unless applications_to_show_npii_tokens == SKIP
-        @applications_to_show_npii_tokens =
-          applications_to_show_npii_tokens
-      end
       @medium_type_id = medium_type_id unless medium_type_id == SKIP
       @medium_type = medium_type unless medium_type == SKIP
-      @col_co_currency_symbol = col_co_currency_symbol unless col_co_currency_symbol == SKIP
+      @cart_type_accounts = cart_type_accounts unless cart_type_accounts == SKIP
+      @purchase_categories = purchase_categories unless purchase_categories == SKIP
     end
 
     # Creates an instance of the object from a hash.
@@ -351,38 +255,50 @@ module ShellCardManagementApIs
       return nil unless hash
 
       # Extract variables from the hash.
-      can_have_pin = hash.key?('CanHavePIN') ? hash['CanHavePIN'] : SKIP
       card_type_id = hash.key?('CardTypeId') ? hash['CardTypeId'] : SKIP
+      token_type_id = hash.key?('TokenTypeId') ? hash['TokenTypeId'] : SKIP
       card_type_name = hash.key?('CardTypeName') ? hash['CardTypeName'] : SKIP
-      col_co_currency_code =
-        hash.key?('ColCoCurrencyCode') ? hash['ColCoCurrencyCode'] : SKIP
-      customer_card_type_id =
-        hash.key?('CustomerCardTypeId') ? hash['CustomerCardTypeId'] : SKIP
-      day_time_restrictions = CardDayTimeRestrictions.from_hash(hash['DayTimeRestrictions']) if
-        hash['DayTimeRestrictions']
-      default_purchase_category_id =
-        hash.key?('DefaultPurchaseCategoryId') ? hash['DefaultPurchaseCategoryId'] : SKIP
-      emboss_account_name =
-        hash.key?('EmbossAccountName') ? hash['EmbossAccountName'] : SKIP
+      token_type_name =
+        hash.key?('TokenTypeName') ? hash['TokenTypeName'] : SKIP
+      pan_length = hash.key?('PANLength') ? hash['PANLength'] : SKIP
       expiry_period = hash.key?('ExpiryPeriod') ? hash['ExpiryPeriod'] : SKIP
-      is_crt = hash.key?('IsCRT') ? hash['IsCRT'] : SKIP
-      is_fleet = hash.key?('IsFleet') ? hash['IsFleet'] : SKIP
+      is_national = hash.key?('IsNational') ? hash['IsNational'] : SKIP
       is_international =
         hash.key?('IsInternational') ? hash['IsInternational'] : SKIP
-      is_national = hash.key?('IsNational') ? hash['IsNational'] : SKIP
-      is_partner_sites_included =
-        hash.key?('IsPartnerSitesIncluded') ? hash['IsPartnerSitesIncluded'] : SKIP
+      is_crt = hash.key?('IsCRT') ? hash['IsCRT'] : SKIP
+      is_fleet = hash.key?('IsFleet') ? hash['IsFleet'] : SKIP
       is_shell_sites_only =
         hash.key?('IsShellSitesOnly') ? hash['IsShellSitesOnly'] : SKIP
+      is_partner_sites_included =
+        hash.key?('IsPartnerSitesIncluded') ? hash['IsPartnerSitesIncluded'] : SKIP
+      can_have_pin = hash.key?('CanHavePIN') ? hash['CanHavePIN'] : SKIP
       is_virtual = hash.key?('IsVirtual') ? hash['IsVirtual'] : SKIP
-      is_visible_to_customers =
-        hash.key?('IsVisibleToCustomers') ? hash['IsVisibleToCustomers'] : SKIP
       is_active = hash.key?('IsActive') ? hash['IsActive'] : SKIP
       is_card_available_for_download =
         hash.key?('IsCardAvailableForDownload') ? hash['IsCardAvailableForDownload'] : SKIP
-      is_card_visible_to_customers =
-        hash.key?('IsCardVisibleToCustomers') ? hash['IsCardVisibleToCustomers'] : SKIP
-      pan_length = hash.key?('PANLength') ? hash['PANLength'] : SKIP
+      col_co_currency_code =
+        hash.key?('ColCoCurrencyCode') ? hash['ColCoCurrencyCode'] : SKIP
+      col_co_currency_symbol =
+        hash.key?('ColCoCurrencySymbol') ? hash['ColCoCurrencySymbol'] : SKIP
+      emv_contactless =
+        hash.key?('EMVContactless') ? hash['EMVContactless'] : SKIP
+      rfid = hash.key?('RFID') ? hash['RFID'] : SKIP
+      pin_change_supported =
+        hash.key?('PINChangeSupported') ? hash['PINChangeSupported'] : SKIP
+      require_pin = hash.key?('RequirePIN') ? hash['RequirePIN'] : SKIP
+      offline_pin = hash.key?('OfflinePIN') ? hash['OfflinePIN'] : SKIP
+      medium_type_id = hash.key?('MediumTypeID') ? hash['MediumTypeID'] : SKIP
+      medium_type = hash.key?('MediumType') ? hash['MediumType'] : SKIP
+      # Parameter is an array, so we need to iterate through it
+      cart_type_accounts = nil
+      unless hash['CartTypeAccounts'].nil?
+        cart_type_accounts = []
+        hash['CartTypeAccounts'].each do |structure|
+          cart_type_accounts << (CartTypeAccount.from_hash(structure) if structure)
+        end
+      end
+
+      cart_type_accounts = SKIP unless hash.key?('CartTypeAccounts')
       # Parameter is an array, so we need to iterate through it
       purchase_categories = nil
       unless hash['PurchaseCategories'].nil?
@@ -393,114 +309,73 @@ module ShellCardManagementApIs
       end
 
       purchase_categories = SKIP unless hash.key?('PurchaseCategories')
-      token_type_id = hash.key?('TokenTypeId') ? hash['TokenTypeId'] : SKIP
-      token_type_name =
-        hash.key?('TokenTypeName') ? hash['TokenTypeName'] : SKIP
-      usage_restrictions = CardUsageRestrictions.from_hash(hash['UsageRestrictions']) if
-        hash['UsageRestrictions']
-      emv_contactless =
-        hash.key?('EMVContactless') ? hash['EMVContactless'] : SKIP
-      rfid = hash.key?('RFID') ? hash['RFID'] : SKIP
-      pin_change_supported =
-        hash.key?('PINChangeSupported') ? hash['PINChangeSupported'] : SKIP
-      require_pin = hash.key?('RequirePIN') ? hash['RequirePIN'] : SKIP
-      offline_pin = hash.key?('OfflinePIN') ? hash['OfflinePIN'] : SKIP
-      is_default = hash.key?('IsDefault') ? hash['IsDefault'] : SKIP
-      applications_to_show_npii_tokens =
-        hash.key?('ApplicationsToShowNPIITokens') ? hash['ApplicationsToShowNPIITokens'] : SKIP
-      medium_type_id = hash.key?('MediumTypeID') ? hash['MediumTypeID'] : SKIP
-      medium_type = hash.key?('MediumType') ? hash['MediumType'] : SKIP
-      col_co_currency_symbol =
-        hash.key?('ColCoCurrencySymbol') ? hash['ColCoCurrencySymbol'] : SKIP
 
       # Create object from extracted values.
-      CardTypeResponseCustomerCardTypesItems.new(can_have_pin,
-                                                 card_type_id,
+      CardTypeResponseCustomerCardTypesItems.new(card_type_id,
+                                                 token_type_id,
                                                  card_type_name,
-                                                 col_co_currency_code,
-                                                 customer_card_type_id,
-                                                 day_time_restrictions,
-                                                 default_purchase_category_id,
-                                                 emboss_account_name,
+                                                 token_type_name,
+                                                 pan_length,
                                                  expiry_period,
+                                                 is_national,
+                                                 is_international,
                                                  is_crt,
                                                  is_fleet,
-                                                 is_international,
-                                                 is_national,
-                                                 is_partner_sites_included,
                                                  is_shell_sites_only,
+                                                 is_partner_sites_included,
+                                                 can_have_pin,
                                                  is_virtual,
-                                                 is_visible_to_customers,
                                                  is_active,
                                                  is_card_available_for_download,
-                                                 is_card_visible_to_customers,
-                                                 pan_length,
-                                                 purchase_categories,
-                                                 token_type_id,
-                                                 token_type_name,
-                                                 usage_restrictions,
+                                                 col_co_currency_code,
+                                                 col_co_currency_symbol,
                                                  emv_contactless,
                                                  rfid,
                                                  pin_change_supported,
                                                  require_pin,
                                                  offline_pin,
-                                                 is_default,
-                                                 applications_to_show_npii_tokens,
                                                  medium_type_id,
                                                  medium_type,
-                                                 col_co_currency_symbol)
+                                                 cart_type_accounts,
+                                                 purchase_categories)
     end
 
     # Provides a human-readable string representation of the object.
     def to_s
       class_name = self.class.name.split('::').last
-      "<#{class_name} can_have_pin: #{@can_have_pin}, card_type_id: #{@card_type_id},"\
-      " card_type_name: #{@card_type_name}, col_co_currency_code: #{@col_co_currency_code},"\
-      " customer_card_type_id: #{@customer_card_type_id}, day_time_restrictions:"\
-      " #{@day_time_restrictions}, default_purchase_category_id: #{@default_purchase_category_id},"\
-      " emboss_account_name: #{@emboss_account_name}, expiry_period: #{@expiry_period}, is_crt:"\
-      " #{@is_crt}, is_fleet: #{@is_fleet}, is_international: #{@is_international}, is_national:"\
-      " #{@is_national}, is_partner_sites_included: #{@is_partner_sites_included},"\
-      " is_shell_sites_only: #{@is_shell_sites_only}, is_virtual: #{@is_virtual},"\
-      " is_visible_to_customers: #{@is_visible_to_customers}, is_active: #{@is_active},"\
-      " is_card_available_for_download: #{@is_card_available_for_download},"\
-      " is_card_visible_to_customers: #{@is_card_visible_to_customers}, pan_length:"\
-      " #{@pan_length}, purchase_categories: #{@purchase_categories}, token_type_id:"\
-      " #{@token_type_id}, token_type_name: #{@token_type_name}, usage_restrictions:"\
-      " #{@usage_restrictions}, emv_contactless: #{@emv_contactless}, rfid: #{@rfid},"\
-      " pin_change_supported: #{@pin_change_supported}, require_pin: #{@require_pin}, offline_pin:"\
-      " #{@offline_pin}, is_default: #{@is_default}, applications_to_show_npii_tokens:"\
-      " #{@applications_to_show_npii_tokens}, medium_type_id: #{@medium_type_id}, medium_type:"\
-      " #{@medium_type}, col_co_currency_symbol: #{@col_co_currency_symbol}>"
+      "<#{class_name} card_type_id: #{@card_type_id}, token_type_id: #{@token_type_id},"\
+      " card_type_name: #{@card_type_name}, token_type_name: #{@token_type_name}, pan_length:"\
+      " #{@pan_length}, expiry_period: #{@expiry_period}, is_national: #{@is_national},"\
+      " is_international: #{@is_international}, is_crt: #{@is_crt}, is_fleet: #{@is_fleet},"\
+      " is_shell_sites_only: #{@is_shell_sites_only}, is_partner_sites_included:"\
+      " #{@is_partner_sites_included}, can_have_pin: #{@can_have_pin}, is_virtual: #{@is_virtual},"\
+      " is_active: #{@is_active}, is_card_available_for_download:"\
+      " #{@is_card_available_for_download}, col_co_currency_code: #{@col_co_currency_code},"\
+      " col_co_currency_symbol: #{@col_co_currency_symbol}, emv_contactless: #{@emv_contactless},"\
+      " rfid: #{@rfid}, pin_change_supported: #{@pin_change_supported}, require_pin:"\
+      " #{@require_pin}, offline_pin: #{@offline_pin}, medium_type_id: #{@medium_type_id},"\
+      " medium_type: #{@medium_type}, cart_type_accounts: #{@cart_type_accounts},"\
+      " purchase_categories: #{@purchase_categories}>"
     end
 
     # Provides a debugging-friendly string with detailed object information.
     def inspect
       class_name = self.class.name.split('::').last
-      "<#{class_name} can_have_pin: #{@can_have_pin.inspect}, card_type_id:"\
-      " #{@card_type_id.inspect}, card_type_name: #{@card_type_name.inspect},"\
-      " col_co_currency_code: #{@col_co_currency_code.inspect}, customer_card_type_id:"\
-      " #{@customer_card_type_id.inspect}, day_time_restrictions:"\
-      " #{@day_time_restrictions.inspect}, default_purchase_category_id:"\
-      " #{@default_purchase_category_id.inspect}, emboss_account_name:"\
-      " #{@emboss_account_name.inspect}, expiry_period: #{@expiry_period.inspect}, is_crt:"\
-      " #{@is_crt.inspect}, is_fleet: #{@is_fleet.inspect}, is_international:"\
-      " #{@is_international.inspect}, is_national: #{@is_national.inspect},"\
-      " is_partner_sites_included: #{@is_partner_sites_included.inspect}, is_shell_sites_only:"\
-      " #{@is_shell_sites_only.inspect}, is_virtual: #{@is_virtual.inspect},"\
-      " is_visible_to_customers: #{@is_visible_to_customers.inspect}, is_active:"\
-      " #{@is_active.inspect}, is_card_available_for_download:"\
-      " #{@is_card_available_for_download.inspect}, is_card_visible_to_customers:"\
-      " #{@is_card_visible_to_customers.inspect}, pan_length: #{@pan_length.inspect},"\
-      " purchase_categories: #{@purchase_categories.inspect}, token_type_id:"\
-      " #{@token_type_id.inspect}, token_type_name: #{@token_type_name.inspect},"\
-      " usage_restrictions: #{@usage_restrictions.inspect}, emv_contactless:"\
-      " #{@emv_contactless.inspect}, rfid: #{@rfid.inspect}, pin_change_supported:"\
-      " #{@pin_change_supported.inspect}, require_pin: #{@require_pin.inspect}, offline_pin:"\
-      " #{@offline_pin.inspect}, is_default: #{@is_default.inspect},"\
-      " applications_to_show_npii_tokens: #{@applications_to_show_npii_tokens.inspect},"\
-      " medium_type_id: #{@medium_type_id.inspect}, medium_type: #{@medium_type.inspect},"\
-      " col_co_currency_symbol: #{@col_co_currency_symbol.inspect}>"
+      "<#{class_name} card_type_id: #{@card_type_id.inspect}, token_type_id:"\
+      " #{@token_type_id.inspect}, card_type_name: #{@card_type_name.inspect}, token_type_name:"\
+      " #{@token_type_name.inspect}, pan_length: #{@pan_length.inspect}, expiry_period:"\
+      " #{@expiry_period.inspect}, is_national: #{@is_national.inspect}, is_international:"\
+      " #{@is_international.inspect}, is_crt: #{@is_crt.inspect}, is_fleet: #{@is_fleet.inspect},"\
+      " is_shell_sites_only: #{@is_shell_sites_only.inspect}, is_partner_sites_included:"\
+      " #{@is_partner_sites_included.inspect}, can_have_pin: #{@can_have_pin.inspect}, is_virtual:"\
+      " #{@is_virtual.inspect}, is_active: #{@is_active.inspect}, is_card_available_for_download:"\
+      " #{@is_card_available_for_download.inspect}, col_co_currency_code:"\
+      " #{@col_co_currency_code.inspect}, col_co_currency_symbol:"\
+      " #{@col_co_currency_symbol.inspect}, emv_contactless: #{@emv_contactless.inspect}, rfid:"\
+      " #{@rfid.inspect}, pin_change_supported: #{@pin_change_supported.inspect}, require_pin:"\
+      " #{@require_pin.inspect}, offline_pin: #{@offline_pin.inspect}, medium_type_id:"\
+      " #{@medium_type_id.inspect}, medium_type: #{@medium_type.inspect}, cart_type_accounts:"\
+      " #{@cart_type_accounts.inspect}, purchase_categories: #{@purchase_categories.inspect}>"
     end
   end
 end

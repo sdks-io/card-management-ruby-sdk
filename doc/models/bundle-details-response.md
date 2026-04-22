@@ -16,7 +16,7 @@
 | `bundle_id` | `String` | Optional | unique identifier for the Card Bundle |
 | `external_bundle_id` | `String` | Optional | External system allocated Card Bundle identifier for Card Bundle. |
 | `description` | `String` | Optional | Card Bundle Description. |
-| `pans` | `Array<String>` | Optional | List of Card Pans added to the card bundle. |
+| `pans` | `Array[String]` | Optional | List of Card Pans added to the card bundle. |
 | `restriction_currency_code` | `String` | Optional | ISO currency code of the country.<br>Example: GBP |
 | `restriction_currency_symbol` | `String` | Optional | Currency symbol of the country.<br>Example: £, $ |
 | `restrictions` | [`BundledRestrictionsList`](../../doc/models/bundled-restrictions-list.md) | Optional | - |

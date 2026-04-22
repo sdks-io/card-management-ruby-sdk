@@ -15,7 +15,7 @@
 | `col_co_id` | `Integer` | Optional | Collecting Company Id of the selected payer<br /><br>Optional if ColCoCode is passed else Mandatory. |
 | `payer_id` | `Integer` | Optional | Payer Id (i.e. Customer Id of the Payment Customer of the selected payer.<br /><br>Optional if PayerNumber is passed else Mandatory |
 | `payer_number` | `String` | Optional | Payer Number (Ex: GB000000123) of the selected payer.<br /><br>Optional if PayerId is passed else Mandatory |
-| `pin_reminder_card_details` | [`Array<PINReminderCardDetails>`](../../doc/models/pin-reminder-card-details.md) | Optional | List of PINReminderCardDetails entity. The fields of this entity are described below. |
+| `pin_reminder_card_details` | [`Array[PINReminderCardDetails]`](../../doc/models/pin-reminder-card-details.md) | Optional | List of PINReminderCardDetails entity. The fields of this entity are described below. |
 
 ## Example (as JSON)
 

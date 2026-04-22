@@ -32,7 +32,7 @@
 | `invoice_account_id` | `Integer` | Optional | The Account ID of the account on which the invoice is generated. |
 | `invoice_account_number` | `String` | Optional | The Account Number of the account on which the invoice is generated. |
 | `invoice_account_short_name` | `String` | Optional | The Account Short Name of the account on which the invoice is generated. |
-| `invoice_distribution_methods` | [`Array<InvoiceDistributionMethod>`](../../doc/models/invoice-distribution-method.md) | Optional | - |
+| `invoice_distribution_methods` | [`Array[InvoiceDistributionMethod]`](../../doc/models/invoice-distribution-method.md) | Optional | - |
 | `is_international` | `TrueClass \| FalseClass` | Optional | Whether the account is international. |
 | `is_invoice_point` | `TrueClass \| FalseClass` | Optional | Whether the account is an invoice point. |
 | `last_modified_date` | `String` | Optional | Account last modified date and time |
@@ -61,7 +61,7 @@
 | `is_partner_card` | `Integer` | Optional | The account / sub-account is partner card account or not.<br>Possible values (1= Non-PC account, 2= PC account, 3= PC Payer with Card Types, 4= PC Payer)<br>Note: A partner card account is assumed to have only partner card card-types associated |
 | `tolls_customer_id` | `String` | Optional | Customer id in e-TM system |
 | `tolls_colco_country_type_id` | `String` | Optional | Colco country type id in e-TM system |
-| `contracts` | [`Array<CustomerContract>`](../../doc/models/customer-contract.md) | Optional | - |
+| `contracts` | [`Array[CustomerContract]`](../../doc/models/customer-contract.md) | Optional | - |
 | `is_consortium_member` | `String` | Optional | true |
 
 ## Example (as JSON)

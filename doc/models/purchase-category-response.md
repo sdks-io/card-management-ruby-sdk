@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `purchase_categories` | [`Array<PurchaseCategory1AllOf0>`](../../doc/models/purchase-category-1-all-of-0.md) | Optional | - |
+| `purchase_categories` | [`Array[PurchaseCategory1AllOf0]`](../../doc/models/purchase-category-1-all-of-0.md) | Optional | - |
 
 ## Example (as JSON)
 

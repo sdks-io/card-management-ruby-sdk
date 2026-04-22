@@ -10,9 +10,9 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `country_restrictions` | [`CountryRestriction`](../../doc/models/country-restriction.md) | Optional | - |
-| `network_restrictions` | [`Array<NetworkRestriction>`](../../doc/models/network-restriction.md) | Optional | - |
-| `shell_site_restrictions` | [`Array<ShellSiteRestriction>`](../../doc/models/shell-site-restriction.md) | Optional | - |
-| `partner_site_restrictions` | [`Array<PartnerSiteRestriction>`](../../doc/models/partner-site-restriction.md) | Optional | - |
+| `network_restrictions` | [`Array[NetworkRestriction]`](../../doc/models/network-restriction.md) | Optional | - |
+| `shell_site_restrictions` | [`Array[ShellSiteRestriction]`](../../doc/models/shell-site-restriction.md) | Optional | - |
+| `partner_site_restrictions` | [`Array[PartnerSiteRestriction]`](../../doc/models/partner-site-restriction.md) | Optional | - |
 
 ## Example (as JSON)
 

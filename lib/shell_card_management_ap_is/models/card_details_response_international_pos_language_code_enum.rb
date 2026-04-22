@@ -114,5 +114,47 @@ module ShellCardManagementApIs
 
       CARD_DETAILS_RESPONSE_INTERNATIONAL_POS_LANGUAGE_CODE_ENUM.include?(value)
     end
+
+    def self.from_value(value, default_value = DEU)
+      return default_value if value.nil?
+
+      str = value.to_s.strip
+
+      case str.downcase
+      when 'deu' then DEU
+      when 'fra' then FRA
+      when 'bul' then BUL
+      when 'hrv' then HRV
+      when 'ces' then CES
+      when 'dan' then DAN
+      when 'fin' then FIN
+      when 'eng' then ENG
+      when 'ell' then ELL
+      when 'zho' then ZHO
+      when 'hun' then HUN
+      when 'ita' then ITA
+      when 'ltz' then LTZ
+      when 'msa' then MSA
+      when 'nld' then NLD
+      when 'nob' then NOB
+      when 'urd' then URD
+      when 'pol' then POL
+      when 'por' then POR
+      when 'ron' then RON
+      when 'rus' then RUS
+      when 'slk' then SLK
+      when 'slv' then SLV
+      when 'spa' then SPA
+      when 'swe' then SWE
+      when 'tur' then TUR
+      when 'tha' then THA
+      when 'fil' then FIL
+      when 'est' then EST
+      when 'lav' then LAV
+      when 'lit' then LIT
+      else
+        default_value
+      end
+    end
   end
 end

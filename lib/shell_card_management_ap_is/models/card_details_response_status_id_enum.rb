@@ -79,5 +79,40 @@ module ShellCardManagementApIs
 
       CARD_DETAILS_RESPONSE_STATUS_ID_ENUM.include?(value)
     end
+
+    def self.from_value(value, default_value = ENUM_1)
+      return default_value if value.nil?
+
+      str = value.to_s.strip
+      if str.match?(/\A\d+\z/)
+        num = str.to_i
+        return num if CARD_DETAILS_RESPONSE_STATUS_ID_ENUM.include?(num)
+
+        return default_value
+      end
+
+      case str.downcase
+      when 'enum_1' then ENUM_1
+      when 'enum_7' then ENUM_7
+      when 'enum_8' then ENUM_8
+      when 'enum_9' then ENUM_9
+      when 'enum_10' then ENUM_10
+      when 'enum_23' then ENUM_23
+      when 'enum_31' then ENUM_31
+      when 'enum_41' then ENUM_41
+      when 'enum_42' then ENUM_42
+      when 'enum_43' then ENUM_43
+      when 'enum_101' then ENUM_101
+      when 'enum_102' then ENUM_102
+      when 'enum_103' then ENUM_103
+      when 'enum_104' then ENUM_104
+      when 'enum_105' then ENUM_105
+      when 'enum_106' then ENUM_106
+      when 'enum_107' then ENUM_107
+      when 'enum_108' then ENUM_108
+      else
+        default_value
+      end
+    end
   end
 end

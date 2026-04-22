@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `request_id` | `String` | Optional | Unique request identifier passed from end user. This identifier helps in tracing a transaction |
 | `status` | `String` | Optional | Unique request identifier passed from end user. This identifier helps in tracing a transaction |
-| `data` | [`Array<SummaryResponse>`](../../doc/models/summary-response.md) | Optional | - |
+| `data` | [`Array[SummaryResponse]`](../../doc/models/summary-response.md) | Optional | - |
 
 ## Example (as JSON)
 

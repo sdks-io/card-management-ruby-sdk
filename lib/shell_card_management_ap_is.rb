@@ -168,7 +168,6 @@ require_relative 'shell_card_management_ap_is/models/' \
                  'search_card_restriction_req1'
 require_relative 'shell_card_management_ap_is/models/' \
                  'search_card_restriction_req'
-require_relative 'shell_card_management_ap_is/models/search_card_restriction'
 require_relative 'shell_card_management_ap_is/models/' \
                  'search_card_restriction_res1'
 require_relative 'shell_card_management_ap_is/models/' \
@@ -248,6 +247,8 @@ require_relative 'shell_card_management_ap_is/models/' \
 require_relative 'shell_card_management_ap_is/models/day_time_restrictions'
 require_relative 'shell_card_management_ap_is/models/datum'
 require_relative 'shell_card_management_ap_is/models/warning'
+require_relative 'shell_card_management_ap_is/models/cart_type_account'
+require_relative 'shell_card_management_ap_is/models/search_card_restriction'
 require_relative 'shell_card_management_ap_is/models/o_auth_token'
 require_relative 'shell_card_management_ap_is/models/' \
                  'card_detail_auto_renew_enum'

@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `request_id` | `String` | Optional | Unique request identifier passed from end user. This identifier helps in tracing a transaction |
 | `status` | `String` | Optional | Indicates overall status of the request. Allowed values: SUCCES, FAILED, PARTIAL_SUCCESS |
-| `errors` | [`Array<ErrorDetails>`](../../doc/models/error-details.md) | Optional | - |
+| `errors` | [`Array[ErrorDetails]`](../../doc/models/error-details.md) | Optional | - |
 
 ## Example (as JSON)
 

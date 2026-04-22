@@ -343,9 +343,11 @@ module ShellCardManagementApIs
     # @return [String]
     attr_accessor :client_reference_id
 
-    # This is the Client Reference Id of card in the order which needs to be
-    # passed by the client.This will be playback in the ordercard enquiry<br />
-    # Optional
+    # Whether to reissue card automatically when nearing the expiry. 
+    # Allowed values: -
+    # 1.    As per card type setting (Default).
+    # 2.    Card will be Reissued when nearing its expiry date.
+    # 3.    Card will not be Reissued.
     # @return [CardDetailAutoRenewEnum]
     attr_accessor :auto_renew
 

@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| environment | `Environment` | The API environment. <br> **Default: `Environment.SIT`** |
+| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.SIT`** |
 | connection | `Faraday::Connection` | The Faraday connection object passed by the SDK user for making requests |
 | adapter | `Faraday::Adapter` | The Faraday adapter object passed by the SDK user for performing http requests |
 | timeout | `Float` | The value to use for connection timeout. <br> **Default: 60** |
@@ -20,6 +20,8 @@ The following parameters are configurable for the API Client:
 
 The API client can be initialized as follows:
 
+## Code-Based Client Initialization
+
 ```ruby
 require 'shell_card_management_ap_is'
 include ShellCardManagementApIs
@@ -32,6 +34,18 @@ client = Client.new(
   environment: Environment::SIT
 )
 ```
+
+## Environment-Based Client Initialization
+
+```ruby
+require 'shell_card_management_ap_is'
+include ShellCardManagementApIs
+
+# Create client from environment
+client = Client.from_env
+```
+
+See the [`Environment-Based Client Initialization`](../doc/environment-based-client-initialization.md) section for details.
 
 ## Shell Card Management APIs Client
 

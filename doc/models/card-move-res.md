@@ -12,7 +12,7 @@
 | `request_id` | `String` | Optional | API Request ID |
 | `main_reference` | `Integer` | Optional | Move-Card reference number for tracking the execution of the request. |
 | `status` | `String` | Optional | API Request Overall status |
-| `data` | [`Array<SubmittedMoveCard>`](../../doc/models/submitted-move-card.md) | Optional | - |
+| `data` | [`Array[SubmittedMoveCard]`](../../doc/models/submitted-move-card.md) | Optional | - |
 
 ## Example (as JSON)
 

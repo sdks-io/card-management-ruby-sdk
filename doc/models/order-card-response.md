@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `request_id` | `String` | Optional | Unique request identifier passed from end user. This identifier helps in tracing a transaction |
 | `status` | `String` | Optional | Indicates overall status of the request. Allowed values: SUCCESS, FAILED |
-| `data` | [`Array<CreateCardResponse>`](../../doc/models/create-card-response.md) | Optional | - |
+| `data` | [`Array[CreateCardResponse]`](../../doc/models/create-card-response.md) | Optional | - |
 | `main_reference` | `Integer` | Optional | Main order reference number for tracking. |
 
 ## Example (as JSON)
